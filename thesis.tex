@@ -7,6 +7,8 @@
 \usepackage[section]{placeins}
 \usepackage{graphicx, subfigure}
 \usepackage{color}
+% \usepackage{setspace}
+% \doublespacing
 
 \newcommand{\article}{article}
 \newcommand{\oxford}{1}
@@ -36,19 +38,27 @@ blah
 
 \keywords{blah}
 
-\section{Introduction}
+\section*{Introduction}
 \label{Introduction}
 
 \input{introduction}
 
-\section{Method}
-\label{sec:Method}
+\section*{Chapter 1}
+\label{sec:chapter1}
 
-\subsection{Results and discussion}
-\label{sec:discussion}
+\section*{Chapter 2}
+\label{sec:chapter2}
 
-\section{Conclusions}
-\label{sec:conclusions}
+\section*{Chapter 3}
+\label{sec:chapter3}
+
+\section*{Chapter 4}
+\label{sec:chapter4}
+
+\input{GP_chapter}
+
+\section*{Conclusion}
+\label{sec:conclusion}
 
 The data presented in this paper were obtained from the Mikulski Archive for
 Space Telescopes (MAST).
@@ -62,5 +72,12 @@ directorate.
 
 % \bibliographystyle{plainnat}
 % \bibliography{thesis}
+
+\begin{thebibliography}{99}
+\bibitem[Jenkins et al.(2015)]{jenkins}
+Jenkins, J.~M., Twicken, J.~D., Batalha, N.~M., et al.\ 2015, \aj, 150, 56
+\bibitem[Lanza et al.(2014)]{lanza}
+Lanza, A.~F., Das Chagas, M.~L., \& De Medeiros, J.~R.\ 2014, \aap, 564, A50
+\end{thebibliography}
 
 \end{document}

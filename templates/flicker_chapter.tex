@@ -1,49 +1,3 @@
-%\documentclass[12pt,preprint]{aastex}
-\documentclass[apjl]{emulateapj}
-
-\pdfoutput=1
-
-\usepackage{comment}
-\usepackage{ifthen}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{multirow}
-\usepackage{wasysym}
-\usepackage{subfigure}
-\usepackage{epsfig}
-\usepackage{color}
-\definecolor{linkcolor}{rgb}{0,0,0.5}
-\usepackage[%
-	colorlinks=true,	% false: boxed links; true: colored links
-	pdfpagelabels=true,
-	hypertexnames=true,
-	plainpages=false,
-	naturalnames=true,
-%	bookmarks=true,         % show bookmarks bar?
-%	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-%	pdftoolbar=true,        % show Acrobat’s toolbar?
-%	pdfmenubar=true,        % show Acrobat’s menu?
-%	pdffitwindow=false,     % window fit to page when opened
-%	pdfstartview={FitH},    % fits the width of the page to the window
-	pdftitle={Priors for Orbital Eccentricity},    % title
-	pdfauthor={David M. Kipping},     % author
-%	pdfsubject={Subject},   % subject of the document
-%	pdfcreator={Creator},   % creator of the document
-%	pdfproducer={Producer}, % producer of the document
-%	pdfkeywords={keyword1} {key2} {key3}, % list of keywords
-%	pdfnewwindow=true,      % links in new window
-	urlcolor=linkcolor,     % color of external links
-	linkcolor=linkcolor,    % color of internal links (change box color with linkbordercolor)
-	citecolor=linkcolor,    % color of links to bibliography
-	filecolor=linkcolor,    % color of file links
-        ]{hyperref}
-%
-
-% #############################################################################
-% Specific latex definitions for this paper
-
-\newcommand{\logg}{$\log g$}
 \newcommand{\rhostar}{$\rho_{\star}$}
 \newcommand{\Teff}{$T_{\mathrm{eff}}$}
 \newcommand{\FeH}{[Fe/H]}
@@ -53,53 +7,37 @@
 
 %% VARIABLE DEFINITIONS
 %%
-\newboolean{emulateapj}
-\setboolean{emulateapj}{true}
+% \newboolean{emulateapj}
+% \setboolean{emulateapj}{true}
 
-\newboolean{astroph}
-\setboolean{astroph}{true}
+% \newboolean{astroph}
+% \setboolean{astroph}{true}
 
-\newboolean{png}
-\setboolean{png}{false}
+% \newboolean{png}
+% \setboolean{png}{false}
 
-\newboolean{color}
-\setboolean{color}{true}
+% \newboolean{color}
+% \setboolean{color}{true}
 
 %% ############################################################################
 
-\shortauthors{Angus \& Kipping}
-\shorttitle{Probabilistic Inference of Stellar Parameters}
-\ifthenelse{\boolean{emulateapj}}{
-    \newcommand{\titledag}{$\dagger$}
-}{
-    \newcommand{\titledag}{\dagger}
-}
-\def\mathbi#1{\textbf{\em #1}}
-
-\begin{document}
+% \shortauthors{Angus \& Kipping}
+% \shorttitle{Probabilistic Inference of Stellar Parameters}
+% \ifthenelse{\boolean{emulateapj}}{
+%     \newcommand{\titledag}{$\dagger$}
+% }{
+%     \newcommand{\titledag}{\dagger}
+% }
+% \def\mathbi#1{\textbf{\em #1}}
 
 %% Titlepage
 \title {Probabilistic Inference of Basic Stellar Parameters:\\
 Application to Flickering Stars %to Surface Gravity and Mean Density
 \altaffilmark{\titledag}}
 
-%% Authors
-\author{
-	{\bf	Ruth~Angus\altaffilmark{1},
-		David.~M.~Kipping\altaffilmark{2},
-	}
-}
-
-\altaffiltext{1}{Dept. of Physics, University of Oxford, UK; email:
-		 ruth.angus@astro.ox.ac.uk}
-
-\altaffiltext{2}{Department of Astronomy, Columbia University, 550 W 120th St.,
-                 New York, NY 10027, US}
-
-\altaffiltext{$\dagger$}{
-%%
-Based on archival data of the \Kepler\ telescope.
-}
+% \altaffiltext{$\dagger$}{
+% Based on archival data of the \Kepler\ telescope.
+% }
 
 
 %% EOF authors
@@ -131,15 +69,6 @@ equally valid for dwarf and giant stars, despite the fact that the
 observational uncertainties tend to be larger for dwarfs.
 
 \end{abstract}
-
-% #####################################################################
-%% keywords
-\keywords{
-%%
-	stars: fundamental parameters --- techniques: photometric ---
-        methods: statistical
-%%
-}
 
 %% EOF keywords
 %% EOF titlepage
@@ -288,11 +217,11 @@ for reasons described there-in, we only include targets in our calibration for
 which:
 
 \begin{itemize}
-\item[{\tiny$\blacksquare$}] Range (defined in \citealt{bastien:2013})
+\item Range (defined in \citealt{bastien:2013})
 $<1000$\,ppm
-\item[{\tiny$\blacksquare$}] $4500<T_{\mathrm{eff}}<6500$\,K
-\item[{\tiny$\blacksquare$}] $K_P<14$
-\item[{\tiny$\blacksquare$}] $1.2 < \log_{10}$($F_8$\,[ppm])$< 2.2$
+\item $4500<T_{\mathrm{eff}}<6500$\,K
+\item $K_P<14$
+\item $1.2 < \log_{10}$($F_8$\,[ppm])$< 2.2$
 \end{itemize}
 
 We use the same sample for our calibration of \logg, except that we exclude the
@@ -483,7 +412,7 @@ representative of the intrinsic scatter in the relations.
 %%% rhostar plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{flicker_vs_rho.pdf}
+\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_rho.pdf}
 % \includegraphics[width=8.4cm,angle=0,clip=true]{../figs/rho_vs_flicker.pdf}
 % \includegraphics[width=8.4cm,angle=0,clip=true]{new_rho.pdf}
 \caption{
@@ -501,7 +430,7 @@ additional scatter.}
 %%% logg plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{flicker_vs_logg.pdf}
+\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
 % \includegraphics[width=8.4cm,angle=0,clip=true]{../figs/logg_vs_flicker.pdf}
 % \includegraphics[width=8.4cm,angle=0,clip=true]{new_logg.pdf}
 \caption{
@@ -609,69 +538,52 @@ stellar densities or surface gravities which reflects both the uncertainties
 on the flicker measurement, the uncertainties on the model parameters {\it and}
 the intrinsic scatter in the flicker-\rhostar-\logg\ relations.
 
-% #####################################################################
-%% Acknowledgements
-\acknowledgements
-\section*{Acknowledgements}
-
-RA would like to thank Dan Foreman-Mackey for his extremely helpful suggestions
-and comments, Angie Wolfgang for her expert guidance and John Johnson for hit
-fantastic advice and support.
-RA would also like to thank the SAMSI institute and the other members of the
-SAMSI {\it Kepler} exoplanet statistics working groups.
-
-%% EOF Acknowledgements
 
 % #####################################################################
-%% Bibliography
-\begin{thebibliography}{99}
-\bibitem[\protect\citeauthoryear{Andrieu \& Roberts}{2009}]{andrieu:2009}
-Andrieu, C., \& Roberts, G.~O., Ann. Statist., 2, 695
-\bibitem[\protect\citeauthoryear{Angus et al.}{2015}]{angus:2015}
-Angusr, R., Aigrain, S., Foreman-Mackey, D. \& McQuillan, A., 2015, MNRAS,
-450, 1787
-\bibitem[\protect\citeauthoryear{Bastien et al.}{2013}]{bastien:2013} Bastien,
-F. A., Stassun, K. G., Basri, G. \& Pepper, J., 2013, Nature, 500, 427
-\bibitem[\protect\citeauthoryear{Chaplin et al.}{2014}]{chaplin:2014}
-Chaplin, W.~J., Basu, S., Huber, D. et al., 2014, ApJS, 210, 1
-\bibitem[\protect\citeauthoryear{Cranmer et al.}{2014}]{cranmer:2014}
-Cranmer, S. R., Bastien, F. A., Stassun, K. G. \& Saar, S. H., 2014, ApJ, 781,
-124
-\bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2014}]
-{foreman-mackey:2014} Foreman-Mackey, D., Hogg, D.~W. \& Morton, T.~D., 2014,
-ApJ, 795, 64
-\bibitem[Foreman-Mackey et al.(2013)]{foreman-mackey:2013}
-Foreman-Mackey, D., Hogg, D.~W., Lang, D., \& Goodman, J.\ 2013, \pasp, 125, 306
-\bibitem[\protect\citeauthoryear{Fox}{1997}]{fox:1997}
-Fox, J., 1997, Applied Regression Analysis, Linear Models, and Related Methods
-(Thousand Oaks:Sage Publications, Inc.)
-\bibitem[\protect\citeauthoryear{Fuller}{1987}]{fuller:1987}
-Fuller, W.~A., 1987, Wiley Series in Probability and Mathematical Statistics
-\bibitem[\protect\citeauthoryear{Hogg et al.}{2010}]{hogg:2010}
-Hogg, D.~W., Myers, A.~D. \& Bovy, J., 2010, ApJ, 725,
-2166
-\bibitem[\protect\citeauthoryear{Hogg et al.}{2010b}]{hogg:2010b}
-Hogg, D.~W., Bovy, J. \& Lang, D., 2010
-\bibitem[\protect\citeauthoryear{Huber et al.}{2013}]{huber:2013}
-Huber, D., Chaplin, W.~J., Christensen-Dalsgaard, J. et al., 2013, ApJ, 767,
-127
-\bibitem[\protect\citeauthoryear{Kelly}{2007}]{kelly:2007} Kelly, B.~C., 2007,
-ApJ, 665, 1489
-\bibitem[\protect\citeauthoryear{Kipping et al.}{2014}]{kipping:2014}
-Kipping, D.~M., Bastien, F.~A., Stassun, K.~G., Chaplin, W.~J., Huber, D. \&
-Buchhave, L.~A., 2014, ApJ, 785, 32
-\bibitem[\protect\citeauthoryear{Rogers}{2015}]{rogers:2015}
-Rogers, L.~A., 2015, ApJ, 801, 41
-\bibitem[\protect\citeauthoryear{Seager \& Mall\'{e}n-Ornelas}{2003}]
-{seager:2003}Seager, S., \& Mall\'{e}n-Ornelas, G., 2003, ApJ, 585, 1038
-\bibitem[VanderPlas(2014)]{vanderplas}
-VanderPlas, J.\ 2014, arXiv:1411.5018
-\bibitem[\protect\citeauthoryear{Wolfgang et al.}{2015}]{wolfgang:2015}
-Wolfgang, A., Rogers, L.~A., Ford, E.~B., 2015, ApJ, submitted
-(astro-ph:1504.07557)
-\end{thebibliography}
-
-\end{document}
-
-%% EOF document
-
+% %% Bibliography
+% \begin{thebibliography}{99}
+% \bibitem[\protect\citeauthoryear{Andrieu \& Roberts}{2009}]{andrieu:2009}
+% Andrieu, C., \& Roberts, G.~O., Ann. Statist., 2, 695
+% \bibitem[\protect\citeauthoryear{Angus et al.}{2015}]{angus:2015}
+% Angusr, R., Aigrain, S., Foreman-Mackey, D. \& McQuillan, A., 2015, MNRAS,
+% 450, 1787
+% \bibitem[\protect\citeauthoryear{Bastien et al.}{2013}]{bastien:2013} Bastien,
+% F. A., Stassun, K. G., Basri, G. \& Pepper, J., 2013, Nature, 500, 427
+% \bibitem[\protect\citeauthoryear{Chaplin et al.}{2014}]{chaplin:2014}
+% Chaplin, W.~J., Basu, S., Huber, D. et al., 2014, ApJS, 210, 1
+% \bibitem[\protect\citeauthoryear{Cranmer et al.}{2014}]{cranmer:2014}
+% Cranmer, S. R., Bastien, F. A., Stassun, K. G. \& Saar, S. H., 2014, ApJ, 781,
+% 124
+% \bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2014}]
+% {foreman-mackey:2014} Foreman-Mackey, D., Hogg, D.~W. \& Morton, T.~D., 2014,
+% ApJ, 795, 64
+% \bibitem[Foreman-Mackey et al.(2013)]{foreman-mackey:2013}
+% Foreman-Mackey, D., Hogg, D.~W., Lang, D., \& Goodman, J.\ 2013, \pasp, 125, 306
+% \bibitem[\protect\citeauthoryear{Fox}{1997}]{fox:1997}
+% Fox, J., 1997, Applied Regression Analysis, Linear Models, and Related Methods
+% (Thousand Oaks:Sage Publications, Inc.)
+% \bibitem[\protect\citeauthoryear{Fuller}{1987}]{fuller:1987}
+% Fuller, W.~A., 1987, Wiley Series in Probability and Mathematical Statistics
+% \bibitem[\protect\citeauthoryear{Hogg et al.}{2010}]{hogg:2010}
+% Hogg, D.~W., Myers, A.~D. \& Bovy, J., 2010, ApJ, 725,
+% 2166
+% \bibitem[\protect\citeauthoryear{Hogg et al.}{2010b}]{hogg:2010b}
+% Hogg, D.~W., Bovy, J. \& Lang, D., 2010
+% \bibitem[\protect\citeauthoryear{Huber et al.}{2013}]{huber:2013}
+% Huber, D., Chaplin, W.~J., Christensen-Dalsgaard, J. et al., 2013, ApJ, 767,
+% 127
+% \bibitem[\protect\citeauthoryear{Kelly}{2007}]{kelly:2007} Kelly, B.~C., 2007,
+% ApJ, 665, 1489
+% \bibitem[\protect\citeauthoryear{Kipping et al.}{2014}]{kipping:2014}
+% Kipping, D.~M., Bastien, F.~A., Stassun, K.~G., Chaplin, W.~J., Huber, D. \&
+% Buchhave, L.~A., 2014, ApJ, 785, 32
+% \bibitem[\protect\citeauthoryear{Rogers}{2015}]{rogers:2015}
+% Rogers, L.~A., 2015, ApJ, 801, 41
+% \bibitem[\protect\citeauthoryear{Seager \& Mall\'{e}n-Ornelas}{2003}]
+% {seager:2003}Seager, S., \& Mall\'{e}n-Ornelas, G., 2003, ApJ, 585, 1038
+% \bibitem[VanderPlas(2014)]{vanderplas}
+% VanderPlas, J.\ 2014, arXiv:1411.5018
+% \bibitem[\protect\citeauthoryear{Wolfgang et al.}{2015}]{wolfgang:2015}
+% Wolfgang, A., Rogers, L.~A., Ford, E.~B., 2015, ApJ, submitted
+% (astro-ph:1504.07557)
+% \end{thebibliography}

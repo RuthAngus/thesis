@@ -3,7 +3,7 @@ BASH        = bash -c
 ECHO        = echo
 RM          = rm -rf
 TMP_SUFFS   = pdf aux bbl blg log dvi ps eps out
-CHECK_RERUN = grep Rerun $*.log
+# CHECK_RERUN = grep Rerun $*.log
 
 NAME = thesis
 

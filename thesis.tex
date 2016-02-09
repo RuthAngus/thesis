@@ -1,14 +1,13 @@
-\documentclass[useAMS, usenatbib, preprint, 12pt]{aastex}
+% \documentclass[useAMS, usenatbib, preprint, 12pt]{aastex}
+\documentclass[useAMS, usenatbib, preprint, 12pt]{mitthesis}
 \usepackage{cite, natbib}
 % \documentclass[onecolumn, 12pt, usenatbib, preprint]{emulateapj}
 \usepackage{float}
 \usepackage{epsfig}
-\usepackage{cases}
+\usepackage{amsmath}
 \usepackage[section]{placeins}
 \usepackage{graphicx, subfigure}
 \usepackage{color}
-% \usepackage{setspace}
-% \doublespacing
 
 \newcommand{\article}{article}
 \newcommand{\oxford}{1}
@@ -16,16 +15,19 @@
 \newcommand{\sagan}{3}
 \newcommand{\ktwo}{{\it K2}}
 \newcommand{\kepler}{{\it Kepler}}
+\newcommand{\Kepler}{{\it Kepler}}
+% \newcommand{\Nnoisy}{500}
+% \newcommand{\Nnoisefree}{500}
 
 \begin{document}
 
 \title{Stellar ages and stellar rotation}
 
-\author{%
-   Ruth Angus\altaffilmark{\oxford}}
+% \author{%
+   % Ruth Angus\altaffilmark{\oxford}}
 
-\altaffiltext{\oxford}{Subdepartment of Astrophysics, University of Oxford,
-OX1 3RH, UK}
+% \altaffiltext{\oxford}{Subdepartment of Astrophysics, University of Oxford,
+% OX1 3RH, UK}
 
 \begin{abstract}
 
@@ -36,7 +38,7 @@ blah
 
 \end{abstract}
 
-\keywords{blah}
+% \keywords{blah}
 
 \section*{Introduction}
 \label{Introduction}
@@ -45,6 +47,8 @@ blah
 
 \section*{Chapter 1}
 \label{sec:chapter1}
+
+\input{gyro_chapter}
 
 \section*{Chapter 2}
 \label{sec:chapter2}
@@ -74,10 +78,14 @@ directorate.
 % \bibliography{thesis}
 
 \begin{thebibliography}{99}
+\bibitem[Aigrain et al.(2015)]{aigrain15}
+Aigrain, S., Llama, J., Ceillier, T., et al.\ 2015, \mnras, 450, 3211
 \bibitem[Jenkins et al.(2015)]{jenkins}
 Jenkins, J.~M., Twicken, J.~D., Batalha, N.~M., et al.\ 2015, \aj, 150, 56
 \bibitem[Lanza et al.(2014)]{lanza}
 Lanza, A.~F., Das Chagas, M.~L., \& De Medeiros, J.~R.\ 2014, \aap, 564, A50
+\bibitem[McQuillan et al.(2013)]{mcquillan13}
+McQuillan, A., Aigrain, S., \& Mazeh, T.\ 2013, \mnras, 432, 1203
 \end{thebibliography}
 
 \end{document}

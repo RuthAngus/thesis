@@ -1,0 +1,323 @@
+\chapter{Introduction}
+\section{A little motivation}
+
+The desire to infer precise and accurate stellar ages is motivated by a range
+of scientific drivers, but the one that most sparks my personal interest is
+the implications for understanding the evolution of exoplanetary systems.
+Despite the rapidly accelerating interest in exoplanet population studies
+\citep[e.g.][]{petigura, dressing, foreman-mackey, burke}, we still know very
+little about how planetary systems {\it evolve}.
+This is because stellar ages are difficult to infer.
+{\bf I propose to develop a new dating method that will provide the most
+precise and accurate stellar ages ever measured for hundreds of thousands of
+stars, in order to study the evolution of exoplanetary systems.}
+
+Planetary system architectures are not static in time: chaotic gravitational
+interactions fling planets into interstellar space, plunge them into the
+surface of their star, collide them together and excite them to highly
+eccentric and inclined orbits.
+Simulations show that planet losses are most common in the few millions of
+years immediately after formation and continue at a gradually decreasing rate
+\citep[e.g.][]{zhou, smith, funk, Pu2015}.
+Planet-planet scattering on extended timescales will result in a {\it
+detectable}\/decrease in exoplanet frequency with stellar host age in the
+enormous sample of over five thousand planets discovered by the \Kepler\
+spacecraft, as well as the complementary systems detected by the \Ktwo\ and
+\TESS\ transit surveys, if their ages can be sufficiently constrained
+\citep{veras}.
+As I explain in this thesis, my research has advanced our understanding of the
+stellar age-rotation, or `gyrochronology' relations \citep{angus}, which will
+contribute to our ability to infer stellar ages with unprecedented precision
+and, for the first time, search for variations in the architecture and
+frequency of exoplanets as a function of host star age.
+
+Studying the exoplanet population as a function of age will unveil the
+processes behind planet formation and dynamical evolution---two extremely
+active areas of research.
+By evaluating planet occurrence rates over a range of stellar ages it will be
+possible to examine the dependence of overall occurrence on age and constrain
+the rate of exoplanet loss.
+Once the loss-rate is known we can extrapolate back in time to reveal what
+zero-age planetary systems look like.
+By measuring the overall exoplanet loss-rate we can constrain the primordial
+number of planets per star.
+
+Stellar ages also provide a window into the {\it architectural}\/evolution of
+planetary systems.
+The exoplanet population shows a mysterious feature: half of all transiting
+exoplanet systems have just one transiting planet and the other half have
+multiple \citep[e.g.][]{lissauer, johansen, ballard}.
+Additionally, the single planet systems, or `singles', are more often
+misaligned with the spin-axis of their host star and have more eccentric
+orbits than multiple planet systems, `multis' \citep[e.g.][]{morton, winn}.
+This phenomenon is known as the `\Kepler\ dichotomy', and its origin is
+a point of hot dispute: do two modes of formation create the distinct system
+architecture?
+\citet{Pu2015} propose an elegant solution: the singles are descended from the
+multis, i.e.\ they are the remains of once ordered planetary systems, ripped
+apart by chaotic gravitational interactions.
+If this is the case, the singles may, on average, be older than the multis.
+Most compact \Kepler\ multis are so tightly packed that they hover near the
+stability limit \citep{fang}.
+As the lifetime of a planetary system increases, so does its disruption
+probability, therefore tightly-packed multis have shorter projected lifetimes
+than loosely-packed systems.
+By comparing the ages of tightly packed multis with the ages of loosely-packed
+multis and the ages of singles it may be possible to reveal the dynamical
+origins of the three groups.
+
+The dominant mechanism for hot Jupiter migration is hotly debated and it is
+unclear whether disc migration or orbital perturbation via gravitational
+interaction is responsible for the majority of cases.
+Distant stellar or planetary companions can excite planets onto orbits that
+alternate between high eccentricities and high inclinations (known as
+Kozai-Lidov, KL, oscillations).
+Extremely small separations between the planet and host at periapsis during
+the resulting periods of high eccentricity induce tidal forces that lead to
+eventual orbital circularisation.
+The timescales for excitation, followed by tidal circularisation are long,
+therefore hot Jupiters produced via KL oscillations should be relatively old
+\citep{petrovich}.
+By inferring the ages of hot Jupiter hosts in may be possible to study the
+frequency of KL oscillation-induced migration.
+
+Exoplanet population studies are just one area of research that benefits from
+stellar ages.
+Another popular topic is galactic archaeology: the study of the formation
+history of the Milky Way.
+
+\section{The challenge of stellar age inference}
+
+Ages are notoriously difficult to infer because stars vary little in brightness
+or temperature during their hydrogen-burning lifetimes and fitting stellar
+evolution models to these two observables usually produces age estimates with
+uncertainties in the order of 50-150\%.
+Fortunately, recently obtained asteroseismic ages and cluster star
+observations will allow me, via a new hierarchical, probabilistic model,
+to obtain an age measurement for every star observed by the \kepler,
+\Ktwo\ and \TESS\ missions.
+
+Because cool stars spin down predictably over their main sequence lifetime
+due to magnetic braking, their ages depend, to first order, only on
+their masses and current rotation periods \citep[e.g.][]{skumanich, kawaler,
+barnes}, as shown in figure \ref{fig:gyro}.
+Photometric measurements of these two parameters can therefore be used to
+infer an age.
+This is the unique selling point of gyrochronology---ages can be inferred from
+photometry alone.
+Earlier this year I used \Kepler\ asteroseismic field stars to calibrate
+the gyrochronology relations at late ages, revealing a surprising result: the
+old targets rotated more rapidly than expected \citep{angus}.
+This finding provoked the response of \citet{vansaders} who attribute this
+behaviour to an evolving magnetic dynamo.
+Their result is important as it informs us over which range of stellar ages
+the gyrochronology method delivers precise results.
+Gyrochronology performs best for stars that are Solar-mass or below and/or
+those that are younger than the Sun.
+These criteria are met by most of the \Kepler\ stars: the age distribution
+peaks at around 2 Gyr and the mass distribution is centered on Solar-mass
+\citep{walk, mcquillan2014}.
+For many of these stars gyrochronology can yield stellar ages with 20\%
+precision \citep{epstein} and as demostrated by \citet{veras},
+a time-resolution of 20\% is more than sufficient to detect variations in the
+exoplanet occurrence rate over time.
+
+Determining the detectability of trends in the ages of \Kepler\ systems is
+challenging as the outcomes of simulations depend strongly on input
+assumptions and different studies therefore produce different predictions
+\citep[see figure 3 of][]{Pu2015}.
+However, based on the \citet{smith} simulations of systems with three
+Earth-mass planets, \citet{veras} demonstrate that a decrease in planet
+occurrence rate will be detectable for K dwarf hosts, even if stellar age
+uncertainties are as large as 5 Gyr, and for G dwarfs with age uncertainties of
+3.5 Gyr.
+Most systems do not consist of equal-mass planets, however their study
+demonstrates that an age trend lies well within the realms of detectability.
+Age precision will vary on a star-by-star basis, most likely ranging from
+0.5-5 Gyr, however I expect to infer ages with uncertainties of $\sim$1 Gyr
+for the majority of planet hosts and, thanks to the size of the Kepler planet
+candidate sample, this will be more than sufficient to reveal trends in the
+data.
+
+\section{Stellar dating methods}
+
+The hydrogen-burning era of a star's life is extremely stable.
+This fact is unfortunate from a stellar chronologist's point of view: without
+an observable property that is a strong function of age, stellar age precision
+will always be limited.
+This is the fundamental stopping-point for stellar age inference: age
+precision is limited by the fundamental evolutionary time-scale of stars.
+Despite this limitation however, there is still progress to be made in
+understanding the evolution of the observable properties from both empirical
+and theoretical standpoints, and in the precision with which we can measure
+these properties.
+In the following section I will describe some of the available dating methods,
+their observational inputs and their limitations.
+
+\subsection{Isochrone fitting}
+As stars burn hydrogen they become hotter and more luminous and slowly move
+towards the top right of the Hertzprung-Russel, or Colour-Magnitude Diagram
+(CMD).
+The variation in luminosity and temperature over time has been modelled by
+several teams of astronomers, producing their own sets of model grids.
+For example, the Dartmouth \citep{dotter}, Yonsei-Yale \citep{spada} models
+are two of the most commonly used sets of models.
+It is therefore possible to estimate the age of a MS star by fitting such
+models to its luminosity and effective temperature or its colour and V-band
+magnitude.
+A limitation of this method however, is that the composition of the star in
+question will affect its placement on the CMD and must therefore be known
+precisely to yield a precise age.
+This is often impossible since expensive, high-precision spectroscopy is
+required to obtain the metallicity, helium abundance and alpha-element
+fraction of a star.
+However, for an ensemble of coeval stars with identical compositions this
+process becomes much easier: not only are there more opportunities to measure
+stellar compositions, providing a $\sqrt N$ reduction in measurement
+uncertainty, a group stars with the same age and composition but different
+masses will reveal the shape of the best-fitting isochrone on the CMD\@.
+This reduces the need for knowing composition precisely in the first place.
+For these reasons, many open stellar clusters have very precise ages.
+
+% For example Pleiades (0.55 Gyr), Hyades (0.625 Gyr), Praesepe (0.588 Gyr), and
+% Coma Berenices (0.5 Gyr).
+% Download isochrones and estimate the ages of some KOIs.
+
+\subsection*{Asteroseismology}
+
+Asteroseismology is a powerful dating method with the potential to yield
+extremely precise stellar ages.
+However, the era of asteroseismology has only just arrived and this fledgling
+field is still only applicable to a small number of extremely bright stars
+observed by precise photometric space-missions.
+
+Oscillations in the Sun are caused by turbulent convection near the surface.
+The movement of ionized gas stochastically excites the Sun's spherical
+oscillation modes.
+An analogy to this process is that of a bell in a room filled with air.
+Air particles colliding with the surface of the bell cause it to vibrate at
+all of its spherical harmonic frequencies.
+There is no coherent driving force, rather the stochastic collisions of air
+particles induce a continual ringing.
+Similarly, the Sun is continually oscillating at a range of discrete
+frequencies; those that correspond to its spherical harmonics.
+A power spectrum of the Sun, taken from \citet{brown} is shown in figure
+~\ref{solar_spectrum}.
+The comb-like, evenly spaced peaks in this power spectrum show Solar p-mode
+oscillations.
+The peak amplitudes are modulated by a Gaussian envelope.
+The mean of that Gaussian, $\nu_{max}$ corresponds to a frequency of around
+3000 \uHz, a period of around five minutes.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/solar_spectrum.pdf}
+\caption{A power spectrum of one month of disk-integrated Solar photometry,
+taken from \citet{toutain}. Solar p-modes are clearly visible in this figure.}
+\label{fig:solar_spectrum}
+\end{center}
+\end{figure}
+
+Many properties of the Sun have been measured using asteroseismic pulsations.
+For example, the variation in radial pressure, the rate of differential
+rotation, the depth and fraction of helium in its convective zone and even the
+structure of active regions below the Solar surface.
+The Sun is an exquisite example of a pulsating star, having tens of millions
+of detectable modes and mode lifetimes that are several thousand times longer
+than the periods of the oscillations.
+Its proximity, which both provides enormous signal-to-noise and allows us to
+resolve the surface, make it a paragon of seismology.
+
+Three types of oscillations are detectable in the Sun: pressure, or p-modes,
+surface, s-modes and gravity, g-modes.
+Pressure provides the restoring force for p-mode oscillations, and these are
+effectively sound waves.
+Surface modes are, as the name suggests, waves on the surface of the star.
+% Since it is only possible to detect s-mode waves if the stellar surface is
+% resolvable, this type of wave has only been seen in our Sun.
+G-modes are excited by buoyant gas in the radiative zone and the restoring
+force is gravity, hence the name.
+These waves rapidly evanesce in stellar convective zones and therefore
+appear at very low amplitudes at the surface of Sun-like stars.
+For the work in this thesis I am concerned only with p-mode observations, as
+these waves reveal the internal structure of a star which varies as a function
+of mass, radius and age.
+
+The frequency of a p-mode wave is proportional to the sound-speed of the gas
+along its path through the stellar interior.
+Time-dependent spatial perturbations to a star's equilibrium state can be
+written as a product of a term that depends on stellar radius and a spherical
+harmonic (assuming that a star can be approximated as a sphere) as follows
+\citep{brown},
+\begin{equation}
+    \xi_{nlm}(r, \theta, \phi, t) = \xi_{nl}(r)Y_l^m(\theta, \
+    \phi)e^{-i\omega_{nlm}t}.
+\end{equation}
+$\xi$ is a spatial perturbation, associated with a mode, $r, \theta, \phi,
+\omega$ and $t$ are the radial coordinate, colatitude, longitude angular
+frequency\footnote{The convention in asteroseismology is to report circular
+frequencies, $\nu_{nlm} = \omega_{nlm}/2$.} and time, respectively.
+$n$ is the radial order, defined as the number of nodes between the star's
+centre and surface and $l$ is the angular degree, the product of the stellar
+radius and the total horizontal wavenumber of the mode.
+For example, a star oscillating with an $l = 10$ mode will have a standing
+wave with 10 nodes along a line around the equator.
+Finally, $m$ is the azimuthal order; the projection of $l$ onto the horizontal
+wavenumber of mode and must be less than or equal to $l$.
+A star with an $m = 5$ mode will have a standing wave with 5 nodes along a
+line connecting its poles.
+The dependence of $\omega$ on $n$ and $l$ is complicated and depends on the
+structure of the star.
+There is no simple harmonic relation between the frequencies of modes with
+adjacent mode number \citep{brown}.
+% check this!
+However, in the limit where $n \gg l$, mode frequency can be approximated as
+\begin{equation}
+    \nu_{nl} = \Delta\nu_0\left(n + \frac{l}{2} + \epsilon \right) - \
+    \frac{AL^2 - \eta}{(n + l/2 + \eta)},
+\end{equation}
+where parameters $\Delta\nu_0$, $A$, $\epsilon$ and $\eta$ depend on the
+structure of the star and $L^2 = l(l+1)$.
+$\Delta\nu_0$ is the `large frequency separation' which, together with the
+peak frequency of the Gaussian envelope that modulates the amplitudes of the
+oscillation modes, $\nu_{max}$, makes up the two fundamental asteroseismic
+observables.
+It is related to the sound travel time through the centre of the star:
+\begin{equation}
+\Delta\nu_0 = \left(2\int_0^{R_\star}\frac{dr}{c}\right)^{-1},
+\end{equation}
+where $c$ is the local sound speed and $R_\star$ is the stellar radius.
+This travel time is related to the mean density of the star via,
+\begin{equation}
+\Delta\nu_0 \cong 135\left(\frac{M_\star}{R_\star^3}\right)^{1/2}\mu Hz,
+\end{equation}
+where $M_\star$ and $R_\star$ are the stellar mass and radius in Solar units
+\citep{cox, brown}.
+
+Today, p-modes have been detected in hundreds of Sun-like stars, however it
+was not until 1998 that the first conclusive detection was made in a star
+other than our Sun.
+Asteroseismic pulsations are usually detected in two different ways: by
+searching for the subtle change in luminosity caused by the temperature
+fluctuations of the stellar surface, or by measuring the changing radial
+velocity of the surface.
+A Fourier transform of these time series will reveal the presence of
+oscillation modes, allowing for the modelling of the star's interior
+structure.
+
+This branch of astronomy is still relatively young and, given the quantity of
+up-and-coming photometric space missions, will continue to provide precise
+stellar parameters for decades to come.
+
+\subsection*{Age-activity and age-rotation relations}
+
+\section*{Other age diagnostics}
+
+\subsection*{Lithium depletion}
+Lithium depletion is useful age diagnostic for young stars.
+
+\subsection*{Proper motion}
+
+\section*{Stellar rotation}
+
+\section*{Statistics and hierarchical Bayes}

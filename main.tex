@@ -39,6 +39,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage{url}
 \pagestyle{plain}
 
 %% This bit allows you to either specify only the files which you wish to
@@ -50,6 +51,32 @@ process all files:}
 \def\all{all}
 \ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
 
+\newcommand{\Kepler}{{\it Kepler}}
+\newcommand{\kepler}{\Kepler}
+\newcommand{\Ktwo}{{\it K2}}
+\newcommand{\ktwo}{\Ktwo}
+\newcommand{\TESS}{{\it TESS}}
+\newcommand{\article}{article}
+\newcommand{\nGO}{4923}
+\newcommand{\uHz}{$\mu$Hz}
+\newcommand{\oxford}{1}
+\newcommand{\nyu}{2}
+\newcommand{\cfa}{3}
+\newcommand{\sydney}{4}
+\newcommand{\seti}{5}
+\newcommand{\aarhus}{6}
+\newcommand{\nC}{21,000}
+\newcommand{\rpc}{201133037}
+\newcommand{\rpcc}{201142043}
+\newcommand{\Ninjections}{4000}
+\newcommand{\minamp}{1}
+\newcommand{\maxamp}{100}
+\newcommand{\rhostar}{$\rho_{\star}$}
+\newcommand{\Teff}{$T_{\mathrm{eff}}$}
+\newcommand{\FeH}{[Fe/H]}
+\newcommand{\Nnoisy}{500}
+\newcommand{\Nnoisefree}{500}
+
 \begin{document}
 
 \include{cover}
@@ -59,13 +86,15 @@ process all files:}
 % \include{signature}
 \pagestyle{plain}
 \include{contents}
+\include{intro}
 \include{gyro_chapter}
 \include{sip_chapter}
 \include{flicker_chapter}
 \include{GP_chapter}
+\include{conclusion}
 \appendix
 \include{appa}
 \include{appb}
-\include{biblio}
+% \include{biblio}
 \end{document}
 

@@ -1,0 +1,62 @@
+\chapter{Conclusions}
+
+information, so these will be used too) and will be tested on binary stars.
+In addition to the basic input catalogues available for the transit survey
+stars, I will gather information from every other available source.
+Light curves themselves are rich in age information, for example, even where
+a rotation period cannot be measured, the {\it absence} of discernable
+variability is indicative of old-age.
+I will use the method of \citet{bastien} to measure short-timescale brightness
+fluctuations (known as flicker) which are correlated with surface gravity.
+I will also use new distance and proper motion information from GAIA as soon as
+the data become available (expected in early 2017).
+To obtain accurate gyrochronological ages, reliable rotation periods must be
+inferred---this is another challenge which has prohibited the exploration of
+time-dependent exoplanet populations thus far.
+Standard methods for rotation period inference such as autocorrelation
+functions (ACFs) and sine-fitting periodograms are not optimal for noisy light
+curves with low-amplitude signals, are not probabilistic, do not provide
+realistic uncertainties and are performed on `detrended' \Kepler\ light curves
+with significantly reduced power at periods of 30 days and above.
+My new technique for measuring probabilistic rotation periods using Gaussian
+processes (GPs) can extract rotation periods from low-amplitude signals that
+are buried in noisy data, can be applied directly to unprocessed light curves
+and measures more precise and accuration rotation periods than ACF and
+periodogram methods \citep{AngusIAU}, see figure \ref{fig:rotation}.
+I will use this method to compute a probabilistic constraint on the rotation
+periods of {\it all} transit survey stars.
+
+This new dating method will be probabilistic---hierarchical Bayesian inference
+will be performed in order to `learn' an informative age prior from the data
+themselves; a prior that will reflect the most probable age of a star, given
+the age distribution of other stars observed.
+
+There are several advantages to this dating model.
+Firstly, combining all the information will provide more precise and accurate
+ages than any one method used on its own, and, by definition, these ages will
+be less dependent upon one single model.
+Secondly, it will provide an age constraint for every star observed by
+a photometric survey since {\it some} age information is always available.
+Thirdly, it will be directly compatible with my probabilistic, GP rotation
+period measurement method and finally, it will be easily updated as new data
+become available.
+By modelling stellar ages using all available information and combining
+multiple dating techniques, my hierarchical, Bayesian dating method with
+informative priors {\bf will provide the most precise and accurate ages ever
+inferred for every star observed by \Kepler, \Ktwo\ and \TESS}.
+
+This project is highly ambitious and will have enormous impact if successful,
+however even if there is no detectable age-trend in the \Kepler\ data it will
+lead to other discoveries and useful products for the astronomical
+community.
+Firstly, a rotation period and age for every \Kepler, \Ktwo\ and \TESS\ star
+will be beneficial to both exoplaneteers and galactic archaeologists alike,
+\citep[e.g.][]{bovy}.
+Secondly, stellar rotation periods can reveal potential star-planet
+interactions in which a planet transfers angular momentum to its host---I
+intend to unambiguously confirm this phenomenon.
+Finally, this work will pave the way for exoplanet-age studies with PLATO.
+Launching in 2025, this space telescope will provide highly precise
+asteroseismic ages for thousands of stars, revolutionising the field of
+stellar ages.
+

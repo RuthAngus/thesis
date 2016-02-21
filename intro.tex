@@ -183,7 +183,7 @@ For these reasons, many open stellar clusters have very precise ages.
 % Coma Berenices (0.5 Gyr).
 % Download isochrones and estimate the ages of some KOIs.
 
-\subsection*{Asteroseismology}
+\subsection{Asteroseismology}
 
 Asteroseismology is a powerful dating method with the potential to yield
 extremely precise stellar ages.
@@ -266,8 +266,25 @@ Finally, $m$ is the azimuthal order; the projection of $l$ onto the horizontal
 wavenumber of mode and must be less than or equal to $l$.
 A star with an $m = 5$ mode will have a standing wave with 5 nodes along a
 line connecting its poles.
-The dependence of $\omega$ on $n$ and $l$ is complicated and depends on the
+The relation between $\omega$ and $n$ and $l$ is complicated and depends on the
 structure of the star.
+Oscillations with different values of $l$ penetrate to different depths in the
+star.
+$l = 0$ waves travel through the centre and waves with increasing $l$ skirt
+the central region by a larger and larger distance.
+For this reason, modes with different $l$ provide information about the sound
+speed gradient in the stellar interior.
+The `small frequency separation', $\delta_{n,l} = \nu_{n+1, l} - \nu_{n, l+2}$
+is often used to parameterise the variation in frequency with stellar radius
+via \citep{brown}
+\begin{equation}
+    \delta_{n,l} = \Delta\nu_0\frac{(l + 1)}{2\pi^2\nu_{nl}}\int_0^{R_\star}
+    \frac{dc}{dr}\frac{dr}{r}.
+\end{equation}
+Since nuclear-burning material in the core changes its molecular weight as the
+star evolves, the sound-speed gradient is time-dependent and the small
+separation therefore contains information about the age of the star.
+
 There is no simple harmonic relation between the frequencies of modes with
 adjacent mode number \citep{brown}.
 % check this!
@@ -295,8 +312,11 @@ where $M_\star$ and $R_\star$ are the stellar mass and radius in Solar units
 \citep{cox, brown}.
 
 Today, p-modes have been detected in hundreds of Sun-like stars, however it
-was not until 1998 that the first conclusive detection was made in a star
-other than our Sun.
+was not until the late 1990s that the first conclusive detection was made in
+a star other than our Sun.
+The reason for this is simply that p-mode perturbations are extremely
+small---these changes are around 10 cms$^{-1}$ in velocity and 3$\mu$mag in
+brightness for typical oscillation modes in the Sun \citep{brown2000}.
 Asteroseismic pulsations are usually detected in two different ways: by
 searching for the subtle change in luminosity caused by the temperature
 fluctuations of the stellar surface, or by measuring the changing radial
@@ -304,20 +324,43 @@ velocity of the surface.
 A Fourier transform of these time series will reveal the presence of
 oscillation modes, allowing for the modelling of the star's interior
 structure.
+The earliest p-modes detections were made using radial velocity data
+\citep{kjeldsen2001} for stars $\eta$ {\bf Boo} \citep{kjeldsen1995}, {\bf
+Procyon} \citep{barban1999, martic1999}, $\zeta$ {\bf Herculis}
+\citep{martic2001}, $\alpha$ {\bf Cen A} \citep{kjeldsen1999} and $\beta$ {\bf
+Hyi} \citep{bedding2001}.
+Today, we have the advantage of space-based missions \kepler and \corot whose
+photometric precision provides sufficient signal-to-noise to detect
+p-mode-induced luminosity variations.
+These missions have provided fundamental parameters for hundreds of
+oscillating giants, subgiants and Sun-like stars \citep[e.g.][]{michel2008,
+bruntt2009, chaplin2014}.
+
+% Extracting fundamental parameters from time series.
+\subsubsection{Fundamental parameters from photometric time series}
 
 This branch of astronomy is still relatively young and, given the quantity of
 up-and-coming photometric space missions, will continue to provide precise
 stellar parameters for decades to come.
+However, accurate and precise asteroseismic ages demand high-precision
+photometry of bright (brighter than around 12th magnitude) stars.
+Even with \kepler and \corot, this only amounts to around one hundred MS
+stars.
+It is therefore essential that alternative dating methods, which can be
+applicable to a much larger sample of stars are developed.
+Age-rotation relations, for example.
 
-\subsection*{Age-activity and age-rotation relations}
+\subsection{Age-activity and age-rotation relations}
 
-\section*{Other age diagnostics}
 
-\subsection*{Lithium depletion}
+
+\section{Other age diagnostics}
+
+\subsection{Lithium depletion}
 Lithium depletion is useful age diagnostic for young stars.
 
-\subsection*{Proper motion}
+\subsection{Proper motion}
 
-\section*{Stellar rotation}
+\section{Stellar rotation}
 
-\section*{Statistics and hierarchical Bayes}
+\section{Statistics and hierarchical Bayes}

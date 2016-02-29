@@ -155,23 +155,52 @@ a Gaussian process model with a QP covariance kernel function.}
 \end{center}
 \end{figure}
 
-\section{Simulations}
+\section{Application}
 
 In order to infer a rotation period from a light curve, we attempted to
 measure rotation periods of three sets of light curves: simulated noise-free,
 simulated noisy and real light curves.
 
-We simulated realistic light curves using a simplified version of the code
-used by \citet{aigrain15}.
+We used light curves simulated for the \citet{aigrain15} `hare and hounds'
+rotation period recovery experiment.
+The light curves were simulated by placing dark, circular spots, whose size
+slowly evolves, on the surface of rotating stars.
+\citep{aigrain15} simulated one thousand light curves in order to test the
+ability of participating teams to recover both the stellar rotation periods
+and the rotational shear: the amplitude of surface differential rotation.
+We are not interested in recovering differential rotation and so only use
+light curves simulated {\it without} differential rotation, of which there are
+330.
+We opt to use the solid-body rotators because differential rotation may
+produce some additional scatter in the rotation period measurements we recover
+that has a physical origin, rather than being the result of a flawed method.
+The ranges and distributions of the physical stellar parameters used in the
+simulated light curves are tabulated below in table
+\ref{tab:simulation_parameters}.
 
-We simulated \Nnoisefree noise-free light curves with rotation periods between
-... and ... days.
-These simulated light curves were then injected into the light curves of
-quiet \Kepler stars in order to attempt to recover signals from light curves
-with \Kepler-like systematics.
-Ideally, we would inject simulated light curves into the pixel-level data,
-then apply the same detrending techniques to the data before attempting to
-measure rotation periods for these stars.
+\begin{table*}
+\begin{center}
+\caption{Ranges and distributions of parameters used to simulate light curves
+in \citet{aigrain15}}
+\begin{tabular}{lcc}
+\hline\hline
+    Parameter & Range & Distribution \\
+    \hline
+    Rotation period, $P_{rot}$ & 10 - 50 days (90\%) & log uniform \\
+    & 1 - 10 days (10\%) & log uniform \\
+    Activity cycle length & 1 - 10 years & log uniform \\
+    Inclination & 0 - 90$^\circ$ & Uniform in $\sin^2i$ \\
+    Decay timescale & (1 - 10) $\times P_{rot}$ & log uniform \\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+\label{tab:simulation_parameters}
+
+Ideally, simulated light curves would be injected into the pixel-level data,
+then the same detrending method that is applied to the \kepler light curves
+would be applied to these simulations before attempting to measure rotation
+periods for these stars.
 However, since this work is designed to be more of a demonstration of the
 efficacy of the GP periodogram, rather than the development of a \Kepler data
 specific method, this is beyond the scope of our demonstrations.

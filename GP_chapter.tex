@@ -204,29 +204,45 @@ periods for these stars.
 However, since this work is designed to be more of a demonstration of the
 efficacy of the GP periodogram, rather than the development of a \Kepler data
 specific method, this is beyond the scope of our demonstrations.
-
 \begin{figure}
 \begin{center}
-\includegraphics[width=6in, clip=true]{figures/noise-free_lc.pdf}
+% \includegraphics[width=6in, clip=true]{figures/noise-free_lc.pdf}
+\includegraphics[width=6in, clip=true]{figures/thesis_plot.pdf}
 \caption{An example simulated light curve. This `star' has a rotation period
-of ... days.}
+of 23.64 days.}
 \label{fig:noise-free_lc}
 \end{center}
 \end{figure}
+Figure \ref{fig:noise-free_lc} shows an example of a simulated light curve
+with a period of 23.64 days.
 
-Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free
-light curve with a period of ... days.
+We attempted to recover the rotation periods of these 330 light curves, both
+with and without noise, (\ie before {\it and} after being injected into
+\kepler light curves) using three rotation period recovery methods: the ACF
+method, the sine-fitting periodogram method and the GP method.
 
 \section{Rotation period recovery}
 
-In order to estimate an initial guess for the rotation period we calculated an
-ACF for each light curve using the method of \citet{mcquillan13}.
+\subsection{ACF}
+
+We calculated an ACF for each light curve using the method of
+\citet{mcquillan13}.
 A rotation period is estimated from the ACF as the lag-time of the first peak,
-unless the second peak is larger in which case that lag-time is interpreted as
-the true period.
-The second peak in an ACF can be larger than the first if there are two
-active regions at opposite longitudes on the surface of the star.
-This would produce a light curve with two dips per rotation period.
+unless the second peak is larger in which case {\it that} lag-time is
+interpreted as the true period.
+The second peak in an ACF can be larger than the first if there are two active
+regions at opposite longitudes on the surface of the star---this would produce
+a light curve with two dips per rotation period.
+An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
+in figure~\ref{fig:ACF_example}.
+
+\subsection{The sine-fitting periodogram method}
+
+For each light curve, a Lomb-Scargle periodogram was computed over the range
+0.5 - 200 days, with.
+
+\subsection{The GP method}
+
 Using the ACF period as an initial guess, we then subsample the light curves
 and split them into \kepler quarters in order to reduce computation time.
 The subsampling reduces computation time simply by contracting the data
@@ -256,10 +272,3 @@ However, since there are seventeen quarters this would lead to thirty-seven
 parameters, and in the interest of minimising computation time (adding
 parameters leads to longer MCMC burn in and convergence time), we choose to
 use global parameters only.
-
-BENCHMARK
-
-Example light curve figure.
-Example ACF.
-Example GP fit.
-Corner plot.

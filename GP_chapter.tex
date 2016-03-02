@@ -247,8 +247,18 @@ Using the ACF period as an initial guess, we then subsample the light curves
 and split them into \kepler quarters in order to reduce computation time.
 The subsampling reduces computation time simply by contracting the data
 set---the HODLR solver scales as $N \log ^2 (N)$.
+
+\subsection{\kepler data}
+\kepler data provides an interesting practical problem.
+The same unique precision and short integration times that make \kepler
+data such an unprecedented scientific gold mine also renders it extremely
+difficult to work with.
+\kepler data is big data and extracting the maximum amount of information
+from it requires either large numbers of CPU hours, or using work-arounds.
+One feature of the \kepler data that works in our favour is that it is
+naturally broken up into smaller time units by quarterly breaks.
 Splitting the data set into quarters, rather than modelling the entire time
-series contiguously also speeds up the computation time as inverting several
+series contiguously speeds up the computation time as inverting several
 small matrices is faster than inverting one large one.
 The \kepler quarter divisions are natural places to split the time series
 because the spacecraft rotates by ninety degrees every quarter (three months),
@@ -260,7 +270,6 @@ Additionally, changes in the spacecraft's orientation and position during
 quarterly re-pointings temporarily affect the temperature of the CCD,
 producing systematic features in the light curves at the start of some
 quarters.
-
 We model each quarter separately, however the parameters of the GP kernel
 function are global, {\it i.e.} we do not use a separate period parameter for
 each quarter---there is just one period parameter for an entire light curve.
@@ -272,3 +281,53 @@ However, since there are seventeen quarters this would lead to thirty-seven
 parameters, and in the interest of minimising computation time (adding
 parameters leads to longer MCMC burn in and convergence time), we choose to
 use global parameters only.
+
+\subsection{\LSST data}
+The Large Synoptic Survey Satellite (LSST) is a 8.4 metre telescope with a 9.6
+square degree field of view in Cerro Pach\'{o}n, Chile, currently under
+construction.
+It is designed to observe 18,000 square degrees in the southern sky (south of
++10 degrees, declination) in six Sloan Digital Sky Survey (\SDSS) filters:
+ugrizy.
+During its main mode of operation (90\% of the time), \LSST\ will perform two
+fifteen second exposures per visit, with one thousand visits per night and
+will have a faint limit of around 24.5 in r-band.
+For the remaining 10\% of the time, \LSST\ will focus on a small number of
+`deep drilling fields'.
+These fields are yet to be determined but could be, for example, the Large and
+Small Magellanic Clouds, the galactic plane, and so on.
+These fields will receive targeted, repeat observations of, for instance 200
+observations over a 40-hour period after which the faint limit could be
+extended to around 28 apparent magnitudes (CITE THE WEBSITE?).
+This faint limit will be extended for fields with co-added exposures.
+First light is currently scheduled for 2021.
+Data release one of eleven is expected to contain eighteen billion objects.
+
+\LSST\ will provide rotation periods for a new stellar regime.
+Since \kepler\ targeted Earth-like planet host, a large fraction of its targets
+were G stars, with fewer K and M dwarfs.
+Since the collecting area of \LSST\ is so large, it will be sensitive to a
+large number of faint stars, including many K and M dwarfs.
+Since it is not a space mission and its lifetime does not depend on the
+reliability of moving parts or fuel, unlike the \kepler\ mission, \LSST\ will
+run for 10 years.
+This will open up an opportunity to detect rotation signatures in faint,
+slowly rotating stars, allowing us to populate both the low-mass and old parts
+of the age-rotation parameter space.
+In many ways \LSST\ is \kepler's antithesis: \kepler data is dense and evenly
+spaced, whereas \LSST\ light curves will have sparse, irregular cadence.
+Depending on its location on the sky, a given target will have between ... and
+... data points spread over 10 years, spaced from 3 days to 30 days apart.
+The disadvantage of this is that there will be a rotation period lower limit.
+The advantage of using sparse data however, is that CPU time is vastly
+reduced!
+
+I simulated \LSST data...
+
+Since \LSST observations are not evenly spaced, it is not trivial to compute
+an autocorrelation function.
+(LOOK UP COLLIER-CAMERON AND MAZEH)
+One could interpolate the light curve onto an evenly spaced grid and then
+compute the ACF, but this would introduce a large amount of uncertainty.
+Instead of using an ACF to initialise our MCMC we therefore use the
+Lomb-Scargle periodogram.

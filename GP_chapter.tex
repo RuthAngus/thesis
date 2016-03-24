@@ -161,6 +161,55 @@ In order to infer a rotation period from a light curve, we attempted to
 measure rotation periods of three sets of light curves: simulated noise-free,
 simulated noisy and real light curves.
 
+\section{Rotation period recovery (noise-free)}
+
+\subsection{ACF}
+
+We calculated an ACF for each light curve using the method of
+\citet{mcquillan13}.
+A rotation period is estimated from the ACF as the lag-time of the first peak,
+unless the second peak is larger in which case {\it that} lag-time is
+interpreted as the true period.
+The reason for this is that the second peak in an ACF can be larger than the
+first if there are two active regions at or near opposite longitudes on the
+surface of the star---this would produce a light curve with two dips per
+rotation period.
+By extension, if three active longitudes existed at 60$^\circ$, one third of
+the true rotation period would be measured, and so on.
+An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
+in figure~\ref{fig:ACF_example}.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/noise-free_acf.pdf}
+\caption{The autocorrelation function of the simulated, noise-free light
+curves depicted in figure \ref{fig:noise-free_lc}.}
+\end{center}
+\end{figure*}
+\label{fig:compare_noise_free}
+
+\subsection{The sine-fitting periodogram method}
+
+For each light curve, a Lomb-Scargle periodogram was computed over the range
+0.5 - 200 days, with.
+
+\subsection{The GP method}
+
+Using the ACF period as an initial guess, we then subsample the light curves
+and split them into \kepler quarters in order to reduce computation time.
+The subsampling reduces computation time simply by contracting the data
+set---the HODLR solver scales as $N \log ^2 (N)$.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/compare2.pdf}
+\caption{Measured vs true rotation period for 300 simulated light curves.}
+\end{center}
+\end{figure*}
+\label{fig:compare_noise_free}
+
+\section{Rotation period recovery (with noise)}
+
 We used light curves simulated for the \citet{aigrain15} `hare and hounds'
 rotation period recovery experiment.
 The light curves were simulated by placing dark, circular spots, whose size
@@ -208,45 +257,18 @@ specific method, this is beyond the scope of our demonstrations.
 \begin{center}
 % \includegraphics[width=6in, clip=true]{figures/noise-free_lc.pdf}
 \includegraphics[width=6in, clip=true]{figures/thesis_plot.pdf}
-\caption{An example simulated light curve. This `star' has a rotation period
-of 23.64 days.}
+\caption{An example simulated, noise-free light curve. This `star' has a
+rotation period of 17.4 days.}
 \label{fig:noise-free_lc}
 \end{center}
 \end{figure}
 Figure \ref{fig:noise-free_lc} shows an example of a simulated light curve
-with a period of 23.64 days.
+with a period of 17.4 days.
 
 We attempted to recover the rotation periods of these 330 light curves, both
 with and without noise, (\ie before {\it and} after being injected into
 \kepler light curves) using three rotation period recovery methods: the ACF
 method, the sine-fitting periodogram method and the GP method.
-
-\section{Rotation period recovery}
-
-\subsection{ACF}
-
-We calculated an ACF for each light curve using the method of
-\citet{mcquillan13}.
-A rotation period is estimated from the ACF as the lag-time of the first peak,
-unless the second peak is larger in which case {\it that} lag-time is
-interpreted as the true period.
-The second peak in an ACF can be larger than the first if there are two active
-regions at opposite longitudes on the surface of the star---this would produce
-a light curve with two dips per rotation period.
-An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
-in figure~\ref{fig:ACF_example}.
-
-\subsection{The sine-fitting periodogram method}
-
-For each light curve, a Lomb-Scargle periodogram was computed over the range
-0.5 - 200 days, with.
-
-\subsection{The GP method}
-
-Using the ACF period as an initial guess, we then subsample the light curves
-and split them into \kepler quarters in order to reduce computation time.
-The subsampling reduces computation time simply by contracting the data
-set---the HODLR solver scales as $N \log ^2 (N)$.
 
 \subsection{\kepler data}
 \kepler data provides an interesting practical problem.
@@ -281,54 +303,3 @@ However, since there are seventeen quarters this would lead to thirty-seven
 parameters, and in the interest of minimising computation time (adding
 parameters leads to longer MCMC burn in and convergence time), we choose to
 use global parameters only.
-
-\subsection{\LSST data}
-The Large Synoptic Survey Satellite (LSST) is a 8.4 metre telescope with a 9.6
-square degree field of view in Cerro Pach\'{o}n, Chile, currently under
-construction.
-It is designed to observe 18,000 square degrees in the southern sky (south of
-+10 degrees, declination) in six Sloan Digital Sky Survey (\SDSS) filters:
-ugrizy.
-During its main mode of operation (90\% of the time), \LSST\ will perform two
-fifteen second exposures per visit, with one thousand visits per night and
-will have a faint limit of around 24.5 in r-band.
-For the remaining 10\% of the time, \LSST\ will focus on a small number of
-`deep drilling fields'.
-These fields are yet to be determined but could be, for example, the Large and
-Small Magellanic Clouds, the galactic plane, and so on.
-These fields will receive targeted, repeat observations of, for instance 200
-observations over a 40-hour period after which the faint limit could be
-extended to around 28 apparent magnitudes (CITE THE WEBSITE?).
-This faint limit will be extended for fields with co-added exposures.
-First light is currently scheduled for 2021.
-Data release one of eleven is expected to contain eighteen billion objects.
-
-\LSST\ will provide rotation periods for a new stellar regime.
-Because \kepler\ targeted Earth-like planet hosts, the majority of its
-targets were G stars, with fewer K and M dwarfs.
-Since the collecting area of \LSST\ is so large it will be sensitive to a
-large number of faint stars, including many K and M dwarfs.
-Since it is not a space mission and its lifetime does not depend on the
-reliability of moving parts or fuel, \LSST\ will run for 10 years---more than
-double the length of the \kepler prime mission.
-This will open up an opportunity to detect rotation signatures in faint,
-slowly rotating stars, allowing us to populate both the low-mass and old parts
-of the age-rotation parameter space.
-In many ways \LSST\ is \kepler's antithesis: \kepler data is dense and evenly
-spaced, whereas \LSST\ light curves will have sparse, irregular cadence.
-Depending on its location on the sky, a given target will have between ... and
-... data points spread over 10 years, spaced from 3 days to 30 days apart.
-The disadvantage of this is that there will be a rotation period lower limit.
-The advantage of using sparse data however, is that CPU time is vastly
-reduced!
-
-I simulated \LSST data...
-
-Since \LSST observations are not evenly spaced, it is not trivial to compute
-an autocorrelation function.
-(LOOK UP COLLIER-CAMERON AND MAZEH)
-One could interpolate the light curve onto an evenly spaced grid and then
-compute the ACF, but this would introduce a large amount of uncertainty.
-Instead of using an ACF to initialise our MCMC we therefore use the
-Lomb-Scargle periodogram.
-

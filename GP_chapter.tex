@@ -167,15 +167,17 @@ simulated noisy and real light curves.
 
 We calculated an ACF for each light curve using the method of
 \citet{mcquillan13}.
-A rotation period is estimated from the ACF as the lag-time of the first peak,
+In this method, an ACF is calculated and smoothed with a Gaussian kernel for
+each light curve.
+A rotation period is estimated as the lag-time of the first peak in the ACF,
 unless the second peak is larger in which case {\it that} lag-time is
 interpreted as the true period.
-The reason for this is that the second peak in an ACF can be larger than the
-first if there are two active regions at or near opposite longitudes on the
-surface of the star---this would produce a light curve with two dips per
-rotation period.
-By extension, if three active longitudes existed at 60$^\circ$, one third of
-the true rotation period would be measured, and so on.
+The second peak in an ACF can be larger than the first if there are two active
+regions at or near opposite longitudes on the surface of the star---this would
+produce a light curve with two dips per rotation period.
+By extension, if three active longitudes existed at 60$^\circ$ separations on
+the stellar surface, one third of the true rotation period would be measured,
+and so on.
 An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
 in figure~\ref{fig:ACF_example}.
 
@@ -188,10 +190,82 @@ curves depicted in figure \ref{fig:noise-free_lc}.}
 \end{figure*}
 \label{fig:compare_noise_free}
 
+This method has proven to be extremely useful for measuring rotation periods.
+The catalogue of rotation periods of \Kepler stars provided in
+\citet{mcquillan2013} has been widely used by the community and has provided
+ground-breaking results for stellar and exoplanetary science.
+The results of the ACF method as tested in \citet{aigrain2015} were
+encouraging (see, for example their figure 8) as it produced a large number of
+accurate rotation period measurements.
+The ACF method is also conveniently fast to implement.
+The periods measured using the ACF method are plotted against the `true'
+rotation period values used to generate the simulated noise-free light curves
+in figure \ref{fig:acf_compare_noise-free}.
+73\% of the injected rotation periods were recovered with a value lying
+within 10\% of the truth and 83\% within 20\%.
+A noteworthy feature of this figure is that many of the points fall below the
+$x=x$ line, \ie the recovered rotation periods are a little shorter than the
+true periods.
+We believe this is caused by the peak position measurement performed on the
+ACF.
+ACFs of stellar light curves can be roughly described as a cosine function
+superimposed on top of a decaying exponential.
+In such a function the peak positions can be shifted towards the 'left', \ie
+the short period end, because the decaying exponential raises the left side of
+each peak more than the right.
+It is possible to model this effect, of course, however the standard practise
+is to simply measure the peak position without taking this effect into
+account.
+To demonstrate that this effect reproduces the underestimated periods seen in
+figure \ref{fig:compare_noise-free}, we generated 1000 ACFs by adding cosine
+and exponential functions with a range of periods, decay timescales and
+relative amplitudes.
+The measured position of the first peak was compared to the true position as
+demonstrated in figure \ref{fig:exp_sine_test}.
+The same underestimation of the peak position is demonstrated in this figure.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/exp_sine_test.pdf}
+\caption{Recovered peak position as a function of the `true' period used to
+generate simulated ACFs. In many cases the position is measured short-wards of
+the truth as also seen in figure \ref{fig:compare_noise_free}.}
+\end{center}
+\end{figure*}
+\label{fig:exp_sine_test}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/acf_compare_noise-free.pdf}
+\caption{Recovered rotation periods as a function of the `true' rotation
+period used to generate 330 simulated light curves.}
+\end{center}
+\end{figure*}
+\label{fig:compare_noise_free}
+
 \subsection{The sine-fitting periodogram method}
 
-For each light curve, a Lomb-Scargle periodogram was computed over the range
-0.5 - 200 days, with.
+For each simulated, noise-free light curve, a LS periodogram was computed for
+10,000 periods (spaced evenly in frequency) between 1 and 100 days.
+The period of the highest peak in the periodogram was adopted as the period.
+The resulting recovered rotation periods plotted as a function of the true
+periods are shown in figure \ref{fig:pgram_compare_noise-free}.
+These recovered rotation periods are, in general more accurate than the ACF
+results, they do not systematically over or under predict rotation period.
+The unsuccessful recoveries which happen preferentially for the shorter
+rotation periods are caused by fluctuations in the light curve produced by
+changes in the total spot coverage on the stellar surface.
+These fluctuations can be larger in magnitude than those produced by the
+rotational signal itself.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/pgram_compare_noise-free.pdf}
+\caption{Recovered rotation periods as a function of the `true' rotation
+period used to generate 330 simulated light curves.}
+\end{center}
+\end{figure*}
+\label{fig:compare_noise_free}
 
 \subsection{The GP method}
 

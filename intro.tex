@@ -1,5 +1,5 @@
-\section*{Introduction}
-\subsection*{A little motivation}
+\chapter{Introduction}
+\section{A little motivation}
 
 The desire to infer precise and accurate stellar ages is motivated by a range
 of scientific drivers, but the one that most sparks my personal interest is
@@ -8,39 +8,29 @@ Despite the rapidly accelerating interest in exoplanet population studies
 \citep[e.g.][]{petigura, dressing, foreman-mackey, burke}, we still know very
 little about how planetary systems {\it evolve}.
 This is because stellar ages are difficult to infer.
-{\bf I propose to develop a new dating method that will provide the most
-precise and accurate stellar ages ever measured for hundreds of thousands of
-stars, in order to study the evolution of exoplanetary systems.}
 
 Planetary system architectures are not static in time: chaotic gravitational
-interactions fling planets into interstellar space, plunge them into the
-surface of their star, collide them together and excite them to highly
-eccentric and inclined orbits.
-Simulations show that planet losses are most common in the few millions of
-years immediately after formation and continue at a gradually decreasing rate
-\citep[e.g.][]{zhou, smith, funk, Pu2015}.
-Planet-planet scattering on extended timescales will result in a {\it
-detectable}\/decrease in exoplanet frequency with stellar host age in the
-enormous sample of over five thousand planets discovered by the \Kepler\
-spacecraft, as well as the complementary systems detected by the \Ktwo\ and
-\TESS\ transit surveys, if their ages can be sufficiently constrained
-\citep{veras}.
-As I explain in this thesis, my research has advanced our understanding of the
-stellar age-rotation, or `gyrochronology' relations \citep{angus}, which will
-contribute to our ability to infer stellar ages with unprecedented precision
-and, for the first time, search for variations in the architecture and
-frequency of exoplanets as a function of host star age.
+interactions can fling planets into interstellar space, and plunge them into
+the surface of their star.
+If they cross orbits they can even collide and break apart or become excited
+them to highly eccentric and inclined orbits.
+Simulations of planetary systems often show that planet losses are most common
+in the few millions of years immediately after formation and continue at a
+gradually decreasing rate \citep[e.g.][]{zhou, smith, funk, Pu2015}.
+Planet-planet scattering on extended timescales may result in a decrease in
+exoplanet frequency with stellar host age in the enormous sample of over five
+thousand exoplanets discovered to date {\it if} their ages can be sufficiently
+constrained \citep{veras}.
 
 Studying the exoplanet population as a function of age will unveil the
 processes behind planet formation and dynamical evolution---two extremely
 active areas of research.
-By evaluating planet occurrence rates over a range of stellar ages it will be
+By evaluating planet occurrence rates over a range of stellar ages it may be
 possible to examine the dependence of overall occurrence on age and constrain
 the rate of exoplanet loss.
 Once the loss-rate is known we can extrapolate back in time to reveal what
-zero-age planetary systems look like.
-By measuring the overall exoplanet loss-rate we can constrain the primordial
-number of planets per star.
+zero-age planetary systems look like and possibly even to constrain the
+primordial number of planets per star.
 
 Stellar ages also provide a window into the {\it architectural}\/evolution of
 planetary systems.
@@ -66,62 +56,6 @@ By comparing the ages of tightly packed multis with the ages of loosely-packed
 multis and the ages of singles it may be possible to reveal the dynamical
 origins of the three groups.
 
-The dominant mechanism for hot Jupiter migration is hotly debated and it is
-unclear whether disc migration or orbital perturbation via gravitational
-interaction is responsible for the majority of cases.
-Distant stellar or planetary companions can excite planets onto orbits that
-alternate between high eccentricities and high inclinations (known as
-Kozai-Lidov, KL, oscillations).
-Extremely small separations between the planet and host at periapsis during
-the resulting periods of high eccentricity induce tidal forces that lead to
-eventual orbital circularisation.
-The timescales for excitation, followed by tidal circularisation are long,
-therefore hot Jupiters produced via KL oscillations should be relatively old
-\citep{petrovich}.
-By inferring the ages of hot Jupiter hosts in may be possible to study the
-frequency of KL oscillation-induced migration.
-
-Exoplanet population studies are just one area of research that benefits from
-stellar ages.
-Another popular topic is galactic archaeology: the study of the formation
-history of the Milky Way.
-
-\subsection*{The challenge of stellar age inference}
-
-Ages are notoriously difficult to infer because stars vary little in brightness
-or temperature during their hydrogen-burning lifetimes and fitting stellar
-evolution models to these two observables usually produces age estimates with
-uncertainties in the order of 50-150\%.
-Fortunately, recently obtained asteroseismic ages and cluster star
-observations will allow me, via a new hierarchical, probabilistic model,
-to obtain an age measurement for every star observed by the \kepler,
-\Ktwo\ and \TESS\ missions.
-
-Because cool stars spin down predictably over their main sequence lifetime
-due to magnetic braking, their ages depend, to first order, only on
-their masses and current rotation periods \citep[e.g.][]{skumanich, kawaler,
-barnes}, as shown in figure \ref{fig:gyro}.
-Photometric measurements of these two parameters can therefore be used to
-infer an age.
-This is the unique selling point of gyrochronology---ages can be inferred from
-photometry alone.
-Earlier this year I used \Kepler\ asteroseismic field stars to calibrate
-the gyrochronology relations at late ages, revealing a surprising result: the
-old targets rotated more rapidly than expected \citep{angus}.
-This finding provoked the response of \citet{vansaders} who attribute this
-behaviour to an evolving magnetic dynamo.
-Their result is important as it informs us over which range of stellar ages
-the gyrochronology method delivers precise results.
-Gyrochronology performs best for stars that are Solar-mass or below and/or
-those that are younger than the Sun.
-These criteria are met by most of the \Kepler\ stars: the age distribution
-peaks at around 2 Gyr and the mass distribution is centered on Solar-mass
-\citep{walk, mcquillan2014}.
-For many of these stars gyrochronology can yield stellar ages with 20\%
-precision \citep{epstein} and as demostrated by \citet{veras},
-a time-resolution of 20\% is more than sufficient to detect variations in the
-exoplanet occurrence rate over time.
-
 Determining the detectability of trends in the ages of \Kepler\ systems is
 challenging as the outcomes of simulations depend strongly on input
 assumptions and different studies therefore produce different predictions
@@ -135,42 +69,241 @@ Most systems do not consist of equal-mass planets, however their study
 demonstrates that an age trend lies well within the realms of detectability.
 Age precision will vary on a star-by-star basis, most likely ranging from
 0.5-5 Gyr, however I expect to infer ages with uncertainties of $\sim$1 Gyr
-for the majority of planet hosts and, thanks to the size of the Kepler planet
-candidate sample, this will be more than sufficient to reveal trends in the
-data.
+for the majority of planet hosts and, thanks to the size of the \Kepler\
+planet candidate sample, this will be more than sufficient to reveal trends in
+the data.
 
-\subsection*{Stellar dating methods}
+This is just one of the tantalising scientific discoveries looming on the
+horizon, if only we could improve our methods for inferring precise stellar
+ages.
+As I explain in this thesis, my research has advanced our understanding of the
+stellar age-rotation, or `gyrochronology' relations \citep{angus}, which has
+contributed to our ability as a community to infer stellar ages.
+This research may ultimately lead to a discovery of variation in the
+architecture and frequency of exoplanets as a function of host star age.
+
+% Earlier this year I used \Kepler\ asteroseismic field stars to calibrate
+% the gyrochronology relations at late ages, revealing a surprising result: the
+% old targets rotated more rapidly than expected \citep{angus}.
+% This finding provoked the response of \citet{vansaders} who attribute this
+% behaviour to an evolving magnetic dynamo.
+% Their result is important as it informs us over which range of stellar ages
+% the gyrochronology method delivers precise results.
+% Gyrochronology performs best for stars that are Solar-mass or below and/or
+% those that are younger than the Sun.
+% These criteria are met by most of the \Kepler\ stars: the age distribution
+% peaks at around 2 Gyr and the mass distribution is centered on Solar-mass
+% \citep{walk, mcquillan2014}.
+% For many of these stars gyrochronology can yield stellar ages with 20\%
+% precision \citep{epstein} and as demostrated by \citet{veras},
+% a time-resolution of 20\% is more than sufficient to detect variations in the
+% exoplanet occurrence rate over time.
+
+\section{Kepler}
+
+The \kepler\ spacecraft plays a starring role in this thesis, so I shall
+introduce it now.
+Launched in 2009, \kepler\ was designed to survey over a hundred-thousand
+stars, searching for extrasolar planets.
+Its ultimate goal was to answer the question "how common are Earth-like
+planets in our galaxy?".
+To date \kepler\ has discovered more than 5700 planet candidates and over 1000
+confirmed planets.
+These numbers are still growing at a breath-taking rate and planets are likely
+to continue being discovered data well after the \kepler\ funding has dried
+up, thanks both to the enormity of the data set and the continual improvement
+of planet search methods.
+\kepler\ produced high precision\footnote{Precision ranging from a few hundred
+parts per million for bright (< 13th magnitude) targets to tens of thousands
+of ppm for faint (> 17th magnitude) targets.} broad-band (peaking between V
+and R bands) light curves for around 150,000 stars.
+The majority of these stars were observed in long-cadence mode (once every
+half-hour), and a few hundred in short cadence mode (once every minute),
+continually for around four years.
+Since it was necessary for \kepler\ to point at one field continually, it is
+in a heliocentric orbit so that the Earth doesn't get in the way.
+The \kepler\ field is centred at $\mathrm{RA} = 19\mathrm{h} 22\mathrm{m}
+40\mathrm{s}$, $\mathrm{Dec} = +44^\circ30' 00'$, in the Cygnus region along
+the Orion arm of the galaxy.
+This field was chosen to be neither over nor under crowded, far enough out of
+the ecliptic that the Sun never shines onto the detector and contamination
+from Solar system objects is reduced.
+\kepler\ has a limited amount of on-board storage and must point towards the
+Earth to down-link data every month.
+These pointings break the time series.
+Other gaps appear at three month (quarter) intervals.
+The spacecraft rotates every quarter to keep its Solar panels pointed at the
+Sun.
+The stars shift to new CCD modules every time this happens, eventually
+returning to the same module after one year.
+Both the down-link pointings and quarter rotations produce short gaps in the
+light curves and can also produce short-term temperature changes to the CCD
+which can effect the sensitivity of the detector.
+Temperature changes increase the gain of the CCD chip: more electrons are
+excited when the CCD is warmer so the flux appears to increase.
+So despite the unprecedented precision of \kepler\ lightcurves, they are not
+uninterrupted and contain systematic features.
+Understanding the systematics in \kepler\ data is necessary for {\it all} of
+\kepler's science goals and is a key part of this thesis.
+This point is covered further in \textsection \ref{sec:detrending}.
+
+Unfortunately, that key question---"how common are Earth-like planets?"---may
+never be answered by \kepler \citep[or at least not very precisely, several
+inferences have been performed by extrapolation, \eg][]{Foreman-Mackey2014,
+Petigura2012, Burke2015}.
+Although \kepler launched with four functioning gyroscopic reaction wheels,
+one broke shortly thereafter.
+This was not a mission-ender since the spacecraft only needed three to
+maintain its precise pointing: one for pitch, one for roll and one for yaw.
+Unfortunately however a second, this time mission-critical reaction wheel
+broke in 2013.
+Without all three reaction wheels, precise pointing of the spacecraft was
+impossible to maintain in its current orientation.
+The extreme precision of \kepler\ comes from its extreme pointing position.
+With stars held fixed in place, moving by less than a pixel over a quarter,
+% FIXME: how much?
+even without knowing the exact Point Spread Function (PSF) and Pixel Response
+Function (PRF), it is possible to perform precise relative photometry.
+With it's pointing stability compromised, the community were asked for input
+for a repurposed \kepler\ mission \citep[some examples here][]{Hogg2013,
+Aigrain2013}.
+
+\kepler\ was re-purposed as the \ktwo\ mission in 2014.
+With just two reaction wheels controlling pitch and yaw, its third rotation
+axis had to be stabilised.
+This was achieved by balancing the spacecraft against Solar pressure, using
+its symmetric solar-panelled back.
+The spacecraft sits in an unstable equilibrium, drifting slowly about its roll
+axis, its new orientation reducing large forces from the Solar wind
+\citep{Howell2013}.
+The spacecraft's thrusters are used to correct the slow drift.
+Although the precision is not what it once was: stars drift across several
+pixels before the thrusters correct the motion, it is still good enough to
+perform plenty of science.
+In order to keep its back to the Sun, \kepler\ can only point at fields in the
+ecliptic plane.
+This means that new stellar populations can be explored: from different
+galactic regions, the bulge, thin and thick discs and halo, to open and
+globular clusters.
+Crucially, from the point of view of stellar astronomy, \kepler's new fields
+incorporate several open clusters.
+Open clusters are wonderful labs for stellar astronomy as they are coeval
+populations of stars made from the same material.
+They are controlled environments in which we can study the observational
+properties of stars as a function of their mass.
+Figure \ref{fig:current_fields} shows the current fields being observed by the
+spacecraft and figure \ref{fig:future_fields} shows the future fields being
+proposed.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/Current_K2_fields.pdf}
+\caption{\ktwo's fields. Fields 1-9 have already been observed and field 9 is
+being observed at the time this thesis is handed in. Targets have been fixed
+for purple fields and proposals are currently being solicited for yellow
+fields.}
+\label{fig:current_fields}
+\end{center}
+\end{figure}
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/Future_K2_fields.pdf}
+\caption{\ktwo's current and future fields. These green fields are those
+proposed if an extended \ktwo\ mission is funded.}
+\label{fig:future_fields}
+\end{center}
+\end{figure}
+
+Not only is the spacecraft continuing its search for exoplanets \citep[and has
+already discovered many, \eg][]{Vanderburg2015, Crossfield2015,
+Foreman-Mackey2015, Montet2015, Becker2015, Vanderburg2016}, it will
+provide time series of white dwarfs, active galactic nuclei, red giants, red
+dwarfs, binary stars and other interesting astronomical objects.
+Of course, with the reduced pointing position comes a new challenge for
+those astronomers willing to tote their data pick-axes to get at the science
+gold-mine.
+Systematic features in \ktwo\ light curves range from negliable for the
+brightest targets to dominant for the faintest.
+It is therefore necessary to do some digging to get at the good stuff.
+This subject is covered in \textsection{sec:detrending}
+
+\section{Stellar dating methods}
 
 The hydrogen-burning era of a star's life is extremely stable.
-This fact is unfortunate from a stellar chronologist's point of view: without
-an observable property that is a strong function of age, stellar age precision
-will always be limited.
-This is the fundamental stopping-point for stellar age inference: age
-precision is limited by the fundamental evolutionary time-scale of stars.
-Despite this limitation however, there is still progress to be made in
-understanding the evolution of the observable properties from both empirical
-and theoretical standpoints, and in the precision with which we can measure
-these properties.
-In the following section I will describe some of the available dating methods,
-their observational inputs and their limitations.
+This fact is unfortunate from a stellar chronologist's point of view as
+without an observable property that is a strong function of age, stellar age
+precision will always be limited.
+This is the stumbling-block for stellar age inference: age precision is
+restricted by the fundamental evolutionary time-scale of stars.
+Despite this limitation however, there is still plenty of room for progress to
+be made in understanding the evolution of the observable properties from both
+empirical and theoretical standpoints, and in the precision with which we can
+measure these properties.
 
-\subsubsection*{Isochrone fitting}
-As stars burn hydrogen they become hotter and more luminous and slowly move
-towards the top right of the Hertzprung-Russel, or Colour-Magnitude Diagram
-(CMD).
-The variation in luminosity and temperature over time has been modelled by
-several teams of astronomers, producing their own sets of model grids.
-For example, the Dartmouth \citep{dotter}, Yonsei-Yale \citep{spada} models
-are two of the most commonly used sets of models.
-It is therefore possible to estimate the age of a MS star by fitting such
-models to its luminosity and effective temperature or its colour and V-band
-magnitude.
-A limitation of this method however, is that the composition of the star in
-question will affect its placement on the CMD and must therefore be known
-precisely to yield a precise age.
-This is often impossible since expensive, high-precision spectroscopy is
-required to obtain the metallicity, helium abundance and alpha-element
-fraction of a star.
+Isochronal ages are notoriously difficult to infer because stars vary little
+in brightness or temperature during their hydrogen-burning lifetimes.
+Fitting stellar evolution models to these two observables usually produces age
+estimates with uncertainties in the order of 50-150\%.
+However, because cool stars spin down predictably over their main sequence
+lifetime due to magnetic braking, their ages depend, to first order, only on
+their masses and current rotation periods \citep[e.g.][]{skumanich, kawaler,
+barnes}.
+Photometric measurements of these two parameters can therefore be used to
+infer an age.
+The concept of `gyrochronology'---inferring an age from a rotation period---
+developed after observations of stars in clusters revealed a trend for
+decreasing rotation period with time.
+This method has never held so much promise as it does now, with a new glut of
+stellar rotation periods available from a new generation of spacecraft
+designed for high precision, high cadence photometry.
+The main science goal for these missions are searching for exoplanets, but the
+exoplanet gold-rush has lead to a new understanding of stars and what we can
+learn about them from the way their brightness varies alone.
+The desire to develop a method of dating stars using only photometry is an
+understandable one with the current availability of such large photometric
+data sets.
+However, as with any phenomenological investigation, inferences about the data
+can only be made with models.
+These models can be physical or empirical but whatever the origin of their
+design, they must be calibrated using observations.
+No age model can exist in isolation from observations---our understanding of
+stars just isn't good enough.
+So when a new dating method is developed, its efficacy relies on the existence
+(and precision) of previous dating methods.
+It is therefore important to understand the currently available dating
+methods, their advantages and their limitations.
+I describe the main methods used today in the following section.
+
+\subsection{Isochrone fitting}
+
+As stars burn hydrogen they become hotter and more luminous, slowly moving
+towards the top right of the Hertzprung-Russel Diagram (HRD), or
+Colour-Magnitude Diagram (CMD).
+If you can infer a star's absolute magnitude and effective temperature or
+measure its colour and you have an idea of its composition and evolutionary
+stage, you can place it on an HRD or CMD and infer its age.
+In practice it usually is not possible to input magnitude, temperature,
+metallicity and \logg into a model, crank the handle and pull out an age.
+The computation that goes into those models are expensive, so the variation in
+luminosity and temperature over time has been modelled by several teams of
+astronomers who produce sets of model grids.
+In order to infer an age from the observations therefore, it is necessary to
+interpolate between the nearest grid lines and the actual position of your
+star on an HRD or CMD.
+The Dartmouth \citep{dotter}, Yonsei-Yale \citep{spada} models are two of the
+most commonly used sets of models.
+
+An obvious limitation of this method is that the composition of the star in
+question will affect its placement on a HR/CMD: a more metal-rich star will
+appear cooler and redder than a more metal-poor one with the same mass and
+age.
+% FIXME: why?
+It is often difficult or impossible to obtain precise metallicities, helium
+abundances and alpha-element fractions (all needed for precise isochrone
+placement) as these measurements come from expensive, high-precision
+spectroscopy.
+% FIXME: how are these things actually extracted from spectra?
 However, for an ensemble of coeval stars with identical compositions this
 process becomes much easier: not only are there more opportunities to measure
 stellar compositions, providing a $\sqrt N$ reduction in measurement
@@ -183,7 +316,22 @@ For these reasons, many open stellar clusters have very precise ages.
 % Coma Berenices (0.5 Gyr).
 % Download isochrones and estimate the ages of some KOIs.
 
-\subsubsection*{Asteroseismology}
+\subsection{Asteroseismology}
+
+\kepler\ prime's success story is not limited to exoplanets: stellar astronomy
+itself has been advanced and arguably the second most important branch of
+\kepler\ prime's legacy is asteroseismology.
+
+\kepler\ operates in two observing modes: long and short cadence
+\citep[][]{smith2012, stumpe2012}.
+Long cadence observations are taken every approximately 30 minutes, with ...
+minute integration times and short cadence observations are taken every minute
+with ... second integration times.
+The frequencies that are accessible to \kepler\ are limited by two things: the
+duration of observations and the time sampling.
+The duration of observations, e.g. the length of the \kepler\ mission sets the
+minimum resolvable frequency.
+
 
 Asteroseismology is a powerful dating method with the potential to yield
 extremely precise stellar ages.
@@ -329,7 +477,7 @@ The earliest p-modes detections were made using radial velocity data
 Procyon} \citep{barban1999, martic1999}, $\zeta$ {\bf Herculis}
 \citep{martic2001}, $\alpha$ {\bf Cen A} \citep{kjeldsen1999} and $\beta$ {\bf
 Hyi} \citep{bedding2001}.
-Today, we have the advantage of space-based missions \kepler and \corot whose
+Today, we have the advantage of space-based missions \kepler\ and \corot whose
 photometric precision provides sufficient signal-to-noise to detect
 p-mode-induced luminosity variations.
 These missions have provided fundamental parameters for hundreds of
@@ -337,51 +485,22 @@ oscillating giants, subgiants and Sun-like stars \citep[e.g.][]{michel2008,
 bruntt2009, chaplin2014}.
 
 % Extracting fundamental parameters from time series.
-\subsubsection*{Fundamental parameters from photometric time series}
+\subsection{Fundamental parameters from photometric time series}
 
 In the previous section I describe the relations between stellar p-mode
 oscillation frequencies and the physical parameters of a star.
 In this section I will describe the application of asteroseismology: how
 exactly does one infer fundamental stellar parameters from a light curve?
-My thesis work focuses on \kepler data, so this discussion will be directly
-related to \kepler data, but the same principles apply to other photometric
+My thesis work focuses on \kepler\ data, so this discussion will be directly
+related to \kepler\ data, but the same principles apply to other photometric
 time series.
-
-The \kepler spacecraft is a precise photometric space-telescope with two
-differing but related primary objectives.
-The original mission, often referred to as \kepler prime, pointed at a single
-patch of sky, in the constellation of Lyra for four years almost continually
-in order to search for transiting exoplanets.
-Its primary objective was to allow us to infer the occurrence rate of
-Earth-like planets.
-The \kepler field was selected as a part of the sky that was not too crowded,
-as a field in the galactic plane would be, yet containing enough stars that a
-statistical sample of exoplanets could be accumulated.
-The chosen field had around 150,000 stars that fell on silicon and were
-downloaded from the spacecraft.
-During the primary mission of \kepler, thousands of planet candidates were
-discovered, of which over a thousand were subsequently either followed up with
-radial velocity observations or confirmed dynamically by some other method.
-\kepler prime's success story is not limited to exoplanets, however: stellar
-astronomy itself has been advanced and arguably the second most important
-branch of \kepler prime's legacy is asteroseismology.
-
-\kepler operates in two observing modes: long and short cadence
-\citep[][]{smith2012, stumpe2012}.
-Long cadence observations are taken every approximately 30 minutes, with ...
-minute integration times and short cadence observations are taken every minute
-with ... second integration times.
-The frequencies that are accessible to \kepler are limited by two things: the
-duration of observations and the time sampling.
-The duration of observations, e.g. the length of the \kepler mission sets the
-minimum resolvable frequency.
 
 This branch of astronomy is still relatively young and, given the quantity of
 up-and-coming photometric space missions, will continue to provide precise
 stellar parameters for decades to come.
 However, accurate and precise asteroseismic ages demand high-precision
 photometry of bright (brighter than around 12th magnitude) stars.
-Even with \kepler and \corot, this only amounts to around one hundred MS
+Even with \kepler\ and \corot, this only amounts to around one hundred MS
 stars.
 It is therefore essential that alternative dating methods, which can be
 applicable to a much larger sample of stars are developed.
@@ -391,7 +510,7 @@ Asteroseismology is the way forward for fundamental stellar parameters.
 It provides precise and accurate parameters, against which models for age,
 mass and radius can be calibrated.
 
-\subsubsection*{Age-activity and age-rotation relations}
+\subsection{Age-rotation relations}
 
 Asteroseismology is revolutionising stellar astronomy and, perhaps, stellar
 ages in particular (partly because the bar is so low to begin with).
@@ -559,26 +678,17 @@ This same functional form was used by \citet{Mamajek2008} and
 \citet{Meibom2010} who also used young clusters to recalibrate the
 gyrochronology model.
 
-\subsection*{Other age diagnostics}
+\section{Other age diagnostics}
 
-\subsubsection*{Activity}
-
-\subsubsection*{Lithium depletion}
-Lithium depletion is useful age diagnostic for young stars.
-
-\subsubsection*{Proper motion}
-
-\subsection*{Probabilistic Statistical methods}
-
-A core part of this thesis is the statistical methods that are employed.
-None of the methods used here are new in themselves but many have not been
-used on these sorts of problems or in an astronomical context.
-
-\subsection*{Hierarchical Probabilistic Modelling}
-\subsection*{Multi-dimensional uncertainties}
-\subsection*{Methods for removing systematics}
-\subsection*{Methods for measuring rotation periods}
-
+\subsection{Activity}
+Young stars are active because their rapid rotation drives the magnetic dynamo
+in their convection zones \citep{Noyes1984}.
+As their rotation periods decay, so does their activity.
+Although stellar activity originates from one mechanism only: magnetism,
+it manifests in a variety of detectable ways.
+These are listed below.
+\begin{itemize}
+\item{Star spots.
 Surface differential rotation, where the equator rotates at a different speed
 to the poles (in the Sun it rotates faster), twists the magnetic flux into
 tubes which emerge from the stellar surface.
@@ -586,4 +696,148 @@ The convection of material at the points where they emerge is inhibited and
 these areas are cooler and darker as a result.
 These cool, dark regions are called Sun spots on the Sun and star spots on the
 surfaces of other stars.
+Because these regions are darker, the integrated, optical flux emitted by a
+star when there are more spots on the surface is decreased.
+These decreases in brightness are detectable on the time scale of the stellar
+rotation period, where spots rotate into and out of view, and on longer
+timescales---the overall activity cycle.
+The Sun has an activity cycle that lasts 11 years.
+During periods of low activity the Solar surface has few star spots and this
+number increases up to hundred of spots during the Solar maximum.}
+\item{Chromospheric activity.
+Magnetic activity in stellar chromospheres produces emission in the cores of
+singly ionised calcium H (3969.5$\AA$) and K\footnote{The H and K letters
+indicate the Fraunhofer designation. Fraunhofer assigned letters to the
+absorption lines
+he detected in the Solar spectrum.}
+(3933.7$\AA$) lines.
+This emission reversal is produced by the excitation of Ca$^+$ electrons to a
+higher energy level via magnetic heating.
+Just as with rotation period, chromospheric activity decreases with time.
+Relations between age and chromospheric activity have, just as with rotation
+period, been calibrated \citep[\eg][]{Soderblom1991, Donahue1993,
+Lachaume1999, Mamajek2008}.
+Chromospheric activity is usually quantified via the R$\prime_{HK}$ index,
+defined as the flux excess in the lines, normalised to the bolometric flux.
+The drawback of using chromospheric activity indices are similar to the
+drawbacks of gyrochronology: the data are sparse and particularly so at late
+ages and low masses.
+Crucially though, measurements of Ca II H \& K emission are difficult to
+obtain since high-resolution spectra are required.
+}
+\item{UV and X-ray flux.}
+Magnetic heating excites photons to high energies, producing substantial UV
+and X-ray fluxes.
+Since M dwarfs have large convective zones, some even being fully convective,
+they are highly active.
+Their UV flux is significant which is currently causing ripples in the
+exoplanet community.
+M dwarfs with transiting exoplanets are premium targets for follow-up with the
+James Webb Space Telescope (JWST) since their petite size relative to their
+Earth-radius planets provides deep transits.
+The large signal-to-noise ratios of these deep transits will allow JWST to
+search for biomarkers in the atmospheres of these planets.
+However, since M dwarfs are more active than G dwarfs, and their habitable
+zones are closer in, any potential life on an Earth-twins may have been
+obliterated by the extreme UV flux.
+\item{Flare rate.
+Convective turbulence in low-mass stars generates magnetic flux tubes.
+Differential rotation then causes these flux tubes to twist around each other,
+becoming entangled.
+Magnetic reconnection causes the acceleration of particles and a huge amount
+of energy is released into the Inter-Stellar Medium (ISM).
+The flare rate is related to the mean flare energy via a power and both of
+these properties are related to the strength of the stellar magnetic field.
+Flares occur extremely often in M dwarfs, the most magnetically active stars,
+with rates between ... and ....
+% FIXME: how much energy is released?
+% FIXME: what drives differential rotation?
+}
+\end{itemize}
 
+\subsection{Lithium depletion boundary}
+The Lithium Depletion Boundary (LDB) can be used as an age diagnostic for
+young, low mass ($<1M_\odot$) stars.
+As these young stars contract on the Pre-Main Sequence (PMS) their core
+temperature increases.
+When it reaches $\sim2.5\times10^6$ K, lithium is destroyed via $^7$Li$(p,
+\alpha)^4$He and $^6$Li$(p, \alpha)^3$He proton capture reactions
+\citep[\eg][]{Bodenheimer1965}.
+The time taken for a star to reach these temperatures depends on their mass.
+The lowest mass PMS stars are fully convective, so the mixing timescale is
+very short and lithium depletion takes place very rapidly.
+For young stellar groups therefore, the mass at which the LDB (the boundary
+stars that do and do not show lithium in their atmospheres) is located is a
+very sensitive function of age \citep{Basri1996}.
+LDB dating can be very precise \citep{Burke2004}, however it is only
+applicable to young groups of stars (20 Myr < age < 200 Myr) since by this
+time Lithium has disappeared from the atmospheres of all members, regardless
+of their mass.
+
+\subsection{Dynamics}
+Stellar populations in the Milky Way galaxy can be localised into four groups:
+the bulge, the thin disk, the thick disc and the halo.
+Each of these stellar populations has a different distribution of stellar
+ages.
+The bulge is comprised of old stars.
+It is characteristically red because the only remaining stars on the MS are
+low-mass.
+The thin disk is comprised of young stars.
+This is the main star-forming part of the galaxy as the spiral arms, density
+waves of molecular gas that readily collapses into protostars, reside in the
+thin disk.
+The orbits of thin disk stars get heated over time.
+Close encounters with neighbouring stars boost their orbital energies and many
+thin disc stars find themselves `kicked' out of the galactic plane into the
+`thick disc'.
+The thick disc is statistically older than the thin disc since the majority of
+its residents have had time to experience one or more close encounters.
+The halo is even older still: these stars have been displaced even further
+from the thin disk in which they were born.
+Since the probability of experiencing a close encounter increases with time,
+stars with higher proper motions are likely to be older.
+However, although a rapidly moving star is likely to be older than a slowly
+moving star, stellar-orbit heating is a stochastic process and therefore
+cannot always be relied upon.
+
+\section{Probabilistic Statistical methods}
+
+A core part of this thesis is the statistical methods that are employed.
+None of the methods used here are new in themselves but many have not been
+used on these sorts of problems or in an astronomical context.
+I discuss them in the order in which they feature in the subsequent chapters
+of this thesis.
+
+\subsection{Multi-dimensional uncertainties}
+
+\subsection{Methods for removing systematics}
+\label{sec:detrending}
+
+`Detrending' is a word that has been adopted by astronomers to mean removing
+systematic trends caused by non-physical (\eg instrumental) variations in the
+experiment conditions.
+This process can be applied to any data set that contains correlated noise, be
+it a time series, image or spectrum, however `detrending' usually pertains
+specifically to time series analysis, and light curves in particular.
+The detrending process involves the generation of some model of the systematic
+features that can be generated and then subtracted from the light curve.
+This implies that the contribution of systematics to the light curve are known
+{\it a priori}.
+Of course in reality, the contributions coming from the signal and the noise
+can never be known completely, so must be approximated.
+In some cases this approximation is close to the truth, or doesn't need to be
+for the purposes of extracting science from the data (for example, if
+instrumental systematics exist on very different timescales to the signal of
+interest).
+However, in many cases the noise model cannot be adequately approximated.
+At best this leads to inaccurate inferences about the physical system being
+studied and at worse it leads to false positive detections and false negative
+non-detections.
+
+In \textsection \ref{chapter:sip} I present a method for extracting periodic
+signals from \ktwo\ light curves, without detrending.
+In what follows I review a selection of detrending methods.
+
+\subsection{Hierarchical Probabilistic Modelling}
+
+\subsection{Rotation period inference}

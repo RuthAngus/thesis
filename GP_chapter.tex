@@ -193,7 +193,8 @@ estimate of the uncertainty on the rotation period.
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/Kepler452b.pdf}
-\caption{Light curve of Kepler-452 b, a habitable-zone, Earth-sized planet
+\caption[A light curve with a GP model.]
+{Light curve of Kepler-452 b, a habitable-zone, Earth-sized planet
 hosting G star \citep{Jenkins2015}. The orange line shows a fit to the data using
 a Gaussian process model with a QP covariance kernel function.}
 \label{fig:GP_example}
@@ -266,7 +267,8 @@ light curve with a period of 17.4 days.
 \begin{center}
 % \includegraphics[width=6in, clip=true]{figures/noise-free_lc.pdf}
 \includegraphics[width=6in, clip=true]{figures/thesis_plot.pdf}
-\caption{An example simulated, noise-free light curve. This `star' has a
+\caption[A simulated light curve.]
+{An example simulated, noise-free light curve. This `star' has a
 rotation period of 17.4 days.}
 \label{fig:noise-free_lc}
 \end{center}
@@ -302,7 +304,8 @@ in figure~\ref{fig:ACF_example}.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/noise-free_acf.pdf}
-\caption{The autocorrelation function of the simulated, noise-free light
+\caption[An ACF of a simulated light curve.]
+{The autocorrelation function of the simulated, noise-free light
 curve depicted in figure \ref{fig:noise-free_lc}.}
 \end{center}
 \end{figure*}
@@ -350,7 +353,8 @@ The RMS of residuals is 1.59 days.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/exp_sine_test.pdf}
-\caption{Recovered peak position as a function of the `true' period used to
+\caption[A flaw in the ACF method.]
+{Recovered peak position as a function of the `true' period used to
 generate simulated ACFs. In many cases the position is measured short-wards of
 the truth, as also seen in figure \ref{fig:compare_noise_free}. The dashed
 lines are at $x=2x$, $x=x$ and $x=\frac{1}{2}x$.}
@@ -362,7 +366,8 @@ lines are at $x=2x$, $x=x$ and $x=\frac{1}{2}x$.}
 \begin{center}
 % \includegraphics[width=6in, clip=true]{figures/acf_compare_noise-free.pdf}
 \includegraphics[width=6in, clip=true]{figures/compare_acf.pdf}
-\caption{Rotation periods measured using the ACF method as a function of the
+\caption[ACF results.]
+{Rotation periods measured using the ACF method as a function of the
 `true' period used to generate \nlightcurves\ simulated, noise-free light
 curves.}
 \end{center}
@@ -393,9 +398,9 @@ residuals is five times larger.
 
 \begin{figure*}
 \begin{center}
-% \includegraphics[width=6in, clip=true]{figures/pgram_compare_noise-free.pdf}
 \includegraphics[width=6in, clip=true]{figures/compare_pgram.pdf}
-\caption{Rotation periods measured using the LS periodogram method as a
+\caption[LS periodogram results.]
+{Rotation periods measured using the LS periodogram method as a
 function of the `true' rotation period used to generate \nlightcurves\
 simulated light curves.}
 \end{center}
@@ -503,7 +508,8 @@ The results of all three methods are plotted on the same axes in figure
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/compare_gp.pdf}
-\caption{Measured vs true rotation period for \nlightcurves\ simulated light
+\caption[GP results.]
+{Measured vs true rotation period for \nlightcurves\ simulated light
 curves using the GP method.}
 \end{center}
 \end{figure*}
@@ -512,7 +518,8 @@ curves using the GP method.}
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/compare2.pdf}
-\caption{Measured vs true rotation period for \nlightcurves\ simulated light
+\caption[All results.]
+{Measured vs true rotation period for \nlightcurves\ simulated light
 curves from the three different methods described in the text.}
 \end{center}
 \end{figure*}

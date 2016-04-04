@@ -803,12 +803,156 @@ cannot always be relied upon.
 \section{Probabilistic Statistical methods}
 
 A core part of this thesis is the statistical methods that are employed.
-None of the methods used here are new in themselves but many have not been
-used on these sorts of problems or in an astronomical context.
-I discuss them in the order in which they feature in the subsequent chapters
-of this thesis.
+None of the methods used here are new in themselves, but many have not been
+previously used on the sorts of problems that are presented here or in an
+astronomical context.
+I will now discuss them in the order in which they feature in the subsequent
+chapters of this thesis.
 
-\subsection{Multi-dimensional uncertainties}
+\subsection{Multi-dimensional and unknown uncertainties: hierarchical
+probabilistic modelling}
+In some cases in astronomy, the only significant uncertainties are on
+the dependent variable.
+This is often the case with time-series or spectra and assuming that the
+independent variable uncertainties are negligible is a reasonable assumption.
+In a case where one wants to fit a model to data where the only significant
+uncertainties lie in the $y$ direction, those uncertainties are Gaussian, the
+measurements are independent and there is no correlated noise, it may be
+appropriate to use the Gaussian likelihood function.
+For example the likelihood of $y$-values, given some $x$-values, some model
+parameters, $\mathbf{\theta}$ and some $y$-direction uncertainties, $\sigma$,
+the likelihood can be written
+\begin{equation}
+    p(y|x, \sigma, \mathbf{\theta}) = \prod_{i=1}^N
+    \frac{1}{\sqrt{2\pi\sigma_i^2}}
+    \exp\left(-\frac{[y_i - \mu(x_i, \mathbf{\theta})]^2}{2\sigma_i^2}\right),
+\end{equation}
+where $\mu$ is the mean model.
+It is often more practical to use the logarithm of this function,
+\begin{equation}
+    \ln\mathcal{L} =
+    -\frac{1}{2} \sum_{i=1}^N \left[\frac{[y_i - \mu(x_i,
+    \mathbf{\theta})]^2}{\sigma_i^2} +
+    \ln\left(2\pi\sigma_i^2\right) \right],
+\end{equation}
+\label{eq:lnlike}
+which is also known as $-\frac{1}{2}\chi^2$.
+
+In many fitting-model-to-data problems in the astronomical literature,
+a frequentist approach is taken and $\chi^2$ is minimised (which is the
+equivalent of maximising the log-likelihood).
+The probabilistic (Bayesian) approach however is to multiply this likelihood
+by a prior to produce a posterior Probability Density Function (PDF).
+\begin{equation}
+Bayes rule
+\end{equation}
+The prior represents one's prior beliefs about the model parameters,
+$\mathbf{\theta}$.
+There is a wide range of literature available on the science behind choosing
+priors which is beyond the scope of this thesis.
+% CITATIONS
+
+Returning to equation \ref{eq:lnlike}, it is trivial to modify this function
+for the case where the $y$-direction uncertainties are unknown, or
+under-(or over)-estimated.
+In this case one could write
+\begin{equation}
+    \ln\mathcal{L} =
+    -\frac{1}{2} \sum_{i=1}^N \left[\frac{[y_i - \mu(x_i,
+    \mathbf{\theta})]^2}{\sigma_i^2 + s^2} +
+    \ln\left(2\pi(\sigma_i^2 + s^2\right) \right],
+\end{equation}
+where $s^2$ is the additional variance needed to explain the scatter in the
+data.
+
+In chapter \ref{chapter:flicker} a modification to the above equation is used
+to fit a line to data where the uncertainties are underestimated.
+This is a hierarchical problem, since there are two parameters that describe
+the model (a straight line), $\alpha$ and $\beta$, where $\mu = \alpha +
+\beta x$ and a parameter describes the standard deviation of a Gaussian
+spanning the mean model.
+In other words, the `true' value of variable $y$---the value that would have
+been measured if there were no observational uncertainties, $\bar{y}$ is drawn
+from a Gaussian with mean, $\mu = \alpha + \beta \bar{x}$ and standard
+deviation, $s$:
+\begin{equation}
+\bar{y} \sim \mathcal{N}(\alpha + \beta\bar{x}, s^2),
+\end{equation}
+and the {\it observations}, $y_{obs}$ are in turn drawn from Gaussians with
+$\mu = \bar{y}$ and standard deviations described by the individual
+observational uncertainties, $\sigma_{obs}$:
+\begin{equation}
+y_{obs} \sim \mathcal{N}(\bar{y}, \sigma_{obs}^2).
+\end{equation}
+Since it is the observations that are modelled, not the latent parameter,
+$\bar{y}$, this is a hierarchical process.
+
+Equation \ref{eq:lnlike} can also be modified for the simple case of fitting a
+straight line to data, where the $y$-direction observational uncertainties are
+unknown {\it and} the $x$-direction uncertainties are non-negligible.
+Starting from equations 26, 29, 31 and 32 of \citet{Hogg2010},
+$\mathbf{S_i}$ is the covariance tensor,
+\begin{eqnarray}
+    \mathbf{S_i} &\equiv& \left( \begin{array}{cc}
+                    \sigma_{x}^2 & \sigma_{x,y} \\
+                    \sigma_{x,y} & \sigma_{y}^2
+\end{array}\right),
+\end{eqnarray}
+\label{eq:covariance_tensor}
+$\mathbf{\hat{\nu}}$ is a unit vector orthogonal to the line with slope
+$\alpha$,
+\begin{equation}
+    \mathbf{\hat{\nu}} = \frac{1}{\sqrt{1 + \alpha^2}} \left( \begin{array}{c}
+                                                    -\alpha \\
+                                                    1
+    \end{array}\right),
+\end{equation}
+\label{eq:unit_vector}
+the variance is given by,
+\begin{equation}
+    \Sigma_i^2 = \mathbf{\hat{\nu}}^T \mathbf{S_i} \mathbf{\hat{\nu}}
+\end{equation}
+\label{eq:variance}
+and the log-likelihood can be written,
+\begin{equation}
+    \ln\mathcal{L} = - \frac{1}{2} \sum_{i=1}^N \left[
+    \frac{\Delta_i^2}{\Sigma_i^2} + \ln|\mathbf{S_i}| \right].
+\end{equation}
+\label{eq:ndlnlike}
+By modifying equation \ref{eq:covariance_tensor} to be
+\begin{eqnarray}
+    \mathbf{S_i} &=& \left( \begin{array}{cc}
+                    \sigma_{x}^2 & 0 \\
+                    0 & \sigma_{y}^2 + s^2
+\end{array}\right),
+\end{eqnarray}
+\label{eq:covariance_tensor_mod}
+since we assume that the covariance between $x$ and $y$ is negligible,
+substituting \ref{eq:covariance_tensor_mod}, \ref{eq:unit_vector} \&
+\ref{eq:variance} into \ref{eq:ndlnlike} gives
+\begin{equation}
+    \ln(\mathcal{L}) = -\frac{1}{2} \sum_{i=1}^N
+    \left( \frac{\left[ y_i - (\alpha + \beta x_i) \right]^2}
+    {\beta^2\sigma_{x, i} + \sigma_{y, i}^2 + s^2} + \ln[\sigma_{x,
+    i}^2(\sigma_{y, i}^2 + s^2)]
+    \right)
+\end{equation}.
+This is the equation used in chapter \ref{chapter:flicker} to perform such an
+analysis with astrophysical data.
+
+In cases with more complicated mean models, it is not so easy to arrive at an
+analytic solution.
+For example, a similar problem is approached in chapter \ref{chapter:gyro}.
+Here, the extra variance parameter, $s$ is not used (although it should be
+included in future analyses!), however the uncertainties in the $x$, $y$, and
+this time $z$ too, directions are large.
+The model is not a simple two-dimensional line as in the above case, it is the
+three-dimensional gyrochronology equation \ref{eq:barnes} where $y$ is
+rotation period, $x$ is age and $z$ is B-V colour.
+In this case, an approximation must be made in order to take the uncertainties
+on all dimensions into account.
+This approximation is made via sampling and is described in chapter
+\ref{chapter:gyro}.
 
 \subsection{Methods for removing systematics}
 \label{sec:detrending}
@@ -838,6 +982,13 @@ In \textsection \ref{chapter:sip} I present a method for extracting periodic
 signals from \ktwo\ light curves, without detrending.
 In what follows I review a selection of detrending methods.
 
-\subsection{Hierarchical Probabilistic Modelling}
-
 \subsection{Rotation period inference}
+
+\subsubsection{ACF}
+An AutoCorrelation Function (ACF) was first used to measure rotation periods
+by \citet{Mcquillan2013} who developed the method specifically for \kepler\
+data.
+
+\subsubsection{Lomb-Scargle}
+\subsubsection{Wavelets}
+\subsubsection{Spectroscopy}

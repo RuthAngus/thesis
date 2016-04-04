@@ -168,11 +168,11 @@ for reasons described there-in, we only include targets in our calibration for
 which:
 
 \begin{itemize}
-\item[{\tiny$\blacksquare$}] Range (defined in \citealt{bastien:2013})
+\item Range (defined in \citealt{bastien:2013})
 $<1000$\,ppm
-\item[{\tiny$\blacksquare$}] $4500<T_{\mathrm{eff}}<6500$\,K
-\item[{\tiny$\blacksquare$}] $K_P<14$
-\item[{\tiny$\blacksquare$}] $1.2 < \log_{10}$($F_8$\,[ppm])$< 2.2$
+\item $4500<T_{\mathrm{eff}}<6500$\,K
+\item $K_P<14$
+\item $1.2 < \log_{10}$($F_8$\,[ppm])$< 2.2$
 \end{itemize}
 
 We use the same sample for our calibration of \logg, except that we exclude the
@@ -381,10 +381,8 @@ our analysis are available at {\url https://github.com/RuthAngus/flicker}.}
 %%% rhostar plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{flicker_vs_rho.pdf}
-% \includegraphics[width=8.4cm,angle=0,clip=true]{../figs/rho_vs_flicker.pdf}
-% \includegraphics[width=8.4cm,angle=0,clip=true]{new_rho.pdf}
-\caption{
+\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_rho.pdf}
+\caption[Stellar density versus flicker.]{
 Stellar density vs. flicker.
 This figure shows the model, conditioned on the data.
 The solid black line shows the model with the best-fitting parameter values
@@ -399,11 +397,9 @@ additional scatter.}
 %%% logg plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{flicker_vs_logg.pdf}
-% \includegraphics[width=8.4cm,angle=0,clip=true]{../figs/logg_vs_flicker.pdf}
-% \includegraphics[width=8.4cm,angle=0,clip=true]{new_logg.pdf}
-\caption{
-$\log(g)$ vs. flicker.
+\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
+\caption[\logg versus flicker.]{
+\logg versus flicker.
 As in \ref{fig:rhostar} this figure shows the model, conditioned on the data.
 The solid black line shows the model with the best-fitting parameter values
 quoted in the text.
@@ -416,8 +412,9 @@ additional scatter.}
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{rho_triangle.pdf}
-\caption{Marginal posterior PDFs of the model parameters for \rhostar.
+\includegraphics[width=8.4cm,angle=0,clip=true]{figures/rho_triangle.pdf}
+\caption[Marginal posterior PDFs for flicker versus \rhostar parameters.]
+{Marginal posterior PDFs of the model parameters for \rhostar.
 This figure was generated using the {\tt corner} python package
 \citep{corner}.}
 \label{fig:triangle}
@@ -511,17 +508,17 @@ on the flicker measurement, the uncertainties on the model parameters {\it and}
 the intrinsic scatter in the flicker-\rhostar-\logg\ relations.
 
 % #####################################################################
-%% Acknowledgements
-\acknowledgements
-\section*{Acknowledgements}
+% %% Acknowledgements
+% \acknowledgements
+% \section*{Acknowledgements}
 
-RA would like to thank Dan Foreman-Mackey for his extremely helpful suggestions
-and comments, Angie Wolfgang for her expert guidance and John Johnson for his
-fantastic advice and support.
-RA would also like to thank the anonymous referee for their patience and
-excellent suggestions which dramatically improved this letter, the SAMSI
-institute and the other members of the SAMSI {\it Kepler} exoplanet statistics
-working groups.
+% RA would like to thank Dan Foreman-Mackey for his extremely helpful suggestions
+% and comments, Angie Wolfgang for her expert guidance and John Johnson for his
+% fantastic advice and support.
+% RA would also like to thank the anonymous referee for their patience and
+% excellent suggestions which dramatically improved this letter, the SAMSI
+% institute and the other members of the SAMSI {\it Kepler} exoplanet statistics
+% working groups.
 
 %% EOF Acknowledgements
 

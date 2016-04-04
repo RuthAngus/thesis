@@ -231,10 +231,10 @@ This subject is covered in \textsection{sec:detrending}
 \section{Stellar dating methods}
 
 The hydrogen-burning era of a star's life is extremely stable.
-This fact is unfortunate from a stellar chronologist's point of view as
+This fact is unfortunate from a stellar chronologist's point of view as,
 without an observable property that is a strong function of age, stellar age
 precision will always be limited.
-This is the stumbling-block for stellar age inference: age precision is
+This is the main stumbling-block for stellar age inference: age precision is
 restricted by the fundamental evolutionary time-scale of stars.
 Despite this limitation however, there is still plenty of room for progress to
 be made in understanding the evolution of the observable properties from both
@@ -243,23 +243,22 @@ measure these properties.
 
 Isochronal ages are notoriously difficult to infer because stars vary little
 in brightness or temperature during their hydrogen-burning lifetimes.
-Fitting stellar evolution models to these two observables usually produces age
-estimates with uncertainties in the order of 50-150\%.
+Fitting stellar evolutionary models to these two observables usually produces
+age estimates with uncertainties in the order of 50-150\%.
 However, because cool stars spin down predictably over their main sequence
 lifetime due to magnetic braking, their ages depend, to first order, only on
-their masses and current rotation periods \citep[e.g.][]{skumanich, kawaler,
-barnes}.
+their masses and current rotation periods.
 Photometric measurements of these two parameters can therefore be used to
 infer an age.
-The concept of `gyrochronology'---inferring an age from a rotation period---
-developed after observations of stars in clusters revealed a trend for
-decreasing rotation period with time.
-This method has never held so much promise as it does now, with a new glut of
+This is the concept behind `gyrochronology'---inferring an age from a rotation
+period---developed after observations of stars in clusters revealed a trend
+for decreasing rotation period with time.
+This method has never held as much promise as it does now, with a new glut of
 stellar rotation periods available from a new generation of spacecraft
 designed for high precision, high cadence photometry.
-The main science goal for these missions are searching for exoplanets, but the
-exoplanet gold-rush has lead to a new understanding of stars and what we can
-learn about them from the way their brightness varies alone.
+The main science goal for these missions is searching for exoplanets, but the
+exoplanet gold-rush has lead to a new understanding of stars and stellar
+variability.
 The desire to develop a method of dating stars using only photometry is an
 understandable one with the current availability of such large photometric
 data sets.
@@ -267,8 +266,8 @@ However, as with any phenomenological investigation, inferences about the data
 can only be made with models.
 These models can be physical or empirical but whatever the origin of their
 design, they must be calibrated using observations.
-No age model can exist in isolation from observations---our understanding of
-stars just isn't good enough.
+No age model can be developed in isolation from the observations---our
+understanding of stars just isn't good enough.
 So when a new dating method is developed, its efficacy relies on the existence
 (and precision) of previous dating methods.
 It is therefore important to understand the currently available dating
@@ -280,37 +279,48 @@ I describe the main methods used today in the following section.
 As stars burn hydrogen they become hotter and more luminous, slowly moving
 towards the top right of the Hertzprung-Russel Diagram (HRD), or
 Colour-Magnitude Diagram (CMD).
-If you can infer a star's absolute magnitude and effective temperature or
-measure its colour and you have an idea of its composition and evolutionary
+As the hydrogen-burning process continues, helium `ash' is produced in the
+core and energy production decreases.
+The core slowly contracts over time and its temperature increases.
+The increased temperature enhances energy production, and the result is that
+stars burn hotter and more brightly over time.
+If you can infer a star's absolute magnitude and effective temperature, or
+measure its colour, and you have an idea of its composition and evolutionary
 stage, you can place it on an HRD or CMD and infer its age.
-In practice it usually is not possible to input magnitude, temperature,
-metallicity and \logg into a model, crank the handle and pull out an age.
-The computation that goes into those models are expensive, so the variation in
-luminosity and temperature over time has been modelled by several teams of
-astronomers who produce sets of model grids.
-In order to infer an age from the observations therefore, it is necessary to
-interpolate between the nearest grid lines and the actual position of your
-star on an HRD or CMD.
+
+In practice, it is not usually possible to feed luminosity, temperature,
+metallicity and \logg\ into a stellar evolution model, crank the handle and
+pull out an age.
+Evaluating these models is expensive, so pre-calculated model grids are used.
+In order to infer an age from the observations it is therefore necessary to
+interpolate between the grid lines.
 The Dartmouth \citep{dotter}, Yonsei-Yale \citep{spada} models are two of the
 most commonly used sets of models.
 
-An obvious limitation of this method is that the composition of the star in
-question will affect its placement on a HR/CMD: a more metal-rich star will
-appear cooler and redder than a more metal-poor one with the same mass and
-age.
+An obvious limitation of the isochrone method is that the composition of the
+star in question will affect its placement on a HRD or CMD: metal-rich stars
+appear cooler and redder than metal-poor ones with the same mass and age.
 % FIXME: why?
 It is often difficult or impossible to obtain precise metallicities, helium
 abundances and alpha-element fractions (all needed for precise isochrone
-placement) as these measurements come from expensive, high-precision
+placement), as these measurements come from expensive, high-precision
 spectroscopy.
 % FIXME: how are these things actually extracted from spectra?
 However, for an ensemble of coeval stars with identical compositions this
 process becomes much easier: not only are there more opportunities to measure
 stellar compositions, providing a $\sqrt N$ reduction in measurement
-uncertainty, a group stars with the same age and composition but different
+uncertainty, a group of stars with the same age and composition but different
 masses will reveal the shape of the best-fitting isochrone on the CMD\@.
-This reduces the need for knowing composition precisely in the first place.
-For these reasons, many open stellar clusters have very precise ages.
+In addition, the position of the MS turn-off further improves age precision.
+Since MS lifetime is strongly dependent on mass, at any given age the most
+massive stars in a cluster will have turned off the MS.
+Inferring the mass at which this happens in a cluster provides a very precise
+age estimate.
+% FIXME: what is the minimum age at which you can do this?
+For these reasons, many open clusters have very precise ages.
+Together with the Sun they are the most precisely dated of all astronomical
+objects and provide the benchmarks from which all other dating methods are
+calibrated.
 
 % For example Pleiades (0.55 Gyr), Hyades (0.625 Gyr), Praesepe (0.588 Gyr), and
 % Coma Berenices (0.5 Gyr).
@@ -318,28 +328,20 @@ For these reasons, many open stellar clusters have very precise ages.
 
 \subsection{Asteroseismology}
 
-\kepler\ prime's success story is not limited to exoplanets: stellar astronomy
-itself has been advanced and arguably the second most important branch of
-\kepler\ prime's legacy is asteroseismology.
+After exoplanet search, arguably the second most important branch of \kepler's
+legacy is asteroseismology; the study of stellar pulsations.
+% QUESTION: difference between solar and classical pulsations?
+% ANSWER: Solar are small enough that you can maintain certain approximations.
+Sound waves ripple through the deep interiors of stars.
+The frequencies of these waves can reveal internal structure, even localising
+the hydrogen burning regions in stellar cores.
+Asteroseismology is a powerful tool in the stellar dating arsenal.
+Whilst asteroseismology is not the central topic of my thesis, it features at
+some level in almost every chapter, so I have covered the basic principles in
+what follows.
 
-\kepler\ operates in two observing modes: long and short cadence
-\citep[][]{smith2012, stumpe2012}.
-Long cadence observations are taken every approximately 30 minutes, with ...
-minute integration times and short cadence observations are taken every minute
-with ... second integration times.
-The frequencies that are accessible to \kepler\ are limited by two things: the
-duration of observations and the time sampling.
-The duration of observations, e.g. the length of the \kepler\ mission sets the
-minimum resolvable frequency.
-
-
-Asteroseismology is a powerful dating method with the potential to yield
-extremely precise stellar ages.
-However, the era of asteroseismology has only just arrived and this fledgling
-field is still only applicable to a small number of extremely bright stars
-observed by precise photometric space-missions.
-
-Oscillations in the Sun are caused by turbulent convection near the surface.
+Acoustic oscillations in the Sun are generated by turbulent convection near
+the surface.
 The movement of ionized gas stochastically excites the Sun's spherical
 oscillation modes.
 An analogy to this process is that of a bell in a room filled with air.
@@ -350,12 +352,12 @@ particles induce a continual ringing.
 Similarly, the Sun is continually oscillating at a range of discrete
 frequencies; those that correspond to its spherical harmonics.
 A power spectrum of the Sun, taken from \citet{brown} is shown in figure
-~\ref{solar_spectrum}.
+~\ref{fig:solar_spectrum}.
 The comb-like, evenly spaced peaks in this power spectrum show Solar p-mode
 oscillations.
-The peak amplitudes are modulated by a Gaussian envelope.
-The mean of that Gaussian, $\nu_{max}$ corresponds to a frequency of around
-3000 \uHz, a period of around five minutes.
+The peak amplitudes are modulated by a Gaussian envelope and the mean of that
+Gaussian, $\nu_{max}$ corresponds to a frequency of around 3000 \uHz, a period
+of around five minutes.
 
 \begin{figure}[p]
 \begin{center}
@@ -367,14 +369,14 @@ Solar p-modes are clearly visible in this figure.}
 \end{center}
 \end{figure}
 
-Many properties of the Sun have been measured using asteroseismic pulsations.
-For example, the variation in radial pressure, the rate of differential
+Many properties of the Sun have been measured using asteroseismic pulsations,
+for example the variation in radial pressure, the rate of differential
 rotation, the depth and fraction of helium in its convective zone and even the
 structure of active regions below the Solar surface.
 The Sun is an exquisite example of a pulsating star, having tens of millions
 of detectable modes and mode lifetimes that are several thousand times longer
 than the periods of the oscillations.
-Its proximity, which both provides enormous signal-to-noise and allows us to
+Its proximity, which provides both enormous signal-to-noise and allows us to
 resolve the surface, make it a paragon of seismology.
 
 Three types of oscillations are detectable in the Sun: pressure, or p-modes,
@@ -478,23 +480,39 @@ The earliest p-modes detections were made using radial velocity data
 Procyon} \citep{barban1999, martic1999}, $\zeta$ {\bf Herculis}
 \citep{martic2001}, $\alpha$ {\bf Cen A} \citep{kjeldsen1999} and $\beta$ {\bf
 Hyi} \citep{bedding2001}.
-Today, we have the advantage of space-based missions \kepler\ and \corot whose
-photometric precision provides sufficient signal-to-noise to detect
+Today, we have the advantage of space-based missions \kepler\ and \corot\
+whose photometric precision provides sufficient signal-to-noise to detect
 p-mode-induced luminosity variations.
 These missions have provided fundamental parameters for hundreds of
 oscillating giants, subgiants and Sun-like stars \citep[e.g.][]{michel2008,
 bruntt2009, chaplin2014}.
 
-% Extracting fundamental parameters from time series.
-\subsection{Fundamental parameters from photometric time series}
+% In the previous section I describe the relations between stellar p-mode
+% oscillation frequencies and the physical parameters of a star.
+% In this section I will describe the application of asteroseismology: how
+% exactly does one infer fundamental stellar parameters from a light curve?
+% My thesis work focuses on \kepler\ data, so this discussion will be directly
+% related to \kepler\ data, but the same principles apply to other photometric
+% time series.
 
-In the previous section I describe the relations between stellar p-mode
-oscillation frequencies and the physical parameters of a star.
-In this section I will describe the application of asteroseismology: how
-exactly does one infer fundamental stellar parameters from a light curve?
-My thesis work focuses on \kepler\ data, so this discussion will be directly
-related to \kepler\ data, but the same principles apply to other photometric
-time series.
+The frequencies of astrophysical phenomena that are accessible in \kepler\
+light curves are limited by two things: the overall duration of observations
+and the time sampling.
+The duration of observations, \ie\ the length of the \kepler\ mission sets the
+minimum resolvable frequency and the time sampling sets the Nyquist frequency:
+the high frequency limit.
+For FGK dwarfs, the Nyquist frequency of long cadence observations ($\sim 283
+\mu$Hz) is too low: these stars oscillate at around 3000 \uHz.
+For this reason, \kepler\ operates in two observing modes: long and short
+cadence \citep[][]{smith2012, stumpe2012}.
+Long cadence observations are taken every approximately 30 minutes and short
+cadence every minute ($\nu_{Nyquist} \sim 8333$\uHz).
+
+Asteroseismology is a powerful dating method with the potential to yield
+extremely precise stellar ages.
+However, the era of asteroseismology has only just arrived and this fledgling
+field is still only applicable to a small number of extremely bright stars
+observed by precise photometric space-missions.
 
 This branch of astronomy is still relatively young and, given the quantity of
 up-and-coming photometric space missions, will continue to provide precise

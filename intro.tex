@@ -507,62 +507,90 @@ For this reason, \kepler\ operates in two observing modes: long and short
 cadence \citep[][]{smith2012, stumpe2012}.
 Long cadence observations are taken every approximately 30 minutes and short
 cadence every minute ($\nu_{Nyquist} \sim 8333$\uHz).
+Around 500 stars were observed in short cadence mode and the fundamental
+parameters of these stars are presented in \citet{Chaplin2014}.
+
+There are different approaches to inferring ages from \kepler\ light curves,
+depending on the S/N of pulsations.
+In the high S/N cases it may be possible to detect oscillation frequencies of
+individual modes \citep[\eg][]{Lebreton2014, Metcalfe2010, Silva-aguirre2013}.
+however for the majority of short cadence targets, only the
+mean large frequency separation, $\Delta\nu$ and frequency of maximum power,
+$\nu_{max}$ can be measured.
+Bulk physical properties of stars can be inferred from these two parameters
+via the scaling relations:
+\begin{equation}
+    \frac{M}{M_\odot} = \left(\frac{\nu_{max}}{\nu_{max,\odot}}\right)^3
+    \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-4}
+    \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{3/2}
+\end{equation}
+\begin{equation}
+    \frac{R}{R_\odot} = \left(\frac{\nu_{max}}{\nu_{max,\odot}}\right)
+    \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-2}
+    \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{1/2}.
+\end{equation}
+Ages are then inferred by comparing these quantities to those predicted by
+model grids (spectroscopic estimates of \teff and \feh are also required).
+Ages inferred using \dnu and \numax typically have relatively large
+uncertainties, in the order of 15-40\% \citep{Silva-aguirre2015a}.
+
+In high S/N cases, ages are inferred by adjusting the parameters of stellar
+interior models \citep[\eg][]{Kjeldsen2008} until the observed frequencies, or
+combinations of them are reproduced.
+Two of the most sophisticated codes used for age analysis are the BAyesian
+STellar Algorithm \citep[BASTA][]{Silva-aguirre2015} and the Bellaterra
+Stellar Properties Pipeline \citep{Serenelli2013}.
+Uncertainties on ages inferred from high S/N light curves using this
+`boutique' method of modelling individual frequencies are typically around
+10-15\% \citep{Silva-aguirre2015a}.
 
 Asteroseismology is a powerful dating method with the potential to yield
 extremely precise stellar ages.
 However, the era of asteroseismology has only just arrived and this fledgling
 field is still only applicable to a small number of extremely bright stars
 observed by precise photometric space-missions.
-
-This branch of astronomy is still relatively young and, given the quantity of
-up-and-coming photometric space missions, will continue to provide precise
-stellar parameters for decades to come.
+Given the quantity of up-and-coming photometric space missions,
+asteroseismology will continue to provide precise stellar parameters for
+decades to come.
 However, accurate and precise asteroseismic ages demand high-precision
 photometry of bright (brighter than around 12th magnitude) stars.
 Even with \kepler\ and \corot, this only amounts to around one hundred MS
-stars.
+stars with asteroseismic ages available today.
 It is therefore essential that alternative dating methods, which can be
 applicable to a much larger sample of stars are developed.
 Age-rotation relations, for example.
-
-Asteroseismology is the way forward for fundamental stellar parameters.
-It provides precise and accurate parameters, against which models for age,
-mass and radius can be calibrated.
 
 \subsection{Age-rotation relations}
 
 Asteroseismology is revolutionising stellar astronomy and, perhaps, stellar
 ages in particular (partly because the bar is so low to begin with).
-However, it is not yet ready to  revolutionise fields involving stellar
-populations because it is still a `boutique' method, applied to hand-picked,
-bright, text-book Solar-like oscillators.
-In order to produce a catalogue of stellar ages that is large enough to be
-useful for studies of stellar populations, we need a method that can be
-applied to thousands of stars \ie requires inexpensive observables, is not
-computationally expensive and doesn't require human input (can be automated).
-For this reason gyrochronology, the method of inferring an age from a rotation
-period is an intriguing prospect as, if demonstrably accurate, fulfills all
-the above criteria.
-In what follows I describe the physics behind gyrochronology.
+However, the quantity of ultra-precise, short cadence light curves limited and
+it is still a `boutique' method, applied to hand-picked, bright, text-book
+Solar-like oscillators.
+In order to produce a catalogue of stellar ages large enough to be useful for
+stellar population studies, we need a method that can be applied to thousands
+of stars.
+Such a method should require inexpensive observables, be computationally cheap
+and be easily automated.
+Gyrochronology fulfills these criteria and in what follows I describe the
+physics behind it.
 
-\citet{Skumanich1972} provided one of the first observational indications that
-stellar rotation periods decay over time; they observed that rotation period,
-lithium abundance and chromospheric activity decay was proportional to the
-square-root of age.
-In figure \ref{fig:skumanich}, equatorial rotational velocity vs time
-(triangles) is plotted on the same axes as lithium abundance (crosses) and
-Ca$^+$ emission (circles) for the Hyades and Pleiades clusters, as well as the
-Sun.
+\citet{Skumanich1972} compiled data that provided one of the first indications
+that stellar rotation periods decay over time.
+They demonstrated that rotation period, lithium abundance and chromospheric
+activity decay was proportional to the square-root of age.
+In figure \ref{fig:skumanich}, equatorial rotational velocity\footnote{ Only
+the equatorial velocities of the G stars in the two clusters are indicated.}
+versus time (triangles) is plotted on the same axes as lithium abundance
+(crosses) and Ca$^+$ emission (circles) for the Hyades and Pleiades clusters,
+as well as the Sun.
 The Sun is the far right point for each age indicator.
-Only the equatorial velocities of the G stars in the two clusters are
-indicated.
 Ursa Major stars are included on the Ca$^+$ emission scale.
 Lithium abundance and Ca$^+$ emission were previously known age indicators and
-this work demonstrated the potential of rotation period as another.
-
+this work demonstrated that rotation period was also related to age.
 \begin{figure}
 \begin{center}
-\includegraphics[width=4in, clip=true]{figures/skumanich.pdf}
+\includegraphics[width=3in, clip=true]{figures/skumanich.pdf}
 \caption[\citet{skumanich1972} results: early evidence for magnetic braking]
 {Figure from \citet{skumanich1972}. Rotation periods for the G stars in the
 Hyades and Pleiades and the Sun are plotted.}
@@ -575,48 +603,50 @@ Hyades and Pleiades and the Sun are plotted.}
 % The physical mechanism behind the coupling of stellar winds to the magnetic
 % dynamo was explored by \citet{Weber1967, Mestel1984}.
 % This process was later applied to evolving stars by \citet{Kawaler1988}.
-Today, we know that the angular momentum loss is caused by the magnetically
-driven stellar wind \citep{Schatzman1962, Weber1967, Mestel1984}.
-The stellar wind is made up of charged ions that stream away from the stellar
+
+Today, we know that angular momentum loss is caused by a magnetised stellar
+wind \citep{Schatzman1962, Weber1967, Mestel1984}.
+The stellar wind is composed of charged ions that stream away from the stellar
 surface.
 Each of these ions carries mass, charge and angular momentum as it travels
 away from the star.
-The star therefore loses mass, charge and angular momentum over its lifetime.
 The angular momentum carried by these particles is lost from the system, not
-necessarily at the surface, but at the point where they no longer rotate with
-the star.
-Stellar magnetic fields trap these particles, forcing them to rotate with the
-same angular velocity as the surface out to the Alfv{\'e}n radius.
+at the surface, but at the point where they no longer co-rotate with the star.
+Stellar magnetic fields force the particles in the stellar wind them to rotate
+with the same angular velocity as the surface out to the Alfv{\'e}n radius.
 The Alfv{\'e}n radius is the point at which a particle experiences equal force
 from the magnetic field and the pressure produced by surrounding particles.
-Once they are beyond the Alfv{\'e}n radius, the particles' angular momentum is
-lost from the star.
-This dominant mechanism by which stars lose angular momentum during their
-stint on the MS.
+Once beyond the Alfv{\'e}n radius, the particles' angular momentum is lost
+from the star.
+This is dominant mechanism by which the rotation periods of stars decay during
+their stint on the MS.
 The stellar wind also carries mass away from the star, and the internal
 structure of the star changes due to core hydrogen burning which both change
 the star's moment of inertia, however these are secondary effects.
 
-Stellar magnetic fields are generated in their convection zones.
-The motion of turbulent plasma in the outer layers of intermediate-mass stars
-acts like a dynamo, driving the production of magnetic fields.
+The motion of turbulent plasma in the outer layers of low-mass stars drives
+the production of a magnetic field \citep[][]{Schatzman1962}.
 % FIXME: how does rotation drive the dynamo?
+Dynamo theory predicts that this field is then amplified by rotation and
+differential rotation \citep[\eg][]{Parker1970}.
 Convective turbulence, combined with stellar rotation produces the large-scale
-magnetic fields that lock the stellar wind to the star.
-It is believed that rotation period influences magnetic field strength: more
-rapid rotators have stronger magnetic fields.
-The relation between angular momentum loss rate and the angular velocity of
-rotation is a power-law, where the exponent depends on the magnetic field
-geometry \citet{Mestel1984, Kawaler1988}.
+magnetic fields that lock the stellar wind to the star
+\citep[\eg][]{Charbonneau2010}.
+Rotation period influences magnetic field strength: more rapid rotators have
+stronger magnetic fields.
+% FIXME: CITATION
+The relation between angular momentum loss rate and angular velocity is a
+power-law, where the exponent depends on the magnetic field geometry
+\citet{Mestel1984, Kawaler1988}.
 Magnetic field strength controls the rate of angular momentum loss: a stronger
 magnetic field leads to a larger Alfv{\'e}n radius which increases the angular
-momentum loss per unit time.
+momentum lost per unit time.
 % There is a saturation point however, angular momentum loss rate only increases
 % with magnetic field strength up to a point \citet{Chaboyer1995, Sills2000}.
-It is for this reason that the rate of angular momentum loss is not constant.
-As a star loses angular momentum its rotation period decays and with it, its
-magnetic field strength, so the rate of angular momentum loss decreases.
-This process acts to force stellar rotation periods to converge.
+For this reason the rate of angular momentum loss is not constant: as a star
+loses angular momentum its rotation period decays as does its magnetic field
+strength, so the rate of angular momentum loss decreases.
+The effect of this process is to force stellar rotation periods to converge.
 % \citet{Reiners2012} showed that angular momentum evolution is a function of
 Rapid rotators have a greater angular momentum loss rate than slower rotators.
 Their rotation periods therefore decay more rapidly than slow rotators and,
@@ -632,57 +662,67 @@ For this reason they lose angular momentum more slowly.
 Angular momentum loss rate therefore varies as a function of stellar mass and
 fully radiative stars do not spin down appreciably over their MS lifetime
 \citet{Noyes1984_2}.
-The rotational evolution of stars at the low-mass end, those that are fully
-convective is still unknown.
+The rotational evolution of fully stars convective is still unknown, however
+it is an active field of interest \citep[\eg][]{Mcquillan2013, Newton2015}.
 
 \citet{Barnes2003} compiled rotation period measurements from members of
-several young clusters and the Mt. Wilson stars.
+several young clusters, plus the Mt. Wilson stars.
 % (CITATION)
-When plotting stellar rotation periods against their B-V colours they noticed
-that there were two morphological features of the data (see their figure 2).
-For each cluster there was a sequence of stars falling neatly on the predicted
+When the rotation periods of this sample were plotted against B-V colour,
+\citet{Barnes2003} noticed that there were two morphological features of the
+data (see their figure 2).
+In each cluster there was a sequence of stars falling neatly on the predicted
 relation between rotation period and mass (called interface, or `I' stars),
-but there were also a group of stars that were rotating rapidly (called
-convective `C' stars).
-These two sequences were most obvious in the younger clusters and less so in
-the older.
+but there was also a group of rapid rotators (called convective, `C' stars).
+The C sequence was most obvious in the younger clusters and less so in the
+older.
 \citet{Barnes2003} attributed this behaviour to an evolving magnetic dynamo,
-produced by the still evolving internal structure of the young stars,
-postulating that the I sequence is reduced for older stellar populations.
+produced by the still evolving internal structure of the young stars, and
+postulated that stars transition rapidly from C to I.
 In this work I will only address stars that have already (in theory) already
 transitioned from the C sequence to the I sequence as they are older than the
 Hyades which is the last cluster to show this behaviour.
+
 \citet{Irwin2009} compiled rotation period measurements for stars in open
 clusters with masses $< 1.2 M_\odot$, shown in figure \ref{fig:irwin}.
-The clusters shown here increase in age from the top left to the bottom right.
 These data show the enormous spread in rotation periods for the youngest
-clusters, contrasted with the extremely well-defined rotational sequence in
-the Hyades (second panel from the bottom on the right).
+clusters (top left), contrasted with the extremely well-defined rotational
+sequence in the Hyades (second panel from the bottom on the right).
 The currently accepted view is that after the age of the Hyades, stellar
 rotation periods lie on this converged sequence.
-In what follows I will, for the most part, only discuss stars older than
-around the age of the Hyades.
-
+In this thesis I will only discuss stars older than around the age of the
+Hyades.
 \begin{figure}[p]
 \begin{center}
-\includegraphics[width=6in, clip=true]{figures/irwin.pdf}
+\includegraphics[width=4in, clip=true]{figures/irwin.pdf}
 \caption[Cluster rotation from \citet{Irwin2009}]
 {Figure from \citet{Irwin2009}. A compilation of most of the available
-rotation periods for stars in open clusters with $M < 1.2 M_\odot$ in 2009.}
+rotation periods for stars in open clusters with $M < 1.2 M_\odot$ in 2009.
+Clusters increase in age from the top left to the bottom right.}
 \label{fig:solar_spectrum}
 \end{center}
 \end{figure}
 
-Gyrochronology, a term coined by \citet{Barnes2003}, is the inference of
-stellar ages from rotation periods.
-Many models for the prediction of the rotational evolution of stars have been
-developed by different groups.
-Some of these \citep[\eg][]{Vansaders, Reiners2012, Brown} use physical models
-of rotating stars with magnetic fields, where the rate of angular momentum
-loss is related to the rotation period and field strength, and evolve those
-stars forward in time.
+The term `gyrochronology' was first coined by \citet{Barnes2003}.
+Several gyrochronology models have been developed by different groups since
+then.
+Some of these \citep[\eg][]{Collier-cameron1994, Vansaders, Reiners2012,
+Brown} use physical models of rotating stars with magnetic fields, where the
+rate of angular momentum loss is related to the rotation period and field
+strength, and evolve those stars forward in time.
 Although these models are based on the physical processes at play, they must
-still be calibrated using observations since the models are over-simplistic.
+still be calibrated using observations.
+For example, the \citet{Kawaler1988} expression, assuming a linear dynamo is
+\begin{equation}
+\frac{dJ}{dt} = -K_w\Omega^3\left(\frac{R}{R_\odot}\right)^{0.5}
+\left(\frac{M}{M_\odot}\right)^{-0.5},
+\end{equation}
+where $J$ is angular momentum, $R$ and $M$ are radius and mass respectively
+and $K_w$ is a constant that must be calibrated so that the Sun has Solar
+rotation at Solar age.
+See \citet{Barnes2010b} for a discussion on the various adaptations of this
+braking law, taken by different groups in order to reproduce observations of
+young clusters.
 
 An alternative approach is an entirely empirical one where simple functional
 forms are fit to the observations \citep[\eg][]{Barnes2007, Mamajek2008,
@@ -698,15 +738,33 @@ This same functional form was used by \citet{Mamajek2008} and
 \citet{Meibom2010} who also used young clusters to recalibrate the
 gyrochronology model.
 
+\citet{Barnes2010b} present a hybrid part theoretical, part empirical
+gyrochronology relation,
+\begin{equation}
+\frac{dP}{dt} = \frac{\tau_c}{k_IP_{rot}},
+\end{equation}
+where $k_I$ is a dimensionless constant, calibrated with observations.
+The convective overturn time, $\tau_c$ encodes the dependence on stellar mass.
+
 \section{Other age diagnostics}
 
 \subsection{Activity}
-Young stars are active because their rapid rotation drives the magnetic dynamo
-in their convection zones \citep{Noyes1984}.
-As their rotation periods decay, so does their activity.
+Stars are born very active and become more inactive over time.
+As well as decaying over billions of years, activity also varies on year
+timescales.
+The most notable example is the Sun which has an 11 year cycle.
+The activity cycle period, $P_{cyc}$ is related to rotation period, $P_{rot}$
+via $P_{cyc} \approx (P_{rot}/\tau_c)^n$ where n $\approx$ 1.5 and $\tau_c$ is
+the convective overturn time at the base of the convective zone
+\citep{Noyes1984}.
+$P_{rot}/\tau_c$ is known as the Rossby number, $Ro$.
+It is therefore dependent on spectral type and for this reason many people
+argue that Rossby number is directly related to the surface magnetic field
+strengh and a more natural quantity to correlate with age and activity than
+rotation period \citep[\eg][]{Vansaders2015} \citep[although this view is not
+universally held][]{Reiners2014}.
 Although stellar activity originates from one mechanism only: magnetism,
-it manifests in a variety of detectable ways.
-These are listed below.
+it manifests in a variety of detectable ways, listed below.
 \begin{itemize}
 \item{Star spots.
 Surface differential rotation, where the equator rotates at a different speed
@@ -727,13 +785,13 @@ number increases up to hundred of spots during the Solar maximum.}
 \item{Chromospheric activity.
 Magnetic activity in stellar chromospheres produces emission in the cores of
 singly ionised calcium H (3969.5$\AA$) and K\footnote{The H and K letters
-indicate the Fraunhofer designation. Fraunhofer assigned letters to the
-absorption lines
-he detected in the Solar spectrum.}
-(3933.7$\AA$) lines.
+indicate the Fraunhofer designation.
+Fraunhofer assigned letters to the absorption lines he detected in the Solar
+spectrum.} (3933.7$\AA$) lines.
 This emission reversal is produced by the excitation of Ca$^+$ electrons to a
 higher energy level via magnetic heating.
-Just as with rotation period, chromospheric activity decreases with time.
+Just as with rotation period, chromospheric activity decreases with time and
+the two properties are related \citep[\eg][]{Kraft1967, Noyes1984b}.
 Relations between age and chromospheric activity have, just as with rotation
 period, been calibrated \citep[\eg][]{Soderblom1991, Donahue1993,
 Lachaume1999, Mamajek2008}.
@@ -746,8 +804,9 @@ Crucially though, measurements of Ca II H \& K emission are difficult to
 obtain since high-resolution spectra are required.
 }
 \item{UV and X-ray flux.}
-Magnetic heating excites photons to high energies, producing substantial UV
-and X-ray fluxes.
+Magnetic heating in the corona and chromosphere excites photons to high
+energies, producing substantial UV and X-ray fluxes
+\citep[\eg][]{Pallavicini1981}.
 Since M dwarfs have large convective zones, some even being fully convective,
 they are highly active.
 Their UV flux is significant which is currently causing ripples in the
@@ -820,7 +879,7 @@ However, although a rapidly moving star is likely to be older than a slowly
 moving star, stellar-orbit heating is a stochastic process and therefore
 cannot always be relied upon.
 
-\section{Probabilistic Statistical methods}
+\section{Statistical methods}
 
 A core part of this thesis is the statistical methods that are employed.
 None of the methods used here are new in themselves, but many have not been
@@ -1003,6 +1062,7 @@ signals from \ktwo\ light curves, without detrending.
 In what follows I review a selection of detrending methods.
 
 \subsection{Rotation period inference}
+% could move this to chapter 5
 
 \subsubsection{ACF}
 An AutoCorrelation Function (ACF) was first used to measure rotation periods

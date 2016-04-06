@@ -512,7 +512,7 @@ Around 500 dwarfs and subgiants were observed in short cadence mode
 There are two different approaches to inferring asteroseismic ages from
 \kepler\ light curves, depending on the S/N of pulsations.
 In the high S/N cases it may be possible to detect oscillation frequencies of
-individual modes \citep[\eg][]{Lebreton2014, Metcalfe2010, Silva-aguirre2013}.
+individual modes \citep[\eg][]{Lebreton2014, Metcalfe2010, Silva-aguirre2012}.
 however for the majority of short cadence targets, only the
 mean large frequency separation, $\Delta\nu$ and frequency of maximum power,
 $\nu_{max}$ can be measured.
@@ -529,16 +529,15 @@ via the scaling relations:
     \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{1/2}.
 \end{equation}
 Ages are then inferred by comparing these quantities to those predicted by
-model grids (spectroscopic estimates of \teff and \feh are also required).
-Ages inferred using \dnu and \numax typically have relatively large
-uncertainties, in the order of 15-40\% \citep{Silva-aguirre2015a}.
-
-In high S/N cases, ages are inferred by adjusting the parameters of stellar
-interior models \citep[\eg][]{Kjeldsen2008} until the observed frequencies, or
-combinations of them are reproduced.
+model grids (spectroscopic estimates of \teff\ and \feh\ are also required).
 Two of the most sophisticated codes used for age analysis are the BAyesian
 STellar Algorithm \citep[BASTA][]{Silva-aguirre2015} and the Bellaterra
 Stellar Properties Pipeline \citep{Serenelli2013}.
+Ages inferred using \dnu\ and \numax\ typically have relatively large
+uncertainties, in the order of 15-40\% \citep{Silva-aguirre2015a}.
+In high S/N cases, ages are inferred by adjusting the parameters of stellar
+interior models \citep[\eg][]{Kjeldsen2008} until the observed frequencies, or
+combinations of them are reproduced.
 Uncertainties on ages inferred from high S/N light curves using this
 `boutique' method of modelling individual frequencies are typically around
 10-15\% \citep{Silva-aguirre2015a}.
@@ -556,7 +555,7 @@ photometry of bright (brighter than around 12th magnitude) stars.
 Even with \kepler\ and \corot, this only amounts to around one hundred MS
 stars with asteroseismic ages available today.
 It is therefore essential that alternative dating methods, which can be
-applicable to a much larger sample of stars are developed.
+applicable to a much larger sample of stars, are developed.
 Age-rotation relations, for example.
 
 \subsection{Age-rotation relations}
@@ -564,57 +563,29 @@ Age-rotation relations, for example.
 Asteroseismology is revolutionising stellar astronomy and, perhaps, stellar
 ages in particular (partly because the bar is so low to begin with).
 However, the quantity of ultra-precise, short cadence light curves limited and
-it is still a `boutique' method, applied to hand-picked, bright, text-book
+it is still a `by hand' method, applied to hand-picked, bright, text-book
 Solar-like oscillators.
 In order to produce a catalogue of stellar ages large enough to be useful for
 stellar population studies, we need a method that can be applied to thousands
 of stars.
 Such a method should require inexpensive observables, be computationally cheap
 and be easily automated.
-Gyrochronology fulfills these criteria and in what follows I describe the
-physics behind it.
+Enter: gyrochronology.
 
-\citet{Skumanich1972} compiled data that provided one of the first indications
-that stellar rotation periods decay over time.
-They demonstrated that rotation period, lithium abundance and chromospheric
-activity decay was proportional to the square-root of age.
-In figure \ref{fig:skumanich}, equatorial rotational velocity\footnote{ Only
-the equatorial velocities of the G stars in the two clusters are indicated.}
-versus time (triangles) is plotted on the same axes as lithium abundance
-(crosses) and Ca$^+$ emission (circles) for the Hyades and Pleiades clusters,
-as well as the Sun.
-The Sun is the far right point for each age indicator.
-Ursa Major stars are included on the Ca$^+$ emission scale.
-Lithium abundance and Ca$^+$ emission were previously known age indicators and
-this work demonstrated that rotation period was also related to age.
-\begin{figure}
-\begin{center}
-\includegraphics[width=3in, clip=true]{figures/skumanich.pdf}
-\caption[\citet{skumanich1972} results: early evidence for magnetic braking]
-{Figure from \citet{skumanich1972}. Rotation periods for the G stars in the
-Hyades and Pleiades and the Sun are plotted.}
-\label{fig:skumanich}
-\end{center}
-\end{figure}
+\subsubsection{Gyrochronology: the theory}
 
-% The rotation periods of cluster stars were investigated in several studies
-% \citep[\eg][]{Stauffer1987}.
-% The physical mechanism behind the coupling of stellar winds to the magnetic
-% dynamo was explored by \citet{Weber1967, Mestel1984}.
-% This process was later applied to evolving stars by \citet{Kawaler1988}.
-
-Today, we know that angular momentum loss is caused by a magnetised stellar
-wind \citep{Schatzman1962, Weber1967, Mestel1984}.
+Today, we know that angular momentum loss in stars is caused by a magnetised
+stellar wind \citep{Schatzman1962, Weber1967, Mestel1984}.
 The stellar wind is composed of charged ions that stream away from the stellar
 surface.
 Each of these ions carries mass, charge and angular momentum as it travels
 away from the star.
 The angular momentum carried by these particles is lost from the system, not
 at the surface, but at the point where they no longer co-rotate with the star.
-Stellar magnetic fields force the particles in the stellar wind them to rotate
-with the same angular velocity as the surface out to the Alfv{\'e}n radius.
+Stellar magnetic fields force the particles in the stellar wind to rotate with
+the same angular velocity as the surface, out to the Alfv{\'e}n radius.
 The Alfv{\'e}n radius is the point at which a particle experiences equal force
-from the magnetic field and the pressure produced by surrounding particles.
+from the magnetic field and radiation pressure.
 Once beyond the Alfv{\'e}n radius, the particles' angular momentum is lost
 from the star.
 This is dominant mechanism by which the rotation periods of stars decay during
@@ -622,6 +593,7 @@ their stint on the MS.
 The stellar wind also carries mass away from the star, and the internal
 structure of the star changes due to core hydrogen burning which both change
 the star's moment of inertia, however these are secondary effects.
+Stellar magnetism is almost entirely responsible for rotational evolution.
 
 The motion of turbulent plasma in the outer layers of low-mass stars drives
 the production of a magnetic field \citep[][]{Schatzman1962}.
@@ -643,26 +615,116 @@ momentum lost per unit time.
 % There is a saturation point however, angular momentum loss rate only increases
 % with magnetic field strength up to a point \citet{Chaboyer1995, Sills2000}.
 For this reason the rate of angular momentum loss is not constant: as a star
-loses angular momentum its rotation period decays as does its magnetic field
+loses angular momentum its rotation period decays, as does its magnetic field
 strength, so the rate of angular momentum loss decreases.
-The effect of this process is to force stellar rotation periods to converge.
+The overall effect of this process is to force stellar rotation periods to
+converge.
 % \citet{Reiners2012} showed that angular momentum evolution is a function of
-Rapid rotators have a greater angular momentum loss rate than slower rotators.
+Rapid rotators experience a greater angular momentum loss rate than slower
+rotators.
 Their rotation periods therefore decay more rapidly than slow rotators and,
-after a few hundred million years low mass stars appear to rotate at a rate
-that depends, to first order, only on their age and mass.
+after a few hundred million years all low-mass stars appear to rotate at a
+rate that depends, to first order, only on their age and mass.
+
 This convergence happens more quickly for early-type stars than late-type.
 Whilst FGK stars may have converged by 500 million years, \citep{Radick1987,
 Irwin2009} late M dwarfs may not converge within a Hubble time.
-
 Since the magnetic dynamo is believed to be generated in the convective zone,
 stars with a thin convective layer have a weaker magnetic field.
 For this reason they lose angular momentum more slowly.
 Angular momentum loss rate therefore varies as a function of stellar mass and
 fully radiative stars do not spin down appreciably over their MS lifetime
-\citet{Noyes1984_2}.
+\citep{Noyes1984_2}.
 The rotational evolution of fully stars convective is still unknown, however
 it is an active field of interest \citep[\eg][]{Mcquillan2013, Newton2015}.
+
+Several theoretically motivated gyrochronology models have been developed by
+different groups.
+For example, \citet{Kawaler1988, Collier-cameron1994, Reiners2012,
+Epstein2014, Vansaders2014} use physical models of rotating stars with
+magnetic fields, where the rate of angular momentum loss is related to the
+rotation period and field strength, and evolve those stars forward in time.
+Although these models are based on the physical processes at play, they must
+still be calibrated using observations.
+For example, the \citet{Kawaler1988} expression, assuming a linear dynamo is
+\begin{equation}
+\frac{dJ}{dt} = -K_w\Omega^3\left(\frac{R}{R_\odot}\right)^{0.5}
+\left(\frac{M}{M_\odot}\right)^{-0.5},
+\end{equation}
+where $J$ is angular momentum, $R$ and $M$ are radius and mass respectively
+and $K_w$ is a constant that must be calibrated so that the Sun has Solar
+rotation at Solar age.
+See \citet{Barnes2010b} for a discussion on the various adaptations of this
+braking law.
+\citet{Vansaders2014} use the following model to describe the rotation period
+distribution of cool field stars:
+\begin{equation}
+\frac{dJ}{dt} = \left\{
+                \begin{array}{ll}
+                  f_K K_M \omega \left( \frac{\omega_{crit}}{\omega_\odot}
+                  \right)^2, \omega_{crit} \leq \omega
+                  \frac{\tau_{c}}{\tau_{c, \odot}} \\
+                  f_K K_M \omega \left( \frac{\omega\tau_{c}}
+                  {\omega_\odot\tau_{c, \odot}}
+                  \right)^2, \omega_{crit} > \omega
+                  \frac{\tau_{c}}{\tau_{c, \odot}}
+                \end{array}
+              \right.
+\end{equation}
+\label{eq:vansaders}
+With
+\begin{equation}
+    \frac{K_M}{K_{M, \odot}} = \left(\frac{R}{R_\odot}^{3.1}\right)
+    \left(\frac{M}{M_\odot}\right)^{-0.22}
+    \left(\frac{L}{L_\odot}\right)^{0.56}
+    \left(\frac{P_{phot}}{P_{phot, \odot}}\right)^{0.44},
+\end{equation}
+\label{eq:vansaders2}
+where $f_K$ is a constant, scaled to produce solar rotation at solar age for
+the Sun and $P_{phot}$ is the pressure at the photosphere.
+$\tau_c$ is the convective overturn time at the base of the convective zone
+$P_{rot}/\tau_c$ is known as the Rossby number, $Ro$.
+It is dependent on spectral type and for this reason many people argue that
+Rossby number is directly related to the surface magnetic field strength and a
+more natural quantity to correlate with age and activity than rotation period
+\citep[\eg][]{Vansaders2015} \citep[although this view is not universally
+held, see][]{Reiners2014}.
+This is one of the more recently developed theoretical gyrochronology
+relations however, as revealed in chapter \ref{chapter:conclusions}, this
+equation has now been adapted to describe the most recent observations.
+
+\subsubsection{Gyrochronology: the observations}
+
+\citet{Skumanich1972} provided one of the first indications that stellar
+rotation periods decay over time and demonstrated that rotation period,
+lithium abundance and chromospheric activity decay is proportional to the
+square-root of age.
+In figure \ref{fig:skumanich}, equatorial rotational velocity\footnote{ Only
+the equatorial velocities of the G stars in the two clusters are indicated.}
+versus time (triangles) is plotted on the same axes as lithium abundance
+(crosses) and Ca$^+$ emission (circles) for the Hyades and Pleiades clusters,
+as well as the Sun.
+The Sun is the far right point for each age indicator.
+Ursa Major stars are included on the Ca$^+$ emission scale.
+Lithium abundance and Ca$^+$ emission were previously known age indicators
+(see \textsection \ref{sec:activity}) and this work demonstrated that rotation
+period was also related to age.
+\begin{figure}
+\begin{center}
+\includegraphics[width=3in, clip=true]{figures/skumanich.pdf}
+\caption[\citet{skumanich1972} results: early evidence for magnetic braking]
+{Figure from \citet{skumanich1972}. Rotation periods for the G stars in the
+Hyades and Pleiades and the Sun are plotted.}
+\label{fig:skumanich}
+\end{center}
+\end{figure}
+
+% The rotation periods of cluster stars were investigated in several studies
+% \citep[\eg][]{Stauffer1987}.
+% The physical mechanism behind the coupling of stellar winds to the magnetic
+% dynamo was explored by \citet{Weber1967, Mestel1984}.
+% This process was later applied to evolving stars by \citet{Kawaler1988}.
+
 
 \citet{Barnes2003} compiled rotation period measurements from members of
 several young clusters, plus the Mt. Wilson stars.
@@ -689,8 +751,7 @@ clusters (top left), contrasted with the extremely well-defined rotational
 sequence in the Hyades (second panel from the bottom on the right).
 The currently accepted view is that after the age of the Hyades, stellar
 rotation periods lie on this converged sequence.
-In this thesis I will only discuss stars older than around the age of the
-Hyades.
+Gyrochronology only applies to stars older than around the age of the Hyades.
 \begin{figure}[p]
 \begin{center}
 \includegraphics[width=4in, clip=true]{figures/irwin.pdf}
@@ -698,60 +759,14 @@ Hyades.
 {Figure from \citet{Irwin2009}. A compilation of most of the available
 rotation periods for stars in open clusters with $M < 1.2 M_\odot$ in 2009.
 Clusters increase in age from the top left to the bottom right.}
-\label{fig:solar_spectrum}
+\label{fig:irwin}
 \end{center}
 \end{figure}
 
-The term `gyrochronology' was first coined by \citet{Barnes2003}.
-Several gyrochronology models have been developed by different groups since
-then.
-Some of these \citep[\eg][]{Kawaler1988, Collier-cameron1994, Reiners2012,
-Epstein2014, VanSaders2014} use physical models of rotating stars with
-magnetic fields, where the rate of angular momentum loss is related to the
-rotation period and field strength, and evolve those stars forward in time.
-Although these models are based on the physical processes at play, they must
-still be calibrated using observations.
-For example, the \citet{Kawaler1988} expression, assuming a linear dynamo is
-\begin{equation}
-\frac{dJ}{dt} = -K_w\Omega^3\left(\frac{R}{R_\odot}\right)^{0.5}
-\left(\frac{M}{M_\odot}\right)^{-0.5},
-\end{equation}
-where $J$ is angular momentum, $R$ and $M$ are radius and mass respectively
-and $K_w$ is a constant that must be calibrated so that the Sun has Solar
-rotation at Solar age.
-See \citet{Barnes2010b} for a discussion on the various adaptations of this
-braking law, taken by different groups in order to reproduce observations of
-young clusters.
-\citet{Vansaders2014} use the following model to describe the rotation period
-distribution of cool field stars:
-\begin{equation}
-\frac{dJ}{dt} = \left\{
-                \begin{array}{ll}
-                  f_K K_M \omega \left( \frac{\omega_{crit}}{\omega_\odot}
-                  \right)^2, \omega_{crit} \leq \omega
-                  \frac{\tau_{c}}{\tau_{c, \odot}} \\
-                  f_K K_M \omega \left( \frac{\omega\tau_{c}}
-                  {\omega_\odot\tau_{c, \odot}}
-                  \right)^2, \omega_{crit} > \omega
-                  \frac{\tau_{c}}{\tau_{c, \odot}}
-                \end{array}
-              \right.
-\end{equation}
-\label{eq:vansaders}
-With
-\begin{equation}
-    \frac{K_M}{K_{M, \odot}} = c(\omega)\left(\frac{R}{R_\odot}^{3.1}\right)
-    \left(\frac{M}{M_\odot}\right)^{-0.22}
-    \left(\frac{L}{L_\odot}\right)^{0.56}
-    \left(\frac{P_{phot}}{P_{phot, \odot}}\right)^{0.44},
-\end{equation}
-\label{eq:vansaders2}
-where $f_K$ is a constant, scaled to produce solar rotation at solar age for
-the Sun and $P_{phot}$ is the pressure at the photosphere.
 
-An alternative approach is an entirely empirical one where simple functional
-forms are fit to the observations \citep[\eg][]{Barnes2007, Mamajek2008,
-Meibom2010}.
+\citet{Barnes2003} pioneered an alternative approach to gyrochronology: an
+entirely empirical one where simple functional forms are fit to the
+observations \citep[\eg][]{Barnes2007, Mamajek2008}.
 \citet{Barnes2003} proposed the following functional form for the relation
 between period, colour and age, \begin{equation} \label{eq:Barnes2007_2} P =
 A^n \times a(B-V-c)^b, \end{equation} where $P$ is rotation period (in days),
@@ -759,44 +774,49 @@ $A$ is age (in Myr), $B$ and $V$ are B and V band magnitudes respectively and
 $a$, $b$, $c$ and $n$ are dimensionless free parameters.
 \citet{Barnes2007} used rotation periods for stars in open clusters ranging in
 age from 30-600 Myr to calibrate this relation.
-This same functional form was used by \citet{Mamajek2008} and
-\citet{Meibom2010} who also used young clusters to recalibrate the
-gyrochronology model.
+% This same functional form was used by \citet{Mamajek2008} and who also used
+% young clusters to recalibrate the gyrochronology model.
 
 \citet{Barnes2010b} present a hybrid part theoretical, part empirical
-gyrochronology relation,
+gyrochronology relation:
 \begin{equation}
 \frac{dP}{dt} = \frac{\tau_c}{k_IP_{rot}},
 \end{equation}
 where $k_I$ is a dimensionless constant, calibrated with observations.
 The convective overturn time, $\tau_c$ encodes the dependence on stellar mass.
+In this thesis I use the \citet{Barnes2003} functional form because the only
+available observables for the majority of \kepler\ stars are rotation period
+and colour.
+In the interest of using relatively model-independent parameters we avoid
+calculating $\tau_c$.
+
+Isochrone fitting, asteroseismology and gyrochronology are probably the most
+widely used dating methods today.
+There are a handful of others available however, which I briefly outline
+below.
 
 \section{Other age diagnostics}
+\label{sec:activity}
 
-\subsection{Activity}
+\subsection{Magnetic activity}
+% Rotation period decay is driven by the magnetic dynamo which also weakens over
+% time.
+% The slow decrease in magnetic field strength manifests in many ways.
 Stars are born very active and become more inactive over time.
-As well as decaying over billions of years, activity also varies on year
-timescales.
-The most notable example is the Sun which has an 11 year cycle.
+As well as decaying over billions of years, activity also varies on several
+year timescales: the Sun, for example, has an 11 year activity cycle.
 The activity cycle period, $P_{cyc}$ is related to rotation period, $P_{rot}$
-via $P_{cyc} \approx (P_{rot}/\tau_c)^n$ where n $\approx$ 1.5 and $\tau_c$ is
-the convective overturn time at the base of the convective zone
+via $P_{cyc} \approx (P_{rot}/\tau_c)^n$ where n $\approx$ 1.5
 \citep{Noyes1984}.
-$P_{rot}/\tau_c$ is known as the Rossby number, $Ro$.
-It is therefore dependent on spectral type and for this reason many people
-argue that Rossby number is directly related to the surface magnetic field
-strengh and a more natural quantity to correlate with age and activity than
-rotation period \citep[\eg][]{Vansaders2015} \citep[although this view is not
-universally held][]{Reiners2014}.
 Although stellar activity originates from one mechanism only: magnetism,
 it manifests in a variety of detectable ways, listed below.
 \begin{itemize}
 \item{Star spots.
 Surface differential rotation, where the equator rotates at a different speed
-to the poles (in the Sun it rotates faster), twists the magnetic flux into
-tubes which emerge from the stellar surface.
+to the poles (in the Sun it rotates faster), twists magnetic flux into tubes
+which emerge from the stellar surface.
 The convection of material at the points where they emerge is inhibited and
-these areas are cooler and darker as a result.
+these areas become cooler and darker as a result.
 These cool, dark regions are called Sun spots on the Sun and star spots on the
 surfaces of other stars.
 Because these regions are darker, the integrated, optical flux emitted by a
@@ -804,15 +824,15 @@ star when there are more spots on the surface is decreased.
 These decreases in brightness are detectable on the time scale of the stellar
 rotation period, where spots rotate into and out of view, and on longer
 timescales---the overall activity cycle.
-The Sun has an activity cycle that lasts 11 years.
-During periods of low activity the Solar surface has few star spots and this
-number increases up to hundred of spots during the Solar maximum.}
+% The Sun has an activity cycle that lasts 11 years.
+% During periods of low activity the Solar surface has few star spots and this
+% number increases up to hundred of spots during the Solar maximum.}
 \item{Chromospheric activity.
 Magnetic activity in stellar chromospheres produces emission in the cores of
-singly ionised calcium H (3969.5$\AA$) and K\footnote{The H and K letters
-indicate the Fraunhofer designation.
+singly ionised calcium H (3969.5$\AA$) and K (3933.7$\AA$) lines\footnote{The
+H and K letters indicate the Fraunhofer designation.
 Fraunhofer assigned letters to the absorption lines he detected in the Solar
-spectrum.} (3933.7$\AA$) lines.
+spectrum.}.
 This emission reversal is produced by the excitation of Ca$^+$ electrons to a
 higher energy level via magnetic heating.
 Just as with rotation period, chromospheric activity decreases with time and
@@ -822,42 +842,43 @@ period, been calibrated \citep[\eg][]{Soderblom1991, Donahue1993,
 Lachaume1999, Mamajek2008}.
 Chromospheric activity is usually quantified via the R$\prime_{HK}$ index,
 defined as the flux excess in the lines, normalised to the bolometric flux.
-The drawback of using chromospheric activity indices are similar to the
-drawbacks of gyrochronology: the data are sparse and particularly so at late
-ages and low masses.
+The limitations of using chromospheric activity indices as age diagnostics are
+similar to the drawbacks of gyrochronology: the data are sparse and
+particularly so at late ages and low masses.
 Crucially though, measurements of Ca II H \& K emission are difficult to
 obtain since high-resolution spectra are required.
 }
 \item{UV and X-ray flux.}
-Magnetic heating in the corona and chromosphere excites photons to high
+Magnetic heating in the chromosphere and corona excites photons to high
 energies, producing substantial UV and X-ray fluxes
 \citep[\eg][]{Pallavicini1981}.
 Since M dwarfs have large convective zones, some even being fully convective,
 they are highly active.
-Their UV flux is significant which is currently causing ripples in the
-exoplanet community.
+Their UV flux is significant and this topic is currently attracting attention
+in the exoplanet community.
 M dwarfs with transiting exoplanets are premium targets for follow-up with the
 James Webb Space Telescope (JWST) since their petite size relative to their
 Earth-radius planets provides deep transits.
-The large signal-to-noise ratios of these deep transits will allow JWST to
-search for biomarkers in the atmospheres of these planets.
+The large signal-to-noise ratios (S/N) of these deep transits will allow JWST
+to search for biomarkers in the atmospheres of these planets.
 However, since M dwarfs are more active than G dwarfs, and their habitable
 zones are closer in, any potential life on an Earth-twins may have been
-obliterated by the extreme UV flux.
+obliterated by the extreme UV flux.}
 \item{Flare rate.
-Convective turbulence in low-mass stars generates magnetic flux tubes.
-Differential rotation then causes these flux tubes to twist around each other,
-becoming entangled.
-Magnetic reconnection causes the acceleration of particles and a huge amount
-of energy is released into the Inter-Stellar Medium (ISM).
+% Convective turbulence in low-mass stars generates magnetic flux tubes.
+% Differential rotation then causes these flux tubes to twist around each other,
+% becoming entangled.
+Occasionally magnetic flux tubes reconnect, causing acceleration of particles
+to enormous velocities and huge numbers of particles and energy is released
+into the Inter-Stellar Medium (ISM).
+These events are called flares.
 The flare rate is related to the mean flare energy via a power law
 \citep{Davenport2015, Hawley2014} and both of these properties are related to
 the strength of the stellar magnetic field.
 Flares occur extremely often in M dwarfs, the most magnetically active stars,
 with energies ranging from $\sim e^{29} - e^{33}$ ergs and durations ranging
-from a few to a hundred minutes \citep{Hawley2014}.
+from a few to a hundred minutes \citep{Hawley2014}.}
 % FIXME: what drives differential rotation?
-}
 \end{itemize}
 
 \subsection{Lithium depletion boundary}
@@ -872,21 +893,20 @@ The time taken for a star to reach these temperatures depends on their mass.
 The lowest mass PMS stars are fully convective, so the mixing timescale is
 very short and lithium depletion takes place very rapidly.
 For young stellar groups therefore, the mass at which the LDB (the boundary
-stars that do and do not show lithium in their atmospheres) is located is a
-very sensitive function of age \citep{Basri1996}.
-LDB dating can be very precise \citep{Burke2004}, however it is only
+between stars that do and do not show lithium in their atmospheres) is located
+is a very sensitive function of age \citep{Basri1996}.
+LDB dating can be very precise, however it is only
 applicable to young groups of stars (20 Myr < age < 200 Myr) since by this
 time Lithium has disappeared from the atmospheres of all members, regardless
-of their mass.
+of their mass \citep{Burke2004}.
 
 \subsection{Dynamics}
 Stellar populations in the Milky Way galaxy can be localised into four groups:
 the bulge, the thin disk, the thick disc and the halo.
 Each of these stellar populations has a different distribution of stellar
 ages.
-The bulge is comprised of old stars.
-It is characteristically red because the only remaining stars on the MS are
-low-mass.
+The bulge is comprised of old stars and it is characteristically red because
+the only remaining stars on the MS are low-mass.
 The thin disk is comprised of young stars.
 This is the main star-forming part of the galaxy as the spiral arms, density
 waves of molecular gas that readily collapses into protostars, reside in the
@@ -899,7 +919,7 @@ The thick disc is statistically older than the thin disc since the majority of
 its residents have had time to experience one or more close encounters.
 The halo is even older still: these stars have been displaced even further
 from the thin disk in which they were born.
-Scince the probability of experiencing a close encounter increases with time,
+Since the probability of experiencing a close encounter increases with time,
 stars with higher proper motions are likely to be older \citep[see,
 \eg][]{Shevelev1989, Nissen1991}.
 However, although a rapidly moving star is likely to be older than a slowly
@@ -908,29 +928,28 @@ cannot always be relied upon.
 
 \section{Statistical methods}
 
-A core part of this thesis is the statistical methods that are employed.
+A theme continued throughout this thesis is probabilistic statistical methods.
 None of the methods used here are new in themselves, but many have not been
-previously used on the sorts of problems that are presented here or in an
-astronomical context.
-I will now discuss them in the order in which they feature in the subsequent
-chapters of this thesis.
+previously used on the sorts of problems presented here, or in an astronomical
+context.
+% I will now discuss them in the order in which they feature in the subsequent
+% chapters of this thesis.
 
 \subsection{Multi-dimensional and unknown uncertainties: hierarchical
 probabilistic modelling}
-In some cases in astronomy, the only significant uncertainties are on
-the dependent variable.
-This is often the case with time-series or spectra and assuming that the
-independent variable uncertainties are negligible is a reasonable assumption.
-In a case where one wants to fit a model to data where the only significant
-uncertainties lie in the $y$ direction, those uncertainties are Gaussian, the
-measurements are independent and there is no correlated noise, it may be
-appropriate to use the Gaussian likelihood function.
-For example the likelihood of $y$-values, given some $x$-values, some model
+In some astronomical data sets, only the dependent variable has significant
+uncertainties---for example in time-series or spectra---in which case it is
+reasonable to ignore independent variable uncertainties.
+When performing regression on data with only $y$-direction, Gaussian
+uncertainties where the measurements are independent and there is no
+correlated noise, it may be appropriate to use a simple Gaussian likelihood
+function.
+For example, the likelihood of $y$-values given some $x$-values, some model
 parameters, $\mathbf{\theta}$ and some $y$-direction uncertainties, $\sigma$,
-the likelihood can be written
+can be written
 \begin{equation}
-    p(y|x, \sigma, \mathbf{\theta}) = \prod_{i=1}^N
-    \frac{1}{\sqrt{2\pi\sigma_i^2}}
+    p(\{y\}_{i=1}^N|\{x\}_{i=1}^N, \{\sigma\}_{i=1}^N, \mathbf{\theta})
+    = \prod_{i=1}^N \frac{1}{\sqrt{2\pi\sigma_i^2}}
     \exp\left(-\frac{[y_i - \mu(x_i, \mathbf{\theta})]^2}{2\sigma_i^2}\right),
 \end{equation}
 where $\mu$ is the mean model.
@@ -941,26 +960,37 @@ It is often more practical to use the logarithm of this function,
     \mathbf{\theta})]^2}{\sigma_i^2} +
     \ln\left(2\pi\sigma_i^2\right) \right],
 \end{equation}
-\label{eq:lnlike}
+\label{eq:lnlike_intro}
 which is also known as $-\frac{1}{2}\chi^2$.
 
-In many fitting-model-to-data problems in the astronomical literature,
-a frequentist approach is taken and $\chi^2$ is minimised (which is the
-equivalent of maximising the log-likelihood).
-The probabilistic (Bayesian) approach however is to multiply this likelihood
-by a prior to produce a posterior Probability Density Function (PDF).
+In many fitting-a-model-to-data problems in the astronomical literature, a
+frequentist approach is taken and $\chi^2$ is minimised (or log-likelihood is
+maximised).
+The probabilistic (Bayesian) approach however, is to multiply this likelihood
+by a prior to produce a posterior Probability Density Function (PDF):
 \begin{equation}
-Bayes rule
+    p(\theta|\{y\}_{i=1}^N, I) = \frac{p(\{y\}_{i=1}^N|\theta, I)
+    p(\theta, I)}{p(\{y\}_{i=1}^N|I)}.
 \end{equation}
-The prior represents one's prior beliefs about the model parameters,
-$\mathbf{\theta}$.
+In this equation, $I$ is used to represent all of one's knowledge and
+implicit assumptions made about the data and the model.
+The prior, $p(\theta, I)$ represents one's prior beliefs about the model
+parameters, $\mathbf{\theta}$.
 There is a wide range of literature available on the science behind choosing
-priors which is beyond the scope of this thesis.
-% CITATIONS
+priors which is beyond the scope of this thesis \citep[\eg][]{Kass1996,
+Gelman2009, Vanderplas2014}.
+The denominator in the above equation is the likelihood of the data,
+marginalised over all model parameters.
+Is is sometimes known as the `fully marginalised likelihood' and sometimes the
+`evidence'.
+It is a useful quantity to compute when performing model comparison but not
+is necessary for performing regression.
+I do not perform model comparison here so a discussion of the evidence
+integral is beyond the scope of this thesis.
 
-Returning to equation \ref{eq:lnlike}, it is trivial to modify this function
-for the case where the $y$-direction uncertainties are unknown, or
-under-(or over)-estimated.
+Returning to the equation for the log-likelihood, equation
+\ref{eq:lnlike_intro}, it is trivial to modify this function for the case
+where the $y$-direction uncertainties are unknown, under, or over-estimated.
 In this case one could write
 \begin{equation}
     \ln\mathcal{L} =
@@ -973,14 +1003,14 @@ data.
 
 In chapter \ref{chapter:flicker} a modification to the above equation is used
 to fit a line to data where the uncertainties are underestimated.
-This is a hierarchical problem, since there are two parameters that describe
+This is a hierarchical problem since there are two parameters that describe
 the model (a straight line), $\alpha$ and $\beta$, where $\mu = \alpha +
 \beta x$ and a parameter describes the standard deviation of a Gaussian
 spanning the mean model.
 In other words, the `true' value of variable $y$---the value that would have
-been measured if there were no observational uncertainties, $\bar{y}$ is drawn
-from a Gaussian with mean, $\mu = \alpha + \beta \bar{x}$ and standard
-deviation, $s$:
+been measured if there were no observational uncertainties---
+$\bar{y}$, is drawn from a Gaussian with mean, $\mu = \alpha + \beta \bar{x}$
+and standard deviation, $s$:
 \begin{equation}
 \bar{y} \sim \mathcal{N}(\alpha + \beta\bar{x}, s^2),
 \end{equation}
@@ -993,9 +1023,10 @@ y_{obs} \sim \mathcal{N}(\bar{y}, \sigma_{obs}^2).
 Since it is the observations that are modelled, not the latent parameter,
 $\bar{y}$, this is a hierarchical process.
 
-Equation \ref{eq:lnlike} can also be modified for the simple case of fitting a
-straight line to data, where the $y$-direction observational uncertainties are
-unknown {\it and} the $x$-direction uncertainties are non-negligible.
+Equation \ref{eq:lnlike_intro} can also be modified for the simple case of
+fitting a straight line to data, where the $y$-direction observational
+uncertainties are unknown {\it and} the $x$-direction uncertainties are
+non-negligible.
 Starting from equations 26, 29, 31 and 32 of \citet{Hogg2010},
 $\mathbf{S_i}$ is the covariance tensor,
 \begin{eqnarray}
@@ -1019,7 +1050,7 @@ the variance is given by,
     \Sigma_i^2 = \mathbf{\hat{\nu}}^T \mathbf{S_i} \mathbf{\hat{\nu}}
 \end{equation}
 \label{eq:variance}
-and the log-likelihood can be written,
+and the log-likelihood is,
 \begin{equation}
     \ln\mathcal{L} = - \frac{1}{2} \sum_{i=1}^N \left[
     \frac{\Delta_i^2}{\Sigma_i^2} + \ln|\mathbf{S_i}| \right].
@@ -1041,19 +1072,19 @@ substituting \ref{eq:covariance_tensor_mod}, \ref{eq:unit_vector} \&
     \left( \frac{\left[ y_i - (\alpha + \beta x_i) \right]^2}
     {\beta^2\sigma_{x, i} + \sigma_{y, i}^2 + s^2} + \ln[\sigma_{x,
     i}^2(\sigma_{y, i}^2 + s^2)]
-    \right)
-\end{equation}.
-This is the equation used in chapter \ref{chapter:flicker} to perform such an
-analysis with astrophysical data.
+    \right).
+\end{equation}
+This is the equation used in chapter \ref{chapter:flicker} to analyse
+astrophysical data with intrinsic scatter.
 
 In cases with more complicated mean models, it is not so easy to arrive at an
 analytic solution.
 For example, a similar problem is approached in chapter \ref{chapter:gyro}.
-Here, the extra variance parameter, $s$ is not used (although it should be
+Here, the extra variance parameter, $s$, is not used (although it should be
 included in future analyses!), however the uncertainties in the $x$, $y$, and
-this time $z$ too, directions are large.
+this time $z$, directions are large.
 The model is not a simple two-dimensional line as in the above case, it is the
-three-dimensional gyrochronology equation \ref{eq:barnes} where $y$ is
+three-dimensional gyrochronology equation \ref{eq:Barnes2007_2} where $y$ is
 rotation period, $x$ is age and $z$ is B-V colour.
 In this case, an approximation must be made in order to take the uncertainties
 on all dimensions into account.
@@ -1064,21 +1095,21 @@ This approximation is made via sampling and is described in chapter
 \label{sec:detrending}
 
 `Detrending' is a word that has been adopted by astronomers to mean removing
-systematic trends caused by non-physical (\eg instrumental) variations in the
+systematic trends caused by non-physical (\ie\ instrumental) variations in the
 experiment conditions.
 This process can be applied to any data set that contains correlated noise, be
-it a time series, image or spectrum, however `detrending' usually pertains
-specifically to time series analysis, and light curves in particular.
-The detrending process involves the generation of some model of the systematic
-features that can be generated and then subtracted from the light curve.
+it a time series, image or spectrum.
+However `detrending' usually pertains specifically to time series analysis,
+and light curves in particular.
+The detrending process involves generating some model of the systematic
+features which is then subtracted from the light curve.
 This implies that the contribution of systematics to the light curve are known
 {\it a priori}.
 Of course in reality, the contributions coming from the signal and the noise
-can never be known completely, so must be approximated.
-In some cases this approximation is close to the truth, or doesn't need to be
-for the purposes of extracting science from the data (for example, if
-instrumental systematics exist on very different timescales to the signal of
-interest).
+can never be separated completely, so this is an approximate process.
+In some cases this approximation is close to the truth, or close enough---for
+example, if signal and noise look very different, rough detrending may still
+reveal useful signals in the data.
 However, in many cases the noise model cannot be adequately approximated.
 At best this leads to inaccurate inferences about the physical system being
 studied and at worse it leads to false positive detections and false negative
@@ -1086,14 +1117,14 @@ non-detections.
 
 In \textsection \ref{chapter:sip} I present a method for extracting periodic
 signals from \ktwo\ light curves, without detrending.
-In what follows I review a selection of detrending methods.
+Here I summarise the detrending process for the original \kepler\ mission.
 
 \kepler\ data is available to download at various stages of the reduction
 process.
 Target Pixel Files (TPFs), are arrays of the raw pixel fluxes, Simple Aperture
-Photometry (SAP) light curves, are generated by combining pixel fluxes with
-simple masks and Presearch Data Conditioned Maximum {\it a posteriori}
-(PDC-MAP) light curves, a detrended data product.
+Photometry (SAP) light curves are generated by combining pixel fluxes with
+simple masks and Presearch Data Conditioned, Maximum {\it A Posteriori}
+(PDC-MAP) light curves, are a detrended data product.
 
 The detrending process concerns removing as much of the noise as possible
 whilst preserving the signal \citep{Smith2012, Stumpe2012}.
@@ -1101,9 +1132,9 @@ In reality no detrending process does this perfectly and most favour a
 slightly more or less aggressive approach to removing systematics, depending
 on the science goal.
 Systematic features in \kepler\ light curves are generated by two main
-sources: pointing variations and temperature variations, although pointing
+sources: pointing variations and temperature variations (although pointing
 variations are more serious for \ktwo\ light curves than \kepler\ light
-curves.
+curves).
 Regardless of the source, either of these variations will effect stars that
 lie close together on the CCD in similar ways.
 The \kepler\ pipeline uses this fact to isolate physical signals from
@@ -1127,7 +1158,7 @@ upside-down top-hat shape.
 Stellar variability on the other hand is smoothly varying (similarly to
 systematic features) with timescales ranging from around one day to several
 years.
-% PDC-MAP detrending does not preserve signals longer than $\sim$ 30 days.
+PDC-MAP detrending does not preserve signals longer than $\sim$ 30 days.
 % FIXME: find this CITATION
 
 An alternative approach to PDC-MAP detrending, designed to preserve signals
@@ -1136,22 +1167,169 @@ They also fit a linear combination of CBVs to the data, however the main
 differences in their approach are to impose a maximum entropy criterion:
 trends in the most highly-weighted CBVs must be present in a large number of
 light curves, and to remove high frequency noise from the systematics model
-before detrending so as not to inject noise.
+before detrending so as not to inject high frequency noise.
 A comparison of the two detrending methods is presented in
 \citet{Roberts2013}.
 
 Once \kepler\ lost its third reaction wheel, pointing variations became much
 more severe, systematic features rose in amplitude and more aggressive
 detrending techniques became necessary.
+In chapter \ref{chapter:sip}, I introduce an alternative approach to
+detrending \ktwo\ light curves.
 
 \subsection{Rotation period inference}
-% could move this to chapter 5
+The overall brightness of stars is periodically reduced by spots on their
+surfaces.
+A measurement of the time between successive dimmings provides an indication
+of the surface rotation period.
+Unfortunately, inferring accurate rotation periods is not as simple as finding
+the period of the best-fit sinusoid: the picture is complicated by several
+factors:
+\begin{itemize}
+\item{The presence of {\it several} dark spots and plages (bright spots), with
+complicated geometries, on the surface at any given time creates
+non-sinusoidal brightness variations.}
+\item{Spots are born, grow, then shrink and eventually fade away.
+The finite lifetimes of spots produces evolving patterns in light curves.
+Furthermore, spots are born at a range of longitudes, meaning that brightness
+variations are not perfectly periodic.}
+\item{Many stars exhibit signs of differential rotation, \ie\ the poles and
+the equator rotate at different angular velocities.
+Star spots may be present at multiple latitudes simultaneously which will blur
+the periodicity of the signal---it will have a finite width in frequency
+space, rather than appearing as a delta function.
+If there are two dominant active regions at different latitudes, two distinct
+periodic signals may be present in the light curve.
+The famous butterfly diagram for the Sun demonstrates that solar spots are
+born at active latitudes, bands around 30$^\circ$ in width, between 0 and
+30$^\circ$ north and south of the equator \citep[\eg][]{Charbonneau2010}.
+Spots are born at lower and lower latitudes over the course of one Solar
+cycle, therefore if the Sun were a \kepler\
+star one would measure a different rotation period from one year to the next.
+}
+\end{itemize}
 
-\subsubsection{ACF}
+In this thesis I will take `rotation period' to mean the equatorial period.
+For stars with significant differential rotation, this will be the minimum
+rotation period (assuming that equatorial rotation is faster than polar
+rotation, as in the Sun).
+In reality therefore, all photometric rotation periods are just upper limits.
+This is an interesting point for a future discussion but is beyond the scope
+of this thesis.
+
+\citet{Aigrain2012} and \citet{Dumusque2014} demonstrate the effects of spots
+on the flux variations of stars and provide realistic models for translating
+flux signals into Radial Velocity (RV) signals\footnote{There is now a large
+body of (occasionally contraversial) literature on this topic in the context
+of exoplanet search.
+Star spots signals can look like exoplanet signals in RV time series.
+Modelling star spots has now become a necessity for exoplanet RV search.}.
+These models include parameters such as period, inclination, number of spots,
+spot lifetime, spot temperature, differential rotation amplitude (shear), and
+others.
+They are able to produce light curves that look very similar to real \kepler\
+time-series, however fitting such models to data is not straightforward.
+It is impractical to have a set of parameters (\eg\ latitude, longitude, size,
+temperature) for each spot, however it is difficult to simplify the model in a
+way that will allow enough flexibility to fit a real data set.
+It is therefore necessary to use alternative methods for inferring rotation
+periods.
+In chapter \ref{chapter:GP_chapter} of this thesis I present a new method for
+inferring rotation periods, and give a summary of the main existing methods
+below.
+
+\subsubsection{Lomb-Scargle periodograms}
+Lomb-Scargle (LS) periodograms \citep{Lomb1976, Scargle1982} were developed
+by astronomers to perform frequency analysis on unevenly spaced data.
+To produce a LS periodogram, a sinusoid is fit to a time series via
+least-squares over a grid of frequencies.
+The amplitudes of the sinusoid are plotted against frequency to produce a
+power spectrum.
+This is simple linear regression and LS periodograms are therefore
+inexpensive to compute, although more costly than Fast Fourier Transforms
+(FFTs).
+% QUESTION: learn FFT operations.
+LS periodograms have been used to study periodic phenomena in astrophysical
+time series for decades and were the first tools used to measure photometric
+rotation periods \citep[\eg][]{Scott1992, Mottola1995}.
+They are often use to infer rotation periods from \kepler\ light curves
+\citep[\eg][]{Reinhold2013, Reinhold2013b}.
+The main drawback of the LS periodogram for rotation period measurement is
+that a sinusoid is not necessarily a good model for the kinds of signals
+produced by star spots and results in imprecise period measurement.
+This is not a problem however, for the ACF method.
+
+\subsubsection{The ACF method}
 An AutoCorrelation Function (ACF) was first used to measure rotation periods
 by \citet{Mcquillan2013} who developed the method specifically for \kepler\
 data.
+The ACF itself is defined as
+\begin{equation}
+    r_k = \frac{\sum_{i=1}^{N}(x_i-\bar{x})(x_{i+k}-\bar{x})}
+    {\sum_{i=1}^{N}(x_i-\bar{x})^2},
+\end{equation}
+where $r_k$ is the autocorrelation coefficient at lag $k$ for a time series
+with elements, $x_i~(i=1,..., N)$.
+An ACF is only applicable to time series with evenly spaced data (which is
+usually an acceptable approximation for \kepler\ light curves) and a Fourier
+transform of an ACF is the power spectral density.
 
-\subsubsection{Lomb-Scargle}
+Unlike the LS periodogram which uses a sinusoid to fit the data, because the
+ACF does not rely on a functional form---it simply looks for repeating
+patterns---it is better suited to measuring stellar rotation periods
+\citep[see][for an in-depth discussion]{Mcquillan2014}.
+A series of uniformly spaced peaks will be visible in the ACF of a light curve
+with a rotational signal.
+The position of the first peak corresponds to the lag-time of greatest
+correlation.
+This peak is usually taken as the rotation period, however if the second peak
+is higher than the first, {\it that} will be taken as the rotation period.
+This is usually caused when there are two active regions on opposite
+hemispheres of the star, $\sim$ 180$^\circ$ apart, producing two dips in the
+light curve per rotation period.
+The ACF method was used by \citet{Mcquillan2014} to measure rotation periods
+of 34,030 \kepler\ targets.
+
+The main drawback of the ACF method is that uncertainties are not well
+defined.
+ACF rotation periods with uncertainties reported in the literature are
+typically measured by fitting a Gaussian to the peaks in the ACF.
+However, the width of the ACF peak is related to the rate of correlation
+coefficient fall-off which depends on the shape of the signal and cannot be
+interpreted as a measurement uncertainty, $\sigma$.
+Although the ACF method is better suited to rotation period signals than the
+LS periodogram, it is not suited to model quasi-periodic signals which will
+act to broaden peaks in the ACF.
+
 \subsubsection{Wavelets}
+Wavelet transforms are used by \citet{Garcia2014} to measure rotation periods
+for the \kepler\ asteroseimic targets used in chapter \ref{chapter:gyro}.
+Wavelet functions can be thought of as abscissa-dependent periodograms
+\citep{Carter2009}.
+Like the LS periodogram, a model is compared to the data over a range of
+frequencies (scales), however unlike the LS periodogram, this is performed for
+a range of time-displacements.
+A wavelet transform therefore provides an indication of the location of
+periodic signals in a time-series.
+There are many functional forms, or `Mother wavelets' which can be used.
+\citet{Garcia2014} used a Haar wavelet which is a sinusoid convolved with a
+Gaussian.
+They also used the ACF method to confirm their rotation period detections.
+The wavelet method has many of the same drawbacks as the LS periodogram
+method: stellar signals do not necessarily look like a Haar wave-form and
+their shapes evolve over time.
+
 \subsubsection{Spectroscopy}
+Before the advent of high-precision space photometry, the majority of
+available rotation periods were measured spectroscopically.
+Doppler shifting of the rotating stellar surface causes broadening of spectral
+lines which can be used to infer the equatorial velocity, multiplied by the
+sine of the inclination angle, $v\sin(i)$.
+Not only does this method produce periods that are degenerate with inclination
+angle\footnote{This degeneracy can be resolved for populations of stars since
+one can assume that the population is isotropically oriented
+\citep[\eg][]{Andrews2014}.}, it also relies on the precision of the
+spectrograph, the magnitude of the target, the rotation speed and thus
+produces rotation periods with extremely large uncertainties.
+Photometric rotation periods are almost always preferable to spectroscopic
+ones, especially for slow rotators.

@@ -12,8 +12,8 @@ In practise this assumption is rarely valid and intrinsic stochasticity means
 that two stars with exactly the same `$x$', will have slightly different
 `$y$'s.
 The relation between short-timescale brightness fluctuations (flicker) of
-stars and both surface gravity \citep{bastien:2013} and stellar density
-\citep{kipping:2014} are two such stochastic relations that have, until now,
+stars and both surface gravity \citep{Bastien2013} and stellar density
+\citep{Kipping2014} are two such stochastic relations that have, until now,
 been treated as deterministic ones.
 We recalibrate these relations in a probabilistic framework, using
 Hierarchical Bayesian Modelling (HBM) to constrain the instrinsic scatter in
@@ -68,7 +68,7 @@ relationships between observables to be stochastic.
 % signal-to-noise, since the underlying model itself comes with uncertainty.
 In recent years, there has been a shift towards such methods in several areas
 of astronomy, particularly within the exoplanet community.
-For example, \citet{wolfgang:2015} considered that the mass-radius
+For example, \citet{Wolfgang2015} considered that the mass-radius
 relationship of exoplanets is stochastic, since a particular sized planet
 could be have a range of planet masses due to unmodeled variances in
 compositions, environment and other complications.
@@ -83,7 +83,7 @@ When using data published in the astronomical literature to, for example,
 infer relationships between parameters that are themselves the product of an
 inference process (for example, exoplanet transit depth and period), inference
 can be performed as the final stage in a hierarchical treatment \citep[see,
-e.g.][]{foreman-mackey:2014}.
+e.g.][]{Foreman-Mackey2014}.
 % This is useful if, for example, one wants to account for multi-dimensional
 % uncertainties by marginalizing over the `true' parameter values upon which the
 % noisy observations are conditioned.
@@ -100,12 +100,12 @@ point estimates of inferred properties.
 % RA text...
 
 One of the more recent tools developed to characterize stars is known as
-``flicker'' \citep{bastien:2013}.
+``flicker'' \citep{Bastien2013}.
 Flicker is a proxy for the scatter on an 8-hour timescale (denoted as $F_8$)
 in a broad visible bandpass time series photometric light curve, such as that
 from \textit{Kepler} or the upcoming TESS mission. A more detailed account of
-the proceedure to calculate flicker is described in \citet{bastien:2013}. As
-shown in \citet{bastien:2013}, flicker displays a remarkable correlation to
+the proceedure to calculate flicker is described in \citet{Bastien2013}. As
+shown in \citet{Bastien2013}, flicker displays a remarkable correlation to
 the asteroseismically determined parent star surface gravities (\logg).
 Turning this around, the observation implies that flicker can be used to
 empirically infer surface gravities at the level of $\sim0.1$\,dex, an
@@ -113,19 +113,19 @@ attractive proposition given the wealth of photometric light curves available
 through the array of exoplanet transit missions flying and scheduled to
 launch.
 
-\citet{cranmer:2014} demonstrated that models of stellar surface granulation
+\citet{Cranmer2014} demonstrated that models of stellar surface granulation
 indeed reproduce a flicker effect in close agreement with that observed by
-\citet{bastien:2013}, providing a physically-plausible explanation.
+\citet{Bastien2013}, providing a physically-plausible explanation.
 Since surface gravity is highly correlated with mean stellar density (\rhostar)
-on evolutionary tracks, \citet{kipping:2014} showed that flicker can be also
+on evolutionary tracks, \citet{Kipping2014} showed that flicker can be also
 be used to infer \rhostar, which is more useful for exoplanet transit analysis
-\citep{seager:2003}.
+\citep{Seager2003}.
 
 Whether one calibrates flicker to \logg\ or \rhostar, there are several aspects
 of the problem which are attractive for our purposes of a simple demonstration
 of probabilistic inference of stellar parameters.
 Firstly, in log-log space the relationship is very simple, appearing to be
-linear \citep{kipping:2014}.
+linear \citep{Kipping2014}.
 Secondly, there is a sufficiently large number of points in the sample (439
 stars) to constrain a population-based model.
 Thirdly, there is significant excess scatter around the best-fitting relation
@@ -152,24 +152,24 @@ probabilistic inference in the arena of stellar characterization.
 \subsection{Calibration Data}
 
 For our calibration data, we used a sample of \Kepler\ stars with
-both asteroseismic and flicker measurements available. \citet{chaplin:2014}
+both asteroseismic and flicker measurements available. \citet{Chaplin2014}
 report asteroseismic \rhostar\ estimates (and the associated uncertainties) for
 518 \Kepler\ stars. The authors report three different sets of results,
 depending on the choice of \Teff\ and \FeH, and in this work we elected to use
 values reported in their Table 6 over Table 5, and Table 5 over Table 4. We
 additionally used the 71 additional planet hosting stars with asteroseismology
-reported in \citet{huber:2013} but not reported in \citet{chaplin:2014}. Values
-for flicker and ``range'' were taken from \citet{kipping:2014}, based upon the
-methods described in \citet{bastien:2013}.
+reported in \citet{Huber2013} but not reported in \citet{Chaplin2014}. Values
+for flicker and ``range'' were taken from \citet{Kipping2014}, based upon the
+methods described in \citet{Bastien2013}.
 % Following \citet{kipping:2014} and
 % for reasons described there-in, we only include targets in our calibration for
 % which:
-In order to use the same data set as \citet{kipping:2014} and
+In order to use the same data set as \citet{Kipping2014} and
 for reasons described there-in, we only include targets in our calibration for
 which:
 
 \begin{itemize}
-\item Range (defined in \citealt{bastien:2013})
+\item Range (defined in \citet{Bastien2013})
 $<1000$\,ppm
 \item $4500<T_{\mathrm{eff}}<6500$\,K
 \item $K_P<14$
@@ -177,7 +177,7 @@ $<1000$\,ppm
 \end{itemize}
 
 We use the same sample for our calibration of \logg, except that we exclude the
-\citet{huber:2013} data, since these authors do not provide estimates of
+\citet{Huber2013} data, since these authors do not provide estimates of
 \logg\footnote{Whilst we could compute \logg\ ourselves from the reported
 masses and radii, this could only be done under the incorrect assumption of
 zero covariance between $M_{\star}$ and $R_{\star}$.}.
@@ -193,13 +193,13 @@ There are two excellent reasons for modelling the relation stochastically;
 firstly, if the intrinsic scatter is ignored and the relation between
 variables is assumed to be deterministic, those data points with smaller
 measurement uncertainties may have an unrepresentative greater weighting
-during the fitting process \citep{hogg:2010b}.
+during the fitting process \citep{Hogg2010b}.
 Secondly, we are interested in producing probability distributions over
 stellar densities and surface gravities, as opposed to point estimates, and
 propagating these probability distributions through to subsequent analyses.
 Several recent studies have required posterior Probability Distribution
 Function (PDF) samples, in order to conduct their hierarchical analyses
-\citep[e.g.][]{foreman-mackey:2014, rogers:2015, angus:2015}
+\citep[e.g.][]{Foreman-Mackey2014, Rogers2015, Angus2015}
 % These studies account for multi-dimensional uncertainties using the sampling
 % method outlined in \citet{hogg:2010}.
 % This can be important because ordinary least squares regression methods
@@ -233,7 +233,7 @@ $\sigma_\rho$, $\alpha_g$, $\beta_g$ and $\sigma_g$.
 These relations are Gaussian distributions with means given by the equation of
 a straight line and standard deviations which describe the intrinsic scatter
 about the mean.
-We used the MCMC package, {\tt emcee} \citep{foreman-mackey:2013} to explore the
+We used the MCMC package, {\tt emcee} \citep{Foreman-Mackey2013} to explore the
 posterior PDFs of our model parameters.
 
 We also tested a model in which the additional scatter depends on flicker
@@ -342,7 +342,7 @@ model parameters and uncertainties.
 % variable.
 
 We used the uninformative prior for the parameters of a straight line for
-data with unknown uncertainties, outlined in \citet{vanderplas},
+data with unknown uncertainties, outlined in \citet{Vanderplas2014},
 \begin{equation}
 p(\alpha, \beta, \sigma) \propto \frac{1}{\sigma} \left( 1 + \beta^2
 \right)^{-3/2}.
@@ -521,57 +521,3 @@ the intrinsic scatter in the flicker-\rhostar-\logg\ relations.
 % excellent suggestions which dramatically improved this letter, the SAMSI
 % institute and the other members of the SAMSI {\it Kepler} exoplanet statistics
 % working groups.
-
-%% EOF Acknowledgements
-
-% % #####################################################################
-% %% Bibliography
-% \begin{thebibliography}{99}
-% \bibitem[\protect\citeauthoryear{Andrieu \& Roberts}{2009}]{andrieu:2009}
-% Andrieu, C., \& Roberts, G.~O., Ann. Statist., 2, 695
-% \bibitem[\protect\citeauthoryear{Angus et al.}{2015}]{angus:2015}
-% Angusr, R., Aigrain, S., Foreman-Mackey, D. \& McQuillan, A., 2015, MNRAS,
-% 450, 1787
-% \bibitem[\protect\citeauthoryear{Bastien et al.}{2013}]{bastien:2013} Bastien,
-% F. A., Stassun, K. G., Basri, G. \& Pepper, J., 2013, Nature, 500, 427
-% \bibitem[\protect\citeauthoryear{Chaplin et al.}{2014}]{chaplin:2014}
-% Chaplin, W.~J., Basu, S., Huber, D. et al., 2014, ApJS, 210, 1
-% \bibitem[\protect\citeauthoryear{Cranmer et al.}{2014}]{cranmer:2014}
-% Cranmer, S. R., Bastien, F. A., Stassun, K. G. \& Saar, S. H., 2014, ApJ, 781,
-% 124
-% \bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2014}]
-% {foreman-mackey:2014} Foreman-Mackey, D., Hogg, D.~W. \& Morton, T.~D., 2014,
-% ApJ, 795, 64
-% \bibitem[Foreman-Mackey et al.(2013)]{foreman-mackey:2013}
-% Foreman-Mackey, D., Hogg, D.~W., Lang, D., \& Goodman, J.\ 2013, \pasp, 125, 306
-% \bibitem[Foreman-Mackey et al. (2014)]{corner}
-% Foreman-Mackey, D., Price-Whelan, A., Ryan, G. et al.\ 2014,
-% 10.5281/zenodo.10598, http://dx.doi.org/10.5281/zenodo.10598
-% \bibitem[\protect\citeauthoryear{Fox}{1997}]{fox:1997}
-% Fox, J., 1997, Applied Regression Analysis, Linear Models, and Related Methods
-% (Thousand Oaks:Sage Publications, Inc.)
-% \bibitem[\protect\citeauthoryear{Fuller}{1987}]{fuller:1987}
-% Fuller, W.~A., 1987, Wiley Series in Probability and Mathematical Statistics
-% % \bibitem[\protect\citeauthoryear{Hogg et al.}{2010}]{hogg:2010}
-% % Hogg, D.~W., Myers, A.~D. \& Bovy, J., 2010, ApJ, 725,
-% % 2166
-% \bibitem[\protect\citeauthoryear{Hogg et al.}{2010b}]{hogg:2010b}
-% Hogg, D.~W., Bovy, J. \& Lang, D., 2010
-% \bibitem[\protect\citeauthoryear{Huber et al.}{2013}]{huber:2013}
-% Huber, D., Chaplin, W.~J., Christensen-Dalsgaard, J. et al., 2013, ApJ, 767,
-% 127
-% \bibitem[\protect\citeauthoryear{Kelly}{2007}]{kelly:2007} Kelly, B.~C., 2007,
-% ApJ, 665, 1489
-% \bibitem[\protect\citeauthoryear{Kipping et al.}{2014}]{kipping:2014}
-% Kipping, D.~M., Bastien, F.~A., Stassun, K.~G., Chaplin, W.~J., Huber, D. \&
-% Buchhave, L.~A., 2014, ApJ, 785, 32
-% \bibitem[\protect\citeauthoryear{Rogers}{2015}]{rogers:2015}
-% Rogers, L.~A., 2015, ApJ, 801, 41
-% \bibitem[\protect\citeauthoryear{Seager \& Mall\'{e}n-Ornelas}{2003}]
-% {seager:2003}Seager, S., \& Mall\'{e}n-Ornelas, G., 2003, ApJ, 585, 1038
-% \bibitem[VanderPlas(2014)]{vanderplas}
-% VanderPlas, J.\ 2014, arXiv:1411.5018
-% \bibitem[\protect\citeauthoryear{Wolfgang et al.}{2015}]{wolfgang:2015}
-% Wolfgang, A., Rogers, L.~A., Ford, E.~B., 2015, ApJ, submitted
-% (astro-ph:1504.07557)
-% \end{thebibliography}

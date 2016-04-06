@@ -327,12 +327,12 @@ and similarly for \logg.
 We found that the posterior PDFs for the model parameters obtained using this
 likelihood function were consistent with those obtained using a model that
 only accounts for the uncertainties on the flicker measurements.
-{\bf The median values of the model parameters differed by around $0.05
+The median values of the model parameters differed by around $0.05
 \sigma$ for the $\alpha$ and $\beta$ parameters, by $0.3 \sigma$ for
 $\sigma_\rho$ and by $0.8 \sigma$ for $\sigma_g$.
 Since they are so dependent on the observational uncertainties, the parameters
 that describe the intrinsic scatter in the relations are more sensitive to
-whether the uncertainties in the $x$-direction are included.}
+whether the uncertainties in the $x$-direction are included.
 Accounting for uncertainties on $y$ {\it and} $x$ is not essential in this
 case but is still good practise and will, in general, produce more accurate
 model parameters and uncertainties.
@@ -361,15 +361,15 @@ We also tested uniform, flat priors as defined below:
  \end{eqnarray}
  \label{eq:priors}
 We found that the results were relatively insensitive to the choice of prior,
-{\bf with median parameter values differing by only around $0.05\sigma$.
+with median parameter values differing by only around $0.05\sigma$.
 MCMC chains were run until the Gelman \& Rubin convergence criterion,
 $\hat{R}$ reached a value of less than 1.002 and the number of autocorrelation
-times was greater than 35.}
+times was greater than 35.
 Figures \ref{fig:rhostar} and \ref{fig:logg} show the data with the best-fit
 models.
 The shaded regions show the 1 and 2$\sigma$ confidence interval which are
 representative of the intrinsic scatter in the relations.
-{\bf The marginal posterior PDFs of the model parameters for \rhostar are
+The marginal posterior PDFs of the model parameters for \rhostar are
 shown in figure \ref{fig:triangle}.
 The marginal posterior PDFs for \logg\ are similarly Gaussian and, as with
 $\sigma_\rho$, $\sigma_g$ is clearly greater than zero.
@@ -377,12 +377,12 @@ We checked the consistency between the two relations by calculating flicker
 values for the Sun, finding $F_8 = 1.24 \pm 0.07$ and $F_8 = 1.21 \pm 0.1$
 from Solar density and surface gravity measurements, respectively.
 All the code used for this project and several ipython notebooks explaining
-our analysis are available at {\url https://github.com/RuthAngus/flicker}.}
+our analysis are available at {\url https://github.com/RuthAngus/flicker}.
 
 %%% rhostar plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_rho.pdf}
+\includegraphics[width=6in,angle=0,clip=true]{figures/flicker_vs_rho.pdf}
 \caption[Stellar density versus flicker.]{
 Stellar density vs. flicker.
 This figure shows the model, conditioned on the data.
@@ -398,7 +398,7 @@ additional scatter.}
 %%% logg plot
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
+\includegraphics[width=6in,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
 \caption[\logg versus flicker.]{
 \logg versus flicker.
 As in \ref{fig:rhostar} this figure shows the model, conditioned on the data.
@@ -413,7 +413,7 @@ additional scatter.}
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm,angle=0,clip=true]{figures/rho_triangle.pdf}
+\includegraphics[width=6in,angle=0,clip=true]{figures/rho_triangle.pdf}
 \caption[Marginal posterior PDFs for flicker versus \rhostar parameters.]
 {Marginal posterior PDFs of the model parameters for \rhostar.
 This figure was generated using the {\tt corner} python package

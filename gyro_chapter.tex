@@ -51,17 +51,18 @@
 \chapter{Calibrating Gyrochronology using Kepler Asteroseismic targets}
 \label{chapter:gyro}
 
-% \author[R.~Angus \emph{et al.}]{%
-%     Ruth~Angus,$^1$\thanks{ruth.angus@astro.ox.ac.uk}
-%     Suzanne~Aigrain,$^1$
-%     Daniel Foreman-Mackey,$^2$ and
-%     Amy~McQuillan$^3$ \\
-%     $^1$Department of Physics, University of Oxford, UK \\
-%     $^2$Centre for Cosmology and Particle Physics, New York University, New York, NY, USA \\
-%     $^3$School of Physics and Astronomy, Raymond and Beverly Sackler, Faculty of Exact Sciences, Tel Aviv University, 69978, Tel Aviv, Israel}
+\author[R.~Angus \emph{et al.}]{%
+    Ruth~Angus,$^1$\thanks{ruth.angus@astro.ox.ac.uk}
+    Suzanne~Aigrain,$^1$
+    Daniel Foreman-Mackey,$^2$ and
+    Amy~McQuillan$^3$ \\
+    $^1$Department of Physics, University of Oxford, UK \\
+    $^2$Centre for Cosmology and Particle Physics, New York University,
+    New York, NY, USA \\
+    $^3$School of Physics and Astronomy, Raymond and Beverly Sackler,
+    Faculty of Exact Sciences, Tel Aviv University, 69978, Tel Aviv, Israel}
 
-% \date{Draft version 2014 November 24}
-% \maketitle
+\maketitle
 
 \begin{abstract}
 
@@ -141,14 +142,14 @@ gyrochronology relations at late ages.
 
 Mass loss via a magnetised stellar wind causes magnetic braking of MS stars
 \citep{Weber1967}.
-It is postulated that although stellar populations are born with a range of
-rotation periods, the rapid rotators rapidly lose angular momentum and
-rotation periods converge onto a well-defined sequence.
+Observational evidence suggests  that although stellar populations are born
+with a range of rotation periods, the rapid rotators rapidly lose angular
+momentum and rotation periods converge onto a well-defined sequence.
 Gyrochronology postulates that each star falls on a single three-dimensional
 plane described by mass, rotation period and age, i.e. given any two of these
 three properties, one can determine the third.
 The form of angular momentum evolution described above and calibrated in this
-article can only be applied to F, G and K MS stars.
+chapter can only be applied to F, G and K MS stars.
 Fully convective M dwarfs have a different dynamo-driven magnetic field: their
 rotation periods evolve over extremely long timescales and they often do not
 converge onto the mass-period-age plane, even after several Gyrs.
@@ -216,7 +217,7 @@ colour, period and age.
 \end{tabular}
 \end{table*}
 
-The data used in this article are described in \textsection \ref{sec:data},
+The data used in this chapter are described in \textsection \ref{sec:data},
 our calibration and model fitting process is outlined in \textsection
 \ref{sec:gyro_cal} and the results are presented and discussed in \textsection
 \ref{sec:results}.
@@ -224,7 +225,7 @@ our calibration and model fitting process is outlined in \textsection
 \section{Observations}
 \label{sec:data}
 
-The ages of 505 {\it Kepler} dwarfs and subgiants were published by
+The ages of 505 {\it Kepler} dwarfs and subgiants were published in
 \citet{Chaplin2014}.
 They made use of two global asteroseismic parameters---the average large
 frequency separation and the frequency of maximum oscillations power---to
@@ -286,8 +287,8 @@ quasi-periodic variations on timescales corresponding to the rotational
 periods of the stars---flux variations are produced by active regions on the
 stellar surface that rotate in and out of view.
 Rotation periods for \ngarcia of these stars are published in
-\citet{Garcia2014} who used a combination of an autocorrelation function and
-wavelet transform method to measure surface rotation.
+\citet{Garcia2014} who used a combination of an ACF and wavelet transform
+method to measure surface rotation.
 From the 505 targets in the original sample, \nastero$~$rotation periods were
 reliably measured, \nprecise of which have precise asteroseismic ages from AMP
 modelling.
@@ -395,26 +396,32 @@ The age of 16 Cyg AB was measured with asteroseismology.
 however its rotation period was used as an additional constraint, so the age
 estimate is not entirely independent of rotation period for this star.
 An age for the $\alpha$ Cen system was estimated from spectroscopic
-observations with additional seismic constraints.\label{tab:field}}
+observations with additional seismic constraints.
+References: a = \citet{Metcalfe2012}, b = \citet{Davies2014}, c =
+\citet{Moffett1979}, d = \citet{Li2012}, e = \citet{Petit2008}, f =
+\citet{Mermilliod1986}, g = \citet{Bouvier2010}, h = \citet{Donahue1996}, i =
+\citet{Cox2000}, j = \citet{Bazot2012}, k = \citet{Yildiz2007}, l =
+\citet{Hallam1991}, m = \citet{Dumusque2012}..
+\label{tab:field}}
 
 \begin{tabular}{lcccc}
 \hline\hline
 {ID} & {age} & {\prot} & {$B-V$} & References\\
 \hline
 16 Cyg A & 6.8 $\pm$ 0.4 & 23.8 $^{+1.5}_{-1.8}$ & 0.66 $\pm$ 0.01 &
-\citet{Metcalfe2012}, \citet{Davies2014}, \citet{Moffett1979} \\
+a, b, c \\
 16 Cyg B & 6.8 $\pm$ 0.4 & 23.2 $^{+11.5}_{-3.2}$ & 0.66 $\pm$ 0.01 &
-\citet{Metcalfe2012}, \citet{Davies2014}, \citet{Moffett1979} \\
+a, b, c \\
 18 Sco & 3.7 $\pm$ 0.2 & 22.7 $\pm$ 0.5 & 0.64 $\pm$ 0.01 &
-\citet{Li2012}, \citet{Petit2008}, \citet{Mermilliod1986} \\
+d, e, f \\
 The Sun & 4.568 $\pm$ 0.001 & 26.09 $\pm$ 0.1 & 0.65 $\pm$ 0.001 &
-\citet{Bouvier2010}, \citet{Donahue1996}, \citet{Cox2000} \\
+g, h, i \\
 $\alpha$ Cen A & 6 $\pm$ 1 & 28.8 $\pm$ 2.5 &
 0.69 $\pm$ 0.01 &
-\citet{Bazot2012}, \citet{Yildiz2007}, \citet{Hallam1991}, \citet{Mermilliod1986}\\
+j, k, l, f \\
 $\alpha$ Cen B & 6 $\pm$ 1 & 38.7 $\pm$ 5.0 &
 0.90 $\pm$ 0.01 &
-\citet{Bazot2012}, \citet{Yildiz2007}, \citet{Dumusque2012}, \citet{Mermilliod1986} \\
+j, k, m, f \\
 \hline
 \end{tabular}
 \end{table*}
@@ -1214,21 +1221,21 @@ detection bias may become available.
 When they do, the prescription we provide will enable the the
 period-colour-age relation to be modelled more sensitively.
 
-Since the work in \ref{chapter:gyro} was published as \citet{Angus2015}, the
+Since the work in this chapter was published \citep{Angus2015}, the
 result seen here: that \kepler\ asteroseismic stars rotate unexpectedly
 rapidly given their age and mass, was also found by \citet{Vansaders2016}.
 Instead of using the entire ensemble of short cadence asteroseismic targets
 from \citet{Chaplin2014}, they used only `boutique' targets.
 These are the highest S/N stars with individual oscillation mode frequencies
 detectable in their power spectra.
-These targets are not well described by existing gyrochronology
-models---whereas I showed that the \citet{Barnes2007} empirical form did not
+These targets are also not well described by existing gyrochronology
+models.
+Whereas I showed that the \citet{Barnes2007} empirical form did not
 fit the data, \citet{Vansaders2016} compare rotation periods to predictions
 made using their theoretically motivated model, equation \ref{eq:vansaders} in
 chapter \ref{chapter:intro}.
-They also cannot reproduce the observations using their model.
-They present the following alteration to their model which {\it does} describe
-the data:
+They cannot reproduce the observations using their model and present the
+following alteration which {\it does} describe the data:
 \begin{equation}
 \frac{dJ}{dt} = \left\{
                 \begin{array}{ll}
@@ -1252,6 +1259,11 @@ $Ro_{crit} = Ro_\odot = 2.16$.
 In order to test this theory it is imperative that we obtain new
 observations---in particular, rotation periods of old stars with precise and
 reliable ages.
+\LSST\ may will provide rotation periods for old field stars (see chapter
+\ref{chapter:future}.
+In the interim, \ktwo\ is observing several open clusters that will add to our
+arsenal of precisely dated stars with rotation periods, provided we can
+extract rotation period signals from \ktwo's noisy light curves.
 
 % acknowledgements
 % The code used in this project can be found at

@@ -1,43 +1,87 @@
 \chapter{Conclusions}
 \label{chapter:conclusions}
 
-The work in this thesis contributes to our understanding of stars.
-
-Since the work in \ref{chapter:gyro} was published as \citet{Angus2015}, the
-result seen here: that \kepler\ asteroseismic stars rotate unexpectedly
-rapidly given their age and mass, was also found by \citet{Vansaders2016}.
-Instead of using the entire ensemble of short cadence asteroseismic targets
-from \citet{Chaplin2014}, they used only `boutique' targets.
-These are the highest S/N stars with individual oscillation mode frequencies
-detectable in their power spectra.
-These targets are not well described by existing gyrochronology
-models---whereas I showed that the \citet{Barnes2007} empirical form did not
-fit the data, \citet{Vansaders2016} compare rotation periods to predictions
-made using their theoretically motivated model, equation \ref{eq:vansaders} in
+In chapter \ref{chapter:gyro} I used new results from \kepler\
+asteroseismology to recalibrate the relation between rotation period, age and
+colour.
+The light curves of several cool dwarf, Solar-like oscillators were analysed
+by \citet{Chaplin2014} who provide a catalogue of ages for these targets via
+the methods described in \textsection \ref{section:asteroseismology} of
 chapter \ref{chapter:intro}.
-They also cannot reproduce the observations using their model.
-They present the following alteration to their model which {\it does} describe
-the data:
+We used rotation periods of these stars from \citet{Garcia2014} who measure
+the periodicity of signals in \kepler\ light curves using the ACF and wavelet
+methods described in \textsection \ref{rotation}.
+We fit a gyrochronology model to these data, of the form
 \begin{equation}
-\frac{dJ}{dt} = \left\{
-                \begin{array}{ll}
-                  f_K K_M \omega \left( \frac{\omega_{crit}}{\omega_\odot}
-                  \right)^2, \omega_{crit} \leq \omega
-                  \frac{\tau_{c}}{\tau_{c, \odot}}, Ro \leq Ro_{crit} \\
-                  f_K K_M \omega \left( \frac{\omega\tau_{c}}
-                  {\omega_\odot\tau_{c, \odot}}
-                  \right)^2, \omega_{crit} > \omega
-                  \frac{\tau_{c}}{\tau_{c, \odot}}, Ro \leq Ro_{crit} \\
-                  0, Ro > Ro_{crit}
-                \end{array}
-              \right.,
+P = A^n \times a(B-V-c)^b,
 \end{equation}
-where $K_M$ is defined in equation \ref{eq:vansaders2}.
-By introducing a threshold Rossby number, $Ro_{crit}$, above which there is
-no angular braking, they are able to reproduce the observations.
-By fitting their model to the \kepler\ targets and the Sun they find
-$Ro_{crit} = Ro_\odot = 2.16$.
+\label{eq:Barnes2007_2}
+where $P$ is rotation period (in days),
+$A$ is age (in Myr), $B$ and $V$ are B and V band magnitudes respectively and
+$a$, $b$, $c$ and $n$ are dimensionless free parameters.
+We found evidence to suggest that this function does not provide a good fit to
+the data and that some old \kepler\ asteroseismic targets are more rapidly
+rotating that expected, given their age and colour.
+\citet{Vansaders2016} present an adaptation to their theoretical model which
+{\it is} able to reproduce the trends in this data set.
+They suggest that there is a critical Rossby number ($Ro=2.16$) at which the
+magnetic dynamo that drives angular momentum loss shuts off.
+New rotation periods from the repurposed \kepler\ mission, \ktwo\ may shed
+light on this controversial topic.
 
-In order to test this theory it is imperative that we obtain new
-observations---in particular, rotation periods of old stars with precise and
-reliable ages.
+In chapter \ref{chapter:sip} I present a method for searching for periodic
+signals (\eg rotation periods) without detrending.
+The pointing precision of \kepler\ was dramatically reduced when its third
+reaction wheel broke.
+\ktwo\ light curves are contaminated with high amplitude systematic features
+as a result.
+Detrending these light curves is essential in order to search for exoplanets
+or measure stellar rotation periods.
+Instead of detrending, we model the noise and the signal simultaneously and
+marginalise over the noise model.
+A noise model is constructed by decomposing all \ktwo\ light curves from
+campaign 1 into a set of orthogonal basis vectors called `Eigen Light Curves'
+(ELCs).
+The Systematics-Insensitive Periodogram (SIP) uses a linear combination of
+150 of these ELCs to model a light curve while simulataneously fitting a
+sinusoid to the data at a given frequency.
+Finding the amplitudes of the best-fit sinusoids over a grid of frequencies
+produces a SIP.
+The SIP is particularly effective for red giant asteroseismology as these
+signals are typically sinusoidal and plagued by a six-hour thruster firing
+signal that most detrending algorithms are unable to remove.
+The capabilities of the SIP are limited for rotation period inference as
+it is difficult to separate systematics from physical signals on long
+timescales and because a sinusoid is an imperfect model for stellar rotation.
+
+In chapter \ref{chapter:GP} I present a new method for inferring precise and
+accurate rotation periods from \kepler\ light curves using Gaussian processes.
+I compare the GP method to the Lomb-Scargle periodogram and ACF methods,
+finding it to be more accurate and precise than both.
+In addition it provides accurate uncertainties because full a posterior PDF of
+the rotation period parameter is explored.
+Unfortunately, while this method works well on noise-free simulations, it is
+currently extremely computationally expensive when applied to noisy light
+curves.
+It is therefore currently most useful for individual targets rather than large
+ensembles of light curves.
+
+In the final chapter of this thesis I use \kepler\ flicker estimates and
+asteroseismology data to recalibrate the relation between flicker, surface
+gravity and stellar density.
+These relations are not deterministic, although they have been treated as such
+in the past and there is significant intrinsic scatter that is not accounted
+for by the observational uncertainties.
+I use hierarchical probabilistic modelling to quantify  model these relations
+and quantify the additional scatter.
+
+I began this thesis by introducing the \kepler\ spacecraft which has provided
+all the data used in this work.
+I would like to conclude by saying that, in my opinion, \kepler's legacy has
+to be the greatest of any astronomical instrument ever built.
+Not just for exoplanets but for stellar astrophysics too.
+\kepler\ has revived the astronomical communities general interest in stars:
+after all, one can only understand an exoplanet as well as one understands the
+star that it orbits.
+Were it not for \kepler, this thesis would look very different and I, for one,
+am grateful for the unique challenges posed by its rich, unrivalled data set.

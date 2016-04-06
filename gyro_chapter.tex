@@ -997,7 +997,7 @@ Secondly, the rotation periods could be systematically underestimated.
 This could occur if, for example, these stars were rotating differentially
 and the dominant spotted regions on their surfaces were not equatorial.
 Thirdly, this could be a result of an observational bias produced by incomplete
-detection, sometimes known as Malmquist bias \citep{Malmquist1920}.
+detection.
 If there were a large spread in rotation periods for a given stellar mass and
 age and, due to the detection bias brought about because shorter periods are
 easier to detect than longer periods, this broad range of rotation periods
@@ -1123,7 +1123,7 @@ infinitely narrow plane?
 Unfortunately we cannot fully answer this question here as the asteroseismic
 ages are noisy and observational and intrinsic scatter are ambiguously
 interwoven.
-However, if this sample of stars is subject to Malmquist bias then, by
+However, if this sample of stars is subject to detection bias then, by
 definition, there must be a broad range of rotation periods for stars of a
 given mass and age.
 A future study might include an extra parameter that describes the `width' of
@@ -1184,10 +1184,10 @@ gyrochronology relation as the Sun, field stars and clusters.
 There are several potential explanations for the cause of this phenomenon.
 Some of the most likely are: the asteroseismic ages or the photometric
 rotation periods could be systematically biased; the rotation periods might be
-subject to Malmquist bias due to incomplete detection; and the different
+subject to detection bias; and the different
 populations could have different physical properties (e.g. metallicity), not
 accounted for in the gyrochronology model.
-If Malmquist bias is responsible and there truely {\it is} a broad range of
+If detection bias is responsible and there truely {\it is} a broad range of
 rotation periods for stars of a given age and colour, this still has
 negative implications for Gyrochronology which relies on the assumption that
 these three properties lie on a neat plane.
@@ -1210,9 +1210,48 @@ simultaneously, or do the modelling in such a detailed way, so the problems
 didn’t come through so clearly.
 In the future better physical models may be developed, better ages may be
 calculated and more sensitive period search methods, not so susceptible to
-Malmquist bias may become available.
+detection bias may become available.
 When they do, the prescription we provide will enable the the
 period-colour-age relation to be modelled more sensitively.
+
+Since the work in \ref{chapter:gyro} was published as \citet{Angus2015}, the
+result seen here: that \kepler\ asteroseismic stars rotate unexpectedly
+rapidly given their age and mass, was also found by \citet{Vansaders2016}.
+Instead of using the entire ensemble of short cadence asteroseismic targets
+from \citet{Chaplin2014}, they used only `boutique' targets.
+These are the highest S/N stars with individual oscillation mode frequencies
+detectable in their power spectra.
+These targets are not well described by existing gyrochronology
+models---whereas I showed that the \citet{Barnes2007} empirical form did not
+fit the data, \citet{Vansaders2016} compare rotation periods to predictions
+made using their theoretically motivated model, equation \ref{eq:vansaders} in
+chapter \ref{chapter:intro}.
+They also cannot reproduce the observations using their model.
+They present the following alteration to their model which {\it does} describe
+the data:
+\begin{equation}
+\frac{dJ}{dt} = \left\{
+                \begin{array}{ll}
+                  f_K K_M \omega \left( \frac{\omega_{crit}}{\omega_\odot}
+                  \right)^2, \omega_{crit} \leq \omega
+                  \frac{\tau_{c}}{\tau_{c, \odot}}, Ro \leq Ro_{crit} \\
+                  f_K K_M \omega \left( \frac{\omega\tau_{c}}
+                  {\omega_\odot\tau_{c, \odot}}
+                  \right)^2, \omega_{crit} > \omega
+                  \frac{\tau_{c}}{\tau_{c, \odot}}, Ro \leq Ro_{crit} \\
+                  0, Ro > Ro_{crit}
+                \end{array}
+              \right.,
+\end{equation}
+where $K_M$ is defined in equation \ref{eq:vansaders2}.
+By introducing a threshold Rossby number, $Ro_{crit}$, above which there is
+no angular braking, they are able to reproduce the observations.
+By fitting their model to the \kepler\ targets and the Sun they find
+$Ro_{crit} = Ro_\odot = 2.16$.
+
+In order to test this theory it is imperative that we obtain new
+observations---in particular, rotation periods of old stars with precise and
+reliable ages.
 
 % acknowledgements
 % The code used in this project can be found at

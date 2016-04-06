@@ -1,11 +1,5 @@
 \chapter{Future work}
 
-\section{Future instruments}
-
-\subsection{\Ktwo}
-
-\subsection{\TESS}
-
 \subsection{\LSST}
 
 The Large Synoptic Survey Satellite (LSST) is a 8.4 metre telescope with a 9.6
@@ -13,7 +7,7 @@ square degree field of view in Cerro Pach\'{o}n, Chile, currently under
 construction.
 It is designed to observe 18,000 square degrees in the southern sky (south of
 +10 degrees, declination) in six Sloan Digital Sky Survey (\SDSS) filters:
-ugrizy.
+{\it ugrizy}.
 During its main mode of operation (90\% of the time), \LSST\ will perform two
 fifteen second exposures per visit, with one thousand visits per night and
 will have a faint limit of around 24.5 in r-band.
@@ -23,10 +17,11 @@ These fields are yet to be determined but could be, for example, the Large and
 Small Magellanic Clouds, the galactic plane, and so on.
 These fields will receive targeted, repeat observations of, for instance 200
 observations over a 40-hour period after which the faint limit could be
-extended to around 28 apparent magnitudes (CITE THE WEBSITE?).
+extended to around 28 apparent magnitudes.
 This faint limit will be extended for fields with co-added exposures.
 First light is currently scheduled for 2021.
-Data release one of eleven is expected to contain eighteen billion objects.
+Data release one of eleven is expected to contain eighteen billion objects
+\citep{Ivezic2008}.
 
 \LSST\ will provide rotation periods for a new stellar regime.
 Because \kepler\ targeted Earth-like planet hosts, the majority of its
@@ -35,19 +30,21 @@ Since the collecting area of \LSST\ is so large it will be sensitive to a
 large number of faint stars, including many K and M dwarfs.
 Since it is not a space mission and its lifetime does not depend on the
 reliability of moving parts or fuel, \LSST\ will run for 10 years---more than
-double the length of the \kepler prime mission.
+double the length of the \kepler\ prime mission.
 This will open up an opportunity to detect rotation signatures in faint,
 slowly rotating stars, allowing us to populate both the low-mass and old parts
 of the age-rotation parameter space.
-In many ways \LSST\ is \kepler's antithesis: \kepler data is dense and evenly
+In many ways \LSST\ is \kepler's antithesis: \kepler\ data is dense and evenly
 spaced, whereas \LSST\ light curves will have sparse, irregular cadence.
-Depending on its location on the sky, a given target will have between ... and
-... data points spread over 10 years, spaced from 3 days to 30 days apart.
+% Depending on its location on the sky, a given target will have between ... and
+% ... data points spread over 10 years, spaced from 3 days to 30 days apart.
+Most targets will be observed repeatedly for ten years with observations
+spaced from three to thirty days apart.
 The disadvantage of this is that there will be a rotation period lower limit.
 The advantage of using sparse data however, is that CPU time is vastly
 reduced!
 
-We simulated \LSST cadence by requiring that an object/field only be observed
+We simulated \LSST\ cadence by requiring that an object/field only be observed
 during the night and whilst the field is visible, so for half of the year.
 Each object is visited every three days, on average during the observable
 season and visits are clustered around a season with a Gaussian shape.
@@ -57,82 +54,84 @@ object or field is shown in figure \ref{fig:cadence_hist}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/cadence_hist}
-\caption[An LSST cadence histogram.]
+\caption[An \LSST\ cadence histogram.]
 {A histogram of the number of visits per week as a function of time
-for a given object or field observed by \LSST as used in our simulations.}
+for a given object or field observed by \LSST\ as used in our simulations.
+Code used to generate this plot was written by Jim Davenport,
+\url{https://github.com/jradavenport/MW-Flare}.}
 \label{fig:cadence_hist}
 \end{center}
 \end{figure}
 
-Since \LSST observations are not evenly spaced, it is not trivial to compute
-an autocorrelation function.
-(LOOK UP COLLIER-CAMERON AND MAZEH)
-One could interpolate the light curve onto an evenly spaced grid and then
-compute the ACF, but this would introduce a large amount of uncertainty.
-Instead of using an ACF to initialise our MCMC we therefore use the
-Lomb-Scargle periodogram.
+We used the TRILEGAL \citep{Girardi2012} code to simulate stellar populations
+in a hypothesised \LSST\ field with galactic coordinates, $l = 45$, $b = -10$.
+We randomly selected 5000 stars from this population and with $r$-band
+magnitudes between 16 and 28.
+We separated these stars into `cool' (< 6250) and `hot' (> 6250) temperature
+bins.
+For the cool stars we used the new gyrochronology relation, calibrated in
+chapter \ref{chapter:gyro} to convert B-V colour (converted from $g-r$) and
+age into rotation periods.
+% FIXME: include logg
+To assign rotation periods to the hot stars we fitted a sum of two Gaussian
+functions to the rotation periods of hot stars in the \citet{Mcquillan2014}
+catalogue.
+We then drew rotation periods from the resulting distribution.
+For both hot and cool stars we used code similar to that used in
+\citet{Aigrain2015} to simulate light curves, using these rotation periods.
+In order to assign appropriate amplitudes we approximated the relation between
+rotation period, amplitude of variability and \teff, based on the
+\citet{Mcquillan2014} sample.
+We then assigned amplitudes by drawing values from Gaussians with means
+corresponding to the mean amplitudes of stars with similar \teff\ and
+$P_{rot}$ in \citet{Mcquillan2014} and variances given by the variance in each
+bin.
+White noise was added to the light curves, with variance dependent on $r$-band
+magnitude based on the values provided in \citet{Jacklin2015}.
+We sampled these light curves using our \LSST\ cadence model and attempted to
+recover their rotation periods using a LS periodogram.
+Although the LS periodogram has many drawbacks, as explained at length in
+previous chapters, an ACF is not useful for \LSST\ data since the data are
+unevenly spaced.
+We have used the LS periodogram in these initial tests because it is fast to
+compute, but intend to use the GP method in the future.
 
-\subsection{\PLATO}
+The results are shown in figure \ref{fig:derek}, where recovered rotation
+periods are plotted against the rotation periods used to generate the light
+curves.
+Data points are coloured according to their temperatures.
+Rotation periods less than $\sim$ ten days have a low recovery fraction, and
+this is worse for hot stars as they have smaller variability amplitudes.
+The large outliers at long rotation periods are mostly faint, as shown in
+figure \ref{fig:derek2}.
 
-\section{Future projects}
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/figure6.pdf}
+\caption[\LSST\ rotation period recovery results.]
+{Measured versus injected rotation period for 5000 simulated \LSST\ targets.
+Points are coloured according to their temperatures.
+Rotation periods less than $\sim$ 10 days have a low recovery fraction, and
+this is worse for hot stars as they have lower amplitudes of variability.
+Figure made by Derek Buzazi.}
+\label{fig:derek}
+\end{center}
+\end{figure}
 
-information, so these will be used too) and will be tested on binary stars.
-In addition to the basic input catalogues available for the transit survey
-stars, I will gather information from every other available source.
-Light curves themselves are rich in age information, for example, even where
-a rotation period cannot be measured, the {\it absence} of discernable
-variability is indicative of old-age.
-I will use the method of \citet{bastien} to measure short-timescale brightness
-fluctuations (known as flicker) which are correlated with surface gravity.
-I will also use new distance and proper motion information from GAIA as soon as
-the data become available (expected in early 2017).
-To obtain accurate gyrochronological ages, reliable rotation periods must be
-inferred---this is another challenge which has prohibited the exploration of
-time-dependent exoplanet populations thus far.
-Standard methods for rotation period inference such as autocorrelation
-functions (ACFs) and sine-fitting periodograms are not optimal for noisy light
-curves with low-amplitude signals, are not probabilistic, do not provide
-realistic uncertainties and are performed on `detrended' \Kepler\ light curves
-with significantly reduced power at periods of 30 days and above.
-My new technique for measuring probabilistic rotation periods using Gaussian
-processes (GPs) can extract rotation periods from low-amplitude signals that
-are buried in noisy data, can be applied directly to unprocessed light curves
-and measures more precise and accuration rotation periods than ACF and
-periodogram methods \citep{AngusIAU}, see figure \ref{fig:rotation}.
-I will use this method to compute a probabilistic constraint on the rotation
-periods of {\it all} transit survey stars.
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/figure8.pdf}
+\caption[\LSST\ rotation period recovery results.]
+{Measured versus injected rotation period for 5000 simulated \LSST\ targets.
+Points are coloured according to the $r$-band magnitude.
+The large outliers at long rotation periods are mostly faint.
+Figure made by Derek Buzazi.}
+\label{fig:derek2}
+\end{center}
+\end{figure}
 
-This new dating method will be probabilistic---hierarchical Bayesian inference
-will be performed in order to `learn' an informative age prior from the data
-themselves; a prior that will reflect the most probable age of a star, given
-the age distribution of other stars observed.
-
-There are several advantages to this dating model.
-Firstly, combining all the information will provide more precise and accurate
-ages than any one method used on its own, and, by definition, these ages will
-be less dependent upon one single model.
-Secondly, it will provide an age constraint for every star observed by
-a photometric survey since {\it some} age information is always available.
-Thirdly, it will be directly compatible with my probabilistic, GP rotation
-period measurement method and finally, it will be easily updated as new data
-become available.
-By modelling stellar ages using all available information and combining
-multiple dating techniques, my hierarchical, Bayesian dating method with
-informative priors {\bf will provide the most precise and accurate ages ever
-inferred for every star observed by \Kepler, \Ktwo\ and \TESS}.
-
-This project is highly ambitious and will have enormous impact if successful,
-however even if there is no detectable age-trend in the \Kepler\ data it will
-lead to other discoveries and useful products for the astronomical
-community.
-Firstly, a rotation period and age for every \Kepler, \Ktwo\ and \TESS\ star
-will be beneficial to both exoplaneteers and galactic archaeologists alike,
-\citep[e.g.][]{bovy}.
-Secondly, stellar rotation periods can reveal potential star-planet
-interactions in which a planet transfers angular momentum to its host---I
-intend to unambiguously confirm this phenomenon.
-Finally, this work will pave the way for exoplanet-age studies with PLATO.
-Launching in 2025, this space telescope will provide highly precise
-asteroseismic ages for thousands of stars, revolutionising the field of
-stellar ages.
-
+This work is the start of an ongoing effort to understand the opportunities
+for rotation period recovery in \LSST\ data.
+The next steps will be to estimate the total number of rotation periods we
+expect to measure from \LSST\ light curves and the types of stars we will be
+able to measure them for.

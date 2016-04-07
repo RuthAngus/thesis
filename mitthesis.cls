@@ -469,7 +469,7 @@ at the
 \@copyrightnotice
 \par
 \vskip 3\baselineskip
-\signature{Author}{\@department \\ \@thesisdate}
+\signature{Author}{Ruth Angus, \@department \\ \@thesisdate}
 \par
 \vfill
 \unvbox\@titlesupervisor

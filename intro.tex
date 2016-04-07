@@ -6,7 +6,7 @@ The desire to infer precise and accurate stellar ages is motivated by a range
 of scientific questions, but the one that most piques my personal interest is
 the implications for understanding the evolution of exoplanetary systems.
 Despite the rapidly accelerating interest in exoplanet population studies
-\citep[e.g.][]{Petigura2013, Dressing2015, Foreman-mackey2014, Burke2015}, we
+\citep[e.g.][]{Petigura2013, Dressing2015, Foreman-Mackey2014, Burke2015}, we
 still know very little about how planetary systems {\it evolve} because
 stellar ages are difficult to infer.
 
@@ -294,8 +294,8 @@ pull out an age.
 Evaluating these models is expensive, so pre-calculated model grids are used.
 In order to infer an age from the observations it is therefore necessary to
 interpolate between grid lines.
-The Dartmouth \citep{dotter} and Yonsei-Yale \citep{spada} models are two of
-the most commonly used sets of models.
+The Dartmouth \citep{Dotter2008} and Yonsei-Yale \citep{Spada2013} models are
+two of the most commonly used sets of models.
 
 An obvious limitation of the isochrone method is that the composition of the
 star in question will affect its placement on a HRD or CMD: metal-rich stars
@@ -351,7 +351,7 @@ There is no coherent driving force, rather the stochastic collisions of air
 particles induce a continual ringing.
 Similarly, the Sun is continually oscillating at a range of discrete
 frequencies; those that correspond to its spherical harmonics.
-A power spectrum of the Sun, taken from \citet{brown} is shown in figure
+A power spectrum of the Sun, taken from \citet{Brown2000} is shown in figure
 ~\ref{fig:solar_spectrum}.
 The comb-like, evenly spaced peaks in this power spectrum show Solar p-mode
 oscillations.
@@ -363,7 +363,7 @@ of around five minutes.
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/solar_spectrum.pdf}
 \caption[Solar power spectrum.]{A power spectrum of one month of
-disk-integrated Solar photometry, taken from \citet{toutain}.
+disk-integrated Solar photometry, taken from \citet{Toutain1992}.
 Solar p-modes are clearly visible in this figure.}
 \label{fig:solar_spectrum}
 \end{center}
@@ -399,7 +399,7 @@ along its path through the stellar interior.
 Time-dependent spatial perturbations to a star's equilibrium state can be
 written as a product of a term that depends on stellar radius and a spherical
 harmonic (assuming that a star can be approximated as a sphere) as follows
-\citep{brown},
+\citep{Brown1994},
 \begin{equation}
     \xi_{nlm}(r, \theta, \phi, t) = \xi_{nl}(r)Y_l^m(\theta, \
     \phi)e^{-i\omega_{nlm}t}.
@@ -427,7 +427,7 @@ For this reason, modes with different $l$ provide information about the sound
 speed gradient in the stellar interior.
 The `small frequency separation', $\delta_{n,l} = \nu_{n+1, l} - \nu_{n, l+2}$
 is often used to parameterise the variation in frequency with stellar radius
-via \citep{brown}
+via \citep{Brown1994}
 \begin{equation}
     \delta_{n,l} = \Delta\nu_0\frac{(l + 1)}{2\pi^2\nu_{nl}}\int_0^{R_\star}
     \frac{dc}{dr}\frac{dr}{r}.
@@ -437,7 +437,7 @@ star evolves, the sound-speed gradient is time-dependent and the small
 separation therefore contains information about the age of the star.
 
 There is no simple harmonic relation between the frequencies of modes with
-adjacent mode number \citep{brown}.
+adjacent mode number \citep{Brown1994}.
 % check this!
 However, in the limit where $n \gg l$, mode frequency can be approximated as
 \begin{equation}
@@ -460,14 +460,14 @@ This travel time is related to the mean density of the star via,
 \Delta\nu_0 \cong 135\left(\frac{M_\star}{R_\star^3}\right)^{1/2}\mu Hz,
 \end{equation}
 where $M_\star$ and $R_\star$ are the stellar mass and radius in Solar units
-\citep{cox, brown}.
+\citep{Cox1980, Brown2000}.
 
 Today, p-modes have been detected in hundreds of Sun-like stars, however it
 was not until the late 1990s that the first conclusive detection was made in
 a star other than our Sun.
 The reason for this is simply that p-mode perturbations are extremely
 small---these changes are around 10 cms$^{-1}$ in velocity and 3$\mu$mag in
-brightness for typical oscillation modes in the Sun \citep{brown2000}.
+brightness for typical oscillation modes in the Sun \citep{Brown2000}.
 Asteroseismic pulsations are usually detected in two different ways: by
 searching for the subtle change in luminosity caused by the temperature
 fluctuations of the stellar surface, or by measuring the changing radial
@@ -476,16 +476,16 @@ A Fourier transform of these time series will reveal the presence of
 oscillation modes, allowing for the modelling of the star's interior
 structure.
 The earliest p-modes detections were made using radial velocity data
-\citep{kjeldsen2001} for stars $\eta$ {\bf Boo} \citep{kjeldsen1995}, {\bf
-Procyon} \citep{barban1999, martic1999}, $\zeta$ {\bf Herculis}
-\citep{martic2001}, $\alpha$ {\bf Cen A} \citep{kjeldsen1999} and $\beta$ {\bf
-Hyi} \citep{bedding2001}.
+\citep{Kjeldsen2001} for stars $\eta$ {\bf Boo} \citep{Kjeldsen1995}, {\bf
+Procyon} \citep{Barban1999, Martic1999}, $\zeta$ {\bf Herculis}
+\citep{Martic2001}, $\alpha$ {\bf Cen A} \citep{Kjeldsen1999} and $\beta$ {\bf
+Hyi} \citep{Bedding2001}.
 Today, we can take advantage of space-based missions \kepler\ and \corot\
 whose photometric precision provides sufficient signal-to-noise to detect
 p-mode-induced luminosity variations.
 These missions have provided fundamental parameters for hundreds of
-oscillating giants, subgiants and Sun-like stars \citep[e.g.][]{michel2008,
-bruntt2009, chaplin2014}.
+oscillating giants, subgiants and Sun-like stars \citep[e.g.][]{Michel2008,
+Bruntt2009, Chaplin2014}.
 
 % In the previous section I describe the relations between stellar p-mode
 % oscillation frequencies and the physical parameters of a star.
@@ -635,14 +635,14 @@ stars with a thin convective layer have a weaker magnetic field.
 For this reason they lose angular momentum more slowly.
 Angular momentum loss rate therefore varies as a function of stellar mass and
 fully radiative stars do not spin down appreciably over their MS lifetime
-\citep{Noyes1984_2}.
+\citep{Noyes1984b}.
 The rotational evolution of fully stars convective is still unknown, however
 it is an active field of interest \citep[\eg][]{Mcquillan2013, Newton2015}.
 
 Several theoretically motivated gyrochronology models have been developed by
 different groups.
 For example, \citet{Kawaler1988, Collier-cameron1994, Reiners2012,
-Epstein2014, Vansaders2014} use physical models of rotating stars with
+Epstein2014, Vansaders2013} use physical models of rotating stars with
 magnetic fields, where the rate of angular momentum loss is related to the
 rotation period and field strength, and evolve those stars forward in time.
 Although these models are based on the physical processes at play, they must
@@ -657,7 +657,7 @@ and $K_w$ is a constant that must be calibrated so that the Sun has Solar
 rotation at Solar age.
 See \citet{Barnes2010b} for a discussion on the various adaptations of this
 braking law.
-\citet{Vansaders2014} use the following model to describe the rotation period
+\citet{Vansaders2013} use the following model to describe the rotation period
 distribution of cool field stars:
 \begin{equation}
 \frac{dJ}{dt} = \left\{
@@ -688,7 +688,7 @@ $P_{rot}/\tau_c$ is known as the Rossby number, $Ro$.
 It is dependent on spectral type and for this reason many people argue that
 Rossby number is directly related to the surface magnetic field strength and a
 more natural quantity to correlate with age and activity than rotation period
-\citep[\eg][]{Vansaders2015} \citep[although this view is not universally
+\citep[\eg][]{Vansaders2016} \citep[although this view is not universally
 held, see][]{Reiners2014}.
 This is one of the more recently developed theoretical gyrochronology
 relations however, as revealed in chapter \ref{chapter:conclusions}, this
@@ -713,8 +713,8 @@ period was also related to age.
 \begin{figure}
 \begin{center}
 \includegraphics[width=3in, clip=true]{figures/skumanich.pdf}
-\caption[\citet{skumanich1972} results: early evidence for magnetic braking]
-{Figure from \citet{skumanich1972}. Rotation periods for the G stars in the
+\caption[\citet{Skumanich1972} results: early evidence for magnetic braking]
+{Figure from \citet{Skumanich1972}. Rotation periods for the G stars in the
 Hyades and Pleiades and the Sun are plotted.}
 \label{fig:skumanich}
 \end{center}
@@ -755,7 +755,7 @@ rotation periods lie on this converged sequence.
 Gyrochronology only applies to stars older than around the age of the Hyades.
 \begin{figure}[p]
 \begin{center}
-\includegraphics[width=4in, clip=true]{figures/irwin.pdf}
+\includegraphics[width=6in, clip=true]{figures/irwin.pdf}
 \caption[Cluster rotation from \citet{Irwin2009}]
 {Figure from \citet{Irwin2009}. A compilation of most of the available
 rotation periods for stars in open clusters with $M < 1.2 M_\odot$ in 2009.
@@ -1032,7 +1032,7 @@ Equation \ref{eq:lnlike_intro} can also be modified for the simple case of
 fitting a straight line to data, where the $y$-direction observational
 uncertainties are unknown {\it and} the $x$-direction uncertainties are
 non-negligible.
-Starting from equations 26, 29, 31 and 32 of \citet{Hogg2010},
+Starting from equations 26, 29, 31 and 32 of \citet{Hogg2010b},
 $\mathbf{S_i}$ is the covariance tensor,
 \begin{eqnarray}
     \mathbf{S_i} &\equiv& \left( \begin{array}{cc}
@@ -1240,7 +1240,7 @@ temperature) for each spot, however it is difficult to simplify the model in a
 way that will allow enough flexibility to fit a real data set.
 It is therefore necessary to use alternative methods for inferring rotation
 periods.
-In chapter \ref{chapter:GP_chapter} of this thesis I present a new method for
+In chapter \ref{chapter:GP} of this thesis I present a new method for
 inferring rotation periods, and give a summary of the main existing methods
 below.
 
@@ -1339,3 +1339,13 @@ spectrograph, the magnitude of the target, the rotation speed and thus
 produces rotation periods with extremely large uncertainties.
 Photometric rotation periods are almost always preferable to spectroscopic
 ones, especially for slow rotators.
+
+In this thesis both the ACF and LS periodogram methods are used for rotation
+period inference.
+However, as explained above, both these methods are flawed.
+In chapter \ref{chapter:GP} I introduce a new method for rotation
+periods that does not suffer from the aforementioned flaws.
+Specifically, it is capable of modelling quasi-periodic light curves of any
+shape, and provides accurate uncertainties.
+I explain the details in chapter \ref{chapter:GP}, but before that I
+present the results of my work on gyrochronology.

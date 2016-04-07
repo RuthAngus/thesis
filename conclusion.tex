@@ -4,21 +4,17 @@
 In chapter \ref{chapter:gyro} I used new results from \kepler\
 asteroseismology to recalibrate the relation between rotation period, age and
 colour.
-The light curves of several cool dwarf, Solar-like oscillators were analysed
-by \citet{Chaplin2014} who provide a catalogue of ages for these targets via
-the methods described in \textsection \ref{section:asteroseismology} of
-chapter \ref{chapter:intro}.
-We used rotation periods of these stars from \citet{Garcia2014} who measure
-the periodicity of signals in \kepler\ light curves using the ACF and wavelet
-methods described in \textsection \ref{rotation}.
-We fit a gyrochronology model to these data, of the form
-\begin{equation}
-P = A^n \times a(B-V-c)^b,
-\end{equation}
-\label{eq:Barnes2007_2}
-where $P$ is rotation period (in days),
-$A$ is age (in Myr), $B$ and $V$ are B and V band magnitudes respectively and
-$a$, $b$, $c$ and $n$ are dimensionless free parameters.
+The short cadence \kepler\ light curves of several cool dwarf, Solar-like
+oscillators were analysed by \citet{Chaplin2014} who provide a catalogue of
+ages for these targets.
+We used photometric rotation periods of these stars published in
+\citet{Garcia2014}.
+They used ACF and wavelet methods to measure the periodicity of star
+spot-induced brightness modulations in their \kepler\ light curves.
+We fit a gyrochronology model to these data, of the form $P = A^n \times
+a(B-V-c)^b$, where $P$ is rotation period (in days), $A$ is age (in Myr), $B$
+and $V$ are B and V band magnitudes respectively and $a$, $b$, $c$ and $n$ are
+dimensionless free parameters.
 We found evidence to suggest that this function does not provide a good fit to
 the data and that some old \kepler\ asteroseismic targets are more rapidly
 rotating that expected, given their age and colour.
@@ -30,21 +26,23 @@ New rotation periods from the repurposed \kepler\ mission, \ktwo\ may shed
 light on this controversial topic.
 
 In chapter \ref{chapter:sip} I present a method for searching for periodic
-signals (\eg rotation periods) without detrending.
+signals (\eg rotation periods) in \ktwo\ light curves without detrending.
 The pointing precision of \kepler\ was dramatically reduced when its third
 reaction wheel broke.
 \ktwo\ light curves are contaminated with high amplitude systematic features
 as a result.
-Detrending these light curves is essential in order to search for exoplanets
-or measure stellar rotation periods.
-Instead of detrending, we model the noise and the signal simultaneously and
-marginalise over the noise model.
-A noise model is constructed by decomposing all \ktwo\ light curves from
+Accurately modelling the noise in these light curves is essential in order to
+search for exoplanets, perform asteroseismology or measure stellar rotation
+periods.
+We constructed a noise model by decomposing all \ktwo\ light curves from
 campaign 1 into a set of orthogonal basis vectors called `Eigen Light Curves'
 (ELCs).
-The Systematics-Insensitive Periodogram (SIP) uses a linear combination of
-150 of these ELCs to model a light curve while simulataneously fitting a
-sinusoid to the data at a given frequency.
+Instead of detrending, fitting the noise model and subtracting it from the
+data, we model the noise and the signal simultaneously and marginalise over
+the noise model.
+The Systematics-Insensitive Periodogram (SIP) is a method that uses a linear
+combination of 150 of these ELCs to model a light curve while simulataneously
+fitting a sinusoid to the data at a given frequency.
 Finding the amplitudes of the best-fit sinusoids over a grid of frequencies
 produces a SIP.
 The SIP is particularly effective for red giant asteroseismology as these
@@ -56,32 +54,47 @@ timescales and because a sinusoid is an imperfect model for stellar rotation.
 
 In chapter \ref{chapter:GP} I present a new method for inferring precise and
 accurate rotation periods from \kepler\ light curves using Gaussian processes.
+A Gaussian process model is a flexible, semi-parametric model that is capable
+of capturing the non-sinusoidal, quasi-periodic nature of stellar light
+curves.
 I compare the GP method to the Lomb-Scargle periodogram and ACF methods,
 finding it to be more accurate and precise than both.
-In addition it provides accurate uncertainties because full a posterior PDF of
-the rotation period parameter is explored.
+In addition it provides accurate uncertainties because, in our implementation,
+a full posterior PDF of the rotation period parameter is explored.
 Unfortunately, while this method works well on noise-free simulations, it is
 currently extremely computationally expensive when applied to noisy light
 curves.
 It is therefore currently most useful for individual targets rather than large
 ensembles of light curves.
 
-In the final chapter of this thesis I use \kepler\ flicker estimates and
-asteroseismology data to recalibrate the relation between flicker, surface
-gravity and stellar density.
-These relations are not deterministic, although they have been treated as such
-in the past and there is significant intrinsic scatter that is not accounted
-for by the observational uncertainties.
-I use hierarchical probabilistic modelling to quantify  model these relations
-and quantify the additional scatter.
+In chapter \ref{chapter:flicker} of this thesis I use \kepler\ flicker
+measurements from \citet{Bastien2013} and fundamental stellar parameters from
+asteroseismology to recalibrate the relation between flicker, surface gravity
+and stellar density.
+These relations are stochastic, although they have been treated
+deterministically in the past \citep[\eg][]{Bastien2013, Kipping2014} and
+there is significant intrinsic scatter that is not accounted for by the
+observational uncertainties.
+I use hierarchical bayesian modelling to quantify  model these relations and
+quantify the additional scatter required to explain the observations.
+
+Finally, in chapter \ref{chapter:future} I investigate opportunities for
+inferring rotation periods from \LSST\ light curves.
+\LSST\ data will be sparse and unevenly sampled---quite the opposite of
+\kepler.
+If we can detect long rotation periods of old, low-mass stars in \LSST's ten
+years of observations, currently empty parts of the rotation period-mass-age
+parameter space will be filled in, with promising implications for
+gyrochronology.
 
 I began this thesis by introducing the \kepler\ spacecraft which has provided
 all the data used in this work.
 I would like to conclude by saying that, in my opinion, \kepler's legacy has
-to be the greatest of any astronomical instrument ever built.
-Not just for exoplanets but for stellar astrophysics too.
-\kepler\ has revived the astronomical communities general interest in stars:
+to be the greatest of any astronomical instrument ever built; not just for
+exoplanets but for stellar astrophysics too.
+\kepler\ has revived the astronomical community's general interest in stars:
 after all, one can only understand an exoplanet as well as one understands the
-star that it orbits.
+star it orbits.
 Were it not for \kepler, this thesis would look very different and I, for one,
-am grateful for the unique challenges posed by its rich, unrivalled data set.
+am very grateful for the unique challenges posed by its rich, unrivalled data
+set.

@@ -164,11 +164,11 @@ interations with companion stars or planets
 \citep[e.g.][]{Beky2014, Poppenhaeger2014}.
 Current methods for measuring rotation periods from {\it Kepler} light curves
 include periodogram \citep[e.g.][]{Reinhold2013}, AutoCorrelation Function
-(ACF) \citep{McQuillan2013} and wavelet \citep[e.g.][]{Garcia2014} analysis,
+(ACF) \citep{Mcquillan2013} and wavelet \citep[e.g.][]{Garcia2014} analysis,
 or some combination thereof.
 Stellar variability is not typically sinusoidal, therefore sine-fitting
 periodograms are not perfectly suited to measuring rotation periods
-\citep{McQuillan2013}.
+\citep{Mcquillan2013}.
 For this reason, the ACF method is often favoured over the periodogram method.
 However, because autocorrelation is performed directly on detrended light
 curves, and cannot be written down as a generative model, it is not possible
@@ -471,7 +471,7 @@ We have shown that the SIP method is able to measure stellar rotation periods
 and does better than producing periodograms from detrended data.
 However, it has been shown that the ACF method often performs better than
 periodogram methods in general for measuring stellar rotation periods
-\citep[][]{McQuillan2013, McQuillan2013b, Mazeh2015}.
+\citep[][]{Mcquillan2013, Mcquillan2014, Mazeh2015}.
 For stars with relatively high-amplitude variability, for which perfect
 removal of systematic trends is less important, performing the ACF method
 on detrended data is likely to produce similar results to the SIP method.
@@ -673,6 +673,20 @@ improvement upon a simple LS periodogram of detrended data.
 In practise, the best approach for measuring rotation periods in {\it K2} data
 is likely to be a combination of the SIP method and the ACF method, where
 autocorrelation is performed on detrended light curves.
+Of course, as mentioned in chapter \ref{chapter:intro}, a sinusoid is actually
+{\it not} a good model for stellar rotation signals.
+For this reason, the SIP's usefulness for measuring rotation periods is
+limited.
+In the following chapter I introduce an alternative method for inferring
+rotation periods, using a semi-parametric function (a Gaussian process).
+It will be possible to combine this Gaussian process model with the same noise
+model used by the SIP to produce a GPSIP (Gaussian Process
+Systematics-Insensitive Periodogram).
+Indeed, any model could be used in place of a sinusoid, although linear models
+have an advantage in computational efficiency and a GPSIP would be extremely
+expensive.
+Still, it would be worth exploring the performance of the GPSIP in the future.
+
 The SIP code is available for public use and can be found at
 \url{https://github.com/RuthAngus/SIPK2}.
 

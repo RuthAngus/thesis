@@ -1,4 +1,5 @@
 \chapter{Future work}
+\label{chapter:future}
 
 \subsection{\LSST}
 
@@ -19,9 +20,8 @@ These fields will receive targeted, repeat observations of, for instance 200
 observations over a 40-hour period after which the faint limit could be
 extended to around 28 apparent magnitudes.
 This faint limit will be extended for fields with co-added exposures.
-First light is currently scheduled for 2021.
-Data release one of eleven is expected to contain eighteen billion objects
-\citep{Ivezic2008}.
+First light is currently scheduled for 2021 and data release one of eleven is
+expected to contain eighteen billion objects \citep{Ivezic2008}.
 
 \LSST\ will provide rotation periods for a new stellar regime.
 Because \kepler\ targeted Earth-like planet hosts, the majority of its
@@ -46,7 +46,7 @@ reduced!
 
 We simulated \LSST\ cadence by requiring that an object/field only be observed
 during the night and whilst the field is visible, so for half of the year.
-Each object is visited every three days, on average during the observable
+Each object is visited every three days on average during the observable
 season and visits are clustered around a season with a Gaussian shape.
 A histogram of the number of visits per week as a function of time for a given
 object or field is shown in figure \ref{fig:cadence_hist}.
@@ -78,7 +78,8 @@ functions to the rotation periods of hot stars in the \citet{Mcquillan2014}
 catalogue.
 We then drew rotation periods from the resulting distribution.
 For both hot and cool stars we used code similar to that used in
-\citet{Aigrain2015} to simulate light curves, using these rotation periods.
+\citet{Aigrain2015} to simulate light curves, using our theoretical rotation
+periods.
 In order to assign appropriate amplitudes we approximated the relation between
 rotation period, amplitude of variability and \teff, based on the
 \citet{Mcquillan2014} sample.
@@ -86,8 +87,8 @@ We then assigned amplitudes by drawing values from Gaussians with means
 corresponding to the mean amplitudes of stars with similar \teff\ and
 $P_{rot}$ in \citet{Mcquillan2014} and variances given by the variance in each
 bin.
-White noise was added to the light curves, with variance dependent on $r$-band
-magnitude based on the values provided in \citet{Jacklin2015}.
+White noise was added to the light curves, with variance that depended on
+$r$-band magnitude, based on the values provided in \citet{Jacklin2015}.
 We sampled these light curves using our \LSST\ cadence model and attempted to
 recover their rotation periods using a LS periodogram.
 Although the LS periodogram has many drawbacks, as explained at length in

@@ -287,7 +287,7 @@ periodogram method and the GP method.
 \subsection{ACF}
 
 We calculated an ACF for each light curve using the method of
-\citet{Mcquillan13}.
+\citet{Mcquillan2013}.
 In this method, an ACF is calculated for each light curve and smoothed with a
 Gaussian kernel.
 A rotation period is estimated as the lag-time of the first peak in the ACF,
@@ -327,7 +327,7 @@ We applied the ACF method to our sample of \nlightcurves\ noise-free,
 simulated light curves.
 Periods measured using the ACF method are plotted against the original
 rotation period values used to generate the light curves in figure
-\ref{fig:acf_compare_noise_free}.
+\ref{fig:compare_noise_free}.
 % 73\% of the injected rotation periods were recovered with a value lying
 % within 10\% of the truth and 83\% within 20\%.
 A noteworthy feature of this figure is that many of the points fall below the
@@ -494,7 +494,7 @@ period estimate.
 We found that retaining only 20 data points per rotation period, based on the
 ACF period estimate, significantly reduced computation time whilst maintaining
 performance.
-We used {\tt emcee} \citep{Foreman-Mackey13}, an affine invariant ensemble
+We used {\tt emcee} \citep{Foreman-Mackey2013}, an affine invariant ensemble
 sampler to explore the posterior PDFs of the model parameters.
 The rotation period was taken as the median value of the posterior PDF.
 The resulting measured rotation periods are compared to the true rotation

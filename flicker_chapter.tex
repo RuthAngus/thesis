@@ -30,9 +30,6 @@ observational uncertainties tend to be larger for dwarfs.
 \section{Introduction}
 \label{sec:flicker_intro}
 
-%% INTRODUCTION
-%%
-
 Accurate stellar characterization plays a vital role for many active research
 fields within astronomy. For example, stellar populations, galactic
 archaeology, the study of binary stars, asteroseismology and exoplanet studies
@@ -48,10 +45,6 @@ library.
 For example, an observed stellar spectrum could be matched against a library of
 theoretical spectra generated using stellar atmosphere models, or, against a
 library of observed spectra of ``standard stars'', serving as calibrators.
-%Fundamental stellar parameters, such as mass and radius, which cannot be
-%directly inferred from the available observations can often be inferred by
-%invoking theoretical stellar models, e.g. fitting model isochrones to
-%spectroscopic measurements.
 Regardless of the approach, be it theoretical or empirical, the methods used
 for the inference of stellar parameters are traditionally ``deterministic''.
 In this context, a deterministic model can be loosely described as one where
@@ -61,11 +54,6 @@ model is considered to be a perfect description of reality.
 
 An alternative approach for inferring model parameters is to allow
 relationships between observables to be stochastic.
-% Unlike the deterministic case, a single observational input is interpreted to
-% be caused by a range of possible model parameters, described by a probability
-% distribution.
-% This statement is true even in the case of a perfect observation of infinite
-% signal-to-noise, since the underlying model itself comes with uncertainty.
 In recent years, there has been a shift towards such methods in several areas
 of astronomy, particularly within the exoplanet community.
 For example, \citet{Wolfgang2015} considered that the mass-radius
@@ -84,24 +72,12 @@ infer relationships between parameters that are themselves the product of an
 inference process (for example, exoplanet transit depth and period), inference
 can be performed as the final stage in a hierarchical treatment \citep[see,
 e.g.][]{Foreman-Mackey2014}.
-% This is useful if, for example, one wants to account for multi-dimensional
-% uncertainties by marginalizing over the `true' parameter values upon which the
-% noisy observations are conditioned.
-Studies such as these are benefited by posterior PDF samples, rather than
+Studies such as these benefit from posterior PDF samples, rather than
 point estimates of inferred properties.
-% This point is discussed further in \textsection\ref{sec:HBM}.
-
-%A number of recent exoplanet studies have used Hierarchical Bayesian Modeling
-%(HBM) to model the dispersion, or intrinsic scatter in relations between
-%astrophysical properties.
-%For example, \citep{wolfgang:2015} use HBM to recalibrate the mass-radius
-%relation for sub-Neptunes and infer the level of astrophysical dispersion
-
-% RA text...
 
 One of the more recent tools developed to characterize stars is known as
 ``flicker'' \citep{Bastien2013}.
-Flicker is a proxy for the scatter on an 8-hour timescale (denoted as $F_8$)
+Flicker is a measure of the scatter on an 8-hour timescale (denoted as $F_8$)
 in a broad visible bandpass time series photometric light curve, such as that
 from \textit{Kepler} or the upcoming TESS mission. A more detailed account of
 the procedure to calculate flicker is described in \citet{Bastien2013}. As
@@ -146,9 +122,6 @@ probabilistic inference in the arena of stellar characterization.
 \section{Probabilistic calibration}
 \label{sec:HBM}
 
-%% HBM
-%%
-
 \subsection{Calibration Data}
 
 For our calibration data, we used a sample of \Kepler\ stars with
@@ -161,9 +134,6 @@ additionally used the 71 additional planet hosting stars with asteroseismology
 reported in \citet{Huber2013} but not reported in \citet{Chaplin2014}. Values
 for flicker and ``range'' were taken from \citet{Kipping2014}, based upon the
 methods described in \citet{Bastien2013}.
-% Following \citet{kipping:2014} and
-% for reasons described there-in, we only include targets in our calibration for
-% which:
 In order to use the same data set as \citet{Kipping2014} and
 for reasons described there-in, we only include targets in our calibration for
 which:
@@ -187,8 +157,6 @@ zero covariance between $M_{\star}$ and $R_{\star}$.}.
 We model the stochastic relationship between $F_8$, \logg\ and \rhostar,
 accounting for the fact that there exists some intrinsic scatter in
 the dependent variable.
- % and including the heteroskedastic uncertainties on both
-% the dependent and independent variables.
 There are two excellent reasons for modelling the relation stochastically;
 firstly, if the intrinsic scatter is ignored and the relation between
 variables is assumed to be deterministic, those data points with smaller
@@ -200,20 +168,6 @@ propagating these probability distributions through to subsequent analyses.
 Several recent studies have required posterior Probability Distribution
 Function (PDF) samples, in order to conduct their hierarchical analyses
 \citep[e.g.][]{Foreman-Mackey2014, Rogers2015, Angus2015}
-% These studies account for multi-dimensional uncertainties using the sampling
-% method outlined in \citet{hogg:2010}.
-% This can be important because ordinary least squares regression methods
-% performed on data with two-dimensional uncertainties can result in a slope
-% that is biased towards zero \citep[e.g.][]{fuller:1987, fox:1997}.
-% For a demonstration of the affects of neglecting intrinsic scatter and
-% two-dimensional uncertainties, see \citet{kelly:2007}.
-
-% Multi-dimensional uncertainties have been included in a number of recent
-% studies, including \citet{foreman-mackey:2014, rogers:2015, angus:2015}.
-% In order to account for the two-dimensional observational uncertainties in
-% this data set, we marginalize over the latent, `true' values of $F_8$,
-% \rhostar\ and \logg\ using the importance sampling method of
-% \citep{hogg:2010}\footnote{Note that while the pseudo-marginal MCMC method of
 
 The two models we use to describe the relationships between $F_8$, \logg\ and
 \rhostar\ are
@@ -255,58 +209,6 @@ parameters were consistent with zero: $\gamma_{rho} = 0.006 \pm 0.02, \gamma_g
 = -0.01 \pm\ 0.01$, and interpret this as evidence for a constant intrinsic
 scatter level across evolutionary stages.
 
-% In order to account for the two-dimensional observational uncertainties in
-% this data set, we marginalize over the latent, `true' values of $F_8$,
-% \rhostar\ and \logg\ using the importance sampling method of
-% \citep{hogg:2010}\footnote{Note that while the pseudo-marginal MCMC method of
-% \citep{andrieu:2009} provides a truly unbiased estimate of the marginalized
-% likelhood, we expect any bias introduced by the importance sampling method to
-% be negligable.}.
-% In what follows we give an overview of this procedure, but encourage the
-% reader to refer back  to this original reference for a more detailed
-% description of the mathematics.
-% The observed values of the variables; $F_8$, \rhostar\ and \logg\ can be
-% thought of as a single `draw' from an underlying (assumed Gaussian)
-% probability
-% In what follows we give an overview of the importance sampling procedure, but
-% encourage the reader to refer back to the original reference for a more
-% detailed description of the mathematics.
-% The observed values of the variables; $F_8$, \rhostar\ and \logg\ can be
-% thought of as a single `draw' from an underlying (assumed Gaussian)
-% probability distribution, with mean equal to the `true' value---the value that
-% would have been observed, given infinitely high signal-to-noise---and standard
-% deviation equal to the observational uncertainty.
-% We compute the likelihood of the data given the model, marginalized over the
-% true values, using importance sampling.
-% We sample from the posterior PDFs of the true values of the variables,
-% conditioned on the observed values, and compute the likelihood of each of those
-% samples.
-% % These posterior PDFs could be produced by the astronomers who provide the
-% % catalog.
-% % If posterior samples are made available, they can be used in this stage of
-% % the inference.
-% % In the event that they are not provided however, they can be generated.
-% % For example, the $log(g)$ values used here are point estimates of the
-% % posterior PDFs of $log(g)$, produced by \citet{chaplin:2014} using
-% % {\it Kepler} light curves and stellar models.
-% We would use the posterior samples generated in previous model fitting process
-% if they were available, however generating new samples is an acceptable
-% approximation provided the posteriors are Gaussian and the priors used by the
-% previous fitters were uninformative.
-% Such an approximation will not be necessary for those studies using \rhostar\
-% or \logg\ calculated using the newly-calibrated relations presented here,
-% since we have published our posterior samples.
-% After producing new posterior PDF samples we then add up the individual
-% log-likelihoods of each sample to compute the total marginalized likelihood
-% for a star.
-% The marginalized likelihood of the whole dataset is then computed as the sum
-% of the log-likelihoods of each star.
-% The importance sampling method allows us to approximate the integral over the
-% latent variables.
-% % We used flat priors for all except the $\sigma$ parameters, for which we used
-% % priors which were flat in log-space.
-% as a function of flicker.
-
 We used a likelihood function which accounts for 2-D uncertainties but does
 not allow the intrinsic scatter to be a function of the dependent or
 independent variables.
@@ -337,10 +239,6 @@ Accounting for uncertainties on $y$ {\it and} $x$ is not essential in this
 case but is still good practise and will, in general, produce more accurate
 model parameters and uncertainties.
 
-% Since the uncertainties on flicker were significantly larger than those on
-% \logg or \rhostar, regression was performed with flicker as the dependent
-% variable.
-
 We used the uninformative prior for the parameters of a straight line for
 data with unknown uncertainties, outlined in \citet{Vanderplas2014},
 \begin{equation}
@@ -348,11 +246,6 @@ p(\alpha, \beta, \sigma) \propto \frac{1}{\sigma} \left( 1 + \beta^2
 \right)^{-3/2}.
 \end{equation}
 \label{eq:priors}
-
-% The parameter values found using this simple likelihood function, with a
-% constant dispersion are included in table \ref{tab:results}.
-% % The analytic likelihood function, equation \ref{eq:likelihood} is suitable for
-% % cases where the intrinsic scatter is not a function of $x$ or $y$.
 
 We also tested uniform, flat priors as defined below:
 \begin{eqnarray}
@@ -379,7 +272,6 @@ from Solar density and surface gravity measurements, respectively.
 All the code used for this project and several ipython notebooks explaining
 our analysis are available at {\url https://github.com/RuthAngus/flicker}.
 
-%%% rhostar plot
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in,angle=0,clip=true]{figures/flicker_vs_rho.pdf}
@@ -395,7 +287,6 @@ additional scatter.}
 \end{center}
 \end{figure}
 
-%%% logg plot
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
@@ -446,9 +337,6 @@ $\sigma_g$      &    0.060$\pm 0.003$   \\
 \section{Discussion}
 \label{sec:discussion}
 
-%% DISCUSSION
-%%
-
 We have recalibrated the relation between short timescale brightness
 fluctuations in the {\it Kepler} light curves of stars (flicker) with both
 stellar density and surface gravity, whilst including parameters to describe
@@ -474,9 +362,6 @@ We used Hierarchical Bayesian Modelling (HBM) to constrain the intrinsic
 scatter in the relationship between flicker, surface gravity and density and
 included the effects of the non-negligable two-dimensional observational
 uncertainties.
-% Although none of these methods, nor the data used here are new taken alone,
-% we use the example of flicker to demonstrate the ideas and the importance of
-% probabilistic, hierarchical inference.
 Relationships between astronomical parameters are almost always
 non-deterministic; an element of stochasticity effects the physical parameters
 of stars so one can never perfectly predict $y$ given an observation of $x$.
@@ -493,7 +378,6 @@ subsequent studies (provided the prior used during the fitting process is
 described).
 
 We provide posterior PDF samples at \url{https://zenodo.org/deposit/105051/}.
-% https://zenodo.org/deposit/95681/}.
 Whenever a prediction for the surface gravity or density of a star is required,
 for a given estimate of flicker, we recommend using these posterior samples
 within the calculation of \rhostar or \logg\ and its (Monte Carlo)
@@ -508,16 +392,3 @@ samples), input into our model will result in a probability distribution over
 stellar densities or surface gravities which reflects both the uncertainties
 on the flicker measurement, the uncertainties on the model parameters {\it and}
 the intrinsic scatter in the flicker-\rhostar-\logg\ relations.
-
-% #####################################################################
-% %% Acknowledgements
-% \acknowledgements
-% \section*{Acknowledgements}
-
-% RA would like to thank Dan Foreman-Mackey for his extremely helpful suggestions
-% and comments, Angie Wolfgang for her expert guidance and John Johnson for his
-% fantastic advice and support.
-% RA would also like to thank the anonymous referee for their patience and
-% excellent suggestions which dramatically improved this letter, the SAMSI
-% institute and the other members of the SAMSI {\it Kepler} exoplanet statistics
-% working groups.

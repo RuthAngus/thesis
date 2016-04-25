@@ -3,10 +3,16 @@
 \section{A little motivation}
 
 The desire to infer precise and accurate stellar ages is motivated by a range
-of scientific questions, but the one that most piques my personal interest is
-the implications for understanding the evolution of exoplanetary systems.
+of scientific questions.
+Without this fundamental stellar property, the evolution of stellar groups and
+populations would be a mystery, our understanding of the formation history of
+the Milky way would be limited and with it, the formation process of all
+galaxies.
+
+The stellar age application that most piques my personal interest is the
+implications for understanding the evolution of exoplanetary systems.
 Despite the rapidly accelerating interest in exoplanet population studies
-\citep[e.g.][]{Petigura2013, Dressing2015, Foreman-Mackey2014, Burke2015}, we
+\citep[e.g.][]{Petigura2013, Foreman-Mackey2014, Dressing2015, Burke2015}, we
 still know very little about how planetary systems {\it evolve} because
 stellar ages are difficult to infer.
 
@@ -23,40 +29,6 @@ Planet-planet scattering on extended timescales may result in a decrease in
 exoplanet frequency with stellar host age in the enormous sample of over five
 thousand exoplanets discovered to date {\it if} their ages can be sufficiently
 constrained \citep{Veras2015}.
-
-% Studying the exoplanet population as a function of age will unveil the
-% processes behind planet formation and dynamical evolution---two extremely
-% active areas of research.
-% By evaluating planet occurrence rates over a range of stellar ages it may be
-% possible to examine the dependence of overall occurrence on age and constrain
-% the rate of exoplanet loss.
-% Once the loss-rate is known we can extrapolate back in time to reveal what
-% zero-age planetary systems look like and possibly even to constrain the
-% primordial number of planets per star.
-
-% Stellar ages also provide a window into the {\it architectural}\/evolution of
-% planetary systems.
-% The exoplanet population shows a mysterious feature: half of all transiting
-% exoplanet systems have just one transiting planet and the other half have
-% multiple \citep[e.g.][]{lissauer, johansen, ballard}.
-% Additionally, the single planet systems, or `singles', are more often
-% misaligned with the spin-axis of their host star and have more eccentric
-% orbits than multiple planet systems, `multis' \citep[e.g.][]{morton, winn}.
-% This phenomenon is known as the `\Kepler\ dichotomy', and its origin is
-% a point of hot dispute: do two modes of formation create the distinct system
-% architecture?
-% \citet{Pu2015} propose an elegant solution: the singles are descended from the
-% multis, i.e.\ they are the remains of once ordered planetary systems, ripped
-% apart by chaotic gravitational interactions.
-% If this is the case, the singles may, on average, be older than the multis.
-% Most compact \Kepler\ multis are so tightly packed that they hover near the
-% stability limit \citep{fang}.
-% As the lifetime of a planetary system increases, so does its disruption
-% probability, therefore tightly-packed multis have shorter projected lifetimes
-% than loosely-packed systems.
-% By comparing the ages of tightly packed multis with the ages of loosely-packed
-% multis and the ages of singles it may be possible to reveal the dynamical
-% origins of the three groups.
 
 Determining the detectability of trends in the ages of \Kepler\ systems is
 challenging as the outcomes of simulations depend strongly on input
@@ -79,149 +51,6 @@ ability to infer stellar ages as a community.
 This research may ultimately lead to discovering variation in the architecture
 and frequency of exoplanets as a function of host star age.
 
-% Earlier this year I used \Kepler\ asteroseismic field stars to calibrate
-% the gyrochronology relations at late ages, revealing a surprising result: the
-% old targets rotated more rapidly than expected \citep{angus}.
-% This finding provoked the response of \citet{vansaders} who attribute this
-% behaviour to an evolving magnetic dynamo.
-% Their result is important as it informs us over which range of stellar ages
-% the gyrochronology method delivers precise results.
-% Gyrochronology performs best for stars that are Solar-mass or below and/or
-% those that are younger than the Sun.
-% These criteria are met by most of the \Kepler\ stars: the age distribution
-% peaks at around 2 Gyr and the mass distribution is centered on Solar-mass
-% \citep{walk, mcquillan2014}.
-% For many of these stars gyrochronology can yield stellar ages with 20\%
-% precision \citep{epstein} and as demostrated by \citet{veras},
-% a time-resolution of 20\% is more than sufficient to detect variations in the
-% exoplanet occurrence rate over time.
-
-\section{Kepler}
-
-The \kepler\ spacecraft plays a starring role in this thesis.
-Launched in 2009, \kepler\ was designed to survey over a hundred-thousand
-stars, searching for extrasolar planets.
-Its ultimate goal was to answer the question "how common are Earth-like
-planets in our galaxy?".
-To date \kepler\ has discovered more than 5700 planet candidates and over 1000
-confirmed planets.
-These numbers are still growing at a breath-taking rate and planets are likely
-to continue being discovered in the data well after the \kepler\ funding has
-dried up, thanks both to the enormity of the data set and the continual
-improvement of planet search methods.
-\kepler\ produced high precision\footnote{Precision ranging from a few hundred
-parts per million for bright (< 13th magnitude) targets to tens of thousands
-of ppm for faint (> 17th magnitude) targets.} broad-band (peaking between V
-and R bands) light curves for $\sim$ 150,000 stars.
-The majority of these targets were observed in long-cadence mode (once every
-half-hour), and a few hundred in short cadence mode (once every minute),
-continually for around four years.
-\kepler\ is in an Earth-trailing, heliocentric orbit.
-The \kepler\ field is centred at $\mathrm{RA} = 19\mathrm{h}~22\mathrm{m}~
-40\mathrm{s}$, $\mathrm{Dec} = +44^\circ30'~00'$, in the Cygnus region along
-the Orion arm of the galaxy.
-This field was chosen to be neither over nor under crowded, far enough out of
-the ecliptic that the Sun never shines onto the detector and contamination
-from Solar system objects is reduced.
-\kepler\ has a limited amount of on-board storage and must point towards the
-Earth to down-link data every month.
-These pointings break the time series.
-Other gaps appear at three month (quarter) intervals.
-The spacecraft rotates every quarter to keep its Solar panels pointed at the
-Sun.
-The stars shift to new CCD modules every time this happens, eventually
-returning to the same module after one year.
-Both the down-link pointings and quarter rotations produce short gaps in the
-light curves and can also produce short-term temperature changes to the CCD
-which can effect the sensitivity of the detector.
-Temperature changes increase the gain of the CCD chip: more electrons are
-excited when the CCD is warmer so the flux appears to increase.
-So despite the unprecedented precision of \kepler\ lightcurves, they are not
-uninterrupted and contain systematic features.
-Understanding the systematics in \kepler\ data is necessary for {\it all} of
-\kepler's science goals and is a key part of this thesis.
-This point is covered further in \textsection \ref{sec:detrending}.
-
-Unfortunately, that key question---"how common are Earth-like planets?"---may
-never be answered by \kepler\ \citep[or at least not very precisely, several
-inferences have been performed by extrapolation, \eg][]{Foreman-Mackey2014,
-Petigura2013, Burke2015}.
-Although \kepler\ launched with four functioning gyroscopic reaction wheels,
-one broke shortly thereafter.
-This was not a mission-ending scenario since the spacecraft only needed three
-to maintain its precise pointing: one for pitch, one for roll and one for yaw.
-Unfortunately however a second, this time mission-critical reaction wheel
-broke in 2013.
-Without all three reaction wheels, precise pointing of the spacecraft was
-impossible to maintain.
-The extreme photometric precision of \kepler\ comes from its extreme pointing
-position.
-With stars fixed in place, moving by less than a few milli-arcseconds per
-quarter, even without knowing the exact Point Spread Function (PSF) and Pixel
-Response Function (PRF), it is possible to perform precise relative
-photometry.
-With it's pointing stability compromised, the community were asked for input
-for a repurposed \kepler\ mission \citep[\eg][]{Hogg2013, Aigrain2015}.
-
-\kepler\ was re-purposed as the \ktwo\ mission in 2014.
-With just two reaction wheels controlling pitch and yaw, its third rotation
-axis had to be stabilised.
-This was achieved by balancing the spacecraft against Solar pressure, using
-its symmetric solar-panelled back.
-The spacecraft sits in an unstable equilibrium, drifting slowly about its roll
-axis, its new orientation reducing large forces from the Solar wind
-\citep{Howell2014}.
-The spacecraft's thrusters are used to correct the slow drift.
-Although the precision is not what it once was: stars drift across several
-pixels before the thrusters correct the motion, it is still good enough to
-perform plenty of science.
-In order to keep its back to the Sun, \kepler\ can only point at fields in the
-ecliptic plane.
-This means that new stellar populations can be explored: from different
-galactic regions, the bulge, thin and thick discs and halo, to open and
-globular clusters.
-Crucially, from the point of view of stellar astronomy, \kepler's new fields
-incorporate several open clusters.
-Open clusters are wonderful labs for stellar astronomy as they are coeval
-populations of stars made from the same material.
-They are controlled environments in which we can study the observational
-properties of stars as a function of their mass.
-Figure \ref{fig:current_fields} shows the current fields being observed by the
-spacecraft and figure \ref{fig:future_fields} shows the future fields being
-proposed.
-
-\begin{figure}[p]
-\begin{center}
-\includegraphics[width=6in, clip=true]{figures/Current_K2_fields.pdf}
-\caption[Current \ktwo\ fields]{\ktwo's fields. Fields 1-9 have already been
-observed and field 9 is being observed at the time this thesis is handed in.
-Targets have been fixed for purple fields and proposals are currently being
-solicited for yellow fields.}
-\label{fig:current_fields}
-\end{center}
-\end{figure}
-
-\begin{figure}[p]
-\begin{center}
-\includegraphics[width=6in, clip=true]{figures/Future_K2_fields.pdf}
-\caption[Future \ktwo\ fields]{\ktwo's current and future fields. These green
-fields are those proposed if an extended \ktwo\ mission is funded.}
-\label{fig:future_fields}
-\end{center}
-\end{figure}
-
-Not only is the spacecraft continuing its search for exoplanets \citep[and has
-already discovered many, \eg][]{Vanderburg2015, Crossfield2015,
-Foreman-Mackey2015, Montet2015, Becker2015, Vanderburg2016}, it will
-provide time series of white dwarfs, active galactic nuclei, red giants, red
-dwarfs, binary stars and other interesting astronomical objects.
-Of course, with the reduced pointing position comes a new challenge for those
-astronomers willing to get their hands dirty: systematic features in \ktwo\
-light curves range from negliable for the brightest targets to dominant for
-the faintest.
-It is therefore necessary to employ heavy-duty `detrending' methods to
-exploit \ktwo's rich data set.
-This subject is covered in \textsection \ref{sec:detrending}
 
 \section{Stellar dating methods}
 
@@ -246,13 +75,14 @@ in brightness or temperature during their hydrogen-burning lifetimes.
 Fitting stellar evolutionary models to these two observables usually produces
 age estimates with uncertainties in the order of 50-150\%.
 However, because cool stars spin down predictably over their main sequence
-lifetime due to magnetic braking, their ages depend, to first order, only on
-their masses and current rotation periods.
+lifetime due to magnetic braking, their current rotation periods depend, to
+first order, only on their masses and ages.
 Photometric measurements of these two parameters can therefore be used to
 infer an age.
 This is the concept behind `gyrochronology'---inferring an age from a rotation
 period---developed after observations of stars in clusters revealed a trend
-for decreasing rotation period with time.
+for decreasing rotation period with time, at a given mass \citep{Weber1967,
+Skumanich1972, Barnes2003, Irwin2009}.
 This method has never held as much promise as it does now, with a new glut of
 stellar rotation periods available from a new generation of spacecraft
 designed for high precision, high cadence photometry.
@@ -284,9 +114,9 @@ core and energy production decreases.
 The core slowly contracts over time and its temperature goes up.
 The increased temperature enhances energy production, and the result is that
 stars burn hotter and more brightly over time.
-If you can infer a star's absolute magnitude and effective temperature, or
-measure its colour, and you have an idea of its composition and evolutionary
-stage, you can place it on an HRD or CMD and infer its age.
+By inferring a star's absolute magnitude and effective temperature, or
+measuring its colour, plus its composition and evolutionary stage, it is
+possible to place it on an HRD or CMD and infer its age.
 
 In practice, it is not usually possible to feed luminosity, temperature,
 metallicity and \logg\ into a stellar evolution model, crank the handle and
@@ -294,8 +124,15 @@ pull out an age.
 Evaluating these models is expensive, so pre-calculated model grids are used.
 In order to infer an age from the observations it is therefore necessary to
 interpolate between grid lines.
-The Dartmouth \citep{Dotter2008} and Yonsei-Yale \citep{Spada2013} models are
-two of the most commonly used sets of models.
+The Dartmouth \citep{Dotter2008}, Yonsei-Yale (Y$^2$) \citep{Yi2001,
+Spada2013}, Padova \citep{Giradi2002} and PARSEC \citep{Bressan2012} models
+are some of the most commonly used sets of models.
+These and other isochrone grids compute slightly different ages for the same
+star because the underlying stellar evolution models are different.
+For example, the four models listed above use different equations of state,
+different models for opacity within the stars and different atmospheric
+models \citep[see][for a comparison of these four sets of
+isochrones]{Thompson2014}.
 
 An obvious limitation of the isochrone method is that the composition of the
 star in question will affect its placement on a HRD or CMD: metal-rich stars
@@ -321,6 +158,23 @@ For these reasons, many open clusters have precise ages.
 Together with the Sun they are the most precisely dated of all astronomical
 objects and provide the benchmarks from which all other dating methods are
 calibrated.
+Figure \ref{fig:hyades} shows 69 field stars in the Hyades, plotted on a CMD
+from \citep{Perryman1998}.
+Isochrones at a range of ages are also shown, as is the Zero Age Main Sequence
+(ZAMS), the line upon which stars fall as they enter the MS, hydrogen burning
+phase of their life.
+\citet{Perryman1998} infer an isochronal age of 625 $\pm$ 50 Myr for the
+Hyades.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/hyades.pdf}
+\caption[A CMD of the Hyades from \citet{Perryman1988}.]
+{A CMD of the Hyades from \citet{Perryman1988}.
+}
+\label{fig:hyades}
+\end{center}
+\end{figure}
 
 % For example Pleiades (0.55 Gyr), Hyades (0.625 Gyr), Praesepe (0.588 Gyr), and
 % Coma Berenices (0.5 Gyr).
@@ -351,6 +205,8 @@ There is no coherent driving force, rather the stochastic collisions of air
 particles induce a continual ringing.
 Similarly, the Sun is continually oscillating at a range of discrete
 frequencies; those that correspond to its spherical harmonics.
+The restoring force of these acoustic oscillations is pressure, thus these
+waves are called `pressure', or `p'-modes.
 A power spectrum of the Sun, taken from \citet{Brown2000} is shown in figure
 ~\ref{fig:solar_spectrum}.
 The comb-like, evenly spaced peaks in this power spectrum show Solar p-mode
@@ -379,7 +235,7 @@ than the periods of the oscillations.
 Its proximity, which provides both enormous signal-to-noise and allows us to
 resolve the surface, make it a paragon of seismology.
 
-Three types of oscillations are detectable in the Sun: pressure, or p-modes,
+Three types of oscillations manifest themselves in stars: pressure, or p-modes,
 surface, s-modes and gravity, g-modes.
 Pressure provides the restoring force for p-mode oscillations, and these are
 effectively sound waves.
@@ -507,18 +363,19 @@ For this reason, \kepler\ operates in two observing modes: long and short
 cadence.
 Long cadence observations are taken every approximately 30 minutes and short
 cadence every minute ($\nu_{Nyquist} \sim 8333$\uHz).
-Around 500 dwarfs and subgiants were observed in short cadence mode
-\citet{Chaplin2014}.
+Around 560 dwarfs and subgiants were observed in short cadence mode
+\citep{Chaplin2014}.
 
 There are two different approaches to inferring asteroseismic ages from
 \kepler\ light curves, depending on the S/N of pulsations.
-In the high S/N cases it may be possible to detect oscillation frequencies of
-individual modes \citep[\eg][]{Lebreton2014, Metcalfe2010, Silva-aguirre2012}.
-however for the majority of short cadence targets, only the
+In the high S/N cases it may be possible to identify oscillation frequencies
+of individual modes \citep[\eg][]{Metcalfe2010,
+Silva-aguirre2012, Lebreton2014}.
+However for the majority of short cadence targets, only the
 mean large frequency separation, $\Delta\nu$ and frequency of maximum power,
 $\nu_{max}$ can be measured.
 Bulk physical properties of stars can be inferred from these two parameters
-via the scaling relations:
+via the scaling relations \citep{Brown1991, Kjeldsen1995}:
 \begin{equation}
     \frac{M}{M_\odot} = \left(\frac{\nu_{max}}{\nu_{max,\odot}}\right)^3
     \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-4}
@@ -529,6 +386,8 @@ via the scaling relations:
     \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-2}
     \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{1/2}.
 \end{equation}
+These scaling relations have been tested on Solar-like oscillators and give
+good agreement with the observations \citep[\eg][]{Chaplin2013, Coelho2015}.
 Ages are then inferred by comparing these quantities to those predicted by
 model grids (spectroscopic estimates of \teff\ and \feh\ are also required).
 Two of the most sophisticated codes used for age analysis are the BAyesian
@@ -575,8 +434,8 @@ Enter: gyrochronology.
 
 \subsubsection{Gyrochronology: the theory}
 
-Today, we know that angular momentum loss in stars is caused by a magnetised
-stellar wind \citep{Schatzman1962, Weber1967, Mestel1984}.
+Today, we know that angular momentum loss in main sequence stars is caused by
+a magnetised stellar wind \citep{Schatzman1962, Weber1967, Mestel1984}.
 The stellar wind is composed of charged ions that stream away from the stellar
 surface.
 Each of these ions carries mass, charge and angular momentum as it travels
@@ -587,6 +446,10 @@ Stellar magnetic fields force the particles in the stellar wind to rotate with
 the same angular velocity as the surface, out to the Alfv{\'e}n radius.
 The Alfv{\'e}n radius is the point at which a particle experiences equal force
 from the magnetic field and radiation pressure.
+An expression for the Alfv{\'e}n radius is \citep{Rosswog2011}
+\begin{equation}
+r_A = \left( \frac{\mu^4}{2GM\dot{M}^2} \right)^{1/7}
+\end{equation}
 Once beyond the Alfv{\'e}n radius, the particles' angular momentum is lost
 from the star.
 This is dominant mechanism by which the rotation periods of stars decay during
@@ -594,7 +457,8 @@ their stint on the MS.
 The stellar wind also carries mass away from the star, and the internal
 structure of the star changes due to core hydrogen burning which both change
 the star's moment of inertia, however these are secondary effects.
-Stellar magnetism is almost entirely responsible for rotational evolution.
+Stellar magnetism is almost entirely responsible for rotational evolution on
+the main sequence.
 
 The motion of turbulent plasma in the outer layers of low-mass stars drives
 the production of a magnetic field \citep[][]{Schatzman1962}.
@@ -639,12 +503,15 @@ fully radiative stars do not spin down appreciably over their MS lifetime
 The rotational evolution of fully stars convective is still unknown, however
 it is an active field of interest \citep[\eg][]{Mcquillan2013, Newton2015}.
 
-Several theoretically motivated gyrochronology models have been developed by
-different groups.
-For example, \citet{Kawaler1988, Collier-cameron1994, Reiners2012,
-Epstein2014, Vansaders2013} use physical models of rotating stars with
-magnetic fields, where the rate of angular momentum loss is related to the
-rotation period and field strength, and evolve those stars forward in time.
+\citet{Kawaler1988} developed the first physical model of a star undergoing
+magnetic braking.
+Since this original work, several theoretically motivated gyrochronology
+models have been developed by different groups.
+For example, \citet{Collier-cameron1994, Reiners2012, Vansaders2013,
+Epstein2014} all draw on the principles laid down by \citet{Kawaler1988}, to
+create physical models of rotating stars with magnetic fields, where the rate
+of angular momentum loss is related to the rotation period and field strength,
+and evolve those stars forward in time.
 Although these models are based on the physical processes at play, they must
 still be calibrated using observations.
 For example, the \citet{Kawaler1988} expression, assuming a linear dynamo is
@@ -689,7 +556,7 @@ It is dependent on spectral type and for this reason many people argue that
 Rossby number is directly related to the surface magnetic field strength and a
 more natural quantity to correlate with age and activity than rotation period
 \citep[\eg][]{Vansaders2016} \citep[although this view is not universally
-held, see][]{Reiners2014}.
+held \citep[see, \eg][]{Reiners2014}.
 This is one of the more recently developed theoretical gyrochronology
 relations however, as revealed in chapter \ref{chapter:conclusions}, this
 equation has now been adapted to describe the most recent observations.
@@ -727,6 +594,8 @@ Hyades and Pleiades and the Sun are plotted.}
 % This process was later applied to evolving stars by \citet{Kawaler1988}.
 
 
+\citet{Kawaler1989} applied the \citet{Kawaler1988} magnetic braking law to
+stars in the Hyades cluster and found good agreement with the model.
 \citet{Barnes2003} compiled rotation period measurements from members of
 several young clusters, plus the Mt. Wilson stars.
 % (CITATION)
@@ -878,7 +747,7 @@ to enormous velocities and huge numbers of particles and energy is released
 into the Inter-Stellar Medium (ISM).
 These events are called flares.
 The flare rate is related to the mean flare energy via a power law
-\citep{Davenport2015, Hawley2014} and both of these properties are related to
+\citep{Hawley2014, Davenport2015} and both of these properties are related to
 the strength of the stellar magnetic field.
 Flares occur extremely often in M dwarfs, the most magnetically active stars,
 with energies ranging from $\sim e^{29} - e^{33}$ ergs and durations ranging
@@ -930,6 +799,226 @@ stars with higher proper motions are likely to be older \citep[see,
 However, although a rapidly moving star is likely to be older than a slowly
 moving star, stellar-orbit heating is a stochastic process and therefore
 cannot always be relied upon.
+
+\section{Kepler}
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/kepler_pic.pdf}
+\caption[The \kepler\ spacecraft and its field of view.]
+{A depiction of the \kepler\ spacecraft and its field of view.
+The \kepler\ field is located near the constellation Cygnus.
+Image credit: \url{rst.gsfc.nasa.gov/Sect20/A11.html}}
+\label{fig:current_fields}
+\end{center}
+\end{figure}
+
+The \kepler\ spacecraft plays a starring role in this thesis.
+Launched in 2009, \kepler\ was designed to survey over a hundred-thousand
+stars, searching for extrasolar planets via the transit method.
+Its ultimate goal was to answer the question "how common are Earth-like
+planets in our galaxy?".
+The first extra-solar planet orbiting a Sun-like star\footnote{The first
+extra-solar planets were discovered orbiting a pulsar, by observing pulsar
+timing variations \citep{Wolszczan1992}.}
+was discovered using the radial velocity method, whereby the presence of a
+secondary body is inferred via the Doppler shift of the primary as it rotates
+about the system's centre of mass \citep{Mayor1995}.
+The first transiting exoplanet, HD 209458 b was discovered by
+\citet{Charbonneau2000} using ground-based photometry.
+Transits are produced when an exoplanet passes across the face of a star,
+blocking a small section of the photosphere and producing a small dip in the
+flux received at Earth.
+In 2009, the \kepler\ telescope was launched --- a space mission dedicated to
+searching for exoplanets via the transit method \citep{Borucki2010}.
+
+The radial velocity and transit methods remain the dominant methods of
+exoplanet detection.
+Together, they produce an impressive catalogue of confirmed exoplanets,
+however both methods are subject to detection biases.
+The depth of an exoplanet transit is proportional to the ratio of stellar and
+planetary radii, squared.
+The larger the planet relative to its host, the larger the dip and the easier
+to detect.
+In addition, planets with short orbital periods are also more easy to detect
+due to the higher frequency of transit events.
+This makes large planets orbiting small stars with short orbital periods the
+easiest planets to detect.
+Several studies have attempted to characterise the completeness and detection
+efficiency of \kepler\ exoplanets in order to study their underlying
+distribution \citep[\eg][]{Petigura2013, Foreman-Mackey2014,
+Burke2015, Dressing2015}.
+The radial velocity (RV) method is more sensitive to planets with a large mass
+relative to their host star, and to those with short orbital periods.
+It is also easier to detect planets around old stars via the RV method since
+magnetic activity can produce RV signals that can mask planet-induced Doppler
+shifting \citep[\eg][]{Aigrain_2012, Rajpaul2015, Rajpaul2016}.
+
+An increasing number of planets have now been detected using direct imaging
+\citep[\eg][]{Kalas2008, Nielsen2013}.
+Using a coronagraph to block light from the host star and adaptive optical
+instruments to cancel out disturbance from the atmosphere, it is possible to
+observe emission from the surface of some planets at infrared wavelengths,
+where the planet is brightest.
+It is only possible to directly image large exoplanets that are young and
+still cooling from the formation process, therefore bright in infrared.
+They should also have a large orbital separation from their host in order that
+star light can be blocked, without blocking radiation from the planet.
+Direct imaging surveys are therefore currently limited in their detection
+opportunities.
+Yet another planet detection method is microlensing \citep[\eg][]{Abe2004,
+Gould2010, Cassan2012, Goudi2012}.
+Occasionally, given near geometric alignment, light from a background (source)
+star may be gravitationally lensed by a foreground star.
+This process is detectable using time-series photometry if that foreground
+star has high proper motion --- the source star appears to slowly brighten,
+then fade over a matter of days as the lens passes in front of it.
+If the foreground star has a planet it will produce an additional, lower
+magnitude and much shorter increase in flux as it too passes in front of the
+source.
+Microlensing exoplanet surveys are, again subject to different detection
+biases than other methods.
+To first order, detectability depends only on the mass ratio of planet and
+star and the sky-projected separation between the two \citep{Clanton2016}.
+
+Of all these methods, thanks to \kepler\ the transiting method has been the
+most fruitful to date.
+\kepler\ has discovered more than 5700 planet candidates and over 1000
+confirmed planets.
+These numbers are still growing at a breath-taking rate and planets are likely
+to continue being discovered in the data well after the \kepler\ funding has
+dried up, thanks both to the enormity of the data set and the continual
+improvement of planet search methods.
+\kepler\ produced high precision\footnote{Precision ranging from a few hundred
+parts per million for bright (< 13th magnitude) targets to tens of thousands
+of ppm for faint (> 17th magnitude) targets.} broad-band (peaking between V
+and R bands) light curves for $\sim$ 100,000 stars.
+The majority of these targets were observed in long-cadence mode (once every
+half-hour), and a few hundred in short cadence mode (once every minute),
+continually for around four years.
+\kepler\ is in an Earth-trailing, heliocentric orbit.
+The \kepler\ field is centred at $\mathrm{RA} = 19\mathrm{h}~22\mathrm{m}~
+40\mathrm{s}$, $\mathrm{Dec} = +44^\circ30'~00'$, in the Cygnus region along
+the Orion arm of the galaxy.
+This field was chosen to be neither over nor under crowded, far enough out of
+the ecliptic that the Sun never shines onto the detector and contamination
+from Solar system objects is reduced.
+\kepler\ has a limited amount of on-board storage and must point towards the
+Earth to down-link data every month.
+These pointings break the time series.
+Other gaps appear at three month (quarter) intervals.
+The spacecraft rotates every quarter to keep its Solar panels pointed at the
+Sun.
+The stars shift to new CCD modules every time this happens, eventually
+returning to the same module after one year.
+Both the down-link pointings and quarter rotations produce short gaps in the
+light curves and can also produce short-term temperature changes to the CCD
+which can effect the sensitivity of the detector.
+Temperature changes increase the gain of the CCD chip: more electrons are
+excited when the CCD is warmer so the flux appears to increase.
+So despite the unprecedented precision of \kepler\ lightcurves, they are not
+uninterrupted and contain systematic features.
+A typical \kepler\ light curve is shown in figure
+\ref{fig:demo_kepler_lightcurve}.
+Understanding the systematics in \kepler\ data is necessary for {\it all} of
+\kepler's science goals and is a key part of this thesis.
+This point is covered further in \textsection \ref{sec:detrending}.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/demo_kepler_lightcurve.pdf}
+\caption[An example \kepler\ light curve.]
+{An example \kepler\ light curve.
+In this figure, normalised flux versus time is shown for the first 200 days
+of typical \kepler\ light curve.
+This is a relatively quiet star, although stellar variability is still present
+at a low level.
+Gaps in the data occur during quarterly spacecraft repointings and monthly
+data downlinking.}
+\label{fig:current_fields}
+\end{center}
+\end{figure}
+
+Unfortunately, that key question---"how common are Earth-like planets?"---may
+never be answered by \kepler\ \citep[or at least not very precisely, several
+inferences have been performed by extrapolation, \eg][]{Petigura2013,
+Foreman-Mackey2014, Burke2015}.
+Although \kepler\ launched with four functioning gyroscopic reaction wheels,
+one broke shortly thereafter.
+This was not a mission-ending scenario since the spacecraft only needed three
+to maintain its precise pointing: one for pitch, one for roll and one for yaw.
+Unfortunately however a second, this time mission-critical reaction wheel
+broke in 2013.
+Without all three reaction wheels, precise pointing of the spacecraft was
+impossible to maintain.
+The extreme photometric precision of \kepler\ comes from its extreme pointing
+position.
+With stars fixed in place, moving by less than a few milli-arcseconds per
+quarter, even without knowing the exact Point Spread Function (PSF) and Pixel
+Response Function (PRF), it is possible to perform precise relative
+photometry.
+With its pointing stability compromised, the community were asked for input
+for a repurposed \kepler\ mission \citep[\eg][]{Hogg2013, Aigrain2015}.
+
+\kepler\ was re-purposed as the \ktwo\ mission in 2014.
+With just two reaction wheels controlling pitch and yaw, its third rotation
+axis had to be stabilised.
+This was achieved by balancing the spacecraft against Solar pressure, using
+its symmetric solar-panelled back.
+The spacecraft sits in an unstable equilibrium, drifting slowly about its roll
+axis, its new orientation reducing large forces from the Solar wind
+\citep{Howell2014}.
+The spacecraft's thrusters are used to correct the slow drift.
+Although the precision is not what it once was: stars drift across several
+pixels before the thrusters correct the motion, it is still good enough to
+perform plenty of science.
+In order to keep its back to the Sun, \kepler\ can only point at fields in the
+ecliptic plane.
+This means that new stellar populations can be explored: from different
+galactic regions, the bulge, thin and thick discs and halo, to open and
+globular clusters.
+Crucially, from the point of view of stellar astronomy, \kepler's new fields
+incorporate several open clusters.
+Open clusters are wonderful labs for stellar astronomy as they are coeval
+populations of stars made from the same material.
+They are controlled environments in which we can study the observational
+properties of stars as a function of their mass.
+Figure \ref{fig:current_fields} shows the current fields being observed by the
+spacecraft and figure \ref{fig:future_fields} shows the future fields being
+proposed.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/Current_K2_fields.pdf}
+\caption[Current \ktwo\ fields]{\ktwo's fields. Fields 1-9 have already been
+observed and field 9 is being observed at the time this thesis is handed in.
+Targets have been fixed for purple fields and proposals are currently being
+solicited for yellow fields.}
+\label{fig:current_fields}
+\end{center}
+\end{figure}
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/Future_K2_fields.pdf}
+\caption[Future \ktwo\ fields]{\ktwo's current and future fields. These green
+fields are those proposed if an extended \ktwo\ mission is funded.}
+\label{fig:future_fields}
+\end{center}
+\end{figure}
+
+Not only is the spacecraft continuing its search for exoplanets \citep[and has
+already discovered many, \eg][]{Vanderburg2015, Crossfield2015,
+Foreman-Mackey2015, Montet2015, Becker2015, Vanderburg2016}, it will
+provide time series of white dwarfs, active galactic nuclei, red giants, red
+dwarfs, binary stars and other interesting astronomical objects.
+Of course, with the reduced pointing position comes a new challenge for those
+astronomers willing to get their hands dirty: systematic features in \ktwo\
+light curves range from negliable for the brightest targets to dominant for
+the faintest.
+It is therefore necessary to employ heavy-duty `detrending' methods to
+exploit \ktwo's rich data set.
+This subject is covered in \textsection \ref{sec:detrending}
 
 \section{Statistical methods}
 

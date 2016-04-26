@@ -79,15 +79,61 @@ One of the more recent tools developed to characterize stars is known as
 ``flicker'' \citep{Bastien2013}.
 Flicker is a measure of the scatter on an 8-hour timescale (denoted as $F_8$)
 in a broad visible bandpass time series photometric light curve, such as that
-from \textit{Kepler} or the upcoming TESS mission. A more detailed account of
-the procedure to calculate flicker is described in \citet{Bastien2013}. As
-shown in \citet{Bastien2013}, flicker displays a remarkable correlation to
-the asteroseismically determined parent star surface gravities (\logg).
-Turning this around, the observation implies that flicker can be used to
-empirically infer surface gravities at the level of $\sim0.1$\,dex, an
+from \textit{Kepler} or the upcoming TESS mission.
+
+Short-term brightness fluctuations of \kepler\ stars that are traced by
+flicker are produced by a combination of acoustic, p-mode oscillations and
+granulation.
+Convective material wells up at the stellar photosphere; rising material is
+hot and bright and sinking material is cooler and darker.
+Hot plasma rises at the centres of convective cells, `granules' and cool
+material sinks at the edges, as shown in figure \ref{fig:cegla}.
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in,angle=0,clip=true]{figures/cegla.pdf}
+\caption[Granulation on the Solar surface \citep[from][]{Cegla2013}.]
+{An image of the Solar photosphere showing granulation cells. Figure from
+\citet{Cegla2013}.}
+\label{fig:rhostar}
+\end{center}
+\end{figure}
+The granules evolve over time, producing fluctuations in the disk-integrated
+stellar luminosity, evident in \kepler\ light curves.
+The characteristic timescales and amplitudes of these fluctuations depend on
+fundamental stellar parameters \citep[\eg][]{Samadi2013, Samadi2013b}.
+In fact, \citet{Kallinger2010} and \citet{Mathur2011} demonstrate that the
+characteristic granulation time-scale scales with the inverse of the
+peak p-mode frequency, $\nu_{max}$.
+Similarly, the root-mean-square (RMS) of brightness fluctuations scale as
+$\nu_{\mathrm{max}}^{-1/2}$ \citep{Mathur2011, Chaplin2011}.
+Since $\nu_{\mathrm{max}}$ is proportional to surface gravity, it follows that
+granulation-induced short-term brightness variations are related to \logg.
+\citet{Bastien2013} set out to show, not only that this was the case, but that
+granulation was detectable in \kepler\ long cadence data, thus allowing \logg\
+to be inferred for thousands of targets lacking short cadence data.
+\citet{Bastien2013} developed a statistic of \kepler\ long cadence light
+curves that traces the amplitude of brightness variations produced
+by granulation: the RMS on time scales shorter than 8 hours, known as `8-hour
+flicker', or $F_8$.
+As shown in \citet{Bastien2013}, flicker displays a remarkable correlation to
+the asteroseismically determined parent star surface gravities (\logg) --- see
+figure \ref{fig:bastien}.
+Conversely, the observation implies that flicker can be used to
+empirically infer surface gravities at the level of $\sim0.1$\ dex, an
 attractive proposition given the wealth of photometric light curves available
 through the array of exoplanet transit missions flying and scheduled to
 launch.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in,angle=0,clip=true]{figures/flicker_bastien.pdf}
+\caption[Flicker versus stellar surface gravity, from \citet{Bastien2013}.]
+{Figure 2 from \citet{Bastien2013}.
+This figure demonstrates the impressive correlation between \logg (from
+asteroseismic analysis of \kepler\ light curves) and flicker.}
+\label{fig:bastien}
+\end{center}
+\end{figure}
 
 \citet{Cranmer2014} demonstrated that models of stellar surface granulation
 indeed reproduce a flicker effect in close agreement with that observed by
@@ -134,12 +180,11 @@ additionally used the 71 additional planet hosting stars with asteroseismology
 reported in \citet{Huber2013} but not reported in \citet{Chaplin2014}. Values
 for flicker and ``range'' were taken from \citet{Kipping2014}, based upon the
 methods described in \citet{Bastien2013}.
-In order to use the same data set as \citet{Kipping2014} and
-for reasons described there-in, we only include targets in our calibration for
-which:
-
+In order to use the same data set as \citet{Kipping2014} who removed outliers
+from the sample, we only include targets in our calibration for which:
 \begin{itemize}
-\item Range (defined in \citet{Bastien2013})
+\item Range of variability, $R_{\mathrm{var}}$ defined in \citet{Bastien2013}
+to be the difference between the 5th and 95th percentiles of stellar flux
 $<1000$\,ppm
 \item $4500<T_{\mathrm{eff}}<6500$\,K
 \item $K_P<14$
@@ -167,7 +212,7 @@ stellar densities and surface gravities, as opposed to point estimates, and
 propagating these probability distributions through to subsequent analyses.
 Several recent studies have required posterior Probability Distribution
 Function (PDF) samples, in order to conduct their hierarchical analyses
-\citep[e.g.][]{Foreman-Mackey2014, Rogers2015, Angus2015}
+\citep[e.g.][]{Foreman-Mackey2014, Rogers2015, Angus2015}.
 
 The two models we use to describe the relationships between $F_8$, \logg\ and
 \rhostar\ are
@@ -258,11 +303,34 @@ with median parameter values differing by only around $0.05\sigma$.
 MCMC chains were run until the Gelman \& Rubin convergence criterion,
 $\hat{R}$ reached a value of less than 1.002 and the number of autocorrelation
 times was greater than 35.
+The Gelman \& Rubin convergence diagnostic, $\hat{R}$ is defined as
+\begin{equation}
+    \hat{R} = \frac{\hat{V}}{W} = \frac{m+1}{m} \frac{\hat{\sigma}_+^2}{W}
+    - \frac{n-1}{mn}
+\end{equation}
+\citep{Gelman1992}, where
+\begin{equation}
+\hat{\sigma}_+^2 = \frac{n-1}{n}W + \frac{B}{n}.
+\end{equation}
+$B\n$ is the variance between MCMC chains,
+\begin{equation}
+    \frac{B}{n} = \frac{1}{m-1} \sum_{j=1}^m (\bar{\psi}_{j.} -
+    \bar{\psi}_{..})^2,
+\end{equation}
+and $W$ is the variance within each MCMC chain.
+\begin{equation}
+    W = \frac{1}{m(n-1)} \sum_{j=1}^m \sum_{t=1}^n (\psi_{jt} -
+    \bar{\psi}_{j.})^2.
+\end{equation}
+In the above relations $n$ is the number of steps, $m$ is the number of chains
+and $\psi$ is a model parameter, $\alpha$ for example.
+$\psi_{..}$ is the mean.
+
 Figures \ref{fig:rhostar} and \ref{fig:logg} show the data with the best-fit
 models.
 The shaded regions show the 1 and 2$\sigma$ confidence interval which are
 representative of the intrinsic scatter in the relations.
-The marginal posterior PDFs of the model parameters for \rhostar are
+The marginal posterior PDFs of the model parameters for \rhostar\ are
 shown in figure \ref{fig:triangle}.
 The marginal posterior PDFs for \logg\ are similarly Gaussian and, as with
 $\sigma_\rho$, $\sigma_g$ is clearly greater than zero.

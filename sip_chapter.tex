@@ -425,6 +425,15 @@ detrending methods.
 The 59 day signal is almost certainly a systematic trend and not an
 astrophysical signal because it does not appear in the SIP.
 It is well described by the ELCs and must therefore be common to many stars.
+Although these examples demonstrate that the SIP can provide rotation periods,
+in practise it is likely to suffer from overfitting.
+Several ELCs contain smoothly varying signals on time scales of a few days to
+tens of days which look similar to signals produced by stellar rotation.
+In some cases it may be possible to reproduce stellar rotation signals in a
+\ktwo\ light curve using only the ELCs, with no additional sinusoid.
+We are still investigating the nature of this potential over-fitting problem,
+but a solution may to regularise the SIP --- apply priors to the weights of
+the ELCs.
 
 \begin{figure*}
 \begin{center}
@@ -631,11 +640,15 @@ be equally effective for the up-and-coming campaigns.
 The SIP method is capable of detecting periodicities in {\it K2} data in the
 region of frequency space relevent to the study of asteroseismic oscillations
 in giant stars and for any signals with a timescale close to 6 hours.
-It is also effective at measuring stellar rotation periods and is an
-improvement upon a simple LS periodogram of detrended data.
+It may be useful for measuring stellar rotation periods and is an improvement
+upon a simple LS periodogram of detrended data, however rotation period
+inference with the SIP may suffer from over-fitting.
+We intend to address this problem in future by developing a regularised
+version of the SIP.
 In practise, the best approach for measuring rotation periods in {\it K2} data
 is likely to be a combination of the SIP method and the ACF method, where
 autocorrelation is performed on detrended light curves.
+
 Of course, as mentioned in chapter \ref{chapter:intro}, a sinusoid is actually
 {\it not} a good model for stellar rotation signals.
 For this reason, the SIP's usefulness for measuring rotation periods is

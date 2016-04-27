@@ -593,24 +593,24 @@ parameters leads to longer MCMC burn in and convergence time), we choose to
 use global parameters only.
 
 The marginal posterior distributions of the QP kernel hyperparameters for a
-simulated star with a 17.4 day rotation period are shown in figure
+noise-free simulated star with a 17.4 day rotation period are shown in figure
 \ref{fig:gp_posteriors}.
 The light curve and GP model with the median posterior parameter values are
 shown in figure \ref{fig:prediction}.
-(Note to Suzanne---these figures are under construction!)
 
-% \begin{figure*}
-% \begin{center}
-% \includegraphics[width=6in, clip=true]{figures/gp_posteriors.pdf}
-% \caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
-% additional white noise term added to the diagonal elements of the covariance
-% matrix. It is fraction by which the observational uncertainties have been
-% underestimated. If the errorbars reported on the data are too small, this
-% parameter will be non-zero. The true rotation period of this star is 17.04
-% days.}
-% \end{center}
-% \end{figure*}
-% \label{fig:compare_noise_free}
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/demo_triangle.pdf}
+\caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
+additional white noise term added to the diagonal elements of the covariance
+matrix. It is fraction by which the observational uncertainties have been
+underestimated. If the errorbars reported on the data are too small, this
+parameter will be non-zero. Since this light curve was simulated without
+noise, this parameter is very close to zero.
+The true rotation period of this star is 17.04 days.}
+\end{center}
+\end{figure*}
+\label{fig:gp_posteriors}
 
 % \begin{figure*}
 % \begin{center}

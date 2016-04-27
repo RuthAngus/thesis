@@ -86,7 +86,7 @@ flicker are produced by a combination of acoustic, p-mode oscillations and
 granulation.
 Convective material wells up at the stellar photosphere; rising material is
 hot and bright and sinking material is cooler and darker.
-Hot plasma rises at the centres of convective cells, `granules' and cool
+Hot plasma rises at the centres of convective cells, `granules', and cool
 material sinks at the edges, as shown in figure \ref{fig:cegla}.
 \begin{figure}
 \begin{center}
@@ -94,11 +94,11 @@ material sinks at the edges, as shown in figure \ref{fig:cegla}.
 \caption[Granulation on the Solar surface.]
 {An image of the Solar photosphere showing granulation cells. Figure from
 \citet{Cegla2013}.}
-\label{fig:rhostar}
+\label{fig:cegla}
 \end{center}
 \end{figure}
 The granules evolve over time, producing fluctuations in the disk-integrated
-stellar luminosity, evident in \kepler\ light curves.
+stellar luminosity which is evident in \kepler\ light curves.
 The characteristic timescales and amplitudes of these fluctuations depend on
 fundamental stellar parameters \citep[\eg][]{Samadi2013, Samadi2013b}.
 In fact, \citet{Kallinger2010} and \citet{Mathur2011} demonstrate that the
@@ -116,7 +116,7 @@ curves that traces the amplitude of brightness variations produced
 by granulation: the RMS on time scales shorter than 8 hours, known as `8-hour
 flicker', or $F_8$.
 As shown in \citet{Bastien2013}, flicker displays a remarkable correlation to
-the asteroseismically determined parent star surface gravities (\logg) --- see
+the asteroseismically determined surface gravities (\logg) --- see
 figure \ref{fig:bastien}.
 Conversely, the observation implies that flicker can be used to
 empirically infer surface gravities at the level of $\sim0.1$\ dex, an
@@ -129,7 +129,7 @@ launch.
 \includegraphics[width=6in,angle=0,clip=true]{figures/flicker_bastien.pdf}
 \caption[Flicker versus stellar surface gravity, from \citet{Bastien2013}.]
 {Figure 2 from \citet{Bastien2013}.
-This figure demonstrates the impressive correlation between \logg (from
+This figure demonstrates the impressive correlation between \logg\ (from
 asteroseismic analysis of \kepler\ light curves) and flicker.}
 \label{fig:bastien}
 \end{center}
@@ -303,12 +303,13 @@ with median parameter values differing by only around $0.05\sigma$.
 MCMC chains were run until the Gelman \& Rubin convergence criterion,
 $\hat{R}$ reached a value of less than 1.002 and the number of autocorrelation
 times was greater than 35.
-The Gelman \& Rubin convergence diagnostic, $\hat{R}$ is defined as
+The Gelman \& Rubin convergence diagnostic, $\hat{R}$ \citep{Gelman1992} is
+defined as
 \begin{equation}
     \hat{R} = \frac{\hat{V}}{W} = \frac{m+1}{m} \frac{\hat{\sigma}_+^2}{W}
-    - \frac{n-1}{mn}
+    - \frac{n-1}{mn},
 \end{equation}
-\citep{Gelman1992}, where
+where
 \begin{equation}
     \hat{\sigma}_+^2 = \frac{n-1}{n}W + \frac{B}{n}.
 \end{equation}
@@ -358,8 +359,8 @@ additional scatter.}
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in,angle=0,clip=true]{figures/flicker_vs_logg.pdf}
-\caption[\logg versus flicker.]{
-\logg versus flicker.
+\caption[\logg\ versus flicker.]{
+\logg\ versus flicker.
 As in \ref{fig:rhostar} this figure shows the model, conditioned on the data.
 The solid black line shows the model with the best-fitting parameter values
 quoted in the text.
@@ -373,7 +374,7 @@ additional scatter.}
 \begin{figure}
 \begin{center}
 \includegraphics[width=6in,angle=0,clip=true]{figures/rho_triangle.pdf}
-\caption[Marginal posterior PDFs for flicker versus \rhostar parameters.]
+\caption[Marginal posterior PDFs for flicker versus \rhostar\ parameters.]
 {Marginal posterior PDFs of the model parameters for \rhostar.
 This figure was generated using the {\tt corner} python package
 \citep{Corner}.}

@@ -275,6 +275,34 @@ Simulated, \trilegal stars with temperatures and rotation periods falling
 within the bins indicated on this plot were assigned amplitudes that were
 drawn from Gaussians centred on the mean bin values, with variances that
 corresponded to the variance within each bin.
+Importantly, the amplitudes of variability in the \citet{Mcquillan2014}
+catalogue are {\it only} reported for the positive detections.
+In other words, no amplitudes were reported for those \kepler\ stars that did
+not show clear periodic variability and did not result in a reliable period
+measurement.
+The stars without period measurements are likely to either show very low
+amplitude brightness variations, highly non-periodic variations, to have very
+long rotation periods, or some combination of these three factors.
+It is relatively safe to assume however, that the stars without rotation
+period measurements are likely to have lower amplitudes, on the whole, than
+the stars with rotation periods.
+The amplitudes of variability as a function of rotation period and effective
+temperature, derived from the \citet{Mcquillan2014} catalogue are therefore
+only representative of the most variable targets.
+In the future we intend to infer the amplitude of variability as a function of
+temperature for all \kepler\ stars, not only those with rotation periods.
+For now however, we have used a simple approximation to correct for this
+sample bias.
+We assume that if a rotation period is not detectable in a \kepler\ light
+curve, it is unlikely to be detectable in an \LSST\ light curve.
+This assumption may not be valid for slow rotators, but should be acceptable
+for most other stars.
+With that assumption in place, we simply scaled our results by the fraction of
+G, K and M type stars with measured rotation periods.
+We found that the fraction of G dwarfs with measured rotation periods was
+0.24, the fraction of K dwarfs was 0.54 and the fraction of Ms was 0.83.
+These numbers reflect the fact that lower-mass stars are more active.
+I return to this point in section \textsection\ref{sec:LSST_results}.
 
 \begin{figure}
 \begin{center}
@@ -295,16 +323,40 @@ accordingly.
 \end{center}
 \end{figure}
 
-White noise was added to the light curves, with amplitudes that depended on
+We sampled these light curves using our \LSST\ cadence model and, finally
+added white noise with amplitude that depended on
 $r$-band magnitude, based on the values provided in \citet{Jacklin2015}.
-We sampled these light curves using our \LSST\ cadence model and attempted to
-recover their rotation periods using a Lomb-Scargle (LS) periodogram
-\citep[][]{Lomb1976, Scargle1982}.
+Some example light curves are shown in figures \ref{fig:demo_1} and
+\ref{fig:demo2}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/0000.pdf}
+\caption[Example simulated \LSST\ light curve 1.]
+{An example of a simulated \LSST\ light curve.
+This synthetic star has $P_{\mathrm{rot}} = 44$ days, an amplitude of 6862
+ppm, a temperature of 2904 K and an $r$-band magnitude of 25.6.}
+\label{fig:demo1}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/0003.pdf}
+\caption[Example simulated \LSST\ light curve 2.]
+This synthetic star has $P_{\mathrm{rot}} = 31$ days, an amplitude of 7236
+ppm, a temperature of 3266 K and an $r$-band magnitude of 20.4.}
+\citet{}
+\label{fig:demo2}
+\end{center}
+\end{figure}
+
+We attempted to recover the rotation periods of the simulated stars using a
+Lomb-Scargle (LS) periodogram \citep[][]{Lomb1976, Scargle1982}.
 LS periodograms were computed for each light curve over a grid of 1000 periods
-ranging from 2 to 100 days.
+ranging from 2 to 100 days, uniform in period-space.
 The position of the highest peak in the periodogram was recorded as the
 measured period.
-
 As explained previously, a LS periodogram is not ideal for measuring rotation
 periods from stellar light curves because star spots tend to produce
 non-sinusiodal, quasi-periodic brightness variations.
@@ -318,9 +370,10 @@ Another alternative method that has produced promising results using Gaussian
 processes (GPs) is currently under development \citep{Angus2015b}, however it
 is relatively computationally expensive.
 We have used the LS periodogram in these initial tests because it is fast to
-compute, but intend to use the GP method in the future.
+compute, but intend to use the GP method in future.
 
 \section{Results}
+\label{sec:LSST_results}
 
 The results of our simulations are shown in figures \ref{fig:derek} and
 \ref{fig:derek2}, where `recovered' rotation periods are plotted against the
@@ -364,6 +417,18 @@ function of input period is shown in figure \ref{fig:kickass}.
 The results for $G$ ($5200<\mathrm{T}_{\mathrm{eff}}<6000$), $K$
 ($3700<\mathrm{T}_{\mathrm{eff}}<5200$), and $M$
 ($2500<\mathrm{T}_{\mathrm{eff}}<3700$) spectral types are shown separately.
+The percentage of stars recovered in each spectral type bin has been
+multiplied by the fraction of stars \kepler\ stars with measured rotation
+periods in the \citet{Mcquillan2014} catalogue.
+This rescaling should capture the fact that many stars in the \kepler\ data
+set do not have rotation periods since they have very low variability
+amplitudes, display non-periodic variability, and/or have very long rotation
+periods.
+This rescaling is only appropriate if the assumption that rotation periods are
+easier to measure in \kepler\ data than \LSST\ data which, of course may not
+be valid for certain stars --- especially the very slow rotators.
+We hope to use a more sophisticated rescaling in future.
+
 There are no $G$ dwarfs with rotation periods longer than 40 days as these
 stars would be older than the galaxy.
 This is also the case for $K$ dwarfs with rotation periods greater than 60

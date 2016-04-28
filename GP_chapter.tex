@@ -239,8 +239,17 @@ Unlike in their study we are not interested in recovering differential
 rotation in this work, so did not include it in our simulations.
 We opted to use only solid-body rotators because differential rotation may
 produce some additional scatter in the rotation period measurements recovered.
-These light curves were simulated with a real \Kepler\ long-cadence time
-array, with one data point every thirty minutes over a four year duration.
+This code can also be adjusted to produce more realistic light curves by
+altering spot lifetimes.
+Stars with spot lifetimes that are long relative to their rotation periods
+will have highly periodic light curves.
+Those with short spot lifetimes will be more quasi-periodic.
+We fixed the mean spot lifetime at an arbitrary value of 30.5 days for all
+light curves in these initial tests.
+In future we plan to include both differential rotation and variable spot
+lifetimes in our light curve model.
+Light curves were simulated with a real \Kepler\ long-cadence time array, with
+one data point every thirty minutes over a four year duration.
 The rotation periods of the simulations were randomly drawn from a log-uniform
 distribution between 0.5-60 days.
 Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free

@@ -116,6 +116,9 @@ marginalised over.
 GPs are commonly used in the machine learning community and increasingly
 in other scientific fields, for example biology and geophysics (where GP
 regression is called `krigging').
+More recently, GPs have been used in the astronomy literature \citep[see
+\eg][]{Gibson2012, Haywood2014, Haywood2015, Evans2015, Rajpaul2015,
+Rajpaul2016, Aigrain2016}.
 % FIXME: CITATIONS Gibson, Aigrain, Evans, Rajpaul, Waldman(?), Cosmology,
 % geology, biology, Rasmussen & Williams, etc.
 They are useful in regression problems involving any stochastic process,
@@ -124,6 +127,8 @@ multi-variate Gaussian.
 If the probability of obtaining a data-set is a Gaussian in $N$ dimensions,
 where $N$ is the number of data points, that data-set can be described as, and
 with, a Gaussian process.
+An in-depth introduction to Gaussian processes is provided by
+\citet{Rasmussen2005}.
 
 GP models parameterise the covariance between data points and a kernel
 function provides the form of covariance matrix parameterisation.
@@ -353,28 +358,29 @@ short period end--because the decaying exponential raises the left side of
 each peak more than the right.
 It is possible to model this effect of course, however the standard practise
 is to simply measure the peak position without taking it into account.
-To demonstrate that this effect reproduces the underestimated periods seen in
-figure \ref{fig:compare_noise_free}, we simulated 1000 ACFs by generating
-cosine plus exponential functions with a range of periods, decay timescales
-and relative amplitudes.
-The measured position of the first peak in each simulated ACF is compared to
-the true position in figure \ref{fig:exp_sine_test}.
-The same underestimation of the peak position is apparent in this figure.
-Dashed lines show harmonics of $2P_{\mathrm{rot}}$ and $1/2P_{\mathrm{rot}}$.
-In several cases, twice the true rotation period is measured.
-The RMS of residuals is 1.59 days.
+We are still investigating the origin and implications of this effect.
+% To demonstrate that this effect reproduces the underestimated periods seen in
+% figure \ref{fig:compare_noise_free}, we simulated 1000 ACFs by generating
+% cosine plus exponential functions with a range of periods, decay timescales
+% and relative amplitudes.
+% The measured position of the first peak in each simulated ACF is compared to
+% the true position in figure \ref{fig:exp_sine_test}.
+% The same underestimation of the peak position is apparent in this figure.
+% Dashed lines show harmonics of $2P_{\mathrm{rot}}$ and $1/2P_{\mathrm{rot}}$.
+% In several cases, twice the true rotation period is measured.
+% The RMS of residuals is 1.59 days.
 
-\begin{figure*}
-\begin{center}
-\includegraphics[width=6in, clip=true]{figures/exp_sine_test.pdf}
-\caption[A flaw in the ACF method.]
-{Recovered peak position as a function of the `true' period used to
-generate simulated ACFs. In many cases the position is measured short-wards of
-the truth, as also seen in figure \ref{fig:compare_noise_free}. The dashed
-lines are at $x=2x$, $x=x$ and $x=\frac{1}{2}x$.}
-\end{center}
-\end{figure*}
-\label{fig:exp_sine_test}
+% \begin{figure*}
+% \begin{center}
+% \includegraphics[width=6in, clip=true]{figures/exp_sine_test.pdf}
+% \caption[A flaw in the ACF method.]
+% {Recovered peak position as a function of the `true' period used to
+% generate simulated ACFs. In many cases the position is measured short-wards of
+% the truth, as also seen in figure \ref{fig:compare_noise_free}. The dashed
+% lines are at $x=2x$, $x=x$ and $x=\frac{1}{2}x$.}
+% \end{center}
+% \end{figure*}
+% \label{fig:exp_sine_test}
 
 \begin{figure*}
 \begin{center}
@@ -390,8 +396,9 @@ curves.}
 
 \subsection{The sine-fitting periodogram method}
 
-For each simulated light curve, a LS periodogram was computed over a grid of
-10,000 periods, evenly spaced in frequency, between 1 and 100 days.
+For each simulated light curve, a Lomb-Scargle (LS) periodogram
+\citep{Lomb1976, Scargle1982} was computed over a grid of 10,000 periods,
+evenly spaced in frequency, between 1 and 100 days.
 The period of the highest peak in the periodogram was adopted as the rotation
 period.
 The resulting recovered rotation periods are plotted as a function of the true
@@ -539,6 +546,37 @@ curves from the three different methods described in the text.}
 \end{figure*}
 \label{fig:compare_noise_free}
 
+The marginal posterior distributions of the QP kernel hyperparameters for an
+example noise-free light curve  with a 14.4 day rotation period are shown in
+figure \ref{fig:gp_posteriors}.
+The light curve itself with the best fit GP model is shown in figure
+\ref{fig:demo_lc_GP}.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/demo_lc_GP.pdf}
+\caption{A simulated light curve with a rotation period of 14.4 days.
+The pink curve shows the GP model with the best-fit parameters.
+The marginal posteriors of the GP hyper-parameters used to produce this fit
+are shown in figure \ref{fig:gp_posteriors}.}
+\end{center}
+\end{figure*}
+\label{fig:demo_lc_GP}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in, clip=true]{figures/demo_triangle.pdf}
+\caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
+additional white noise term added to the diagonal elements of the covariance
+matrix. It is fraction by which the observational uncertainties have been
+underestimated. If the errorbars reported on the data are too small, this
+parameter will be non-zero. Since this light curve was simulated without
+noise, this parameter is very close to zero.
+The true rotation period of this star is 14.4 days.}
+\end{center}
+\end{figure*}
+\label{fig:gp_posteriors}
+
 \subsection{Real \kepler\ data}
 
 The noise-free light curves were injected into real \kepler\ light curves in
@@ -591,26 +629,10 @@ However, since there are seventeen quarters this would lead to thirty-seven
 parameters, and in the interest of minimising computation time (adding
 parameters leads to longer MCMC burn in and convergence time), we choose to
 use global parameters only.
-
-The marginal posterior distributions of the QP kernel hyperparameters for a
-noise-free simulated star with a 17.4 day rotation period are shown in figure
-\ref{fig:gp_posteriors}.
-The light curve and GP model with the median posterior parameter values are
-shown in figure \ref{fig:prediction}.
-
-\begin{figure*}
-\begin{center}
-\includegraphics[width=6in, clip=true]{figures/demo_triangle.pdf}
-\caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
-additional white noise term added to the diagonal elements of the covariance
-matrix. It is fraction by which the observational uncertainties have been
-underestimated. If the errorbars reported on the data are too small, this
-parameter will be non-zero. Since this light curve was simulated without
-noise, this parameter is very close to zero.
-The true rotation period of this star is 17.04 days.}
-\end{center}
-\end{figure*}
-\label{fig:gp_posteriors}
+Unfortunately, the application of this method to noisy test cases is still
+under development and cannot provide results here.
+We hope to develop this method further and apply it to real light curves in
+the near future.
 
 % \begin{figure*}
 % \begin{center}
@@ -669,9 +691,9 @@ possible to model them with a simple function.
 This observation leads to the idea of modelling the ACF with a Gaussian
 processes, which then logically progresses to a using a Gaussian process with
 a Gaussian process kernel function.
-Although this may be an attractive (if somewhat mad) idea, in practise a GP
-would not necessarily produce a positive semi-definite covariance
-kernel\footnote{One that can be inverted; a necessary regression operation.}.
+Although this may be an attractive idea, in practise a GP would not
+necessarily produce a positive semi-definite covariance kernel\footnote{One
+that can be inverted; a necessary regression operation.}.
 An alternative approach may be to correct for rotation period bias after the
 peak position has been measured by inferring a correction factor.
 

@@ -24,7 +24,7 @@ method.
 The posterior probability distribution of the rotation period parameter was
 sampled using the affine invariant ensemble MCMC sampler {\tt emcee}
 \citep{Foreman-Mackey2013}, and the GP operations were performed using the
-{\tt george} python package\footnote{https://github.com/dfm/george}.
+{\tt george} python package \citep{George}.
 Rotation periods inferred via this method are more precise than the
 periodogram and both more accurate and precise than the ACF method.
 Furthermore, the improvement is expected to be even more dramatic when applied
@@ -64,8 +64,8 @@ only two spots are modelled, have produced successful results, however these
 simplified models sacrifice some precision due to lack of model flexibility.
 Instead of using a physical model for stellar light curves, we choose to use
 an {\it effective} model: one which captures the behaviour but is not
-physically motivated (although the parameters of this model may be interpreted
-as physical ones).
+physically motivated, although the parameters of this model may be {\it
+interpreted} as physical ones.
 An ideal effective model for the light curve of a spotted, rotating star is
 one with a small number of non-degenerate parameters that is flexible enough
 to perfectly capture non-sinusoidal, QP behaviour.
@@ -107,9 +107,8 @@ above.
 Secondly, in order to infer {\it probabilistic} periods, i.e. to estimate the
 posterior PDF of the rotation period and thereby measure a realistic and
 representative uncertainty.
-And thirdly, to allow for an additional systematic, or correlated, noise model
-to be included during regression, the parameters of which could be
-marginalised over.
+And thirdly, to allow for an additional correlated noise model to be included
+during regression, the parameters of which could be marginalised over.
 % And fourthly to provide some way of determining whether a periodic model is
 % supported by the data over a purely stochastic one.
 
@@ -133,8 +132,10 @@ An in-depth introduction to Gaussian processes is provided by
 GP models parameterise the covariance between data points and a kernel
 function provides the form of covariance matrix parameterisation.
 For example, take the time-series in figure \ref{fig:GP_example}.
-This is a \kepler\ light curve of Earth-like planet host Kepler-452: a G-type
-star that rotates once every $\sim$ 15 days.
+% This is a \kepler\ light curve of Earth-like planet host Kepler-452: a G-type
+% star that rotates once every $\sim$ 15 days.
+This is the \kepler\ light curve of KID 1430163, a relatively active star that
+rotates once every $\sim$ 4 days.
 The stochastic variability in this time-series is typical of \kepler\ FGK
 stars.
 Clearly, data points in this light curves are correlated.
@@ -148,8 +149,13 @@ series with a similar covariance structure.
 In addition, a very simple function can usually capture the covariance
 structure of a light curve, whereas a much more complicated one may be
 required to model the time-series itself.
-The light curve of \Kepler-452 has been modelled with a GP in figure
-\ref{fig:GP_example}, shown in orange.
+% The light curve of \Kepler-452 has been modelled with a GP in figure
+% \ref{fig:GP_example}, shown in orange.
+The light curve of this star has been modelled with two different GP kernel
+functions in figure \ref{fig:GP_example}, shown in blue and pink.
+Both provide adequate fits to the data, however only the periodic kernel
+function, `QP' is a useful model because it has a periodic parameter.
+I return to this point shortly.
 
 A range of kernel functions could be used to describe stellar variability.
 For example, the simplest and most commonly used kernel function, the
@@ -207,13 +213,29 @@ the parameters.
 However, fully exploring the posterior PDF of $P$, allows for an accurate
 estimate of the uncertainty on the rotation period.
 
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=6in, clip=true]{figures/Kepler452b.pdf}
+% \caption[A light curve with a GP model.]
+% {Light curve of Kepler-452 b, a habitable-zone, Earth-sized planet
+% hosting G star \citep{Jenkins2015}. The orange line shows a fit to the data using
+% a Gaussian process model with a QP covariance kernel function.}
+% \label{fig:GP_example}
+% \end{center}
+% \end{figure}
+
 \begin{figure}
 \begin{center}
-\includegraphics[width=6in, clip=true]{figures/Kepler452b.pdf}
+\includegraphics[width=6in, clip=true]{figures/001430163.pdf}
 \caption[A light curve with a GP model.]
-{Light curve of Kepler-452 b, a habitable-zone, Earth-sized planet
-hosting G star \citep{Jenkins2015}. The orange line shows a fit to the data using
-a Gaussian process model with a QP covariance kernel function.}
+{Light curve of KID 1430163, an active star with a rotation period of $\sim$ 4
+days.
+The blue solid line shows a fit to the data using
+a Gaussian process model with a QP covariance kernel function and the pink
+broken line shows a fit with a SE kernel function.
+Both kernel functions provide an adequate fit to the data, however we use the
+QP function because it has a parameter that corresponds to the star's
+rotation period.}
 \label{fig:GP_example}
 \end{center}
 \end{figure}
@@ -516,6 +538,19 @@ log-uniform prior distributions:
 0.4]P_{ACF}).
  \end{eqnarray}
  \label{eq:initialisation}
+$\sigma$ is an additional white noise term added to the diagonal elements of
+the covariance matrix. It is the fraction by which the observational
+uncertainties have been underestimated.
+If the errorbars reported on the data are too small, this parameter will be
+non-zero.
+In practise this parameter should always be non-zero when performing GP
+regression.
+This is because the covariance matrix must be positive definite, however
+matrix inversion performed using most solvers is approximate, not exact,
+therefore slight deviations from positive definitism can arise.
+Including a small amount of extra variance in the model allows enough
+flexibility that the matrix inversion algorithms do not run into numerical
+issues.
 
 We subsampled the light curves in order to reduce computation time.
 The subsampling is altered for each light curve and depends, again, on the ACF
@@ -523,6 +558,8 @@ period estimate.
 We found that retaining only 20 data points per rotation period, based on the
 ACF period estimate, significantly reduced computation time whilst maintaining
 performance.
+The {\tt george} \citep{George} python package was used to implement the GP
+model which uses the fast matrix solver, HODLR \citep{Ambikasaran2014}.
 We used {\tt emcee} \citep{Foreman-Mackey2013}, an affine invariant ensemble
 sampler to explore the posterior PDFs of the model parameters.
 The rotation period was taken as the median value of the posterior PDF.
@@ -577,7 +614,7 @@ are shown in figure \ref{fig:gp_posteriors}.}
 \includegraphics[width=6in, clip=true]{figures/demo_triangle.pdf}
 \caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
 additional white noise term added to the diagonal elements of the covariance
-matrix. It is fraction by which the observational uncertainties have been
+matrix. It is the fraction by which the observational uncertainties have been
 underestimated. If the errorbars reported on the data are too small, this
 parameter will be non-zero. Since this light curve was simulated without
 noise, this parameter is very close to zero.

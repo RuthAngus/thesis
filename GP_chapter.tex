@@ -158,9 +158,8 @@ function, `QP' is a useful model because it has a periodic parameter.
 I return to this point shortly.
 
 A range of kernel functions could be used to describe stellar variability.
-For example, the simplest and most commonly used kernel function, the
-`Squared Exponential' (SE) could produce an adequate fit to the \kepler-452
-light curve.
+For example, the simplest and most commonly used kernel function, the `Squared
+Exponential' (SE) produces an adequate fit to the KID 1430163 light curve.
 The SE kernel function is defined as,
 \begin{equation}
 k_{i,j} = A \exp \left(-\frac{(x_i - x_j)^2}{2l^2} \right).
@@ -197,8 +196,8 @@ controls the number of zero crossings per period.
 This kernel function allows two data points that are separated in time by one
 rotation period to be tightly correlated, while points separated by half a
 period are weakly correlated.
-The QP kernel function was used to produce the orange model shown in figure
-~\ref{fig:GP_example}.
+Both the QP and SE kernel functions were used to produce the blue and pink
+models shown in figure ~\ref{fig:GP_example}.
 
 In order to infer a stellar rotation period from a light curve, we fit a GP
 model with a QP kernel function to the data.
@@ -234,7 +233,7 @@ The blue solid line shows a fit to the data using
 a Gaussian process model with a QP covariance kernel function and the pink
 broken line shows a fit with a SE kernel function.
 Both kernel functions provide an adequate fit to the data, however we use the
-QP function because it has a parameter that corresponds to the star's
+QP function because it has a useful parameter that corresponds to the star's
 rotation period.}
 \label{fig:GP_example}
 \end{center}
@@ -274,7 +273,7 @@ Light curves were simulated with a real \Kepler\ long-cadence time array, with
 one data point every thirty minutes over a four year duration.
 The rotation periods of the simulations were randomly drawn from a log-uniform
 distribution between 0.5-60 days.
-Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free
+Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free.
 light curve with a period of 17.4 days.
 
 % The ranges and distributions of the physical stellar parameters used in the
@@ -347,7 +346,7 @@ By extension, if three active longitudes existed at 60$^\circ$ separations on
 the stellar surface, the first peak in the ACF may be at one third of the true
 rotation period and so on.
 An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
-in figure~\ref{fig:ACF_example}.
+in figure \ref{fig:ACF_example}.
 
 \begin{figure*}
 \begin{center}
@@ -355,9 +354,9 @@ in figure~\ref{fig:ACF_example}.
 \caption[An ACF of a simulated light curve.]
 {The autocorrelation function of the simulated, noise-free light
 curve depicted in figure \ref{fig:noise-free_lc}.}
+\label{fig:ACF_example}
 \end{center}
 \end{figure*}
-\label{fig:ACF_example}
 
 The ACF method has proven to be extremely useful for measuring rotation
 periods.
@@ -421,9 +420,9 @@ We are still investigating the origin and implications of this effect.
 {Rotation periods measured using the ACF method as a function of the
 `true' period used to generate \nlightcurves\ simulated, noise-free light
 curves.}
+\label{fig:compare_noise_free}
 \end{center}
 \end{figure*}
-\label{fig:compare_noise_free}
 
 \subsection{The sine-fitting periodogram method}
 
@@ -455,9 +454,9 @@ residuals is five times larger.
 {Rotation periods measured using the LS periodogram method as a
 function of the `true' rotation period used to generate \nlightcurves\
 simulated light curves.}
+\label{fig:pgram_compare_noise_free}
 \end{center}
 \end{figure*}
-\label{fig:pgram_compare_noise_free}
 
 \subsection{The GP method}
 
@@ -466,8 +465,7 @@ Gaussian processes, we sampled the posterior PDFs of the kernel
 hyperparameters described in equation \ref{eq:QP}.
 The likelihood function for a GP is similar to the simple Gaussian likelihood
 function that is used for optimisation problems where the uncertainties are
-Gaussian and uncorrelated, the logarithm of which is also known as
-$-\frac{1}{2}\chi^2$.
+Gaussian and uncorrelated.
 It can be written
 \begin{equation}
 \ln \mathcal{L} = -\frac{1}{2}\sum_{n=1}^N\frac{(y_n-\mu)^2}{\sigma_n^2}
@@ -560,17 +558,18 @@ ACF period estimate, significantly reduced computation time whilst maintaining
 performance.
 The {\tt george} \citep{George} python package was used to implement the GP
 model which uses the fast matrix solver, HODLR \citep{Ambikasaran2014}.
+Matrix operations performed with HODLR scale as $N \log ^2 (N)$, where $N$ is
+the number of data points.
 We used {\tt emcee} \citep{Foreman-Mackey2013}, an affine invariant ensemble
 sampler to explore the posterior PDFs of the model parameters.
 The rotation period was taken as the median value of the posterior PDF.
 The resulting measured rotation periods are compared to the true rotation
 periods in figure \ref{fig:GP_compare_noise_free}.
-The RMS of residuals for the GP results is 0.26 days.
+The root-mean-square (RMS) of residuals for the GP results is 0.26 days.
 The results of all three methods are plotted on the same axes in figure
 \ref{fig:compare_noise_free}.
 
 % The subsampling reduces computation time simply by contracting the data
-% set---the HODLR solver scales as $N \log ^2 (N)$.
 
 \begin{figure*}
 \begin{center}
@@ -578,9 +577,9 @@ The results of all three methods are plotted on the same axes in figure
 \caption[GP results.]
 {Measured vs true rotation period for \nlightcurves\ simulated light
 curves using the GP method.}
+\label{fig:GP_compare_noise_free}
 \end{center}
 \end{figure*}
-\label{fig:GP_compare_noise_free}
 
 \begin{figure*}
 \begin{center}
@@ -588,12 +587,12 @@ curves using the GP method.}
 \caption[All results.]
 {Measured vs true rotation period for \nlightcurves\ simulated light
 curves from the three different methods described in the text.}
+\label{fig:compare_noise_free}
 \end{center}
 \end{figure*}
-\label{fig:compare_noise_free}
 
 The marginal posterior distributions of the QP kernel hyperparameters for an
-example noise-free light curve  with a 14.4 day rotation period are shown in
+example noise-free light curve  with a 14.4 day rotation period, are shown in
 figure \ref{fig:gp_posteriors}.
 The light curve itself with the best fit GP model is shown in figure
 \ref{fig:demo_lc_GP}.
@@ -605,9 +604,9 @@ The light curve itself with the best fit GP model is shown in figure
 The pink curve shows the GP model with the best-fit parameters.
 The marginal posteriors of the GP hyper-parameters used to produce this fit
 are shown in figure \ref{fig:gp_posteriors}.}
+\label{fig:demo_lc_GP}
 \end{center}
 \end{figure*}
-\label{fig:demo_lc_GP}
 
 \begin{figure*}
 \begin{center}
@@ -619,9 +618,9 @@ underestimated. If the errorbars reported on the data are too small, this
 parameter will be non-zero. Since this light curve was simulated without
 noise, this parameter is very close to zero.
 The true rotation period of this star is 14.4 days.}
+\label{fig:gp_posteriors}
 \end{center}
 \end{figure*}
-\label{fig:gp_posteriors}
 
 \subsection{Real \kepler\ data}
 
@@ -680,6 +679,37 @@ under development and cannot provide results here.
 We hope to develop this method further and apply it to real light curves in
 the near future.
 
+% The marginal posterior distributions of the QP kernel hyperparameters for an
+% example noisy light curve  with a ... day rotation period, are shown in
+% figure \ref{fig:gp_posteriors}.
+% The light curve itself with the best fit GP model is shown in figure
+% \ref{fig:demo_lc_GP}.
+
+% \begin{figure*}
+% \begin{center}
+% \includegraphics[width=6in, clip=true]{figures/demo_lc_GP.pdf}
+% \caption{A simulated light curve with a rotation period of 14.4 days.
+% The pink curve shows the GP model with the best-fit parameters.
+% The marginal posteriors of the GP hyper-parameters used to produce this fit
+% are shown in figure \ref{fig:gp_posteriors}.}
+% \label{fig:demo_lc_GP}
+% \end{center}
+% \end{figure*}
+
+% \begin{figure*}
+% \begin{center}
+% \includegraphics[width=6in, clip=true]{figures/demo_triangle.pdf}
+% \caption{Marginal posterior PDFs of the QP GP model parameters. $\sigma$ is an
+% additional white noise term added to the diagonal elements of the covariance
+% matrix. It is the fraction by which the observational uncertainties have been
+% underestimated. If the errorbars reported on the data are too small, this
+% parameter will be non-zero. Since this light curve was simulated without
+% noise, this parameter is very close to zero.
+% The true rotation period of this star is 14.4 days.}
+% \label{fig:gp_posteriors}
+% \end{center}
+% \end{figure*}
+
 % \begin{figure*}
 % \begin{center}
 % \includegraphics[width=6in, clip=true]{figures/prediction.pdf}
@@ -712,7 +742,7 @@ period which, again means that our results are not independent of the ACF
 results.}
 \item{Priors.
 We chose to use uniform, bounded priors to reduce parameter space and
-therefore covergence time.
+therefore convergence time.
 Unfortunately, if the true period lies outside the bounded region, it will
 never be found.}
 \end{itemize}
@@ -742,10 +772,13 @@ necessarily produce a positive semi-definite covariance kernel\footnote{One
 that can be inverted; a necessary regression operation.}.
 An alternative approach may be to correct for rotation period bias after the
 peak position has been measured by inferring a correction factor.
+Yet another approach could be to measure the mean separation between adjacent
+peaks in the ACF: the first peak should be most strongly affected by the
+exponential decay, the second peak less so, and so on.
 
 \subsection{Initialisation}
 Using the ACF to initialise the MCMC chains is not ideal because, of course,
-you become reliant on the assumption that the ACF period is close to the true
+one becomes reliant on the assumption that the ACF period is close to the true
 period.
 Of course, if you had infinite CPU time, this would not be a problem as you
 would eventually sample the entire posterior PDF of the period parameter,
@@ -833,7 +866,7 @@ alternative kernel functions could be tested.}
 only explored the physical interpretation of one parameter in our kernel
 function, $P$.
 However, the other parameters may also be related to some physical processes.
-For example, the overall time-scale for covariance fall-off, $l$ may be
+For example, the overall timescale for covariance fall-off, $l$ may be
 related to spot lifetimes.
 A star with long spot lifetimes will show little variation in the overall
 shape and amplitude of its light curve between rotations and $l$ will be

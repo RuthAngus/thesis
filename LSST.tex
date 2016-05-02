@@ -37,7 +37,7 @@ By running a period recovery pipeline, we characterise the sensitivity of
 and rotation period.
 Using the full ten-year data set we find that \LSST\ is most sensitive to
 rotation periods between 10 and 20 days.
-Its sensitivity falls at short periods due to the sparcity of its sampling and
+Its sensitivity falls at short periods due to the sparsity of its sampling and
 at longer periods due to the lower variability amplitudes of slow rotators
 as well as their smaller apparent magnitudes.
 
@@ -81,7 +81,7 @@ age-rotation parameter space.
 \LSST\ will provide an extremely different but complementary data set to
 \kepler: whereas \kepler\ data are dense and evenly spaced, \LSST\ light
 curves will have sparse, irregular cadence.
-Despite the sparcity of \LSST\ data, its irregular cadence will move the
+Despite the sparsity of \LSST\ data, its irregular cadence will move the
 minimum recoverable period limit towards shorter rotation periods.
 With the exception of the deep drilling fields, the minimum interval
 between exposures will be around three days for the majority of targets.
@@ -368,6 +368,9 @@ LS periodograms were computed for each light curve over a uniform grid of 1000
 periods ranging from 2 to 100 days.
 The position of the highest peak in the periodogram was recorded as the
 measured period.
+We did not define a detection threshold --- a rotation period, or rather, a
+peak position was recovered from every light curve.
+We hope to define such a detection threshold in future.
 As explained previously, a LS periodogram is not ideal for measuring rotation
 periods from stellar light curves because star spots tend to produce
 non-sinusiodal, quasi-periodic brightness variations.
@@ -425,7 +428,7 @@ The large outliers at long rotation periods are mostly faint.}
 \end{figure}
 
 The overall fraction of stars with successfully recovered rotation periods
-(were `successfully recovered' rotation periods are those measured to within
+(where `successfully recovered' rotation periods are those measured to within
 10\% of the injected period) as a function of input period is shown in figure
 \ref{fig:kickass}.
 The results for $G$ ($5200<\mathrm{T}_{\mathrm{eff}}<6000$), $K$
@@ -483,12 +486,12 @@ generated using the \trilegal\ stellar population simulation software
 Theoretical rotation periods were then calculated for these stars using the
 \citep{Angus2015} gyrochronology relation.
 Based on these theoretical rotation periods, light curves were simulated for
-the stars usesing a simplified version of the \citep{Aigrain2015} code.
+the stars using a simplified version of the \citep{Aigrain2015} code.
 A Lomb-Scargle periodogram was computed for each light curve and a period
 measured from the position of the highest peak.
 We found that \LSST\ is most sensitive to rotation periods between 10 and 20
 days.
-Its sensitivity falls at short periods due to the sparcity of its sampling and
+Its sensitivity falls at short periods due to the sparsity of its sampling and
 at longer periods due to the lower variability amplitudes and smaller apparent
 magnitudes of slowly rotating stars.
 
@@ -522,7 +525,7 @@ Rotation period recovery success rate depends on both spectral type and
 age and is therefore likely to vary for different fields in the galaxy.}
 \item{To investigate the rotation period recovery potential of
 the deep drilling fields.
-These fields will have much shorter intervals between subsequence
+These fields will have much shorter intervals between subsequent
 observations.
 Very short rotation periods are therefore likely to be detectable within
 them.}

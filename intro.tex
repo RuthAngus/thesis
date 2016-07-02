@@ -12,9 +12,9 @@ Some day in the (hopefully) not-too-distant future, the first biomarker will
 be detected in the atmosphere of an Earth-like planet.
 When that time comes, knowing the age of the planetary system will be
 fundamental.
-These are all excellent reasons for studying stellar ages, however the
-application that most piques my personal interest is the implications for
-understanding the dynamical evolution of exoplanetary systems.
+These are all excellent reasons for studying stellar ages but the application
+that most piques my personal interest is the implications for understanding
+the dynamical evolution of exoplanetary systems.
 
 Despite the rapidly accelerating interest in exoplanet population studies
 \citep[e.g.][]{Petigura2013, Foreman-Mackey2014, Dressing2015, Burke2015}, we
@@ -43,7 +43,7 @@ Earth-mass planets, \citet{Veras2015} demonstrate that a decrease in planet
 occurrence rate will be detectable for K dwarf hosts, even if stellar age
 uncertainties are as large as 5 Gyr, and for G dwarfs with age uncertainties of
 3.5 Gyr.
-Clearly, most systems do not consist of equal-mass planets, however the study
+Clearly, most systems do not consist of equal-mass planets, but the study
 of these simulations demonstrates that an age trend lies well within the
 realms of detectability.
 
@@ -111,7 +111,7 @@ towards the top right of the Hertzprung-Russel Diagram (HRD), or
 Colour-Magnitude Diagram (CMD).
 As the hydrogen-burning process progresses, helium `ash' is produced in the
 core and energy production decreases.
-The core slowly contracts over time and its temperature increases.
+The core slowly contracts over time and its temperature therefore increases.
 The increased temperature enhances energy production, and the result is that
 stars burn hotter and more brightly over time.
 By inferring a star's absolute magnitude and effective temperature, or
@@ -155,7 +155,9 @@ massive stars in a cluster will have turned off the MS.
 Inferring the mass at which this happens in a cluster provides a very precise
 age estimate.
 % FIXME: what is the minimum age at which you can do this?
-For these reasons, many open clusters have precise ages.
+For these reasons, many open clusters have precise ages with typical age
+uncertainties of around 10\%, arising chiefly from differences in isochrone
+models.
 Together with the Sun they are the most precisely dated of all astronomical
 objects and provide the benchmarks from which all other dating methods are
 calibrated.
@@ -170,7 +172,8 @@ Hyades.
 \begin{center}
 \includegraphics[width=6in, clip=true]{figures/hyades.pdf}
 \caption[A CMD of the Hyades.]
-{A CMD of the Hyades with isochrones and the ZAMS from \citet{Perryman1998}.
+{A CMD of the Hyades with Geneva isochrones \citep{Schaller1992} and the ZAMS
+from \citet{Perryman1998}.
 \citet{Perryman1998} infer an isochronal age of 625 $\pm$ 50 Myr for the
 Hyades.}
 \label{fig:hyades}
@@ -246,6 +249,10 @@ structure of active regions below the Solar surface.
 The Sun is an exquisite example of a pulsating star, having tens of millions
 of detectable modes and mode lifetimes that are several thousand times longer
 than the periods of the oscillations.
+These long mode lifetimes result in narrow peaks in the Fourier transform of a
+Solar light curve or RV time series.
+Short-lived modes produce signals that are incoherent over long timescales and
+therefore have broadened peaks in frequency space.
 Its proximity, which provides both enormous S/N and allows us to resolve the
 surface, makes it a paragon of seismology.
 
@@ -277,16 +284,16 @@ harmonic (assuming that a star can be approximated as a sphere) as follows
 $\xi$ is a spatial perturbation, associated with a mode, $r, \theta, \phi,
 \omega$ and $t$ are the radial coordinate, colatitude, longitude angular
 frequency\footnote{The convention in asteroseismology is to report circular
-frequencies, $\nu_{nlm} = \omega_{nlm}/2$.} and time, respectively.
+frequencies, $\nu_{nlm} = \omega_{nlm}/2\pi$.} and time, respectively.
 $n$ is the radial order, defined as the number of nodes between the star's
 centre and surface and $l$ is the angular degree, the product of the stellar
 radius and the total horizontal wavenumber of the mode.
 For example, a star oscillating with an $l = 10$ mode will have a standing
-wave with 10 nodes along a line around the equator.
+wave with 10 nodes along a line connecting the poles.
 Finally, $m$ is the azimuthal order; the projection of $l$ onto the horizontal
 wavenumber of mode and must be less than or equal to $l$.
-A star with an $m = 5$ mode will have a standing wave with 5 nodes along a
-line connecting its poles.
+A star with an $m = 5$ mode will have a standing wave with 5 nodes along the
+equator.
 The relation between $\omega$ and $n$ and $l$ is complicated and depends on the
 structure of the star.
 Oscillations with different values of $l$ penetrate to different depths in the
@@ -370,7 +377,7 @@ limited by two things: the overall duration of observations and the time
 sampling interval.
 The duration of observations, \ie\ the length of the \kepler\ mission sets the
 minimum resolvable frequency and the time sampling sets the Nyquist frequency:
-the high frequency limit.
+the high frequency limit, which is equal to half the sampling rate.
 For FGK dwarfs, the Nyquist frequency of long cadence observations ($\sim 283
 \mu$Hz) is too low as these stars oscillate at around 3000 \uHz.
 For this reason, \kepler\ operates in two observing modes: long and short
@@ -430,8 +437,8 @@ photometry of bright (brighter than around 12th magnitude) stars.
 Even with \kepler\ and \corot, this only amounts to around one hundred MS
 stars with asteroseismic ages available today.
 It is therefore essential that alternative dating methods, which can be
-applicable to a much larger sample of stars, are developed.
-Age-rotation relations, for example.
+applicable to a much larger sample of stars, are developed; age-rotation
+relations, for example.
 
 \subsection{Age-rotation relations}
 
@@ -456,17 +463,20 @@ surface.
 Each of these ions carries mass, charge and angular momentum as it travels
 away from the star.
 The angular momentum carried by these particles is lost from the system, not
-at the surface, but at the point where they no longer co-rotate with the star.
-Stellar magnetic fields force the particles in the stellar wind to rotate with
-the same angular velocity as the surface, out to the Alfv{\'e}n radius.
-The Alfv{\'e}n radius is the point at which a particle experiences equal force
-from the magnetic field and radiation pressure.
-The Alfv{\'e}n radius can be expressed as \citep{Rosswog2011}
-\begin{equation}
-r_A = \left( \frac{\mu^4}{2GM\dot{M}^2} \right)^{1/7}.
-\end{equation}
-Once beyond the Alfv{\'e}n radius, the particles' angular momentum is lost
-from the star.
+at the photosphere because the wind particles travel along magnetic field
+lines which are radial close to the surface of the star (in the corotating
+frame), but further away from the photosphere, as thermal expansion slowly
+begins to dominate the motion of stellar wind particles.
+% Stellar magnetic fields force the particles in the stellar wind to rotate with
+% the same angular velocity as the surface, out to the Alfv{\'e}n radius.
+% The Alfv{\'e}n radius is the point at which a particle experiences equal force
+% from the magnetic field and radiation pressure.
+% The Alfv{\'e}n radius can be expressed as \citep{Rosswog2011}
+% \begin{equation}
+% r_A = \left( \frac{\mu^4}{2GM\dot{M}^2} \right)^{1/7}.
+% \end{equation}
+% Once beyond the Alfv{\'e}n radius, the particles' angular momentum is lost
+% from the star.
 This mechanism is the main reason why the rotation periods of stars decay
 during their stint on the MS.
 In addition, the stellar wind carries mass away from the star and its
@@ -491,8 +501,12 @@ The relation between angular momentum loss rate and angular velocity is a
 power-law, where the exponent depends on the magnetic field geometry
 \citep{Mestel1984, Kawaler1988}.
 Magnetic field strength controls the rate of angular momentum loss: a stronger
-magnetic field leads to a larger Alfv{\'e}n radius which increases the angular
-momentum lost per unit time.
+magnetic field leads to stellar wind particles corotating with the photosphere
+out to a greater radius which increases the angular momentum lost per unit
+time.
+Increasing the mass loss rate and temperature of the stellar wind also results
+in an increased angular momentum loss rate, although these have secondary
+effects.
 % There is a saturation point however, angular momentum loss rate only increases
 % with magnetic field strength up to a point \citet{Chaboyer1995, Sills2000}.
 For this reason the rate of angular momentum loss is not constant: as a star
@@ -520,7 +534,7 @@ fully radiative stars do not spin down appreciably over their MS lifetime
 The rotational evolution of fully convective stars is still unknown, however
 it is an active field of interest \citep[\eg][]{Mcquillan2013, Newton2015}.
 
-\citet{Kawaler1988} developed the first physical model of a star undergoing
+\citet{Weber1967}, \citet{Mestel1987} and \citet{Kawaler1988} developed the first physical model of a star undergoing
 magnetic braking.
 Since this original work, several theoretically motivated gyrochronology
 models have been developed by different groups.
@@ -737,7 +751,7 @@ The limitations of using chromospheric activity indices as age diagnostics are
 similar to the drawbacks of gyrochronology: the data are sparse and
 particularly so at late ages and low masses.
 Crucially though, measurements of Ca II H \& K emission are difficult to
-obtain since high-resolution spectra are required.
+obtain since high-resolution spectra are required ($R\gtrsim2000$).
 }
 \item{UV and X-ray flux.}
 Magnetic heating in the chromosphere and corona excites photons to high
@@ -869,7 +883,8 @@ The radial velocity (RV) method is more sensitive to planets with a large mass
 relative to their host star.
 It is also easier to detect planets around old stars via the RV method since
 magnetic activity can produce RV signals that can mask planet-induced Doppler
-shifting \citep[\eg][]{Aigrain_2012, Rajpaul2015, Rajpaul2016}.
+shifting \citep[\eg][]{Saar1997, Wright2005, Aigrain_2012, Rajpaul2015,
+Rajpaul2016}.
 
 An increasing number of planets have now been detected using direct imaging
 \citep[\eg][]{Kalas2008, Nielsen2013}.

@@ -945,7 +945,7 @@ The stars shift to new CCD modules every time this happens, eventually
 returning to the same module after one year.
 Both the down-link pointings and quarter rotations produce short gaps in the
 light curves and can also produce short-term temperature changes to the CCD
-which can effect the sensitivity of the detector.
+which can affect the sensitivity of the detector.
 Temperature changes increase the gain of the CCD chip: more electrons are
 excited when the CCD is warmer so the flux appears to increase.
 So despite the unprecedented precision of \kepler\ lightcurves, they are not
@@ -995,7 +995,7 @@ for a repurposed \kepler\ mission \citep[\eg][]{Hogg2013, Aigrain2015}.
 \kepler\ was re-purposed as the \ktwo\ mission in 2014.
 With just two reaction wheels controlling pitch and yaw, its third rotation
 axis had to be stabilised.
-This was achieved by balancing the spacecraft against Solar pressure, using
+This was achieved by balancing the spacecraft against Solar radiation, using
 its symmetric solar-panelled back.
 The spacecraft sits in an unstable equilibrium, drifting slowly about its roll
 axis, its new orientation reducing large forces from the Solar wind
@@ -1046,7 +1046,7 @@ provide time series of white dwarfs, active galactic nuclei, red giants, red
 dwarfs, binary stars and other interesting astronomical objects.
 Of course, with the reduced pointing position comes a new challenge for those
 astronomers willing to get their hands dirty: systematic features in \ktwo\
-light curves range from negligable for the brightest targets to overwhelming
+light curves range from negligible for the brightest targets to overwhelming
 for the faintest.
 It is therefore necessary to employ heavy-duty `detrending' methods to
 exploit \ktwo's rich data set.
@@ -1085,8 +1085,8 @@ It is often more practical to use the logarithm of this function,
     -\frac{1}{2} \sum_{i=1}^N \left[\frac{[y_i - \mu(x_i,
     \mathbf{\theta})]^2}{\sigma_i^2} +
     \ln\left(2\pi\sigma_i^2\right) \right].
-\end{equation}
 \label{eq:lnlike_intro}
+\end{equation}
 
 In many fitting-a-model-to-data problems in the astronomical literature, a
 frequentist approach is taken and $\chi^2$ is minimised (or log-likelihood is
@@ -1147,50 +1147,55 @@ y_{obs} \sim \mathcal{N}(\bar{y}, \sigma_{obs}^2).
 \end{equation}
 Since it is the observations that are modelled, not the latent parameter,
 $\bar{y}$, this is a hierarchical process.
+In general, an inference problem can be described as hierarchical when there
+are multiple `layers' of conditional dependencies.
+In this example there are two such `layers': the dependence of the
+observations on the true values and the dependence of the true values on the
+model parameters.
 
 Equation \ref{eq:lnlike_intro} can also be modified for the simple case of
 fitting a straight line to data, where the $y$-direction observational
 uncertainties are unknown {\it and} the $x$-direction uncertainties are
 non-negligible.
-Starting from equations 26, 29, 31 and 32 of \citet{Hogg2010b},
+Starting with equations defined in chapter 7 of \citet{Hogg2010b},
 $\mathbf{S_i}$ is the covariance tensor,
 \begin{eqnarray}
     \mathbf{S_i} &\equiv& \left( \begin{array}{cc}
                     \sigma_{x}^2 & \sigma_{x,y} \\
                     \sigma_{x,y} & \sigma_{y}^2
 \end{array}\right),
-\end{eqnarray}
 \label{eq:covariance_tensor}
+\end{eqnarray}
 $\mathbf{\hat{\nu}}$ is a unit vector orthogonal to the line with slope
-$\alpha$,
+$\beta$,
 \begin{equation}
-    \mathbf{\hat{\nu}} = \frac{1}{\sqrt{1 + \alpha^2}} \left( \begin{array}{c}
-                                                    -\alpha \\
+    \mathbf{\hat{\nu}} = \frac{1}{\sqrt{1 + \beta^2}} \left( \begin{array}{c}
+                                                    -\beta \\
                                                     1
     \end{array}\right),
-\end{equation}
 \label{eq:unit_vector}
+\end{equation}
 the variance of the data is given by,
 \begin{equation}
     \Sigma_i^2 = \mathbf{\hat{\nu}}^T \mathbf{S_i} \mathbf{\hat{\nu}}
-\end{equation}
 \label{eq:variance}
+\end{equation}
 and the log-likelihood is,
 \begin{equation}
     \ln\mathcal{L} = - \frac{1}{2} \sum_{i=1}^N \left[
     \frac{\Delta_i^2}{\Sigma_i^2} + \ln|\mathbf{S_i}| \right].
-\end{equation}
 \label{eq:ndlnlike}
+\end{equation}
 By modifying equation \ref{eq:covariance_tensor} to be
 \begin{eqnarray}
     \mathbf{S_i} &=& \left( \begin{array}{cc}
                     \sigma_{x}^2 & 0 \\
                     0 & \sigma_{y}^2 + s^2
 \end{array}\right),
-\end{eqnarray}
 \label{eq:covariance_tensor_mod}
+\end{eqnarray}
 since we assume that the covariance between $x$ and $y$ is negligible,
-substituting \ref{eq:covariance_tensor_mod}, \ref{eq:unit_vector} \&
+substituting \ref{eq:covariance_tensor_mod}, \ref{eq:unit_vector} and
 \ref{eq:variance} into \ref{eq:ndlnlike} gives
 \begin{equation}
     \ln(\mathcal{L}) = -\frac{1}{2} \sum_{i=1}^N
@@ -1288,7 +1293,7 @@ PDC-MAP detrending does not preserve signals longer than $\sim$ 30 days.
 
 An alternative approach to PDC-MAP detrending, designed to preserve signals
 from the stars as {\it well} as the planets is that of \citet{Roberts2013}.
-They also fit a linear combination of CBVs to the data, however the main
+They also fit a linear combination of CBVs to the data, but the main
 differences in their approach are to impose a maximum entropy criterion:
 trends in the most highly-weighted CBVs must be present in a large number of
 light curves, and to remove high frequency noise from the systematics model
@@ -1354,9 +1359,9 @@ These models include parameters such as period, inclination, number of spots,
 spot lifetime, spot temperature, differential rotation amplitude (shear), and
 others.
 They are able to produce light curves that look very similar to real \kepler\
-time-series, however fitting such models to data is not straightforward.
+time-series, but fitting such models to data is not straightforward.
 It is impractical to have a set of parameters (\eg\ latitude, longitude, size,
-temperature) for each spot, however it is difficult to simplify the model in a
+temperature) for each spot, but it is difficult to simplify the model in a
 way that will allow enough flexibility to fit a real data set.
 It is therefore necessary to use alternative methods for inferring rotation
 periods.
@@ -1419,6 +1424,14 @@ as the rotation period.
 This is usually caused when there are two active regions on opposite
 hemispheres of the star, $\sim$ 180$^\circ$ apart, producing two dips in the
 light curve per rotation period.
+In cases where stars have very long-lived active regions, light curve dips
+produced by the two active regions will remain stable and the light curve will
+maintain a double-dip over long timescales.
+In these cases, the first peak in the ACF (corresponding to half the true
+period) may be higher than the second and half the true period would be
+measured.
+Unfortunately, we do not know the distribution of spot lifetimes and therefore
+cannot provide an estimate of harmonic contamination.
 The ACF method was used by \citet{Mcquillan2014} to measure rotation periods
 of 34,030 \kepler\ targets.
 
@@ -1429,9 +1442,9 @@ typically measured by fitting a Gaussian to the peaks in the ACF.
 However, the width of the ACF peak is related to the rate of correlation
 coefficient fall-off which depends on the shape of the signal and cannot be
 interpreted as a measurement uncertainty, $\sigma$.
-Although the ACF method is better suited to rotation period signals than the
-LS periodogram, it is not suited to model quasi-periodic signals which will
-act to broaden peaks in the ACF.
+% Although the ACF method is better suited to rotation period signals than the
+% LS periodogram, it is not suited to model quasi-periodic signals which will
+% act to broaden peaks in the ACF.
 
 \subsubsection{Wavelets}
 Wavelet transforms are used by \citet{Garcia2014} to measure rotation periods

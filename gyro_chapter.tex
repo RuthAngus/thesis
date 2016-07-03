@@ -76,7 +76,7 @@ asteroseismic ages, 50 stars from the Hyades and Coma Berenices clusters and
 6 field stars (including the Sun) with precise age measurements to calibrate
 the gyrochronology relation, whilst fully accounting for measurement
 uncertainties in all observable quantities.
-We calibrated a relation of the form $P=A^n\times(B-V-c)^b$, where $P$ is
+We calibrated a relation of the form $P=A^n\times a(B-V-0.4)^b$, where $P$ is
 rotation period in days, $A$ is age in Myr, $B$ and $V$ are magnitudes and
 $a$, $b$ and $n$ are the free parameters of our model.
 We found $a = 0.40^{+0.3}_{-0.05}$, $b = 0.31^{+0.05}_{-0.02}$ and
@@ -86,8 +86,9 @@ distribution functions of the gyrochronology parameters and we carefully
 checked the effects of leaving out parts of our sample, leading us to find that
 no single relation beween rotation period, colour
 and age can adequately describe all the subsets of our data.
-The {\it Kepler} asteroseismic stars, cluster stars and local field
-stars cannot all be described by the same gyrochronology relation.
+Contrary to predictions, the {\it Kepler} asteroseismic stars, cluster stars
+and local field stars cannot all be described by the same gyrochronology
+relation.
 The {\it Kepler} asteroseismic stars may be subject to observational biases,
 however the clusters show unexpected deviations from the predicted behaviour,
 providing concerns for the overall reliability of gyrochronology as a dating
@@ -119,7 +120,7 @@ Demand for age estimates of planet-hosting stars is high, but faint stars
 observed by {\it Kepler} are often expensive or impractical spectroscopic
 targets.
 Where high resolution spectra are unavailable, gyrochronology can be
-extrememly useful.
+extremely useful.
 Gyrochronology is a dating method that utilises the potentially
 predictable rotation period evolution of low mass, MS stars.
 % referee
@@ -154,10 +155,12 @@ Fully convective M dwarfs have a different dynamo-driven magnetic field: their
 rotation periods evolve over extremely long timescales and they often do not
 converge onto the mass-period-age plane, even after several Gyrs.
 Hot stars with effective temperatures greater than $\sim$ 6250 K have shallow
-convective zones---they are almost fully radiative---and, again, they have
-a different dynamo-driven magnetic field \citep{Kraft1967}.
-These massive stars retain their initial rotation period throughout their
-brief MS lifetimes and are therefore not suitable gyrochronology targets.
+convective zones---they are almost fully radiative.
+Since bulk magnetic fields in MS stars are produced by the combination of
+convection and rotation, without a convection zone, these stars have weak
+fields \citep{Kraft1967}.
+Hot stars retain their initial rotation period throughout their brief MS
+lifetimes and are therefore not suitable gyrochronology targets.
 
 The term `gyrochronology' was coined by \citet{Barnes2003} who proposed an
 empirically motivated functional form for the relation between period, colour
@@ -243,7 +246,7 @@ the SDSS griz filter KIC photometry by \citet{Pinsonneault2012} using Yale
 Rotating Stellar Evolution Code (YREC) models \citep{Demarque2004}.
 We use the IRFM temperatures since they are less dependent on metallicity,
 which is not well constrained for the asteroseismic sample, and their
-uncertainites are more conservative, however our analysis is relatively
+uncertainties are more conservative, but our analysis is relatively
 insensitive to this choice.
 87 stars in the asteroseismic catalogue have spectroscopic measurements of
 \teff$~$, and [Fe/H].
@@ -275,8 +278,8 @@ process and can only be applied in the highest signal-to-noise cases.
 \citet{Chaplin2014} predict that around 150 of the 505 stars will be suitable
 for this individual oscillation mode treatment.
 We obtained precise ages for 42 stars from \citet{Metcalfe2014}, modelled with
-the Asteroseismic Modeling Portal (AMP), with effective temperatures and
-metallicities from \citet{Bruntt2012}.
+the Asteroseismic Modeling Portal \citep[AMP,][]{Woitaszek2010, Metcalfe2009},
+with effective temperatures and metallicities from \citet{Bruntt2012}.
 Of the 42 stars in \citet{Metcalfe2014}, we only incorporate the `simple
 stars' (cool dwarfs) into our sample, ignoring the hotter F stars and more
 evolved subgiant stars as these are not expected to follow the simple
@@ -303,9 +306,9 @@ was inconsistent at greater than 2$\sigma$.
 The similarities between the two catalogues is further described in
 \citet{Garcia2014}.  % referee
 
-The asteroseismic sample covers a large range of ages, however it does not
-provide good mass coverage across the entire range (see figures
-\ref{fig:p_vs_a} and \ref{fig:3d}).
+The asteroseismic sample covers a large range of ages, but it does not provide
+good mass coverage across the entire range (see figures \ref{fig:p_vs_a} and
+\ref{fig:3d}).
 Few stars have temperatures below 6000 K ($B-V$ $\sim$ 0.55) and of the low
 mass stars, most of them are old (note that massive stars evolve rapidly and
 so we do not expect many in the sample).
@@ -315,8 +318,9 @@ display high signal-to-noise acoustic oscillations.
 The omission of these as well as other types of stars that are not ideal
 asteroseismic targets from our sample should not bias our results.
 The mere lack of data in some regions of parameter space will not skew the
-best fitting model, however it is important to note that the resulting
-gyrochronology relation will not necessarily be descriptive of those stars not represented in this sample.  % referee
+best fitting model, but it is important to note that the resulting
+gyrochronology relation will not necessarily be descriptive of those stars not
+represented in this sample.  % referee
 We filled in some of the missing parameter space by adding \nHC stars to our
 sample from young clusters Coma Berenices (0.5 Gyr), and the Hyades
 (0.625 Gyr) (see table \ref{tab:clust}).
@@ -331,8 +335,8 @@ uncertainty of
 $\pm 0.01$ % referee
 mag to each colour measurement, based on a realistic estimate of the
 typical uncertainties expected.
-The 1.1 and 0.588 Gyr open clusters, NGC 6811 and Praesepe, were originally
-included in our analysis.
+The 1.1 and 0.588 Gyr open clusters, NGC 6811 \citep{Meibom2011} and Praesepe,
+\citep{Delorme2011, Delorme2011_cat} were originally included in our analysis.
 However we discovered that their period-colour relations were different to
 those of the Hyades and Coma Ber, as well as to each other's, and we therefore
 did not include them in our final analysis.
@@ -548,7 +552,7 @@ properties.
 Observations are denoted as \ph$~$and $\hat{\mathbf{w}}_n$ and the unobserved
 (latent), `true' parameters as $P_n$ and $\mathbf{w}_n$ for stars $1,...,N$.
 
-In order to explore the posterior Probability Distribution Functions (PDFs) of
+In order to explore the posterior Probability Density Functions (PDFs) of
 the model parameters, $\theta$, conditioned on a set of noisy observations,
 $\{\hat{P}_n, \hat{\mathbf{w}}_n\}$, it was necessary to marginalise over the
 latent parameters, $\{P_n, \mathbf{w}_n\}$.
@@ -559,6 +563,7 @@ The observed values are only conditionally dependent on the `true' values.
 In order therefore to infer the values of the model parameters using the
 observed values of rotation period and colour, it was necessary to marginalise
 over the latent parameters.  % referee
+This is another example of hierarchical inference.
 Assuming all measurements are independent, the marginalised likelihood can be
 written
 \begin{equation}
@@ -579,21 +584,21 @@ where we have utilised the fact that the observations, \ph$~$and \wh$~$are
 {\it conditionally independent} of the model parameters, $\theta$: they only
 depend on $\theta$ through the latent parameters, $P_n$ and $\w_n$.
 The above integral can  be written
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:lhf_gyro}
 	p(\{\hat{P}_n,\hat{\w}_n\}|\theta) \propto &
 	\prod_{n=1}^{N} \int p(\w_n|\hat{\w}_n) {\rm d}\w_n \\ \nonumber
 	& \int p(P_n|\w_n,\theta) p(\hat{P}_n\,|\,P_n) {\rm d}P_n,
-\label{eq:fac}
 \end{eqnarray}
 where we have used Bayes' theorem:
 $p(\w_n|\hat{\w}_n) \propto p(\hat{\w}_n|\w_n)p(\w_n)$.
 The outer integral is the same for hot dwarfs, cool dwarfs and subgiants
 alike.
-In our model, the probability of the `true' rotation period given the `true'
-observed parameters and the model parameters, $p(P_n|\w_n, \theta)$, is
-different in each regime because a different generative process is responsible
-for producing rotation periods.
-For cool dwarfs ($B-V$ $<$ 0.45 and \logg$~>$ \subcut):
+In our model, the likelihood function---the probability of the `true' rotation
+period given the `true' observed parameters and the model parameters,
+$p(P_n|\w_n, \theta)$, is different in each regime because a different
+generative process is responsible for producing rotation periods.
+For cool dwarfs ($B-V$ $>$ 0.45 and \logg$~>$ \subcut) the likelihood function
+can be written
 \begin{eqnarray} \label{eq:codw}
 p(P_n|\w_n,\theta) &=&
     (1-Q)~\delta \left (P_n - f_\theta(\w_n)\right) \\ \nonumber
@@ -604,26 +609,29 @@ where $Q$ is the probability that a star is drawn from the population of
 misclassified subgiants and
 \begin{eqnarray}
 f_\theta(\w_n) = A^n \times a(B-V - c)^b
+\label{eq:blank}
 \end{eqnarray}
 is the gyrochronology relation.
-For hot dwarfs ($B-V$ $<$ 0.45 and \logg$~>$ \subcut) the generative process
+For hot dwarfs ($B-V$ $<$ 0.45 and \logg$~>$ \subcut) the likelihood function
 is:
 \begin{eqnarray}
 p(P_n\,|\,\w_n,\theta) = \left(\sqrt{2\pi V^2}\right)^{-1/2}~
 \exp\left({-\frac{(P_n-Y)^2}{2V^2}}\right),
+\label{eq:hot_dwarfs}
 \end{eqnarray}
 and for subgiants,
 \begin{eqnarray}
 p(P_n\,|\,\w_n,\theta) = \left(\sqrt{2\pi W^2}\right)^{-1/2}~
 \exp\left({-\frac{(P_n-Z)^2}{2W^2}}\right).
+\label{eq:subgiants}
 \end{eqnarray}
 
 We used hierarchical inference to account for observational uncertainties,
 following the method of \citet{Hogg2010}, also used by
 \citet{Foreman-Mackey2014}, \citet{Rogers2014}, \citet{Morton2014} and
 \citet{Demory2014}.
-We computed equation \ref{eq:fac} up to an unimportant constant
-using a sampling approximation.
+We computed the likelihood for each star (equation \ref{eq:lhf_gyro}), up to
+an unimportant constant using a sampling approximation.
 The values of \ph$~$and \wh$~$with uncertainties, $\sigma_P$ and
 $\sigma_{\mathbf{w}}$, reported in catalogues provide constraints on the
 posterior probability of those variables, under a choice of prior PDF,
@@ -681,7 +689,7 @@ and variance ${\sigma_n}^2$, this integral can be evaluated analytically for
 each population.
 For example, starting from equation~\ref{eq:codw} the result for the cool
 dwarfs is
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:cool_dwarfs}
 p(\hat{P}_n\,|\,\mathbf{w}_n^{(j)},\theta) &=&
     \frac{1-Q}{\sqrt{2\,\pi\,{\sigma_n}^2}} \exp\left( -
         \frac{\left[\hat{P_n} - f_\theta (\w_n^{(j)}) \right] ^2}
@@ -693,7 +701,7 @@ p(\hat{P}_n\,|\,\mathbf{w}_n^{(j)},\theta) &=&
 A similar result can be derived for the other populations.
 
 Finally, using these analytic results for the inner integral, the
-marginalised log-likelihood from equation~\ref{eq:fac} becomes
+marginalised log-likelihood from equation \ref{eq:lhf_gyro} becomes
 \begin{eqnarray}
 	\log p(\{\hat{P}_n,\hat{\w}_n\}\,|\,\theta) \approx & \\ \nonumber
     & \log \mathcal{Z} + \sum_{n=1}^N
@@ -720,9 +728,9 @@ Following the above method, a likelihood was computed as follows:
 % 		In the case that the sample was better described by equation
 % 		\ref{eq:Barnes2007_2} than by the normal distribution with mean
 % 		and standard deviation $X$ and $U$, that sample
-		A Likelihood for the two model rotation periods were then
+		Likelihoods for the two model rotation periods were then
 		evaluated using a Gaussian mixture model
-		likelihood function.
+		likelihood function (equation \ref{eq:cool_dwarfs}).
 	\item For the samples that fell in the hot dwarf ($B-V$ $<$ 0.45 and
 		\logg$~>$ \subcut) and subgiant (\logg$~<$ \subcut) regimes,
 		likelihoods were calculated by comparing observed rotation
@@ -739,7 +747,7 @@ Following the above method, a likelihood was computed as follows:
 
 \begin{table}
 	\caption[Individual cluster results.]
-{Median values of $a$, $b$, $c$ and $n$ for individual clusters
+{Median values of $a$, $b$ and $n$ for individual clusters
 		(see equation \ref{eq:Barnes2007_2}).  % referee
 \label{tab:cluster_results}}
 
@@ -766,12 +774,16 @@ evident that a lower value of $b$ was preferred by NGC 6811,
 i.e. the slope of the $\log(\mathrm{period})-\log(B-V-c)$ relation was
 shallower for NGC 6811 than for the Hyades, Coma Berenices and Praesepe.
 % referee
+The reason for NGC 6811's shallower slope is currently unknown, however the
+slope increased slightly after more quarters of \kepler data were included
+in the rotation period measurement process (Meibom, private communication), so
+this may be due to systematic uncertainties on the rotation periods.
 We therefore exluded NGC 6811 from our sample and attempted to fit
 a relation to the remaining data.
 Multi-modal posterior PDFs were still produced however, until Praesepe was
 also removed from the sample.
-The reason for this multi-modality is unclear, however we tentatively attribute
-it to Praesepe preffering a different value for the colour discontinuity, $c$,
+The reason for this multi-modality is unclear, but we tentatively attribute
+it to Praesepe preferring a different value for the colour discontinuity, $c$,
 to the Hyades and Coma Berenices.  % referee
 We calculated the likelihood for Praesepe, plus the field stars (to provide
 the age dependence) with two different values of $c$: $0.45$ and $0.5$,
@@ -840,18 +852,18 @@ have precise metallicities.  % referee
 	non-gyrochronological stars. \label{tab:nuisance}}
 
 \begin{center}
-\begin{tabular}{lcc}
+\begin{tabular}{lccc}
 \hline\hline
-{Parameter} & {Median value} \\
+{Parameter} & {Symbol} & {Median value} \\
 \hline
-$U$ & \U$^{+\Uerrp}_{-\Uerrm}$ days \\
-$V$ & \V$^{+\Verrp}_{-\Verrm}$ days \\
-$W$ & \W$^{+\Werrp}_{-\Werrm}$ days \\
+$\sigma_P (B-V > 0.45)$ & $U$ & \U$^{+\Uerrp}_{-\Uerrm}$ days \\
+$\sigma_P (B-V < 0.45)$ & $V$ & \V$^{+\Verrp}_{-\Verrm}$ days \\
+$\sigma_P (\log~g < 4.2)$ & $W$ & \W$^{+\Werrp}_{-\Werrm}$ days \\
 % $X$ & \X$^{+\Xerrp}_{-\Xerrm}$ days \\
-$X$ & \X$\pm\Xerr$ days \\
-$Y$ & \Y$^{+\Yerrp}_{-\Yerrm}$ days \\
-$Z$ & \Z$^{+\Zerrp}_{-\Zerrm}$ days \\
-$Q$ & \Q$^{+\Qerrp}_{-\Qerrm}$ \\
+$\mu_P (B-V > 0.45)$  & $X$ & \X$\pm\Xerr$ days \\
+$\mu_P (B-V < 0.45)$ & $Y$ & \Y$^{+\Yerrp}_{-\Yerrm}$ days \\
+$\mu_P (\log~g < 4.2)$ & $Z$ & \Z$^{+\Zerrp}_{-\Zerrm}$ days \\
+Giant fraction & $Q$ & \Q$^{+\Qerrp}_{-\Qerrm}$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -868,11 +880,11 @@ subgiants is $\Q^{+\Qerrp}_{-\Qerrm}$, i.e., based on our simple `\logg$=4.2$'
 definition of MS turn-off, which left only 21 stars classified as cool dwarfs,
 one or two of these are likely to be misclassified subgiants.
 Marginalised posterior PDFs for the three gyrochronology parameters are shown
-in figure \ref{fig:triangle} and the resulting relation between period and age
+in figure \ref{fig:gyro_triangle} and the resulting relation between period and age
 for stars of Solar-like colour is shown in figure \ref{fig:p_vs_a_solar}.
 The relation between period and colour for Solar-age stars is shown in figure
 \ref{fig:p_vs_bv_solar} and for a range of ages in figures
-\ref{fig:5}-\ref{fig:8gyr}.
+\ref{fig:gyro_5}-\ref{fig:8gyr}.
 Note that we plot rotation period vs `$B-V-c$', producing a straight line, in
 order to give a more intuitive understanding of the quality of the fit to the
 data.
@@ -885,13 +897,14 @@ in order to demonstrate the widths and bimodal natures of these distributions.
 \includegraphics[width=6in, clip=false, trim=0 0 0.5in 0]{figures/small_triangleACHF.pdf}
 \caption[Marginal posteriors of gyrochronology parameters]
 {Marginalised posterior PDFs for the three gyrochronology
-parameters, $a$, $b$ and $n$. Parameters $a$ and $n$ are correlated and their
+parameters, $a$, $b$ and $n$.
+Parameters $a$ and $n$ are highly correlated and their
 posterior PDFs are bimodal. The main peaks in the posterior PDFs of $a$ and
 $n$ correspond to a fit to the Sun and field stars. The smaller peak
 corresponds to a fit to the {\it Kepler} asteroseismic stars.
 This plot was made using triangle.py
 \citep{Corner}.
-\label{fig:triangle}}
+\label{fig:gyro_triangle}}
 \end{center}
 \end{figure*}
 
@@ -936,7 +949,7 @@ This plot was made using triangle.py
 \begin{figure*}
 \begin{center}
 	\subfigure[0.5 Gyr (age of the Coma Ber)]{
-            \label{fig:5}
+            \label{fig:gyro_5}
 	    \includegraphics[width=\columnwidth]{figures/p_vs_bv0.pdf}
         }
 	\subfigure[0.625 Gyr (age of the Hyades)]{
@@ -968,8 +981,8 @@ Many samples fall below the best fit model due to the bimodal posterior PDFs.
 \label{fig:subfigures2}}
 \end{figure*}
 
-Figure \ref{fig:triangle} shows that parameters $a$ and $n$ are
-correlated and their posterior PDFs are bimodal.
+Figure \ref{fig:gyro_triangle} shows that parameters $a$ and $n$ are
+highly correlated and their posterior PDFs are bimodal.
 The position of the second peak falls around $a = 0.8$, $b = 0.34$ and
 $n = 0.44$.
 The cause of this bimodality is clear when looking at the faint grey lines
@@ -1022,6 +1035,10 @@ having different metallicities. % not referee
 Unfortunately it is not currently possible to identify the cause of the
 observed mismatch between the {\it Kepler} stars and the field stars and we leave
 this question for a future investigation.
+The tight correlation between parameters $a$ and $n$ demonstrates that there
+is some redundancy in the fiducial gyrochronology relation.
+In the future, an alternative functional form with less correlation between
+parameters (for example a Gaussian process) should be explored.
 
 The fact that our fit is so heavily dominated by the Sun with its small
 uncertainties is, perhaps, a cause for concern.

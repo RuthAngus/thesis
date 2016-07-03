@@ -213,15 +213,17 @@ target pixel files for all stars in these two fields.
 The position of each star was predicted using the World Coordinate System (WCS)
 and 10 circular apertures placed around the star with radii varying from 1 to
 5 pixels in steps of 0.5 pixels.
-Following the procedure of VJ14, the aperture producing the
-light curve with the lowest CDPP within a 6 hour window
-\citep{Christiansen2012} was selected\footnote{The simple aperture photometry
-light curves for campaigns 0 and 1 are available at
+Following the procedure of VJ14, the aperture producing the light curve with
+the lowest Combined Differential Photometric Precision (CDPP) within a 6 hour
+window \citep{Christiansen2012} was selected\footnote{The simple aperture
+photometry light curves for campaigns 0 and 1 are available at
 \url{http://bbq.dfm.io/ketu/lightcurves/}}.
 PCA was then performed on the full set of targets in order to produce ELCs.
 
 FM15 used 150 of these ELCs, plus a transit model, in order to
 search for exoplanet candidates without the need for a `detrending' step.
+The number 150 was selected as a compromise between capturing the as much of
+the variability as possible whilst maintaining computational efficiency.
 The likelihood of the data, conditioned on the ELC-plus-transit
 model was calculated over a fine grid of periods and transit depths, resulting
 in the detection of 36 new exoplanet candidates.
@@ -328,23 +330,23 @@ which we detect pulsations using this method.
 \begin{center}
 	\subfigure[]{
             \label{fig:1}
-	    \includegraphics[width=3in]{figures/201545182.pdf}
+	    \includegraphics[width=2in]{figures/201545182.pdf}
         }
 	\subfigure[]{
             \label{fig:3}
-	    \includegraphics[width=3in]{figures/201211472.pdf}
+	    \includegraphics[width=2in]{figures/201211472.pdf}
         }
 	\subfigure[]{
             \label{fig:4}
-	    \includegraphics[width=3in]{figures/201433687.pdf}
+	    \includegraphics[width=2in]{figures/201433687.pdf}
         }
 	\subfigure[]{
             \label{fig:5}
-	    \includegraphics[width=3in]{figures/201444854.pdf}
+	    \includegraphics[width=2in]{figures/201444854.pdf}
         }
 	\subfigure[]{
             \label{fig:6}
-	    \includegraphics[width=3in]{figures/201607835.pdf}
+	    \includegraphics[width=2in]{figures/201607835.pdf}
         }
     \end{center}
     \caption[SIPs of oscillating red giants.]
@@ -426,7 +428,7 @@ The 59 day signal is almost certainly a systematic trend and not an
 astrophysical signal because it does not appear in the SIP.
 It is well described by the ELCs and must therefore be common to many stars.
 Although these examples demonstrate that the SIP can provide rotation periods,
-in practise it is likely to suffer from overfitting.
+in practice it is likely to suffer from overfitting.
 Several ELCs contain smoothly varying signals on time scales of a few days to
 tens of days which look similar to signals produced by stellar rotation.
 In some cases it may be possible to reproduce stellar rotation signals in a
@@ -484,7 +486,7 @@ any `marginal' rotation period measurements calculated using either method
 should be treated with caution unless a representative uncertainty is provided.
 In general neither ACF nor periodogram methods are equipped to provide
 such uncertainties.
-In practise, we recommend using both the SIP and ACF methods, in combination
+In practice, we recommend using both the SIP and ACF methods, in combination
 with a by-eye check, to measure rotation periods for {\it K2} stars.
 
 \subsection{Tests and discussion}
@@ -641,11 +643,11 @@ The SIP method is capable of detecting periodicities in {\it K2} data in the
 region of frequency space relevent to the study of asteroseismic oscillations
 in giant stars and for any signals with a timescale close to 6 hours.
 It may be useful for measuring stellar rotation periods and is an improvement
-upon a simple LS periodogram of detrended data, however rotation period
+upon a simple LS periodogram of detrended data, but rotation period
 inference with the SIP may suffer from over-fitting.
 We intend to address this problem in future by developing a regularised
 version of the SIP.
-In practise, the best approach for measuring rotation periods in {\it K2} data
+In practice, the best approach for measuring rotation periods in {\it K2} data
 is likely to be a combination of the SIP method and the ACF method, where
 autocorrelation is performed on detrended light curves.
 

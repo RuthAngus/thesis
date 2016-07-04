@@ -8,7 +8,8 @@ lifetimes causing stellar flux variations to slowly shift in phase.
 A strictly periodic sinusoid is therefore not a representative generative
 model for the light curve of star with a rotational signal.
 Ideally, a physical model of the stellar surface would be conditioned on the
-data, however the parameters of such models can be highly degenerate.
+data, however the parameters of such models can be highly degenerate
+\citep[\eg][]{Russell1906, Jeffers2009}.
 Instead, we use an appropriate {\it effective} model: a Gaussian Process (GP)
 with a quasi-periodic covariance kernel function.
 By modelling the covariance matrix of the light curve with a GP, a highly
@@ -25,8 +26,8 @@ The posterior probability distribution of the rotation period parameter was
 sampled using the affine invariant ensemble MCMC sampler {\tt emcee}
 \citep{Foreman-Mackey2013}, and the GP operations were performed using the
 {\tt george} python package \citep{George}.
-Rotation periods inferred via this method are more precise than the
-periodogram and both more accurate and precise than the ACF method.
+Rotation periods inferred via this method are more precise and accurate than
+the periodogram and ACF methods.
 Furthermore, the improvement is expected to be even more dramatic when applied
 to real, noisy {\it Kepler} light curves, since the GP method is well suited
 to modelling rotation signals and correlated noise simultaneously.
@@ -85,16 +86,17 @@ non-sinusoidal.
 In fact, it doesn't matter what shape the signal is: as long as it is
 approximately periodic the ACF will display peaks located at the rotation
 period.
-A drawback of the ACF method however, is that is requires data to be
-evenly-spaced which is not the case with \Kepler\ light curves (although in
-many cases it can be approximated as uniformly sampled).
+A drawback of the ACF method however, is that it requires data to be
+evenly-spaced\footnote{\citet{Edelson1988} describe a method for computing
+ACFs for unevenly-spaced data.} which is not the case with \Kepler\ light
+curves (although in many cases it can be approximated as uniformly sampled).
 An ACF is also an operation performed on the data, not a generative model of
 the data and is therefore not inherently probabilistic.
 For this reason it is very difficult to estimate the uncertainty on an ACF
 rotation period measurement.
 Many rotation periods in the literature have been inferred by measuring the
 position of the first peak in an ACF, however this approach can be dangerous.
-The exponential decay in correlation can shift the peak position to the left
+The exponential decay in correlation can shift the peak position short-wards
 of its true value, leading to an underestimate of the period.
 We return to this point in section \textsection \ref{sec:discussion}.
 % In order to avoid this, a period should be inferred by modelling the entire
@@ -114,7 +116,7 @@ during regression, the parameters of which could be marginalised over.
 
 GPs are commonly used in the machine learning community and increasingly
 in other scientific fields, for example biology and geophysics (where GP
-regression is called `krigging').
+regression is called `kriging').
 More recently, GPs have been used in the astronomy literature \citep[see
 \eg][]{Gibson2012, Haywood2014, Haywood2015, Evans2015, Rajpaul2015,
 Rajpaul2016, Aigrain2016}.
@@ -138,7 +140,7 @@ This is the \kepler\ light curve of KID 1430163, a relatively active star that
 rotates once every $\sim$ 4 days.
 The stochastic variability in this time-series is typical of \kepler\ FGK
 stars.
-Clearly, data points in this light curves are correlated.
+Clearly, data points in this light curve are correlated.
 Points that are close together in time are tightly correlated and those that
 are far apart are loosely correlated.
 It is the way in which the covariance varies with the separation between data
@@ -165,7 +167,7 @@ The SE kernel function is defined as,
 k_{i,j} = A \exp \left(-\frac{(x_i - x_j)^2}{2l^2} \right).
 \end{equation}
 \label{eq:SE}
-Where $A$ is the amplitude of covariance, $l$ is the length scale of
+Here $A$ is the amplitude of covariance, $l$ is the length scale of
 exponential decay and $x_i-x_j$ is the separation between data points.
 The SE kernel function has the advantage of being very simple---it has just
 two parameters, a covariance amplitude and length scale: $A$ and $l$.
@@ -195,7 +197,7 @@ $P$ can be interpreted as the rotation period of the star and $\Gamma$
 controls the number of zero crossings per period.
 This kernel function allows two data points that are separated in time by one
 rotation period to be tightly correlated, while points separated by half a
-period are weakly correlated.
+period can be weakly correlated.
 Both the QP and SE kernel functions were used to produce the blue and pink
 models shown in figure ~\ref{fig:GP_example}.
 
@@ -249,7 +251,8 @@ used
 for the \citet{Aigrain2015} `hare and hounds' rotation period recovery
 experiment.
 These light curves were simulated by placing dark, circular spots with slowly
-evolving size, on the surface of bright, rotating spheres.
+evolving size, on the surface of bright, rotating spheres, ignoring
+limb-darkening effects.
 \citet{Aigrain2015} simulated one thousand light curves in order to test the
 ability of participating teams to recover both the stellar rotation periods
 and the rotational shear: the amplitude of surface differential rotation.
@@ -273,7 +276,7 @@ Light curves were simulated with a real \Kepler\ long-cadence time array, with
 one data point every thirty minutes over a four year duration.
 The rotation periods of the simulations were randomly drawn from a log-uniform
 distribution between 0.5-60 days.
-Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free.
+Figure \ref{fig:noise-free_lc} shows an example of a simulated, noise-free
 light curve with a period of 17.4 days.
 
 % The ranges and distributions of the physical stellar parameters used in the
@@ -342,9 +345,9 @@ interpreted as the true period.
 The second peak in an ACF can be larger than the first if there are two active
 regions at or near opposite longitudes on the surface of the star---this would
 produce a light curve with two dips per rotation period.
-By extension, if three active longitudes existed at 60$^\circ$ separations on
-the stellar surface, the first peak in the ACF may be at one third of the true
-rotation period and so on.
+% By extension, if three active longitudes existed at 60$^\circ$ separations on
+% the stellar surface, the first peak in the ACF may be at one third of the true
+% rotation period and so on.
 An example ACF of the light curve in figure~\ref{fig:noise-free_lc} is shown
 in figure \ref{fig:ACF_example}.
 
@@ -377,7 +380,7 @@ rotation period values used to generate the light curves in figure
 % 73\% of the injected rotation periods were recovered with a value lying
 % within 10\% of the truth and 83\% within 20\%.
 A noteworthy feature of this figure is that many of the points fall below the
-$x=x$ line, \ie\ the recovered rotation periods are a little shorter than the
+$x=y$ line, \ie\ the recovered rotation periods are a little shorter than the
 true periods.
 We believe this is a feature of the peak position measurement method that is
 performed on the ACF.
@@ -386,7 +389,7 @@ super-imposed on top of a decaying exponential.
 In such a function the peak positions can be shifted towards the left--the
 short period end--because the decaying exponential raises the left side of
 each peak more than the right.
-It is possible to model this effect of course, however the standard practise
+It is possible to model this effect of course, however the standard practice
 is to simply measure the peak position without taking it into account.
 We are still investigating the origin and implications of this effect.
 % To demonstrate that this effect reproduces the underestimated periods seen in
@@ -466,7 +469,7 @@ hyperparameters described in equation \ref{eq:QP}.
 The likelihood function for a GP is similar to the simple Gaussian likelihood
 function that is used for optimisation problems where the uncertainties are
 Gaussian and uncorrelated.
-It can be written
+The latter can be written
 \begin{equation}
 \ln \mathcal{L} = -\frac{1}{2}\sum_{n=1}^N\frac{(y_n-\mu)^2}{\sigma_n^2}
     - \frac{N}{2}\ln(2\pi\sigma_n^2),
@@ -492,7 +495,7 @@ matrix,
 \end{eqnarray}
 In the case where the uncertainties are uncorrelated, the noise is `white',
 (which is a frequent assumption made by astronomers and is sometimes
-justified), the off-diagonal elements of the covariance matrix are zero.
+justified) and the off-diagonal elements of the covariance matrix are zero.
 However, in the case where there is evidence for correlated
 `noise'\footnote{In our case the `noise' is actually the model!}, as in the
 case of \Kepler\ light curves, those off-diagonal elements are non-zero.
@@ -510,7 +513,7 @@ One could either maximise this likelihood function in order to find the
 best-fit hyper-parameters of the covariance kernel function or, as in our
 approach, sample from the posterior PDFs of the hyper-parameters.
 The advantage of the maximum-likelihood method is that the best-fit parameters
-will be found much faster, however the uncertainities on the rotation period
+will be found much faster, but the uncertainities on the rotation period
 will not be constrained.
 In order to measure accurate uncertainties, the posterior PDFs of the
 parameters must be explored.
@@ -525,13 +528,15 @@ assert that the covariance decay timescale parameter, $l$ must be greater than
 the rotation period.
 This represents our assumption that the evolution timescale of active regions
 is greater than stellar rotation periods.
+This assumption may be more valid for late spectral types---hot stars have
+smaller active regions which are likely to be shorter-lived.
 For the remaining hyperparameters we use the following initial values and
 log-uniform prior distributions:
 \begin{eqnarray}
- 	&	A_{initial} = e^{-5}, \sim U(\exp[-20:20]) \\ \nonumber
- 	&	l_{initial} = e^{7}, \sim U(\exp[-20:20]), l<P \\ \nonumber
- 	&	\Gamma_{initial} = e^{0.6}, \sim U(\exp[-20:20]) \\ \nonumber
- 	&	\sigma_{initial} = e^{-16}, \sim U(\exp[-20:20]) \\ \nonumber
+ 	&	A_{initial} = e^{-5}, \sim \exp(U[-20:20]) \\ \nonumber
+ 	&	l_{initial} = e^{7}, \sim \exp(U[-20:20]), l<P \\ \nonumber
+ 	&	\Gamma_{initial} = e^{0.6}, \sim \exp(U[-20:20]) \\ \nonumber
+ 	&	\sigma_{initial} = e^{-16}, \sim \exp(U[-20:20]) \\ \nonumber
  	&	P_{initial} = P_{ACF}, \sim U([1 - 0.4]P_{ACF}<P_{ACF}<[1 +
 0.4]P_{ACF}).
  \end{eqnarray}
@@ -541,7 +546,7 @@ the covariance matrix. It is the fraction by which the observational
 uncertainties have been underestimated.
 If the errorbars reported on the data are too small, this parameter will be
 non-zero.
-In practise this parameter should always be non-zero when performing GP
+In practice this parameter should always be non-zero when performing GP
 regression.
 This is because the covariance matrix must be positive definite, however
 matrix inversion performed using most solvers is approximate, not exact,
@@ -645,7 +650,7 @@ generated by injecting a noise-free simulation into a real \kepler\ light
 curve in order to preserve realistic \kepler\ noise properties.
 
 \kepler\ light curves are big data and extracting the maximum amount of
-information from it requires either large numbers of CPU hours, or using
+information from them requires either large numbers of CPU hours, or using
 work-arounds.
 One feature of \kepler\ light curves that works to our advantage is that they
 are naturally broken up into smaller time units by quarterly (three month)
@@ -663,9 +668,9 @@ Additionally, changes in the spacecraft's orientation and position during
 quarterly re-pointings temporarily affect the temperature of the CCD,
 producing systematic features in the light curves at the start of some
 quarters.
-We model each quarter separately, however the parameters of the GP kernel
-function are global, {\it i.e.} we do not use a separate period parameter for
-each quarter---there is just one period parameter for an entire light curve.
+We model each quarter separately but the parameters of the GP kernel function
+are global, {\it i.e.} we do not use a separate period parameter for each
+quarter---there is just one period parameter for an entire light curve.
 It would be possible to model the time series with a mixture of some global
 parameters and some quarter-specific parameters, for example one might expect
 that the amplitude of covariance, $A$ or white noise level, $\sigma$ to vary
@@ -737,8 +742,8 @@ independent of the ACF period unless MCMC chains are run for an infinitely
 long time.} \item{Subsampling.
 Not only is some information always lost by subsampling, but the choice of
 subsampling frequency will also effect the results.
-We chose to retain only 20 data points per period which based on the ACF
-period which, again means that our results are not independent of the ACF
+We chose to retain only 20 data points per period --- based on the ACF
+period --- which, again means that our results are not independent of the ACF
 results.}
 \item{Priors.
 We chose to use uniform, bounded priors to reduce parameter space and
@@ -761,13 +766,13 @@ This effect comes from the process of extracting the period from the ACF
 itself: typically superimposed onto a decaying exponential, that first peak in
 the ACF gets shifted towards faster periods.
 One may be able to get around this by modelling the ACF as a sum of a cosine
-and exponential function (a similar function to GP kernel function), however
-in practise ACFs tend to have a more complicated structure and it is not
+and exponential function (a similar function to GP kernel function) but
+in practice ACFs tend to have a more complicated structure and it is not
 possible to model them with a simple function.
 This observation leads to the idea of modelling the ACF with a Gaussian
 processes, which then logically progresses to a using a Gaussian process with
 a Gaussian process kernel function.
-Although this may be an attractive idea, in practise a GP would not
+Although this may be an attractive idea, in practice a GP would not
 necessarily produce a positive semi-definite covariance kernel\footnote{One
 that can be inverted; a necessary regression operation.}.
 An alternative approach may be to correct for rotation period bias after the
@@ -782,7 +787,7 @@ one becomes reliant on the assumption that the ACF period is close to the true
 period.
 Of course, if you had infinite CPU time, this would not be a problem as you
 would eventually sample the entire posterior PDF of the period parameter,
-however in practise this is likely to be an issue.
+however in practice this is likely to be an issue.
 The only way to get around this problem is to run the MCMC chains for as long
 as possible, or, alternatively to use a sampler that is designed to move
 around the parameter space much more quickly than {\tt emcee}; nested sampling
@@ -818,7 +823,7 @@ and the tails would be occupied by spots that drift near the equator or poles.
 The main difference between this cosine and the QP function is that the cosine
 function allows negative covariances and the QP function does not.
 Is is realistic to allow negative covariances?
-In practise, the ACFs of \Kepler\ light curves often go negative.
+In practice, the ACFs of \Kepler\ light curves often go negative.
 However, many stars have two active regions on opposite hemispheres that
 produce two brightness dips per rotation.
 If the covariance is forced to be negative for two data points that are
@@ -874,8 +879,8 @@ large.
 In contrast, the light curve of a star with short spot lifetimes may display
 non-repeating patterns and amplitudes that vary rapidly between rotations.
 In this case $l$ will be small.
-The $\Gamma$ parameter is related to the number of zero crossings withing one
-rotation period: when $\Gamma$ is small there are many zeros crossings and
+The $\Gamma$ parameter is related to the number of zero crossings within one
+rotation period: when $\Gamma$ is small there are many zero crossings and
 vice versa.
 Since the number of zero crossings per rotation period is related to the
 number of active regions on the surface of the star, this parameter may also

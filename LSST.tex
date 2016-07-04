@@ -6,8 +6,8 @@ optical and infrared follow-up requirements for stellar rotation and magnetism
 studies with \LSST.
 I present some of the initial findings of this project here and intend to
 continue to develop this project in future.
-This work was undertaken in collaboration with others, however most of the
-analysis was performed by myself.
+This work was undertaken in collaboration with others but most of the analysis
+was performed by myself.
 Exceptions are clearly indicated.
 
 \begin{abstract}
@@ -82,7 +82,10 @@ age-rotation parameter space.
 \kepler: whereas \kepler\ data are dense and evenly spaced, \LSST\ light
 curves will have sparse, irregular cadence.
 Despite the sparsity of \LSST\ data, its irregular cadence will move the
-minimum recoverable period limit towards shorter rotation periods.
+minimum recoverable period limit towards shorter rotation periods\footnote{By
+comparison, the interval between \kepler long cadence observations is 30
+minutes. It is therefore sensitive to variability on timescales as short as
+1 hour.}.
 With the exception of the deep drilling fields, the minimum interval
 between exposures will be around three days for the majority of targets.
 This corresponds to a nominal minimum recoverable period of around six days,
@@ -116,7 +119,7 @@ available at \url{https://github.com/jradavenport/MW-Flare}.
 \caption[An \LSST\ cadence histogram.]
 {A histogram of the number of visits per week as a function of time
 for a given object or field observed by \LSST\, as used in our simulations.
-Each object is observed only during the day and for half a year at a time.
+Each object is observed only during the night and for half a year at a time.
 The code used to generate this plot was written by J. Davenport,
 \url{https://github.com/jradavenport/MW-Flare}.}
 \label{fig:cadence_hist}
@@ -250,13 +253,16 @@ Including differential rotation will compound this effect and further perturb
 star spot light curve features from strict periodicity.
 We fixed the mean spot lifetime at 30.5 days for all simulations and did not
 include differential rotation.
-For this reason, our simulated light curves are highly periodic, with only
-small deviations from strict periodicity.
-Rotation periods are more easy to recover from strictly periodic light curves
-than for quasi-periodic ones and for this reason, our results should be
-considered `best case'.
-In future we plan to vary spot lifetimes and include differential rotation in
-our spot model in order to produce more realistic light curves.
+This is a relatively conservative spot lifetime as it is appropriate for
+G-stars and later types tend have longer spot lifetimes.
+We intend to include differential rotation in a future analysis.
+% For this reason, our simulated light curves are highly periodic, with only
+% small deviations from strict periodicity.
+% Rotation periods are more easy to recover from strictly periodic light curves
+% than for quasi-periodic ones and for this reason, our results should be
+% considered `best case'.
+% In future we plan to vary spot lifetimes and include differential rotation in
+% our spot model in order to produce more realistic light curves.
 
 In order to assign appropriate amplitudes to the simulated light curves,
 the relation between rotation period, amplitude of variability
@@ -303,8 +309,10 @@ For now however, we have used a simple approximation to correct for this
 sample bias.
 We assume that if a rotation period is not detectable in a \kepler\ light
 curve, it is unlikely to be detectable in an \LSST\ light curve.
-This assumption may not be valid for slow rotators, but should be acceptable
-for most other stars.
+This assumption may not be valid for slow rotators whose rotational signals
+could be removed by the \kepler detrending pipeline, or difficult to detect
+across multiple \kepler quarters, but should be acceptable for most other
+stars.
 With that assumption in place, we simply scaled our results by the fraction of
 G, K and M type stars with measured rotation periods.
 We found that the fraction of G dwarfs with measured rotation periods was
@@ -378,6 +386,8 @@ A commonly used alternative to the LS periodogram is the auto-correlation
 function (ACF) which is better suited to non-sinusoidal, quasi-periodic
 signals, as demonstrated by \citet{Mcquillan2013}.
 Unfortunately however, evenly spaced data are required to produce an ACF.
+A modified ACF method developed by \citet{Edelson1998} does not require evenly
+spaced data and we intend to use this algorithm in a future analysis.
 A comparison of the LS periodogram and ACF methods by \citet{Aigrain2015b}
 found good agreement between the two, which is encouraging for this study.
 Another alternative method that has produced promising results using Gaussian
@@ -410,7 +420,9 @@ figure \ref{fig:derek2}.
 in a field centred on $l=-45$, $b=-80$.
 Points are coloured according to their temperatures.
 Rotation periods less than $\sim$ 10 days have a low recovery fraction, and
-this is worse for hot stars as they have lower amplitudes of variability.}
+this is worse for hot stars as they have lower amplitudes of variability.
+Quantisation appears in the $y$-direction due to the relatively course
+frequency grid used to compute LS periodograms.}
 \label{fig:derek}
 \end{center}
 \end{figure}
@@ -422,7 +434,9 @@ this is worse for hot stars as they have lower amplitudes of variability.}
 {Measured versus injected rotation period for 20,000 simulated \LSST\ targets
 in a field centred on $l=-45$, $b=-80$.
 Points are coloured according to the $r$-band magnitude.
-The large outliers at long rotation periods are mostly faint.}
+The large outliers at long rotation periods are mostly faint.
+Quantisation appears in the $y$-direction due to the relatively course
+frequency grid used to compute LS periodograms.}
 \label{fig:derek2}
 \end{center}
 \end{figure}
@@ -435,7 +449,7 @@ The results for $G$ ($5200<\mathrm{T}_{\mathrm{eff}}<6000$), $K$
 ($3700<\mathrm{T}_{\mathrm{eff}}<5200$), and $M$
 ($2500<\mathrm{T}_{\mathrm{eff}}<3700$) spectral types are shown separately.
 The percentage of stars recovered in each spectral type bin has been
-multiplied by the fraction of stars \kepler\ stars with measured rotation
+multiplied by the fraction of \kepler\ stars with measured rotation
 periods in the \citet{Mcquillan2014} catalogue.
 This rescaling should capture the fact that many stars in the \kepler\ data
 set do not have rotation periods since they have very low variability
@@ -477,6 +491,11 @@ These fractions are 0.24, 0.54 and 0.83 for G, K and M dwarfs respectively.}
 region of stellar age and rotation phase-space.
 Specifically, it may provide rotation periods for older and lower mass stars
 than \kepler\ was able to.
+The \kepler\ detrending algorithms remove long-timescale stellar variability
+of the kind produced by old and low-mass stars.
+In addition, the sample will not be skewed towards G-type stars as the
+\kepler\ target list was, on the contrary: the majority of stars observed by
+\LSST\ will be M-dwarfs as these dominate the mass-function.
 We have investigated the range of rotation periods that are recoverable in
 \LSST\ data.
 Effective temperatures, $r$-band magnitudes, ages and metallicities of 20,000
@@ -508,14 +527,11 @@ This age-rotation relation applies to subgiants as well as dwarfs.
 Including slightly evolved stars in our models will provide an indication of
 the level of expect level of subgiant contamination.}
 \item{To use a more realistic spot model.
-Our current spot model is simplistic and likely to produce over-optimistic
-results.
+Our current spot model is simplistic---a single spot lifetime is used for all
+stars, rather than a distribution and differential rotation is not included.
 Using a model that incorporates differential rotation and variable spot
 lifetimes will produce more realistic light curves with quasi-periodic
-features.
-Rotation period recovery success rate is likely to decrease with a more
-realistic light curve model.
-}
+features.}
 \item{To apply our method to the whole sky.
 The distribution of stellar spectral types and ages varies with galactic
 coordinate.
@@ -530,7 +546,7 @@ observations.
 Very short rotation periods are therefore likely to be detectable within
 them.}
 \item{To incorporate a realistic correlated noise model.
-Only white noise was included in our simulations, however correlated noise is
+Only white noise was included in our simulations, but correlated noise is
 extremely important in \kepler\ light curves, making it difficult to measure
 long rotation periods.
 Correlated noise is also likely to plague \LSST\ data and we hope to

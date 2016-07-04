@@ -8,7 +8,7 @@ deterministic.
 That is, given an infinitely precise measurement of independent variable,
 `$x$', and some model, the value of dependent variable, `$y$' can be known
 exactly.
-In practise this assumption is rarely valid and intrinsic stochasticity means
+In practice this assumption is rarely valid and intrinsic stochasticity means
 that two stars with exactly the same `$x$', will have slightly different
 `$y$'s.
 The relation between short-timescale brightness fluctuations (flicker) of
@@ -106,7 +106,9 @@ characteristic granulation timescale scales with the inverse of the
 peak p-mode frequency, $\nu_{max}$.
 Similarly, the root-mean-square (RMS) of brightness fluctuations scale as
 $\nu_{\mathrm{max}}^{-1/2}$ \citep{Mathur2011, Chaplin2011}.
-Since $\nu_{\mathrm{max}}$ is proportional to surface gravity, it follows that
+Since $\nu_{\mathrm{max}}$ is proportional to surface
+gravity\footnote{$\nu_{max}$ is related to the acoustic cut-off frequency
+which scales as $\frac{g}{T_{\mathrm{eff}}^{-1/2}}$.}, it follows that
 granulation-induced short-term brightness variations are related to \logg.
 \citet{Bastien2013} set out to show, not only that this was the case, but that
 granulation was detectable in \kepler\ long cadence data, thus allowing \logg\
@@ -175,9 +177,14 @@ both asteroseismic and flicker measurements available. \citet{Chaplin2014}
 report asteroseismic \rhostar\ estimates (and the associated uncertainties) for
 518 \Kepler\ stars. The authors report three different sets of results,
 depending on the choice of \Teff\ and \FeH, and in this work we elected to use
-values reported in their Table 6 over Table 5, and Table 5 over Table 4. We
-additionally used the 71 additional planet hosting stars with asteroseismology
-reported in \citet{Huber2013} but not reported in \citet{Chaplin2014}. Values
+values reported in their Table 6 over Table 5, and Table 5 over Table 4.
+Table 6 contains a subset those stars that appear in Tables 4 and 5 with more
+precise, spectroscopic parameters.
+Tables 4 and 5 report asteroseismic values based on two different sets of
+effective temperature estimates, from two different methods.
+We additionally used the 71 additional planet hosting stars with
+asteroseismology reported in \citet{Huber2013} but not reported in
+\citet{Chaplin2014}. Values
 for flicker and ``range'' were taken from \citet{Kipping2014}, based upon the
 methods described in \citet{Bastien2013}.
 In order to use the same data set as \citet{Kipping2014} who removed outliers
@@ -245,8 +252,8 @@ itself, defined as
 \end{equation}
 \label{eq:rho2}
 for flicker vs $\rho_\star$ and similarly for \logg.
-This model allowed us to determine whether there the magnitude of additional
-scatter varied as a function of flicker.
+This model allowed us to determine whether the magnitude of additional scatter
+varied as a function of flicker.
 In other words, whether flicker was a better proxy for \logg\ or \rhostar\ for
 either dwarf or giant stars.
 We found that the maximum {\it a-posteriori} values for the $\gamma$
@@ -281,7 +288,7 @@ Since they are so dependent on the observational uncertainties, the parameters
 that describe the intrinsic scatter in the relations are more sensitive to
 whether the uncertainties in the $x$-direction are included.
 Accounting for uncertainties on $y$ {\it and} $x$ is not essential in this
-case but is still good practise and will, in general, produce more accurate
+case but is still good practice and will, in general, produce more accurate
 model parameters and uncertainties.
 
 We used the uninformative prior for the parameters of a straight line for
@@ -302,7 +309,8 @@ We found that the results were relatively insensitive to the choice of prior,
 with median parameter values differing by only around $0.05\sigma$.
 MCMC chains were run until the Gelman \& Rubin convergence criterion,
 $\hat{R}$ reached a value of less than 1.002 and the number of autocorrelation
-times was greater than 35.
+times\footnote{One autocorrelation time is defined as the number of steps
+taken between independent MCMC samples.} was greater than 35.
 The Gelman \& Rubin convergence diagnostic, $\hat{R}$ \citep{Gelman1992} is
 defined as
 \begin{equation}
@@ -323,9 +331,9 @@ and $W$ is the variance within each MCMC chain.
     W = \frac{1}{m(n-1)} \sum_{j=1}^m \sum_{t=1}^n (\psi_{jt} -
     \bar{\psi}_{j.})^2.
 \end{equation}
-In the above relations $n$ is the number of steps, $m$ is the number of chains
-and $\psi$ is a model parameter, $\alpha$ for example.
-$\psi_{..}$ is the mean.
+In the above relations $n$ is the number of steps, $m$ is the number of
+chains, $\psi$ is a model parameter ($\alpha$ for example) and $\psi_{..}$ is
+the mean.
 
 Figures \ref{fig:rhostar} and \ref{fig:logg} show the data with the best-fit
 models.
@@ -424,12 +432,12 @@ We found that the need for additional flicker-dependent variance was not
 supported by the data, indicating that the intrinsic scatter in the relations
 between flicker, \logg\ and \rhostar\ does not depend on evolutionary state.
 
-This is a simple `fitting a line to data' exercise, however it continues the
+This is a simple `fitting a line to data' exercise but it continues the
 discussion of probabilistic modelling that is an active topic within the
 fields of exoplanet and stellar astronomy.
 We used Hierarchical Bayesian Modelling (HBM) to constrain the intrinsic
 scatter in the relationship between flicker, surface gravity and density and
-included the effects of the non-negligable two-dimensional observational
+included the effects of the non-negligible two-dimensional observational
 uncertainties.
 Relationships between astronomical parameters are almost always
 non-deterministic; an element of stochasticity effects the physical parameters
@@ -455,7 +463,9 @@ These posterior samples will naturally fold in the covariances between
 parameters.
 Simple analytical uncertainty propagation is only valid when uncertainties are
 Gaussian and uncorrelated which is rarely true and certainly not the case when
-the model is a straight line (the slope and intercept are alway correlated).
+the model is a straight line (the slope and intercept are always
+correlated\footnote{Although they can be orthogonalised via a change of
+variables.}).
 A flicker value with uncertainties (or even better: posterior PDF
 samples), input into our model will result in a probability distribution over
 stellar densities or surface gravities which reflects both the uncertainties

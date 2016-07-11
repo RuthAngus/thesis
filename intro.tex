@@ -335,7 +335,8 @@ It is related to the sound travel time through the centre of the star:
 where $c$ is the local sound speed and $R_\star$ is the stellar radius.
 This travel time is related to the mean density of the star via,
 \begin{equation}
-\Delta\nu_0 \cong 135\left(\frac{M_\star}{R_\star^3}\right)^{1/2}\mu Hz,
+\Delta\nu_0 \cong 135\left(\frac{M_\star}{R_\star^3}\right)^{1/2}\mu
+\mathrm{Hz},
 \end{equation}
 where $M_\star$ and $R_\star$ are the stellar mass and radius in Solar units
 \citep{Cox1980, Brown2000}.
@@ -396,16 +397,16 @@ oscillation frequencies of individual modes \citep[\eg][]{Metcalfe2010,
 Silva-aguirre2012, Lebreton2014}.
 However for the majority of short cadence targets, only the
 mean large frequency separation, $\Delta\nu$ and frequency of maximum power,
-$\nu_{max}$ can be measured.
+$\nu_{\mathrm{max}}$ can be measured.
 Bulk physical properties of stars can be inferred from these two parameters
 via the scaling relations \citep{Brown1991, Kjeldsen1995}:
 \begin{equation}
-    \frac{M}{M_\odot} = \left(\frac{\nu_{max}}{\nu_{max,\odot}}\right)^3
+    \frac{M}{M_\odot} = \left(\frac{\nu_{\mathrm{max}}}{\nu_{\mathrm{max},\odot}}\right)^3
     \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-4}
     \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{3/2}
 \end{equation}
 \begin{equation}
-    \frac{R}{R_\odot} = \left(\frac{\nu_{max}}{\nu_{max,\odot}}\right)
+    \frac{R}{R_\odot} = \left(\frac{\nu_{\mathrm{max}}}{\nu_{\mathrm{max},\odot}}\right)
     \left(\frac{\Delta\nu}{\Delta\nu_\odot}\right)^{-2}
     \left(\frac{T_{\mathrm{eff}}}{T_{\mathrm{eff},\odot}}\right)^{1/2}.
 \end{equation}
@@ -561,12 +562,12 @@ distribution of cool field stars:
 \begin{equation}
 \frac{dJ}{dt} = \left\{
                 \begin{array}{ll}
-                  f_K K_M \omega \left( \frac{\omega_{crit}}{\omega_\odot}
-                  \right)^2, \omega_{crit} \leq \omega
+                  f_K K_M \omega \left( \frac{\omega_{\mathrm{crit}}}{\omega_\odot}
+                  \right)^2, \omega_{\mathrm{crit}} \leq \omega
                   \frac{\tau_{c}}{\tau_{c, \odot}} \\
                   f_K K_M \omega \left( \frac{\omega\tau_{c}}
                   {\omega_\odot\tau_{c, \odot}}
-                  \right)^2, \omega_{crit} > \omega
+                  \right)^2, \omega_{\mathrm{crit}} > \omega
                   \frac{\tau_{c}}{\tau_{c, \odot}}
                 \end{array}
               \right.
@@ -577,13 +578,13 @@ With
     \frac{K_M}{K_{M, \odot}} = \left(\frac{R}{R_\odot}^{3.1}\right)
     \left(\frac{M}{M_\odot}\right)^{-0.22}
     \left(\frac{L}{L_\odot}\right)^{0.56}
-    \left(\frac{P_{phot}}{P_{phot, \odot}}\right)^{0.44},
+    \left(\frac{P_{\mathrm{phot}}}{P_{\mathrm{phot}, \odot}}\right)^{0.44},
 \end{equation}
 \label{eq:vansaders2}
 where $f_K$ is a constant, scaled to produce solar rotation at solar age for
-the Sun and $P_{phot}$ is the pressure at the photosphere.
+the Sun and $P_{\mathrm{phot}}$ is the pressure at the photosphere.
 $\tau_c$ is the convective overturn time at the base of the convective zone
-and $P_{rot}/\tau_c$ is known as the Rossby number, $Ro$.
+and $P_{\mathrm{rot}}/\tau_c$ is known as the Rossby number, $Ro$.
 It is dependent on spectral type and for this reason many people argue that
 Rossby number is directly related to the surface magnetic field strength and a
 more natural quantity to correlate with age and activity than rotation period
@@ -686,7 +687,7 @@ age from 30-600 Myr as well as the Sun to calibrate this relation.
 \citet{Barnes2010b} present a hybrid part theoretical, part empirical
 gyrochronology relation:
 \begin{equation}
-\frac{dP}{dt} = \frac{\tau_c}{k_IP_{rot}},
+\frac{dP}{dt} = \frac{\tau_c}{k_IP_{\mathrm{rot}}},
 \end{equation}
 where $k_I$ is a dimensionless constant, calibrated with observations.
 The convective overturn time, $\tau_c$ encodes the dependence on stellar mass.
@@ -711,8 +712,9 @@ below.
 Stars are born very active and become more inactive over time.
 As well as decaying over billions of years, activity also varies on several
 year timescales: the Sun, for example, has an 11 year activity cycle.
-The activity cycle period, $P_{cyc}$ is related to rotation period, $P_{rot}$
-via $P_{cyc} \approx (P_{rot}/\tau_c)^n$ where n $\approx$ 1.5
+The activity cycle period, $P_{cyc}$ is related to rotation period,
+$P_{\mathrm{rot}}$
+via $P_{cyc} \approx (P_{\mathrm{rot}}/\tau_c)^n$ where n $\approx$ 1.5
 \citep{Noyes1984}.
 Although stellar activity originates from one mechanism only, magnetism,
 it manifests in a variety of detectable ways, listed below.

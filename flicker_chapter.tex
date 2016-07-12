@@ -80,6 +80,11 @@ One of the more recent tools developed to characterize stars is known as
 Flicker is a measure of the scatter on an 8-hour timescale (denoted as $F_8$)
 in a broad visible bandpass time series photometric light curve, such as that
 from \textit{Kepler} or the upcoming TESS mission.
+In order to calculate a v
+$F_8$ is defined as the root-mean-square (RMS) of the light curve after
+removing variability on timescales greater than 8 hours.
+This variability is removed by smoothing the light curve using a 16-point (8
+hour) boxcar and subtracting the result from the original.
 
 Short-term brightness fluctuations of \kepler\ stars that are traced by
 flicker are produced by a combination of acoustic, p-mode oscillations and
